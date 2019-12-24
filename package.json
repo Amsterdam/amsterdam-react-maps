@@ -1,8 +1,16 @@
 {
-  "name": "map-asc",
+  "name": "@datapunt/amsterdam-react-maps",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@datapunt/asc-assets": "^0.17.8-alpha.22",
+    "@datapunt/asc-core": "^0.17.8-alpha.22",
+    "@datapunt/asc-ui": "^0.17.8-alpha.24",
+    "@datapunt/react-maps": "^0.1.1",
+    "leaflet": "^1.5.1",
+    "leaflet.nontiledlayer": "^1.0.7",
+    "proj4": "^2.6.0",
+    "proj4leaflet": "^1.0.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0"
@@ -27,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }
