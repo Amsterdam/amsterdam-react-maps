@@ -1,3 +1,8 @@
+# Amsterdam React Maps
+
+To develop (and use npm link to link ASC and react-maps), please read: https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

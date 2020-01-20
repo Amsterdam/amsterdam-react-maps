@@ -958,10 +958,10 @@
     polished "^3.4.1"
     react-uid "^2.2.0"
 
-"@datapunt/react-maps@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.1.1.tgz#08853c1cef8e18c656cc205db84da83f080f80fa"
-  integrity sha512-CnuKxUMJB1JEXyn79Ku8RC7pkZvjYgqfYEzBwajiiOJqFGsBBYTFfbG/Jek86MQw8qhZSFaVB1t3kAt4D5jQXQ==
+"@datapunt/react-maps@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.2.0.tgz#942b66c2fc00d85eea104bbec6ff6ee20322b7be"
+  integrity sha512-NmBWOUgvqaTm1v9sTf9Lh0vQNrFziF/QhTT4r34JdgPON9Ozo4/toidnOTxOIkcg975nYyMiwcxOBi7aX2dH2A==
   dependencies:
     geojson "^0.5.0"
     leaflet-draw "^1.0.4"

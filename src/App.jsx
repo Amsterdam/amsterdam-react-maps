@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import { Map, TileLayer, Marker } from "@datapunt/react-maps";
 import {
@@ -14,14 +14,15 @@ import DefaultMarkerIcon from "./DefaultMarkerIcon";
 import NonTiledLayer from "./NonTiledLayer";
 
 const App = () => {
-  const [markerPosition, setMarkerPosition] = React.useState({
+  const [defaultMarker, setDefaultMarker] = useState();
+  const [markerPosition, setMarkerPosition] = useState({
     lat: 52.3731081,
     lng: 4.8932945
   });
 
-  const [markers, setMarkers] = React.useState([]);
+  const [markers, setMarkers] = useState([]);
 
-  const mapRef = React.useRef(null);
+  const mapRef = useRef(null);
 
   function moveMarker() {
     const { lat, lng } = markerPosition;
@@ -34,6 +35,12 @@ const App = () => {
   const addMarker = latlng => {
     setMarkers(c => [...c, latlng]);
   };
+
+  useEffect(() => {
+    if (defaultMarker) {
+      defaultMarker.setLatLng(markerPosition);
+    }
+  }, [defaultMarker, markerPosition]);
 
   return (
     <ThemeProvider>
@@ -85,21 +92,22 @@ const App = () => {
           }
         />
         <Marker
-          latlng={markerPosition}
+          setInstance={setDefaultMarker}
+          args={[markerPosition]}
           options={{
             icon: DefaultMarkerIcon
           }}
         />
         {markers.map(latlng => (
           <Marker
-            latlng={latlng}
+            args={[latlng]}
             options={{
               icon: DefaultMarkerIcon
             }}
           />
         ))}
         <TileLayer
-          urlTemplate="https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png"
+          args={["https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png"]}
           options={{
             subdomains: ["acc.t1", "acc.t2", "acc.t3", "acc.t4"],
             tms: true,
