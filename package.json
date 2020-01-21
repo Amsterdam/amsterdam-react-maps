@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@datapunt/asc-assets": "^0.17.8-alpha.22",
-    "@datapunt/asc-core": "^0.17.8-alpha.22",
-    "@datapunt/asc-ui": "^0.17.8-alpha.24",
+    "@datapunt/asc-assets": "0.18.1",
+    "@datapunt/asc-core": "0.18.1",
+    "@datapunt/asc-ui": "0.18.1",
     "@datapunt/react-maps": "^0.2.0",
     "leaflet": "^1.5.1",
     "leaflet.nontiledlayer": "^1.0.7",

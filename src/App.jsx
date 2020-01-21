@@ -5,13 +5,14 @@ import {
   ThemeProvider,
   GlobalStyle,
   ViewerContainer,
-  SearchBar
 } from "@datapunt/asc-ui";
 import Controls from "./Zoom";
 import GPSButton from "./GPSButton";
 import getCrs from "./utils/getCrs";
 import DefaultMarkerIcon from "./DefaultMarkerIcon";
 import NonTiledLayer from "./NonTiledLayer";
+import { pointQuery } from "./utils/pointQuery";
+import Geocoder from "./Geocoder";
 
 const App = () => {
   const [defaultMarker, setDefaultMarker] = useState();
@@ -51,9 +52,11 @@ const App = () => {
           zoomend: () => {
             console.log("zoomend");
           },
-          click: e => {
+          click: async e => {
             console.log("click");
-            addMarker(e.latlng);
+            // addMarker(e.latlng);
+            const result = await pointQuery(e);
+            console.log("click results: ", result);
           },
           move: () => {
             console.log("move");
@@ -75,14 +78,7 @@ const App = () => {
       >
         <ViewerContainer
           style={{ zIndex: 400 }}
-          topLeft={
-            <SearchBar
-              placeholder="Enter the search text"
-              onWatchValue={value => {}}
-              onSubmit={() => {}}
-              value={"searchText"}
-            />
-          }
+          topLeft={<Geocoder />}
           topRight={<GPSButton />}
           bottomRight={<Controls />}
           bottomLeft={
