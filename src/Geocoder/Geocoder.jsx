@@ -36,8 +36,8 @@ const Geocoder = ({
 
   const onSelect = useCallback(
     index => {
-      const { weergavenaam: address, id } = searchResults[index];
-      setAddressText(address);
+      const { name, id } = searchResults[index];
+      setAddressText(name);
       setSelectedIndex(-1);
       setSearchResults([]);
       setAddressId(id);
@@ -61,7 +61,7 @@ const Geocoder = ({
 
   const getSearchValue = useCallback(() => {
     return selectedIndex > -1
-      ? searchResults[selectedIndex].weergavenaam
+      ? searchResults[selectedIndex].name
       : searchTerm === ""
       ? addressText
       : searchTerm;
@@ -109,7 +109,7 @@ const Geocoder = ({
   useEffect(() => {
     if (!location) return;
     if (selectedIndex !== -1)
-      setAddressText(searchResults[selectedIndex].weergavenaam);
+      setAddressText(searchResults[selectedIndex].name);
     setSelectedIndex(-1);
     setSearchResults([]);
     setSearchTerm("");
@@ -197,9 +197,6 @@ const Geocoder = ({
       <SearchResultsList
         items={searchResults}
         selected={selectedIndex}
-        id="id"
-        name="weergavenaam"
-        value="weergavenaam"
         onSelect={onSelect}
       ></SearchResultsList>
     </GeocoderStyle>

@@ -8,7 +8,9 @@ const GEOCODER_API_LOOKUP =
 export const getSuggestions = async searchTerm => {
   const result = await fetch(`${GEOCODER_API_SUGGEST}${searchTerm}`);
   const data = await result.json();
-  return data.response.docs;
+  console.log(data.response.docs);
+  const suggestions = data.response.docs.map(item => ({id: item.id, name: item.weergavenaam}))
+  return suggestions;
 };
 
 export const getAddressById = async addressId => {

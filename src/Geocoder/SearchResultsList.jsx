@@ -28,7 +28,7 @@ const SearchResultsListItem = ({ id, name, selected, index, onSelect }) => {
   );
 };
 
-const SearchResultsList = ({ items, id, name, selected, onSelect }) => {
+const SearchResultsList = ({ items, selected, onSelect }) => {
   const handleSelectedLink = useCallback(
     index => {
       console.log("handleSelectedLink", index);
@@ -44,9 +44,9 @@ const SearchResultsList = ({ items, id, name, selected, onSelect }) => {
           {items &&
             items.map((item, index) => (
               <SearchResultsListItem
-                key={item[id]}
-                id={item[id]}
-                name={item[name]}
+                key={item.id}
+                id={item.id}
+                name={item.name}
                 index={index}
                 selected={selected}
                 onSelect={handleSelectedLink}
