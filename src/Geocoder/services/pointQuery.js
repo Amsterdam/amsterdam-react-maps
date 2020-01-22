@@ -11,6 +11,7 @@ proj4.defs(
   "EPSG:28992",
   "+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs"
 );
+
 const transformCoords = proj4(
   proj4.defs("EPSG:4326"),
   proj4.defs("EPSG:28992")
@@ -24,20 +25,17 @@ const FormatException = (error, response) => {
 };
 
 //utility function
-function query(url) {
-  const promise = new Promise((resolve, reject) => {
-    fetch(url)
-      .then(res => resolve(res.json()))
-      .catch(err => reject(err));
-  });
-  return promise;
-}
+const query = async url => {
+  const result = await fetch(url);
+  const data = await result.json();
+  return data;
+};
 
 //chain of API requests for single-click
 //1. get BAG information.
 //2. after that, we need to get the full object data.
 //3. get locationinfo
-async function getBagInfo(click) {
+const getBagInfo = async click => {
   const xy = {
     x: click.latlng.lng,
     y: click.latlng.lat
@@ -49,14 +47,13 @@ async function getBagInfo(click) {
     "https://api.data.amsterdam.nl/bag/nummeraanduiding/?format=json&locatie=",
     xy
   );
-  return await query(url).then(res => {
-    let output = {
-      queryResult: responseFormatter(res, nummeraanduidingId),
-      latlng: click.latlng
-    };
-    return output;
-  });
-}
+  const result = await query(url);
+  const output = {
+    queryResult: responseFormatter(result, nummeraanduidingId),
+    latlng: click.latlng
+  };
+  return output;
+};
 
 async function getFullObjectData(data) {
   let nearestAdres = {};
@@ -85,12 +82,11 @@ async function getFullObjectData(data) {
       lat: data.latlng.lat,
       lng: data.latlng.lng
     },
-    nearestAdres,
-    object: null //no object for an address search
+    nearestAdres
   };
 }
 
-function findOmgevingFeature(features, type) {
+function findFeatureByType(features, type) {
   let feature = features.find(feat => feat.properties.type === type);
   if (feature === undefined) return null;
   return feature.properties;
@@ -101,9 +97,9 @@ async function getLocationInfo(data) {
   const res = await query(
     `https://api.data.amsterdam.nl/geosearch/bag/?lat=${location.lat}&lon=${location.lng}&radius=50`
   );
-  let buurtinfo = findOmgevingFeature(res.features, "gebieden/buurt");
-  let wijkinfo = findOmgevingFeature(res.features, "gebieden/buurtcombinatie");
-  let stadsdeelinfo = findOmgevingFeature(res.features, "gebieden/stadsdeel");
+  let buurtinfo = findFeatureByType(res.features, "gebieden/buurt");
+  let wijkinfo = findFeatureByType(res.features, "gebieden/buurtcombinatie");
+  let stadsdeelinfo = findFeatureByType(res.features, "gebieden/stadsdeel");
   if (buurtinfo !== null && wijkinfo !== null && stadsdeelinfo !== null) {
     data.locationInfo = {
       buurtnaam: buurtinfo !== undefined ? buurtinfo.display : null,
@@ -143,7 +139,7 @@ function responseFormatter(res, search_id) {
   return filtered.length > 0 ? filtered[0] : null;
 }
 
-async function pointQuery(click) {
+const pointQuery = async click => {
   try {
     const result = await getBagInfo(click)
       .then(getFullObjectData)
@@ -152,14 +148,6 @@ async function pointQuery(click) {
   } catch (e) {
     throw e;
   }
-}
-
-export {
-  pointQuery,
-  getBagInfo,
-  getFullObjectData,
-  getLocationInfo,
-  requestFormatter,
-  responseFormatter,
-  query
 };
+
+export default pointQuery;

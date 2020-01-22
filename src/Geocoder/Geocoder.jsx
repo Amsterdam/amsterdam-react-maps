@@ -4,6 +4,7 @@ import { SearchBar } from "@datapunt/asc-ui";
 import styled from "@datapunt/asc-core";
 import { useMapInstance } from "@datapunt/react-maps";
 import SearchResultsList from './SearchResultsList';
+import { wktPointToLocation, nearestAdresToString } from './services/transformers';
 
 const GeocoderStyle = styled.div`
   width: 500px;
@@ -21,36 +22,6 @@ const inputProps = {
   autoComplete: "off",
   autoCorrect: "off"
 };
-
-const nearestAdresToString = nearestAdres => {
-  console.log("nearestAdres", nearestAdres);
-  const {
-    openbare_ruimte,
-    huisnummer,
-    huisletter,
-    huisnummer_toevoeging,
-    postcode,
-    woonplaats
-  } = nearestAdres;
-
-  return `${openbare_ruimte} ${huisnummer}${huisletter}${
-    huisnummer_toevoeging === "" ? "" : `-${huisnummer_toevoeging}`
-  }, ${postcode} ${woonplaats}`;
-};
-
-function wktPointToLocation(wktPoint) {
-  if (!wktPoint.includes("POINT")) {
-    throw TypeError("Provided WKT geometry is not a point.");
-  }
-  const coordinateTuple = wktPoint.split("(")[1].split(")")[0];
-  const x = parseFloat(coordinateTuple.split(" ")[0]);
-  const y = parseFloat(coordinateTuple.split(" ")[1]);
-
-  return {
-    lat: y,
-    lon: x
-  };
-}
 
 const Geocoder = ({ marker, clickPointInfo }) => {
   const [term, setTerm] = useState("");
