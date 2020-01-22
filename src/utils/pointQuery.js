@@ -1,6 +1,6 @@
 /**
  * Deze service is copied from the amaps and adapted to the new react-maps needs.
- * 
+ *
  */
 
 //helper functions shared between different amaps wrapper apps
@@ -81,11 +81,11 @@ async function getFullObjectData(data) {
     nearestAdres = null;
   }
   return {
-    query: {
-      latitude: data.latlng.lat,
-      longitude: data.latlng.lng
+    location: {
+      lat: data.latlng.lat,
+      lng: data.latlng.lng
     },
-    nearest_adres: nearestAdres,
+    nearestAdres,
     object: null //no object for an address search
   };
 }
@@ -97,8 +97,9 @@ function findOmgevingFeature(features, type) {
 }
 
 async function getLocationInfo(data) {
+  const { location } = data;
   const res = await query(
-    `https://api.data.amsterdam.nl/geosearch/bag/?lat=${data.query.latitude}&lon=${data.query.longitude}&radius=50`
+    `https://api.data.amsterdam.nl/geosearch/bag/?lat=${location.lat}&lon=${location.lng}&radius=50`
   );
   let buurtinfo = findOmgevingFeature(res.features, "gebieden/buurt");
   let wijkinfo = findOmgevingFeature(res.features, "gebieden/buurtcombinatie");

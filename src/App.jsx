@@ -20,6 +20,7 @@ const App = () => {
     lat: 52.3731081,
     lng: 4.8932945
   });
+  const [clickPointInfo, setClickPointInfo] = useState();
 
   const [markers, setMarkers] = useState([]);
 
@@ -55,8 +56,9 @@ const App = () => {
           click: async e => {
             console.log("click");
             // addMarker(e.latlng);
-            const result = await pointQuery(e);
-            console.log("click results: ", result);
+            const pointInfo = await pointQuery(e);
+            console.log("click results: ", pointInfo);
+            setClickPointInfo(pointInfo);
           },
           move: () => {
             console.log("move");
@@ -78,7 +80,7 @@ const App = () => {
       >
         <ViewerContainer
           style={{ zIndex: 400 }}
-          topLeft={<Geocoder />}
+          topLeft={<Geocoder marker={defaultMarker} clickPointInfo={clickPointInfo}/>}
           topRight={<GPSButton />}
           bottomRight={<Controls />}
           bottomLeft={
