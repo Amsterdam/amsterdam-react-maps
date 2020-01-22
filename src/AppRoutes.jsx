@@ -1,11 +1,11 @@
-import HomePage from './HomePage';
-import GeocoderPage from './GeocoderPage';
+import HomePage from './Pages/HomePage';
+import GeocoderPage from './Pages/GeocoderPage';
 
 const AppRoutes = {
-    HOME: { path: "/", component: GeocoderPage },
+    HOME: { path: "/", component: HomePage },
     GEOCODER: {
       path: "/geocoder",
-      component: HomePage
+      component: GeocoderPage
     }
   };
   

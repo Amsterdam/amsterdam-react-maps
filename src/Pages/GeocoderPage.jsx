@@ -2,15 +2,15 @@ import React, { useState, useRef, useMemo, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { Map, TileLayer, Marker } from "@datapunt/react-maps";
 import { ViewerContainer } from "@datapunt/asc-ui";
-import Controls from "./Zoom";
-import getCrs from "./utils/getCrs";
-import DefaultMarkerIcon from "./DefaultMarkerIcon";
-import NonTiledLayer from "./NonTiledLayer";
+import Controls from "../Zoom";
+import getCrs from "../utils/getCrs";
+import DefaultMarkerIcon from "../DefaultMarkerIcon";
+import NonTiledLayer from "../NonTiledLayer";
 import Geocoder, {
   pointQuery,
   getSuggestions,
   getAddressById
-} from "./Geocoder";
+} from "../Geocoder";
 
 const markerPosition = {
   lat: 52.3731081,
