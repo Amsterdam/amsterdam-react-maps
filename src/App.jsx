@@ -12,7 +12,7 @@ import getCrs from "./utils/getCrs";
 import DefaultMarkerIcon from "./DefaultMarkerIcon";
 import NonTiledLayer from "./NonTiledLayer";
 import { pointQuery } from "./utils/pointQuery";
-import Geocoder from "./Geocoder";
+import Geocoder from "./Geocoder/Geocoder";
 
 const App = () => {
   const [defaultMarker, setDefaultMarker] = useState();

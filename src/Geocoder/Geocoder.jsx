@@ -1,79 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "leaflet/dist/leaflet.css";
-import { SearchBar, Link } from "@datapunt/asc-ui";
+import { SearchBar } from "@datapunt/asc-ui";
 import styled from "@datapunt/asc-core";
 import { useMapInstance } from "@datapunt/react-maps";
-
-const AutoSuggestListStyle = styled.div`
-  background-color: #fff;
-  border: 1px solid grey;
-  width: calc(100% - 45px);
-  box-shadow: 2px 2px 0 0 #999;
-  margin-top: -2px;
-
-  & > ul {
-    margin: 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-      font-size: 0;
-
-      display: inline-block;
-
-      font-size: 16px;
-      text-decoration: none;
-      text-overflow: ellipsis;
-      padding: 0 6px 0 7px;
-      width: 100%;
-      height: 32px;
-      line-height: 32px;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-  }
-`;
-
-const StyledLink = styled(Link)`
-  font-weight: ${({ active }) => (active ? 700 : 400)};
-
-  &:hover {
-    font-weight: 700;
-    cursor: pointer;
-  }
-`;
-
-const AutoSuggestList = ({ items, id, name, selected, onSelect }) => {
-  const handleSelectedLink = useCallback(
-    index => {
-      console.log("handleSelectedLink", index);
-      onSelect(index);
-    },
-    [onSelect]
-  );
-
-  return (
-    items && (
-      <AutoSuggestListStyle>
-        <ul>
-          {items &&
-            items.map((item, index) => (
-              <li key={item[id]}>
-                <StyledLink
-                  id={item[id]}
-                  active={index === selected}
-                  variant="blank"
-                  onClick={() => handleSelectedLink(index)}
-                >
-                  {item[name]}
-                </StyledLink>
-              </li>
-            ))}
-        </ul>
-      </AutoSuggestListStyle>
-    )
-  );
-};
+import SearchResultsList from './SearchResultsList';
 
 const GeocoderStyle = styled.div`
   width: 500px;
@@ -281,14 +211,14 @@ const Geocoder = ({ marker, clickPointInfo }) => {
         value={getCurrentValue()}
         inputProps={inputProps}
       ></SearchBar>
-      <AutoSuggestList
+      <SearchResultsList
         items={results}
         selected={selected}
         id="id"
         name="weergavenaam"
         value="weergavenaam"
         onSelect={onSelect}
-      ></AutoSuggestList>
+      ></SearchResultsList>
     </GeocoderStyle>
   );
 };
