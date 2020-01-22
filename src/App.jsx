@@ -1,21 +1,20 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import "leaflet/dist/leaflet.css";
 import { Map, TileLayer, Marker } from "@datapunt/react-maps";
-import {
-  ThemeProvider,
-  GlobalStyle,
-  ViewerContainer,
-} from "@datapunt/asc-ui";
+import { ThemeProvider, GlobalStyle, ViewerContainer } from "@datapunt/asc-ui";
 import Controls from "./Zoom";
 import GPSButton from "./GPSButton";
 import getCrs from "./utils/getCrs";
 import DefaultMarkerIcon from "./DefaultMarkerIcon";
 import NonTiledLayer from "./NonTiledLayer";
-import Geocoder from "./Geocoder/Geocoder";
-import { pointQuery } from './Geocoder';
+import Geocoder, {
+  pointQuery,
+  getSuggestions,
+  getAddressById
+} from "./Geocoder";
 
 const App = () => {
-  const [defaultMarker, setDefaultMarker] = useState();
+  const [marker, setMarker] = useState();
   const [markerPosition, setMarkerPosition] = useState({
     lat: 52.3731081,
     lng: 4.8932945
@@ -25,6 +24,16 @@ const App = () => {
   const [markers, setMarkers] = useState([]);
 
   const mapRef = useRef(null);
+
+  const geocoderProps = useMemo(
+    () => ({
+      marker,
+      clickPointInfo,
+      getSuggestions,
+      getAddressById
+    }),
+    [clickPointInfo, marker]
+  );
 
   function moveMarker() {
     const { lat, lng } = markerPosition;
@@ -39,10 +48,10 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (defaultMarker) {
-      defaultMarker.setLatLng(markerPosition);
+    if (marker) {
+      marker.setLatLng(markerPosition);
     }
-  }, [defaultMarker, markerPosition]);
+  }, [marker, markerPosition]);
 
   return (
     <ThemeProvider>
@@ -80,7 +89,7 @@ const App = () => {
       >
         <ViewerContainer
           style={{ zIndex: 400 }}
-          topLeft={<Geocoder marker={defaultMarker} clickPointInfo={clickPointInfo}/>}
+          topLeft={<Geocoder {...geocoderProps} />}
           topRight={<GPSButton />}
           bottomRight={<Controls />}
           bottomLeft={
@@ -90,7 +99,7 @@ const App = () => {
           }
         />
         <Marker
-          setInstance={setDefaultMarker}
+          setInstance={setMarker}
           args={[markerPosition]}
           options={{
             icon: DefaultMarkerIcon

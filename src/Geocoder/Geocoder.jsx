@@ -3,8 +3,8 @@ import "leaflet/dist/leaflet.css";
 import { SearchBar } from "@datapunt/asc-ui";
 import styled from "@datapunt/asc-core";
 import { useMapInstance } from "@datapunt/react-maps";
-import SearchResultsList from './SearchResultsList';
-import { wktPointToLocation, nearestAdresToString } from './services/transformers';
+import SearchResultsList from "./SearchResultsList";
+import { nearestAdresToString } from "./services/transformers";
 
 const GeocoderStyle = styled.div`
   width: 500px;
@@ -12,85 +12,89 @@ const GeocoderStyle = styled.div`
   flex-direction: column;
 `;
 
-const GEOCODER_API_SUGGEST =
-  "https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?fq=gemeentenaam:amsterdam&fq=type:adres&q=";
-const GEOCODER_API_LOOKUP =
-  "https://geodata.nationaalgeoregister.nl/locatieserver/v3/lookup?fq=gemeentenaam:amsterdam&fq=type:adres&id=";
-
 const inputProps = {
   autoCapitalize: "off",
   autoComplete: "off",
   autoCorrect: "off"
 };
 
-const Geocoder = ({ marker, clickPointInfo }) => {
-  const [term, setTerm] = useState("");
-  const [results, setResults] = useState([]);
-  const [selected, setSelected] = useState(-1);
-  const [address, setAddress] = useState("");
-  const [location, setLocation] = useState();
-  const [id, setId] = useState();
+const Geocoder = ({
+  marker,
+  clickPointInfo,
+  placeholder,
+  getSuggestions,
+  getAddressById,
+  ...otherProps
+}) => {
   const { mapInstance } = useMapInstance();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [addressText, setAddressText] = useState("");
+  const [location, setLocation] = useState();
+  const [addressId, setAddressId] = useState();
 
-  const onSelect = index => {
-    const { weergavenaam: address, id } = results[index];
-    setAddress(address);
-    setSelected(-1);
-    setResults([]);
-    setId(id);
-  };
+  const onSelect = useCallback(
+    index => {
+      const { weergavenaam: address, id } = searchResults[index];
+      setAddressText(address);
+      setSelectedIndex(-1);
+      setSearchResults([]);
+      setAddressId(id);
+    },
+    [searchResults]
+  );
 
   useEffect(() => {
     const fetchData = async () => {
-      if (id === "") return;
+      if (addressId === "") return;
 
-      const result = await fetch(`${GEOCODER_API_LOOKUP}${id}`);
-      const { response } = await result.json();
-      // console.log(data);
-      if (response.docs[0]) {
-        console.log(response.docs[0]);
-        const location = wktPointToLocation(response.docs[0].centroide_ll);
+      const location = await getAddressById(addressId);
+      if (location) {
         setLocation(location);
       }
-      setId("");
+      setAddressId("");
     };
 
     fetchData();
-  }, [id]);
+  }, [addressId, getAddressById]);
 
-  const getCurrentValue = useCallback(() => {
-    return selected > -1
-      ? results[selected].weergavenaam
-      : term === ""
-      ? address
-      : term;
-  }, [selected, results, term, address]);
+  const getSearchValue = useCallback(() => {
+    return selectedIndex > -1
+      ? searchResults[selectedIndex].weergavenaam
+      : searchTerm === ""
+      ? addressText
+      : searchTerm;
+  }, [selectedIndex, searchResults, searchTerm, addressText]);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (selected > -1) return;
-      if (!term || term.length < 3) {
-        setResults([]);
-        return;
-      }
-
-      const result = await fetch(`${GEOCODER_API_SUGGEST}${term}`);
-      const data = await result.json();
-      setResults([...data.response.docs]);
+      console.log(searchTerm, selectedIndex);
+      const suggestions = await getSuggestions(searchTerm);
+      setSearchResults([...suggestions]);
     };
-    console.log("fetchData", selected, term);
-    fetchData();
-  }, [selected, term]);
+
+    if (selectedIndex > -1) return;
+    if (searchTerm.length < 3) {
+      setSelectedIndex(-1);
+      setSearchResults([]);
+      return;
+    } else {
+      fetchData();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   useEffect(() => {
-    console.log("pointClickInfo", clickPointInfo);
     if (!clickPointInfo) return;
     const { location, nearestAdres } = clickPointInfo;
     marker.setLatLng(location);
-    setSelected(-1);
-    setResults([]);
-    setAddress(nearestAdresToString(nearestAdres));
-    setTerm("");
+    marker.setOpacity(1);
+    setAddressText(nearestAdresToString(nearestAdres));
+    setSearchTerm("");
+    setSelectedIndex(-1);
+    setSearchResults([]);
   }, [clickPointInfo, marker]);
 
   const flyTo = useCallback(
@@ -104,17 +108,17 @@ const Geocoder = ({ marker, clickPointInfo }) => {
 
   useEffect(() => {
     if (!location) return;
-    if (selected !== -1) setAddress(results[selected].weergavenaam);
-    setSelected(-1);
-    setResults([]);
-    setTerm("");
+    if (selectedIndex !== -1)
+      setAddressText(searchResults[selectedIndex].weergavenaam);
+    setSelectedIndex(-1);
+    setSearchResults([]);
+    setSearchTerm("");
     marker.setLatLng(location);
     flyTo(location);
     setLocation();
-  }, [flyTo, location, marker, results, selected]);
+  }, [flyTo, location, marker, searchResults, selectedIndex]);
 
   const handleKeyDown = event => {
-    if (results.length === 0) return;
     console.log(event.keyCode);
     switch (event.keyCode) {
       // Arrow up
@@ -123,68 +127,76 @@ const Geocoder = ({ marker, clickPointInfo }) => {
         // beginning of the input, we don't want that!
         event.preventDefault();
 
-        setSelected(selected > -1 ? selected - 1 : selected);
+        setSelectedIndex(
+          selectedIndex > -1 ? selectedIndex - 1 : selectedIndex
+        );
         break;
 
       // Arrow down
       case 40:
-        setSelected(selected < results.length - 1 ? selected + 1 : selected);
+        setSelectedIndex(
+          selectedIndex < searchResults.length - 1
+            ? selectedIndex + 1
+            : selectedIndex
+        );
         break;
 
       // Escape
       case 27:
-        setSelected(-1);
-        setAddress("");
-        setTerm("");
-        console.log(marker);
-        debugger;
+        // event.preventDefault();
+
+        console.log("escape", searchTerm, addressText);
+        setAddressText("");
+        setSearchTerm("");
+        setSelectedIndex(-1);
+        setSearchResults([]);
         marker.setOpacity(0);
         break;
 
       // Enter
       case 13:
-        if (selected > -1) {
-          console.log(
-            "show addres in the map for: " + results[selected].weergavenaam
-          );
-          setId(results[selected].id);
+        if (selectedIndex > -1) {
+          setAddressId(searchResults[selectedIndex].id);
         }
         break;
+
       default:
         break;
     }
   };
 
+  const handleOnSubmit = () => {
+    if (searchResults.length === 0) return;
+    selectedIndex === -1 ? onSelect(0) : onSelect(selectedIndex);
+  };
+
+  const handleOnChange = e => {
+    setSelectedIndex(-1);
+    addressText !== "" ? setSearchTerm(e) : setAddressText("");
+    if (e === "") {
+      setAddressText(e);
+      marker.setOpacity(0);
+    }
+  };
+
+  const handleOnWatchValue = value => {
+    if (addressText === "" && searchTerm !== value) setSearchTerm(value);
+  };
+
   return (
-    <GeocoderStyle>
+    <GeocoderStyle {...otherProps}>
       <SearchBar
-        placeholder="Enter the search text"
-        onWatchValue={value => {
-          console.log("onWatchValue", value, address, term);
-          if (address === "" && term !== value) setTerm(value);
-        }}
-        onSubmit={() => {
-          console.log("onSubmit");
-        }}
-        onChange={e => {
-          console.log("onChange", e);
-          setSelected(-1);
-          address !== "" ? setTerm(e) : setAddress("");
-          if (e === "") {
-            setAddress(e);
-            marker.setOpacity(0);
-          }
-        }}
-        onKeyDown={e => {
-          console.log("onKeyDown");
-          handleKeyDown(e);
-        }}
-        value={getCurrentValue()}
+        placeholder={placeholder || "Zoek adres"}
         inputProps={inputProps}
+        onWatchValue={handleOnWatchValue}
+        onSubmit={handleOnSubmit}
+        onChange={handleOnChange}
+        onKeyDown={handleKeyDown}
+        value={getSearchValue()}
       ></SearchBar>
       <SearchResultsList
-        items={results}
-        selected={selected}
+        items={searchResults}
+        selected={selectedIndex}
         id="id"
         name="weergavenaam"
         value="weergavenaam"
