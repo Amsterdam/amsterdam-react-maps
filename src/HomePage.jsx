@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "leaflet/dist/leaflet.css";
-import { ThemeProvider, GlobalStyle } from "@datapunt/asc-ui";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import AppRoutes from './AppRoutes';
+import { Map, TileLayer, Marker } from "@datapunt/react-maps";
+import { ViewerContainer, SearchBar } from "@datapunt/asc-ui";
+import Controls from "./Zoom";
+import GPSButton from "./GPSButton";
+import getCrs from "./utils/getCrs";
+import DefaultMarkerIcon from "./DefaultMarkerIcon";
+import NonTiledLayer from "./NonTiledLayer";
 
-const App = () => {
+const HomePage = () => {
+  const [marker, setMarker] = useState();
+  const [markerPosition, setMarkerPosition] = useState({
+    lat: 52.3731081,
+    lng: 4.8932945
+  });
+  
+  const [markers, setMarkers] = useState([]);
+
+  const mapRef = useRef(null);
+
+  function moveMarker() {
+    const { lat, lng } = markerPosition;
+    setMarkerPosition({
+      lat: lat + 0.0001,
+      lng: lng + 0.0001
+    });
+  }
+
+  const addMarker = latlng => {
+    setMarkers(c => [...c, latlng]);
+  };
+
+  useEffect(() => {
+    if (marker) {
+      marker.setLatLng(markerPosition);
+    }
+  }, [marker, markerPosition]);
+
   return (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Router>
-        <div>
-          {Object.keys(AppRoutes).map(key => {
-            const { path, component } = AppRoutes[key];
-            return (
-              <Route
-                key={key}
-                path={path}
-                component={component}
-                exact={key === "HOME"}
-              />
-            );
-          })}
-        </div>
-      </Router>
-
-      {/* <Map
+      <Map
         ref={mapRef}
         events={{
           zoomend: () => {
@@ -32,10 +46,7 @@ const App = () => {
           },
           click: async e => {
             console.log("click");
-            // addMarker(e.latlng);
-            const pointInfo = await pointQuery(e);
-            console.log("click results: ", pointInfo);
-            setClickPointInfo(pointInfo);
+            addMarker(e.latlng);
           },
           move: () => {
             console.log("move");
@@ -57,7 +68,7 @@ const App = () => {
       >
         <ViewerContainer
           style={{ zIndex: 400 }}
-          topLeft={<Geocoder {...geocoderProps} />}
+          topLeft={<SearchBar />}
           topRight={<GPSButton />}
           bottomRight={<Controls />}
           bottomLeft={
@@ -105,9 +116,8 @@ const App = () => {
             layers: ["kadastrale_gemeente", "kadastrale_gemeente_label"]
           }}
         />
-      </Map> */}
-    </ThemeProvider>
+      </Map>
   );
 };
 
-export default App;
+export default HomePage;
