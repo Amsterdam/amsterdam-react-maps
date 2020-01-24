@@ -1,12 +1,11 @@
-import L from 'leaflet'
+import L, { Bounds, BoundsLiteral } from 'leaflet'
 import 'proj4'
 import 'proj4leaflet'
 
 const CRS_CONFIG = {
   RD: {
     code: 'EPSG:28992',
-    projection:
-      `+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs'`,
+    projection: `+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs'`,
     transformation: {
       resolutions: [
         3440.64,
@@ -27,7 +26,10 @@ const CRS_CONFIG = {
         0.105,
         0.0525,
       ],
-      bounds: [[-285401.92, 22598.08], [595301.9199999999, 903301.9199999999]],
+      bounds: [
+        [-285401.92, 22598.08],
+        [595301.9199999999, 903301.9199999999],
+      ] as BoundsLiteral,
       origin: [-285401.92, 22598.08],
     },
   },
@@ -40,8 +42,16 @@ const CRS_CONFIG = {
 
 export default () => {
   const rdSettings = CRS_CONFIG.RD
-  rdSettings.transformation.bounds = L.bounds.apply(null, CRS_CONFIG.RD.transformation.bounds)
-  const crs = new L.Proj.CRS(rdSettings.code, rdSettings.projection, rdSettings.transformation)
+  rdSettings.transformation.bounds = L.bounds.apply<
+    null,
+    BoundsLiteral,
+    Bounds
+  >(null, CRS_CONFIG.RD.transformation.bounds)
+  const crs = new L.Proj.CRS(
+    rdSettings.code,
+    rdSettings.projection,
+    rdSettings.transformation,
+  )
 
   crs.distance = L.CRS.Earth.distance
   crs.R = CRS_CONFIG.EARTH_RADIUS

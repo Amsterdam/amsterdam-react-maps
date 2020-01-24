@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "noLib": false,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "styled-components"
+    ],
+    "composite": true,
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true
+  },
+  "files": [
+    "custom.d.ts",
+    "node_modules/jest-styled-components/typings/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
+  ],
+  "include": [
+    "src",
+    "example",
+    "*.tsx",
+    "*.ts"
+  ]
+}
