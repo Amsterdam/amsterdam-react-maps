@@ -23,7 +23,8 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack --config ./webpack.config.js"
   },
   "browserslist": {
     "production": [
