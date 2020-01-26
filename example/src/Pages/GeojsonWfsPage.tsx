@@ -1,50 +1,34 @@
 import React, { useState, useRef, useMemo } from 'react'
 import 'leaflet/dist/leaflet.css'
-import { Map, TileLayer, Marker } from '@datapunt/react-maps'
+import { Map, TileLayer } from '@datapunt/react-maps'
 import { ViewerContainer } from '@datapunt/asc-ui'
 import Controls from '../Zoom'
 import { utils } from '../../../src'
-import DefaultMarkerIcon from '../DefaultMarkerIcon'
-import NonTiledLayer from '../NonTiledLayer'
-import Geocoder, {
-  pointQuery,
-  getSuggestions,
-  getAddressById,
-} from '../Geocoder'
-
-const markerPosition = {
-  lat: 52.3731081,
-  lng: 4.8932945,
-}
+import WfsLayer from '../WfLayer'
 
 const GeojsonWfsPage = () => {
-  const [marker, setMarker] = useState()
-  const [clickPointInfo, setClickPointInfo] = useState()
+  const [bbox, setBBox] = useState()
 
   const mapRef = useRef(null)
-
-  const geocoderProps = useMemo(
-    () => ({
-      marker,
-      clickPointInfo,
-      getSuggestions,
-      getAddressById,
-    }),
-    [clickPointInfo, marker],
-  )
 
   return (
     <Map
       ref={mapRef}
       events={{
         click: async e => {
-          const pointInfo = await pointQuery(e)
-          setClickPointInfo(pointInfo)
+          console.log('click', e.target)
+        },
+        layeradd: e => {
+          console.log('layer add', e)
+        },
+        moveend: e => {
+          console.log('moveend', e.target.getCenter())
+          setBBox(e.target.getCenter())
         },
       }}
       options={{
         center: [52.3731081, 4.8932945],
-        zoom: 10,
+        zoom: 12,
         crs: utils.getCRS(),
         maxBounds: [
           [52.25168, 4.64034],
@@ -59,16 +43,7 @@ const GeojsonWfsPage = () => {
       <ViewerContainer
         // @ts-ignore
         style={{ zIndex: 400 }}
-        topLeft={<Geocoder {...geocoderProps} />}
         bottomRight={<Controls />}
-      />
-      <Marker
-        setInstance={setMarker}
-        args={[markerPosition]}
-        options={{
-          icon: DefaultMarkerIcon,
-          opacity: 0,
-        }}
       />
       <TileLayer
         args={['https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png']}
@@ -79,14 +54,9 @@ const GeojsonWfsPage = () => {
             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
         }}
       />
-      <NonTiledLayer
+      <WfsLayer
         {...{
-          id: 'kgem',
-          url: 'https://acc.map.data.amsterdam.nl/maps/brk',
-          identify: false,
-          format: 'image/png',
-          transparent: true,
-          layers: ['kadastrale_gemeente', 'kadastrale_gemeente_label'],
+          bbox,
         }}
       />
     </Map>
