@@ -48,7 +48,8 @@ const GeojsonWfsPage = () => {
       <TileLayer
         args={['https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png']}
         options={{
-          subdomains: ['acc.t1', 'acc.t2', 'acc.t3', 'acc.t4'],
+          // subdomains: ['acc.t1', 'acc.t2', 'acc.t3', 'acc.t4'],
+          subdomains: ['t1', 't2', 't3', 't4'],
           tms: true,
           attribution:
             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
