@@ -86,10 +86,10 @@ const Geocoder = ({
     const { location, nearestAdres } = clickPointInfo
     marker.setLatLng(location)
     marker.setOpacity(1)
-    setAddressText(nearestAdresToString(nearestAdres))
-    setSearchTerm('')
     setSelectedIndex(-1)
     setSearchResults([])
+    setSearchTerm('')
+    setAddressText(nearestAdresToString(nearestAdres))
   }, [clickPointInfo, marker])
 
   const flyTo = useCallback(
