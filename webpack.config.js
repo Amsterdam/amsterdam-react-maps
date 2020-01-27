@@ -1,6 +1,7 @@
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -41,5 +42,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './example/public/index.html',
     }),
+    new BundleAnalyzerPlugin()
   ],
 }
