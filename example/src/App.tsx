@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { ThemeProvider, GlobalStyle } from '@datapunt/asc-ui'
 import 'leaflet/dist/leaflet.css'
-import { Route, BrowserRouter as Router, useHistory } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppRoutes from './AppRoutes'
 
-const defaultRoute = '/geojson-wfs' // '/';
+const defaultRoute = '/geocoder' // '/';
 
 const App = () => {
   useEffect(() => {

@@ -31,7 +31,7 @@ const Geocoder = ({
   const [searchResults, setSearchResults] = useState([])
   const [selectedIndex, setSelectedIndex] = useState(-1)
   const [addressText, setAddressText] = useState('')
-  const [location, setLocation] = useState()
+  const [markerLocation, setMarkerLocation] = useState()
   const [addressId, setAddressId] = useState()
 
   const onSelect = useCallback(
@@ -51,7 +51,7 @@ const Geocoder = ({
 
       const location = await getAddressById(addressId)
       if (location) {
-        setLocation(location)
+        setMarkerLocation(location)
       }
       setAddressId('')
     })()
@@ -71,7 +71,6 @@ const Geocoder = ({
     if (searchTerm.length < 3) {
       setSelectedIndex(-1)
       setSearchResults([])
-      return
     } else {
       ;(async () => {
         const suggestions = await getSuggestions(searchTerm)
@@ -104,17 +103,17 @@ const Geocoder = ({
   )
 
   useEffect(() => {
-    if (!location) return
+    if (!markerLocation) return
     if (selectedIndex !== -1) {
       setAddressText(searchResults[selectedIndex].name)
     }
     // setSearchResults([]) // Todo: causes the browser to crash?
     setSelectedIndex(-1)
     setSearchTerm('')
-    marker.setLatLng(location)
-    flyTo(location)
-    setLocation(location)
-  }, [flyTo, location, marker, searchResults, selectedIndex])
+    marker.setLatLng(markerLocation)
+    flyTo(markerLocation)
+    setMarkerLocation(markerLocation)
+  }, [flyTo, markerLocation, marker, searchResults, selectedIndex])
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.keyCode) {
