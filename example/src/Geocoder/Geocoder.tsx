@@ -84,7 +84,6 @@ const Geocoder = ({
   useEffect(() => {
     if (!clickPointInfo) return
     const { location, nearestAdres } = clickPointInfo
-    console.log('click point', location, nearestAdres)
     marker.setLatLng(location)
     marker.setOpacity(1)
     setAddressText(nearestAdresToString(nearestAdres))
