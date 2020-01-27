@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useRef } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { Map, TileLayer } from '@datapunt/react-maps'
 import { ViewerContainer } from '@datapunt/asc-ui'
@@ -15,14 +15,8 @@ const GeojsonWfsPage = () => {
     <Map
       ref={mapRef}
       events={{
-        click: async e => {
-          console.log('click', e.target)
-        },
-        layeradd: e => {
-          console.log('layer add', e)
-        },
         moveend: e => {
-          console.log('moveend', e.target.getCenter())
+          // This triggers the refresh of the layer
           setBBox(e.target.getCenter())
         },
       }}
@@ -48,6 +42,7 @@ const GeojsonWfsPage = () => {
       <TileLayer
         args={['https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png']}
         options={{
+          // TODO: use here the acc version of the tiles when the server is fixed
           // subdomains: ['acc.t1', 'acc.t2', 'acc.t3', 'acc.t4'],
           subdomains: ['t1', 't2', 't3', 't4'],
           tms: true,

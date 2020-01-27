@@ -2,9 +2,6 @@ import { memo, useEffect, useRef, useCallback, useState } from 'react'
 import { useMapInstance } from '@datapunt/react-maps'
 import L from 'leaflet'
 
-// `https://map.data.amsterdam.nl/maps/parkeervakken?
-// REQUEST=GetFeature&SERVICE=wfs&OUTPUTFORMAT=application/json;%20subtype=geojson;%20charset=utf-8&
-// Typename=fiscaal_parkeervakken&version=1.1.0&srsname=urn:ogc:def:crs:EPSG::4326`
 const WFS_ENDPOINT = 'https://map.data.amsterdam.nl/maps/parkeervakken'
 const wfsParameters = {
   service: 'WFS',
@@ -47,16 +44,16 @@ const hoverStyleSelection = {
   fillColor: '#ec0000',
 }
 
-const WfsLayer = ({ bbox }) => {
+const WfsLayer = ({ bbox }: any) => {
   const { mapInstance } = useMapInstance()
-  const wfsLayer = useRef(null)
-  const wfsSelectionLayer = useRef(null)
+  const wfsLayer = useRef<any>(null)
+  const wfsSelectionLayer = useRef<any>(null)
   const [features, setFeatures] = useState([])
-  const [selection, setSelection] = useState([])
+  const [selection, setSelection] = useState<Array<{ object: any }>>([])
 
   const addFeature = useCallback(
     feature => {
-      wfsSelectionLayer.current.addData(feature)
+      wfsSelectionLayer.current!.addData(feature)
       setSelection([...selection, feature])
     },
     [wfsLayer.current],
@@ -72,25 +69,28 @@ const WfsLayer = ({ bbox }) => {
     [wfsSelectionLayer.current],
   )
 
-  const handleLayerFeature = (feature, layer) => {
+  const handleLayerFeature: (feature: any, layer: any) => void = (
+    feature,
+    layer,
+  ) => {
     layer.on('mouseover', () => layer.setStyle(hoverStyleLayer))
     layer.on('mouseout', () => layer.setStyle(defaultStyleLayer))
-    layer.on('click', e => {
+    layer.on('click', (e: any) => {
       e.originalEvent.preventDefault()
-      addFeature(feature, e.latlng)
+      addFeature(feature)
     })
   }
 
-  const handleSelectionLayerFeature = (feature, layer) => {
+  const handleSelectionLayerFeature = (feature: any, layer: any) => {
     layer.on('mouseover', () => layer.setStyle(hoverStyleSelection))
     layer.on('mouseout', () => layer.setStyle(defaultStyleSelection))
-    layer.on('click', e => {
+    layer.on('click', (e: any) => {
       e.originalEvent.preventDefault()
       removeFeature(feature, layer)
     })
   }
 
-  const getFeatureData = async bounds => {
+  const getFeatureData = async () => {
     if (mapInstance && mapInstance.getZoom() >= MAX_ZOOM_LEVEL) {
       const bboxParams = {
         bbox: mapInstance.getBounds().toBBoxString(),
@@ -106,11 +106,11 @@ const WfsLayer = ({ bbox }) => {
   useEffect(() => {
     ;(async () => {
       if (mapInstance) {
-        wfsLayer.current = L.geoJSON(null, {
+        wfsLayer.current = L.geoJSON(undefined, {
           style: defaultStyleLayer,
           onEachFeature: handleLayerFeature,
         }).addTo(mapInstance)
-        wfsSelectionLayer.current = L.geoJSON(null, {
+        wfsSelectionLayer.current = L.geoJSON(undefined, {
           style: defaultStyleSelection,
           onEachFeature: handleSelectionLayerFeature,
         }).addTo(mapInstance)
@@ -123,7 +123,7 @@ const WfsLayer = ({ bbox }) => {
     const layer: any = wfsLayer && wfsLayer.current
 
     if (!layer) return
-    const layers = layer.getLayers()
+    const layers: any[] = layer.getLayers()
     layers.forEach(l => l.remove())
     layer.clearLayers()
   }, [wfsLayer])
@@ -131,8 +131,8 @@ const WfsLayer = ({ bbox }) => {
   useEffect(() => {
     if (mapInstance && mapInstance.getZoom() >= MAX_ZOOM_LEVEL) {
       clearLayers()
-      if (features) wfsLayer.current.addData(features)
-      wfsSelectionLayer.current.bringToFront()
+      if (features) wfsLayer.current!.addData(features)
+      wfsSelectionLayer.current!.bringToFront()
     }
   }, [features, mapInstance])
 
