@@ -5,6 +5,9 @@ import { ViewerContainer } from '@datapunt/asc-ui'
 import Controls from '../Zoom'
 import { utils } from '../../../src'
 import WfsLayer from '../WfLayer'
+import defaultMapStyle from './styles'
+
+export const WFS_ENDPOINT = 'https://map.data.amsterdam.nl/maps/parkeervakken'
 
 const GeojsonWfsPage = () => {
   const [bbox, setBBox] = useState()
@@ -29,10 +32,7 @@ const GeojsonWfsPage = () => {
           [52.50536, 5.10737],
         ],
       }}
-      style={{
-        width: '100%',
-        height: '100vh',
-      }}
+      style={defaultMapStyle}
     >
       <ViewerContainer
         // @ts-ignore
@@ -54,6 +54,9 @@ const GeojsonWfsPage = () => {
         {...{
           bbox,
         }}
+        serviceUrl={WFS_ENDPOINT}
+        params={{ typeName: 'fiscaal_parkeervakken' }}
+        zoomLevel={{ min: 14, max: 22 }}
       />
     </Map>
   )

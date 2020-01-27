@@ -1,55 +1,31 @@
 import { memo, useEffect, useRef, useCallback, useState } from 'react'
 import { useMapInstance } from '@datapunt/react-maps'
 import L from 'leaflet'
+import {
+  hoverStyleLayer,
+  defaultStyleLayer,
+  hoverStyleSelection,
+  defaultStyleSelection,
+} from './styles'
+import { wfsParameters } from './constants'
+import useZoomRange from '../../../src/hooks/useZoomRange'
+import { MinMax } from '../../../src/types'
 
-const WFS_ENDPOINT = 'https://map.data.amsterdam.nl/maps/parkeervakken'
-const wfsParameters = {
-  service: 'WFS',
-  version: '1.1.0',
-  request: 'GetFeature',
-  typeName: 'fiscaal_parkeervakken',
-  outputFormat: 'application/json; subtype=geojson; charset=utf-8',
-  srsName: 'urn:ogc:def:crs:EPSG::4326',
-}
-const MAX_ZOOM_LEVEL = 13
-
-const defaultStyleLayer = {
-  color: '#000',
-  weight: 2,
-  opacity: 1,
-  fillOpacity: 0,
-}
-
-const hoverStyleLayer = {
-  color: '#000',
-  weight: 3,
-  opacity: 1,
-  fillOpacity: 1,
-  fillColor: '#ccc',
+export interface Props {
+  bbox: any
+  serviceUrl: string
+  params: object
+  options?: any
+  zoomLevel: Partial<MinMax>
 }
 
-const defaultStyleSelection = {
-  color: '#ec0000',
-  weight: 2,
-  opacity: 1,
-  fillOpacity: 0.5,
-  fillColor: '#ec0000',
-}
-
-const hoverStyleSelection = {
-  color: '#ec0000',
-  weight: 3,
-  opacity: 1,
-  fillOpacity: 0.3,
-  fillColor: '#ec0000',
-}
-
-const WfsLayer = ({ bbox }: any) => {
+const WfsLayer: React.FC<Props> = ({ bbox, serviceUrl, zoomLevel, params }) => {
   const { mapInstance } = useMapInstance()
   const wfsLayer = useRef<any>(null)
   const wfsSelectionLayer = useRef<any>(null)
   const [features, setFeatures] = useState([])
   const [selection, setSelection] = useState<Array<{ object: any }>>([])
+  const { isVisible } = useZoomRange(zoomLevel)
 
   const addFeature = useCallback(
     feature => {
@@ -91,12 +67,16 @@ const WfsLayer = ({ bbox }: any) => {
   }
 
   const getFeatureData = async () => {
-    if (mapInstance && mapInstance.getZoom() >= MAX_ZOOM_LEVEL) {
+    if (!mapInstance) return
+    if (isVisible(mapInstance.getZoom())) {
       const bboxParams = {
         bbox: mapInstance.getBounds().toBBoxString(),
       }
-      const parameters = L.Util.extend(wfsParameters, bboxParams)
-      const url = `${WFS_ENDPOINT}${L.Util.getParamString(parameters)}`
+      const parameters = L.Util.extend(
+        { ...wfsParameters, ...params },
+        bboxParams,
+      )
+      const url = `${serviceUrl}${L.Util.getParamString(parameters)}`
       const response = await fetch(url)
       const data: any = await response.json()
       setFeatures(data.features)
@@ -105,17 +85,16 @@ const WfsLayer = ({ bbox }: any) => {
 
   useEffect(() => {
     ;(async () => {
-      if (mapInstance) {
-        wfsLayer.current = L.geoJSON(undefined, {
-          style: defaultStyleLayer,
-          onEachFeature: handleLayerFeature,
-        }).addTo(mapInstance)
-        wfsSelectionLayer.current = L.geoJSON(undefined, {
-          style: defaultStyleSelection,
-          onEachFeature: handleSelectionLayerFeature,
-        }).addTo(mapInstance)
-        await getFeatureData()
-      }
+      if (!mapInstance) return
+      wfsLayer.current = L.geoJSON(undefined, {
+        style: defaultStyleLayer,
+        onEachFeature: handleLayerFeature,
+      }).addTo(mapInstance)
+      wfsSelectionLayer.current = L.geoJSON(undefined, {
+        style: defaultStyleSelection,
+        onEachFeature: handleSelectionLayerFeature,
+      }).addTo(mapInstance)
+      await getFeatureData()
     })()
   }, [mapInstance])
 
@@ -129,7 +108,8 @@ const WfsLayer = ({ bbox }: any) => {
   }, [wfsLayer])
 
   useEffect(() => {
-    if (mapInstance && mapInstance.getZoom() >= MAX_ZOOM_LEVEL) {
+    if (!mapInstance) return
+    if (isVisible(mapInstance.getZoom())) {
       clearLayers()
       if (features) wfsLayer.current!.addData(features)
       wfsSelectionLayer.current!.bringToFront()
