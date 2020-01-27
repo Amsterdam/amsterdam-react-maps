@@ -1,4 +1,5 @@
 export const nearestAdresToString = nearestAdres => {
+  if (!nearestAdres) return ''
   const {
     openbare_ruimte,
     huisnummer,

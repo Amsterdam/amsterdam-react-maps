@@ -59,8 +59,7 @@ const Geocoder = ({
 
   const getSearchValue = useCallback(() => {
     return selectedIndex > -1
-      ? // @ts-ignore
-        searchResults[selectedIndex].name
+      ? searchResults[selectedIndex].name
       : searchTerm === ''
       ? addressText
       : searchTerm
@@ -85,6 +84,7 @@ const Geocoder = ({
   useEffect(() => {
     if (!clickPointInfo) return
     const { location, nearestAdres } = clickPointInfo
+    console.log('click point', location, nearestAdres)
     marker.setLatLng(location)
     marker.setOpacity(1)
     setAddressText(nearestAdresToString(nearestAdres))
@@ -107,13 +107,13 @@ const Geocoder = ({
     if (selectedIndex !== -1) {
       setAddressText(searchResults[selectedIndex].name)
     }
-    // setSearchResults([]) // Todo: causes the browser to crash?
     setSelectedIndex(-1)
+    setSearchResults([])
     setSearchTerm('')
     marker.setLatLng(markerLocation)
     flyTo(markerLocation)
     setMarkerLocation(markerLocation)
-  }, [flyTo, markerLocation, marker, searchResults, selectedIndex])
+  }, [markerLocation])
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.keyCode) {
