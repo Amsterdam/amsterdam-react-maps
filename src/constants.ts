@@ -13,3 +13,9 @@ export const DEFAULT_AMSTERDAM_MAPS_OPTIONS: MapOptions = {
     [52.50536, 5.10737],
   ],
 }
+
+export const DEFAULT_AMSTERDAM_LAYERS = {
+  normal: 'https://acc.t{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png',
+  light: 'https://acc.t{s}.data.amsterdam.nl/topo_rd_light/{z}/{x}/{y}.png',
+  blackWhite: 'https://acc.t{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png',
+}

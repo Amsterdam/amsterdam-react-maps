@@ -4,12 +4,19 @@ import { Minimise, Enlarge } from '@datapunt/asc-assets'
 import { useMapInstance } from '@datapunt/react-maps'
 
 const Zoom: React.FC = () => {
-  const { mapInstance } = useMapInstance()
+  const mapInstance = useMapInstance()
   useEffect(() => {
     if (mapInstance) {
       mapInstance.removeControl(mapInstance.zoomControl)
     }
   }, [mapInstance])
+
+  const handleZoom = (out = false) => {
+    if (mapInstance !== null) {
+      mapInstance.setZoom(mapInstance.getZoom() + (out ? -1 : 1))
+    }
+  }
+
   return (
     <div>
       <Button
@@ -19,7 +26,7 @@ const Zoom: React.FC = () => {
         size={32}
         iconSize={12}
         onClick={() => {
-          mapInstance.setZoom(mapInstance.getZoom() + 1)
+          handleZoom()
         }}
         icon={<Enlarge />}
       />
@@ -30,7 +37,7 @@ const Zoom: React.FC = () => {
         size={32}
         iconSize={12}
         onClick={() => {
-          mapInstance.setZoom(mapInstance.getZoom() - 1)
+          handleZoom(true)
         }}
         icon={<Minimise />}
       />
