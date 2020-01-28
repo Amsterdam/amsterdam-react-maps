@@ -2,6 +2,8 @@
 import { RouteProps } from 'react-router-dom'
 import BasicMap from './Pages/BasicMap'
 
-export default {
+const AppRoutes: { [key: string]: RouteProps } = {
   HOME: { path: '/', component: BasicMap, exact: true },
-} as { [key: string]: RouteProps }
+}
+
+export default AppRoutes

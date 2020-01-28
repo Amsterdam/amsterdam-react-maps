@@ -24,7 +24,7 @@ const BasicMap: React.FC = () => {
     lng: 4.8932945,
   })
 
-  const [markerPositions, setmarkerPositions] = useState<LatLngLiteral[]>([])
+  const [markerPositions, setMarkerPositions] = useState<LatLngLiteral[]>([])
 
   function moveMarker() {
     const { lat, lng } = markerPosition
@@ -35,7 +35,7 @@ const BasicMap: React.FC = () => {
   }
 
   const addMarker = (latlng: LatLngLiteral) => {
-    setmarkerPositions((c: LatLngLiteral[]) => [...c, latlng])
+    setMarkerPositions((c: LatLngLiteral[]) => [...c, latlng])
   }
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const BasicMap: React.FC = () => {
         />
       ))}
       <TileLayer
-        args={['https://acc.t{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png']}
+        args={[constants.DEFAULT_AMSTERDAM_LAYERS.normal]}
         options={{
           subdomains: ['1', '2', '3', '4'],
           tms: true,
