@@ -1,118 +1,24 @@
 import React, { useEffect, useState, useCallback, useReducer } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { SearchBar } from '@datapunt/asc-ui'
-import styled from '@datapunt/asc-core'
 import { useMapInstance } from '@datapunt/react-maps'
 import SearchResultsList from './SearchResultsList'
 import { nearestAdresToString } from './services/transformers'
-
-interface GeocoderState {
-  term: string
-  address: string
-  results: any[]
-  index: number
-  searchMode: boolean
-}
-
-const initialState: GeocoderState = {
-  term: '',
-  address: '',
-  results: [],
-  index: -1,
-  searchMode: true,
-}
-
-const GeocoderStyle = styled.div`
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-`
+import {
+  reducer,
+  searchTermSelected,
+  clearSearchResults,
+  searchResultsChanged,
+  resultSelected,
+  searchTermChanged,
+  initialState,
+} from './ducks'
+import GeocoderStyle from './GeocoderStyle'
 
 const inputProps: any = {
   autoCapitalize: 'off',
   autoComplete: 'off',
   autoCorrect: 'off',
-}
-
-interface ActionType {
-  type: string
-  payload: any
-}
-
-const SEARCH_TERM_CHANGED = 'SEARCH_TERM_CHANGED'
-const searchTermChanged = (value: string) => ({
-  type: SEARCH_TERM_CHANGED,
-  payload: value,
-})
-
-const SEARCH_TERM_SELECTED = 'SEARCH_TERM_SELECTED'
-const searchTermSelected = (value: string) => ({
-  type: SEARCH_TERM_SELECTED,
-  payload: value,
-})
-
-const SEARCH_RESULTS_CHANGED = 'SEARCH_RESULTS_CHANGED'
-const searchResultsChanged = (results: any[]) => ({
-  type: SEARCH_RESULTS_CHANGED,
-  payload: results,
-})
-
-const RESULT_SELECTED = 'RESULT_SELECTED'
-const resultSelected = (index: number) => ({
-  type: RESULT_SELECTED,
-  payload: index,
-})
-
-const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS'
-const clearSearchResults = () => ({
-  type: CLEAR_SEARCH_RESULTS,
-  payload: null,
-})
-
-const reducer = (state: any, action: ActionType) => {
-  console.log(action.type)
-  switch (action.type) {
-    case SEARCH_TERM_CHANGED:
-      return {
-        ...state,
-        term: action.payload,
-        indeobjectobjectx: -1,
-        results: [],
-        searchMode: true,
-      }
-
-    case SEARCH_TERM_SELECTED:
-      return {
-        ...state,
-        term: action.payload,
-        index: -1,
-        searchMode: false,
-      }
-
-    case SEARCH_RESULTS_CHANGED:
-      return {
-        ...state,
-        index: -1,
-        results: [...action.payload],
-      }
-
-    case RESULT_SELECTED:
-      return {
-        ...state,
-        term: action.payload === -1 ? '' : state.results[action.payload].name,
-        index: action.payload,
-      }
-
-    case CLEAR_SEARCH_RESULTS:
-      return {
-        ...state,
-        index: -1,
-        results: [],
-      }
-
-    default:
-      return state
-  }
 }
 
 const Geocoder = ({
@@ -124,16 +30,15 @@ const Geocoder = ({
   ...otherProps
 }: any) => {
   const { mapInstance } = useMapInstance()
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [{ term, results, index, searchMode }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  )
   const [markerLocation, setMarkerLocation] = useState()
 
-  useEffect(() => {
-    console.log('state changed', state)
-  }, [state])
-
-  const onSelect = async (index: number) => {
-    dispatch(searchTermSelected(state.results[index].name))
-    const { id } = state.results[index]
+  const onSelect = async (idx: number) => {
+    dispatch(searchTermSelected(results[idx].name))
+    const { id } = results[idx]
     const location = await getAddressById(id)
     if (location) {
       setMarkerLocation(location)
@@ -142,19 +47,19 @@ const Geocoder = ({
   }
 
   useEffect(() => {
-    if (!state.searchMode) return
-    if (state.index > -1) return
-    if (state.term.length < 3) {
+    if (!searchMode) return
+    if (index > -1) return
+    if (term.length < 3) {
       dispatch(clearSearchResults())
     } else {
       ;(async () => {
-        const suggestions = await getSuggestions(state.term)
+        const suggestions = await getSuggestions(term)
         dispatch(searchResultsChanged(suggestions))
       })()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.term])
+  }, [term])
 
   useEffect(() => {
     if (!clickPointInfo) return
@@ -188,20 +93,12 @@ const Geocoder = ({
         // beginning of the input, we don't want that!
         event.preventDefault()
 
-        dispatch(
-          resultSelected(state.index > -1 ? state.index - 1 : state.index),
-        )
+        dispatch(resultSelected(index > -1 ? index - 1 : index))
         break
 
       // Arrow down
       case 40:
-        dispatch(
-          resultSelected(
-            state.index < state.results.length - 1
-              ? state.index + 1
-              : state.index,
-          ),
-        )
+        dispatch(resultSelected(index < results.length - 1 ? index + 1 : index))
         break
 
       // Escape
@@ -213,8 +110,8 @@ const Geocoder = ({
 
       // Enter
       case 13:
-        if (state.index > -1) {
-          await onSelect(state.index)
+        if (index > -1) {
+          await onSelect(index)
         }
         break
 
@@ -224,9 +121,9 @@ const Geocoder = ({
   }
 
   const handleOnSubmit = async () => {
-    if (state.results.length === 0) return
-    const index = state.index === -1 ? 0 : state.index
-    onSelect(index)
+    if (results.length === 0) return
+    const idx = index === -1 ? 0 : index
+    onSelect(idx)
   }
 
   const handleOnChange = (value: any): void => {
@@ -244,13 +141,9 @@ const Geocoder = ({
         onSubmit={handleOnSubmit}
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}
-        value={state.term}
+        value={term}
       />
-      <SearchResultsList
-        items={state.results}
-        selected={state.index}
-        onSelect={onSelect}
-      />
+      <SearchResultsList items={results} selected={index} onSelect={onSelect} />
     </GeocoderStyle>
   )
 }
