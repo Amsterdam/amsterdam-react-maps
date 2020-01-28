@@ -9,12 +9,11 @@ const NonTiledLayer: React.FC<{
   params?: { [key: string]: string }
 }> = ({ url, options, params }) => {
   const mapInstance = useMapInstance()
-
   const query = new URLSearchParams(params)
-  const layerUrl = query ? `${url}?${query}` : url
+  const layerUrl = `${url}?${query}`
 
   useEffect(() => {
-    if (mapInstance) {
+    if (mapInstance !== null) {
       L.nonTiledLayer.wms(layerUrl, options).addTo(mapInstance)
     }
   }, [mapInstance])
