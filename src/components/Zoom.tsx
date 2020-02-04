@@ -1,15 +1,10 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { Button } from '@datapunt/asc-ui'
 import { Minimise, Enlarge } from '@datapunt/asc-assets'
 import { useMapInstance } from '@datapunt/react-maps'
 
 const Zoom: React.FC = () => {
   const mapInstance = useMapInstance()
-  useEffect(() => {
-    if (mapInstance) {
-      mapInstance.removeControl(mapInstance.zoomControl)
-    }
-  }, [mapInstance])
 
   const handleZoom = (out = false) => {
     if (mapInstance !== null) {

@@ -1,5 +1,5 @@
 import * as utils from './utils'
 import * as constants from './constants'
+import * as components from './components'
 
-// eslint-disable-next-line import/prefer-default-export
-export { utils, constants }
+export { utils, constants, components }
