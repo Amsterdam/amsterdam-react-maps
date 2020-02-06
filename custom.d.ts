@@ -2,6 +2,8 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
+import L from 'leaflet'
+
 declare namespace NodeJS {
   interface ProcessEnv {
     NODE_ENV: 'development' | 'production' | 'test'
@@ -50,12 +52,8 @@ declare module '*.eot' {
 }
 
 declare module '*.svg' {
-  import * as React from 'react'
-
-  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>
-
-  const src: string
-  export default src
+  const content: React.FC<React.SVGAttributes<SVGElement>>;
+  export default content;
 }
 
 declare module '*.module.css' {
@@ -81,4 +79,28 @@ declare module "*.json" {
 declare module '*.md' {
   const src: string
   export default src
+}
+
+declare module 'leaflet' {
+  interface NonTiledLayerOptions {
+    attribution?: string,
+    opacity?: number,
+    zIndex?: undefined,
+    minZoom?: number,
+    maxZoom: number,
+    pointerEvents?: null,
+    errorImageUrl?: string
+    bounds?: L.LatLngBounds,
+    useCanvas?: undefined
+  }
+
+  interface NonTiledLayer extends L.Layer {}
+  function nonTiledLayer(url: string, options: NonTiledLayerOptions): NonTiledLayer;
+
+  namespace NonTiledLayer {
+    interface WMS extends NonTiledLayer {}
+  }
+  namespace nonTiledLayer {
+    function wms(url: string, options: L.WMSOptions): NonTiledLayer.WMS;
+  }
 }

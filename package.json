@@ -18,7 +18,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --config ./webpack.config.js"
+    "lint": "eslint ./ --ext .ts,.tsx",
+    "build": "tsc -p ./tsconfig.build.json",
+    "build:example": "webpack --config ./webpack.config.js"
   },
   "files": [
     "lib"

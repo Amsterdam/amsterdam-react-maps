@@ -1,26 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ThemeProvider, GlobalStyle } from '@datapunt/asc-ui'
-import 'leaflet/dist/leaflet.css'
+// Since we only use the example directory to show different usecases, we don't need to include
+// react-router-dom as a dependency and thus ignore this eslint warning
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppRoutes from './AppRoutes'
+import 'leaflet/dist/leaflet.css'
 
-const defaultRoute = '/geocoder' // '/';
-
-const App = () => {
-  useEffect(() => {
-    // window.history.pushState({}, '', defaultRoute)
-  }, [])
-
-  return (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Router>
-        {Object.entries(AppRoutes).map(([key, options]) => (
-          <Route key={key} {...options} />
-        ))}
-      </Router>
-    </ThemeProvider>
-  )
-}
+const App = () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <Router>
+      {Object.entries(AppRoutes).map(([key, options]) => (
+        <Route key={key} {...options} />
+      ))}
+    </Router>
+  </ThemeProvider>
+)
 
 export default App

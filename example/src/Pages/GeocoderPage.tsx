@@ -43,7 +43,7 @@ const GeocoderPage = () => {
       options={{
         center: [52.3731081, 4.8932945],
         zoom: 10,
-        crs: utils.getCRS(),
+        crs: utils.getCrsRd(),
         maxBounds: [
           [52.25168, 4.64034],
           [52.50536, 5.10737],

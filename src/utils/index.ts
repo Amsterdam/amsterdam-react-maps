@@ -1,1 +1,2 @@
-export { default as getCRS } from './getCRS'
+// eslint-disable-next-line import/prefer-default-export
+export { default as getCrsRd } from './getCrsRd'

@@ -12,8 +12,6 @@ export const WFS_ENDPOINT = 'https://map.data.amsterdam.nl/maps/parkeervakken'
 const GeojsonWfsPage = () => {
   const [bbox, setBBox] = useState()
 
-  const mapRef = useRef(null)
-
   return (
     <Map
       events={{
@@ -25,7 +23,7 @@ const GeojsonWfsPage = () => {
       options={{
         center: [52.3731081, 4.8932945],
         zoom: 12,
-        crs: utils.getCRS(),
+        crs: utils.getCrsRd(),
         maxBounds: [
           [52.25168, 4.64034],
           [52.50536, 5.10737],

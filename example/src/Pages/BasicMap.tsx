@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { LatLngExpression, Marker as MarkerType } from 'leaflet'
-import 'leaflet/dist/leaflet.css'
+import { LatLngLiteral, Marker as MarkerType } from 'leaflet'
 import { Map, TileLayer, Marker } from '@datapunt/react-maps'
+import styled from '@datapunt/asc-core'
 import { ViewerContainer, SearchBar } from '@datapunt/asc-ui'
-import Controls from '../Zoom'
-import GPSButton from '../GPSButton'
-import { utils } from '../../../src'
-import DefaultMarkerIcon from '../DefaultMarkerIcon'
-import NonTiledLayer from '../NonTiledLayer'
+import Controls from '../components/Zoom'
+import { constants } from '../../../src'
+import DefaultMarkerIcon from '../components/DefaultMarkerIcon'
+import NonTiledLayer from '../components/NonTiledLayer'
 
-const HomePage = () => {
+const StyledMap = styled(Map)`
+  width: 100%;
+  height: 100vh;
+`
+
+const StyledViewerContainer = styled(ViewerContainer)`
+  z-index: 400;
+`
+
+const BasicMap: React.FC = () => {
   const [marker, setMarker] = useState<MarkerType>()
-  const [markerPosition, setMarkerPosition] = useState({
+  const [markerPosition, setMarkerPosition] = useState<LatLngLiteral>({
     lat: 52.3731081,
     lng: 4.8932945,
   })
 
-  const [markers, setMarkers] = useState<LatLngExpression[]>([])
+  const [markerPositions, setMarkerPositions] = useState<LatLngLiteral[]>([])
 
   function moveMarker() {
     const { lat, lng } = markerPosition
@@ -26,41 +34,27 @@ const HomePage = () => {
     })
   }
 
-  const addMarker = (latlng: LatLngExpression) => {
-    setMarkers((c: LatLngExpression[]) => [...c, latlng])
+  const addMarker = (latlng: LatLngLiteral) => {
+    setMarkerPositions((c: LatLngLiteral[]) => [...c, latlng])
   }
 
   useEffect(() => {
-    if (marker) {
+    if (marker !== undefined) {
       marker.setLatLng(markerPosition)
     }
   }, [marker, markerPosition])
 
   return (
-    <Map
+    <StyledMap
       events={{
-        click: async e => {
+        click: e => {
           addMarker(e.latlng)
         },
       }}
-      options={{
-        center: [52.3731081, 4.8932945],
-        zoom: 10,
-        crs: utils.getCrsRd(),
-        maxBounds: [
-          [52.25168, 4.64034],
-          [52.50536, 5.10737],
-        ],
-      }}
-      style={{
-        width: '100%',
-        height: '100vh',
-      }}
+      options={constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS}
     >
-      <ViewerContainer
-        style={{ zIndex: 400 }}
+      <StyledViewerContainer
         topLeft={<SearchBar />}
-        topRight={<GPSButton />}
         bottomRight={<Controls />}
         bottomLeft={
           <button type="button" onClick={moveMarker}>
@@ -75,8 +69,9 @@ const HomePage = () => {
           icon: DefaultMarkerIcon,
         }}
       />
-      {markers.map(latlng => (
+      {markerPositions.map(latlng => (
         <Marker
+          key={String(latlng)}
           args={[latlng]}
           options={{
             icon: DefaultMarkerIcon,
@@ -84,26 +79,25 @@ const HomePage = () => {
         />
       ))}
       <TileLayer
-        args={['https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png']}
+        args={[constants.DEFAULT_AMSTERDAM_LAYERS.normal]}
         options={{
-          subdomains: ['acc.t1', 'acc.t2', 'acc.t3', 'acc.t4'],
+          subdomains: ['1', '2', '3', '4'],
           tms: true,
           attribution:
             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
         }}
       />
       <NonTiledLayer
-        {...{
+        url="https://acc.map.data.amsterdam.nl/maps/brk"
+        options={{
           id: 'kgem',
-          url: 'https://acc.map.data.amsterdam.nl/maps/brk',
-          identify: false,
           format: 'image/png',
           transparent: true,
-          layers: ['kadastrale_gemeente', 'kadastrale_gemeente_label'],
+          layers: 'kadastrale_gemeente',
         }}
       />
-    </Map>
+    </StyledMap>
   )
 }
 
-export default HomePage
+export default BasicMap
