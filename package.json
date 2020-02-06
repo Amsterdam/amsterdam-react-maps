@@ -6,7 +6,7 @@
     "@datapunt/asc-assets": "0.18.1",
     "@datapunt/asc-core": "0.18.1",
     "@datapunt/asc-ui": "0.18.2-alpha.1",
-    "@datapunt/react-maps": "^0.4.0",
+    "@datapunt/react-maps": "^0.7.2",
     "leaflet": "^1.6.0",
     "leaflet.nontiledlayer": "^1.0.8",
     "proj4": "^2.6.0",
