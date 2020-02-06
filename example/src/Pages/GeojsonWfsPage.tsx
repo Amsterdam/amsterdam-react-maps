@@ -16,7 +16,6 @@ const GeojsonWfsPage = () => {
 
   return (
     <Map
-      ref={mapRef}
       events={{
         moveend: e => {
           // This triggers the refresh of the layer

@@ -35,7 +35,6 @@ const GeocoderPage = () => {
 
   return (
     <Map
-      ref={mapRef}
       events={{
         click: async e => {
           const pointInfo = await pointQuery(e)

@@ -29,7 +29,7 @@ const Geocoder = ({
   getAddressById,
   ...otherProps
 }: any) => {
-  const { mapInstance } = useMapInstance()
+  const mapInstance = useMapInstance()
   const [{ term, results, index, searchMode }, dispatch] = useReducer(
     reducer,
     initialState,

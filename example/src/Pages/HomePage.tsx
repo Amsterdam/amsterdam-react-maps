@@ -40,7 +40,6 @@ const HomePage = () => {
 
   return (
     <Map
-      ref={mapRef}
       events={{
         click: async e => {
           addMarker(e.latlng)

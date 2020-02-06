@@ -179,10 +179,10 @@
     polished "^3.4.1"
     react-uid "^2.2.0"
 
-"@datapunt/react-maps@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.3.0.tgz#f9305f1a4429744b94bed00f01ab8e0a9aa02187"
-  integrity sha512-9qlWPa01E147eK6RFOTwNm1fUCFbGenSHRgDE2en6HPme6yh56bXibh1xTa+OpeQnjpJkTYTapa00EtdCczwpw==
+"@datapunt/react-maps@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.6.0.tgz#0518f2d8d8b0a2617bce894c4e5f081b0f2c5fd9"
+  integrity sha512-ZjKge8+gcqUMpInYTkatzCwI1ABbxEqVyM0cpqL4J3nzElQMXQOuG/EwPP1MHoNI1WpxfOy/I7OvgCwaCv/b3w==
   dependencies:
     geojson "^0.5.0"
     leaflet-draw "^1.0.4"

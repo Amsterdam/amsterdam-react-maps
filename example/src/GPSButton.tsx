@@ -1,27 +1,27 @@
-import React from "react";
-import L from "leaflet";
-import { Button } from "@datapunt/asc-ui";
-import { useMapInstance } from "@datapunt/react-maps";
+import React from 'react'
+import L from 'leaflet'
+import { Button } from '@datapunt/asc-ui'
+import { useMapInstance } from '@datapunt/react-maps'
 
 const GPSButton = () => {
-  const { mapInstance } = useMapInstance();
-  const [loading, setLoading] = React.useState(false);
-  const geoLocationSupported = navigator.geolocation;
+  const mapInstance = useMapInstance()
+  const [loading, setLoading] = React.useState(false)
+  const geoLocationSupported = navigator.geolocation
 
   const setUserLocation = () => {
-    setLoading(true);
+    setLoading(true)
     if (geoLocationSupported) {
       navigator.geolocation.getCurrentPosition(position => {
-        setLoading(false);
+        setLoading(false)
         mapInstance.panTo(
-          new L.LatLng(position.coords.latitude, position.coords.longitude)
-        );
-      });
+          new L.LatLng(position.coords.latitude, position.coords.longitude),
+        )
+      })
     } else {
-      setLoading(false);
-      alert("Geolocation is not supported by this browser.");
+      setLoading(false)
+      alert('Geolocation is not supported by this browser.')
     }
-  };
+  }
   return (
     <>
       {loading && <strong>loading</strong>}
@@ -29,7 +29,7 @@ const GPSButton = () => {
         User location
       </Button>
     </>
-  );
-};
+  )
+}
 
-export default GPSButton;
+export default GPSButton

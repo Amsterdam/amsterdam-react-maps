@@ -20,7 +20,7 @@ export interface Props {
 }
 
 const WfsLayer: React.FC<Props> = ({ bbox, serviceUrl, zoomLevel, params }) => {
-  const { mapInstance } = useMapInstance()
+  const mapInstance = useMapInstance()
   const wfsLayer = useRef<any>(null)
   const wfsSelectionLayer = useRef<any>(null)
   const [features, setFeatures] = useState([])
