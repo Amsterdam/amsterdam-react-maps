@@ -8,7 +8,7 @@ const defaultRoute = '/geocoder' // '/';
 
 const App = () => {
   useEffect(() => {
-    window.history.pushState({}, '', defaultRoute)
+    // window.history.pushState({}, '', defaultRoute)
   }, [])
 
   return (

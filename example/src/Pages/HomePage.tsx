@@ -18,8 +18,6 @@ const HomePage = () => {
 
   const [markers, setMarkers] = useState<LatLngExpression[]>([])
 
-  const mapRef = useRef(null)
-
   function moveMarker() {
     const { lat, lng } = markerPosition
     setMarkerPosition({

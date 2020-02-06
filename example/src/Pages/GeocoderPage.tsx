@@ -21,8 +21,6 @@ const GeocoderPage = () => {
   const [marker, setMarker] = useState()
   const [clickPointInfo, setClickPointInfo] = useState()
 
-  const mapRef = useRef(null)
-
   const geocoderProps = useMemo(
     () => ({
       marker,
@@ -37,6 +35,7 @@ const GeocoderPage = () => {
     <Map
       events={{
         click: async e => {
+          console.log('click')
           const pointInfo = await pointQuery(e)
           setClickPointInfo(pointInfo)
         },

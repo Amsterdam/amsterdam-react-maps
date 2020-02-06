@@ -71,9 +71,11 @@ const Geocoder = ({
 
   const flyTo = useCallback(
     location => {
-      const currentZoom = mapInstance.getZoom()
-      mapInstance.flyTo(location, currentZoom < 11 ? 11 : currentZoom)
-      marker.setOpacity(1)
+      if (mapInstance) {
+        const currentZoom = mapInstance.getZoom()
+        mapInstance.flyTo(location, currentZoom < 11 ? 11 : currentZoom)
+        marker.setOpacity(1)
+      }
     },
     [mapInstance, marker],
   )
