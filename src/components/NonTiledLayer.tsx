@@ -14,19 +14,16 @@ const NonTiledLayer: React.FC<{
   const layerUrl = `${url}?${query}`
 
   useEffect(() => {
-    if (mapInstance !== null && L.nonTiledLayer) {
+    if (mapInstance !== null && !layer) {
       setLayer(L.nonTiledLayer.wms(layerUrl, options).addTo(mapInstance))
     }
-  }, [mapInstance])
 
-  useEffect(
-    () => () => {
+    return () => {
       if (layer && mapInstance && mapInstance.hasLayer(layer)) {
         layer.removeFrom(mapInstance)
       }
-    },
-    [layer, mapInstance],
-  )
+    }
+  }, [mapInstance, layer])
 
   return null
 }

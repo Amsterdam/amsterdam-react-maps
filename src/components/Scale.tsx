@@ -2,10 +2,8 @@ import React, { useEffect } from 'react'
 import { useMapInstance } from '@datapunt/react-maps'
 import { Control, control } from 'leaflet'
 
-import ScaleOptions = Control.ScaleOptions
-
 type Props = {
-  options?: ScaleOptions
+  options?: Control.ScaleOptions
 }
 
 // Todo: Move this to react-maps

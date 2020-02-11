@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GeoJsonObject } from 'geojson'
 import { GeoJSONOptions } from 'leaflet'
 import { useMapInstance, GeoJSON } from '@datapunt/react-maps'
+import fetchWithAbort from '../utils/fetchWithAbort'
 
 type Props = {
   url: string
@@ -13,13 +14,18 @@ const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
   const [json, setJson] = useState<GeoJsonObject>()
 
   useEffect(() => {
-    if (mapInstance) {
-      window
-        .fetch(`${url}`)
-        .then(res => res.json())
-        .then(res => {
-          setJson(res)
-        })
+    if (!mapInstance) {
+      return () => {}
+    }
+    const [request, controller] = fetchWithAbort(url)
+    request
+      .then(res => res.json())
+      .then(res => {
+        setJson(res)
+      })
+
+    return () => {
+      controller.abort()
     }
   }, [mapInstance])
 
