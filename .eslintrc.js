@@ -62,6 +62,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'consistent-return': 'off',
   },
   settings: {
     'import/resolver': {
