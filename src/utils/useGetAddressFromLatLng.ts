@@ -4,7 +4,7 @@ import { LatLng } from 'leaflet'
 import proj4, { InterfaceCoordinates } from 'proj4'
 import { CRS_CONFIG } from './getCrsRd'
 import { ENDPOINTS } from '../constants'
-import useFetchWithAbort from './useFetchWithAbort'
+import fetchWithAbort from './fetchWithAbort'
 
 type Links = {
   self: {
@@ -49,29 +49,40 @@ const useGetAddressFromLatLng = () => {
   const [latLng, setLatLng] = useState<LatLng>()
   const [loading, setLoading] = useState(false)
 
-  const [request, controller] = useFetchWithAbort()
-
   useEffect(() => {
-    if (latLng) {
-      setLoading(true)
-      const xy: InterfaceCoordinates = {
-        x: latLng.lng,
-        y: latLng.lat,
-      }
+    setAddresses(undefined)
 
-      request(requestFormatter(ENDPOINTS.geocoder, xy))
-        .then(res => res.json())
-        .then((res: ValidResponse) => {
-          setAddresses(res)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    } else {
-      setAddresses(undefined)
+    if (!latLng) {
+      return () => {}
     }
 
+    setLoading(true)
+
+    const xy: InterfaceCoordinates = {
+      x: latLng.lng,
+      y: latLng.lat,
+    }
+
+    const url = requestFormatter(ENDPOINTS.geocoder, xy)
+    const [request, controller] = fetchWithAbort(url)
+
+    request
+      .then(res => res.json())
+      .then((res: ValidResponse) => {
+        setAddresses(res)
+        setLoading(false)
+      })
+      .catch(error => {
+        // Ignore abort errors to prevent loading state from being set to false.
+        if (error instanceof Error && error.name === 'AbortError') {
+          return
+        }
+
+        setLoading(false)
+      })
+
     return () => {
+      setLoading(false)
       controller.abort()
     }
   }, [latLng])
