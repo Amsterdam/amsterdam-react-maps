@@ -196,10 +196,10 @@
   dependencies:
     styled-components "^4.3.2"
 
-"@datapunt/asc-ui@0.18.2-alpha.1":
-  version "0.18.2-alpha.1"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.18.2-alpha.1.tgz#ac0bf2ec1e24ddce447abbad3d8e395ef25a5b70"
-  integrity sha512-EvyhLHSjQbQ2mAqLG/+GiV3u/TrjTLnc4DgcfzvMw21MW2W/JwhRF4ZwYDfO8VQ5LZ1USU+Ug+eLYCN9+fNbrQ==
+"@datapunt/asc-ui@0.18.2":
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.18.2.tgz#2670061133a20e8dbbd5c60e06ca4d4f7057682c"
+  integrity sha512-+qa5RpmFXLQj2Mq6nnI5Rh0StW+lUiNkwGG4eYtmjg7YS55JbXqiYK5m46aUC+ZcddZyk76hEeycRPa10lffqw==
   dependencies:
     "@datapunt/asc-assets" "^0.18.1"
     "@datapunt/asc-core" "^0.18.1"
