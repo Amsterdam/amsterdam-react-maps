@@ -26,7 +26,7 @@ type Address = {
   landelijk_id: string
   hoofdadres: boolean
   vbo_status: VboStatus
-  dataset: string // Todo: could be an enum?
+  dataset: string
 }
 
 type ValidResponse = {
