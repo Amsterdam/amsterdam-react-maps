@@ -19,11 +19,11 @@ branches:
   only:
     - master
 deploy:
-  - provider: master
+  - provider: pages
     local_dir: ./dist
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     on:
-      branch: prototype
+      branch: master
       node: '12'
       os: linux
