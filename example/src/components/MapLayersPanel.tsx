@@ -33,8 +33,6 @@ const MapLayersPanel: React.FC = () => {
         {[...NON_TILED_LAYERS_EXAMPLES, ...GEO_JSON_LAYER_EXAMPLES].map(
           ({ id, title }) => (
             <Label htmlFor={id} key={id} label={title}>
-              {/*
-              // @ts-ignore */}
               <Checkbox id={id} value={id} onChange={handleOnChange} />
             </Label>
           ),

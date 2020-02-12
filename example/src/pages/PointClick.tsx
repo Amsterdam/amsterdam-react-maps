@@ -18,11 +18,7 @@ const StyledViewerContainer = styled(ViewerContainer)`
 
 const PointClick: React.FC = () => {
   return (
-    <StyledMap
-      options={{
-        ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
-      }}
-    >
+    <StyledMap options={constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS}>
       <StyledViewerContainer
         topRight={<PointClickResults />}
         bottomRight={<Controls />}

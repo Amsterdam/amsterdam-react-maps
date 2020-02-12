@@ -13,7 +13,7 @@ install:
   - yarn
 script:
   - yarn lint
-#  - yarn build Todo: enable when asc-assets don't have exported svg's
+  - yarn build
   - yarn build:example
 branches:
   only:
