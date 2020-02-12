@@ -19,7 +19,7 @@ branches:
   only:
     - master
 deploy:
-  - provider: pages
+  - provider: master
     local_dir: ./dist
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
