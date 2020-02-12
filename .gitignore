@@ -12,6 +12,7 @@
 /build
 /dist
 /lib
+/es
 
 # misc
 .DS_Store
@@ -21,6 +22,7 @@
 .env.production.local
 *.tsbuildinfo
 .eslintcache
+.awcache
 
 npm-debug.log*
 yarn-debug.log*
