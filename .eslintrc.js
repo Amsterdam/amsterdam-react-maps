@@ -63,6 +63,8 @@ module.exports = {
       },
     ],
     'consistent-return': 'off',
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': ['error'],
   },
   settings: {
     'import/resolver': {

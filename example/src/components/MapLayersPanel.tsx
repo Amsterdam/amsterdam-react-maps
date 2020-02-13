@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Checkbox, Heading, Label } from '@datapunt/asc-ui'
-import { DomEvent, FeatureGroup, LeafletMouseEvent } from 'leaflet'
+import { LeafletMouseEvent, FeatureGroup, DomEvent } from 'leaflet'
 import {
   GEO_JSON_LAYER_EXAMPLES,
   NON_TILED_LAYERS_EXAMPLES,
+  WFS_LAYER_EXAMPLES,
 } from '../../config'
 import NonTiledLayer from '../../../src/components/NonTiledLayer'
+import WfsLayer from '../../../src/components/WfsLayer'
 import GeoJSONLayer from '../../../src/components/GeoJSONLayer'
 
 const MapLayersPanelStyle = styled.div`
@@ -15,7 +17,6 @@ const MapLayersPanelStyle = styled.div`
   flex-direction: column;
   padding: 10px;
 `
-
 const MapLayersPanel: React.FC = () => {
   const [activeLayers, setActiveLayers] = useState<string[]>([])
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -30,14 +31,17 @@ const MapLayersPanel: React.FC = () => {
     <>
       <MapLayersPanelStyle>
         <Heading element="h4">Kaartlagen</Heading>
-        {[...NON_TILED_LAYERS_EXAMPLES, ...GEO_JSON_LAYER_EXAMPLES].map(
-          ({ id, title }) => (
-            <Label htmlFor={id} key={id} label={title}>
-              <Checkbox id={id} value={id} onChange={handleOnChange} />
-            </Label>
-          ),
-        )}
+        {[
+          ...NON_TILED_LAYERS_EXAMPLES,
+          ...GEO_JSON_LAYER_EXAMPLES,
+          ...WFS_LAYER_EXAMPLES,
+        ].map(({ id, title }) => (
+          <Label htmlFor={id} key={id} label={title}>
+            <Checkbox id={id} value={id} onChange={handleOnChange} />
+          </Label>
+        ))}
       </MapLayersPanelStyle>
+
       {GEO_JSON_LAYER_EXAMPLES.filter(({ id }) =>
         activeLayers.includes(id),
       ).map(({ id, url, style, activeStyle }) => (
@@ -61,6 +65,18 @@ const MapLayersPanel: React.FC = () => {
           }}
         />
       ))}
+
+      {WFS_LAYER_EXAMPLES.filter(({ id }) => activeLayers.includes(id)).map(
+        ({ id, url, options, zoomLevel }) => (
+          <WfsLayer
+            key={id}
+            url={url}
+            options={options}
+            zoomLevel={zoomLevel}
+          />
+        ),
+      )}
+
       {NON_TILED_LAYERS_EXAMPLES.filter(({ id }) =>
         activeLayers.includes(id),
       ).map(({ url, options, id }) => (

@@ -9,13 +9,18 @@ type Props = {
   options?: GeoJSONOptions
 }
 
+/**
+ * This GeoJSONLayer can be used with any api, the data is requested only once and is
+ * not dependent on zoom levels. Not to be used for large datasets because it can
+ * impact the overall map performance
+ */
 const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
   const mapInstance = useMapInstance()
   const [json, setJson] = useState<GeoJsonObject>()
 
   useEffect(() => {
     if (!mapInstance) {
-      return () => {}
+      return
     }
     const [request, controller] = fetchWithAbort(url)
 
