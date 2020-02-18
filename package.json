@@ -19,7 +19,8 @@
     "start": "webpack-dev-server",
     "lint": "eslint ./ --ext .ts,.tsx",
     "deploy:gh-pages": "node ./scripts/gh-pages.js",
-    "build": "rm -rf es && tsc -p ./tsconfig.build.es2015.json && tsc -p ./tsconfig.build.commonjs.json",
+    "build:clean": "rm -rf es lib *.tsbuildinfo",
+    "build": "yarn build:clean && tsc -p ./tsconfig.build.es2015.json && tsc -p ./tsconfig.build.commonjs.json",
     "build:example": "webpack --config ./webpack.config.js --prod"
   },
   "files": [
