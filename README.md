@@ -5,7 +5,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
-[Demo site with the storybook of the components](https://amsterdam.github.io/amsterdam-react-maps)
+[Demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam). 
 It also contains an "example" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
