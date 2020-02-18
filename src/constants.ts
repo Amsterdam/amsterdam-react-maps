@@ -1,5 +1,5 @@
 import { MapOptions } from 'leaflet'
-import { getCrsRd } from './utils'
+import getCrsRd from './utils/getCrsRd'
 
 export const DEFAULT_AMSTERDAM_MAPS_OPTIONS: MapOptions = {
   center: [52.3731081, 4.8932945],
