@@ -77,3 +77,10 @@ export const ENDPOINTS = {
   geocoder:
     'https://api.data.amsterdam.nl/bag/nummeraanduiding/?format=json&locatie=',
 }
+
+/**
+ * Minimum and maximum possible zoom levels for maps
+ *
+ */
+export const MIN_ZOOM_LEVEL = 22
+export const MAX_ZOOM_LEVEL = 0
