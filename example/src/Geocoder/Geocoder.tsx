@@ -3,7 +3,6 @@ import 'leaflet/dist/leaflet.css'
 import { SearchBar } from '@datapunt/asc-ui'
 import { useMapInstance } from '@datapunt/react-maps'
 import SearchResultsList from './SearchResultsList'
-import { nearestAdresToString } from './services/transformers'
 import {
   reducer,
   searchTermSelected,
@@ -39,7 +38,7 @@ const Geocoder = ({
   const onSelect = async (idx: number) => {
     dispatch(searchTermSelected(results[idx].name))
     const { id } = results[idx]
-    const location = await getAddressById(id)
+    const { location } = await getAddressById(id)
     if (location) {
       setMarkerLocation(location)
     }
@@ -63,10 +62,10 @@ const Geocoder = ({
 
   useEffect(() => {
     if (!clickPointInfo) return
-    const { location, nearestAdres } = clickPointInfo
+    const { location, address } = clickPointInfo
     marker.setLatLng(location)
     marker.setOpacity(1)
-    dispatch(searchTermSelected(nearestAdresToString(nearestAdres)))
+    dispatch(searchTermSelected(address?.weergavenaam || ''))
   }, [clickPointInfo, marker])
 
   const flyTo = useCallback(
