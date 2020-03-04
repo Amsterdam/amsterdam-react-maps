@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useReducer } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { SearchBar } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+import { useMapInstance, Marker } from '@datapunt/react-maps'
 import SearchResultsList from './SearchResultsList'
 import {
   reducer,
@@ -13,6 +13,13 @@ import {
   initialState,
 } from './ducks'
 import GeocoderStyle from './GeocoderStyle'
+import pointQuery from './services/pointQuery'
+import DefaultMarkerIcon from '../DefaultMarkerIcon'
+
+const markerPosition = {
+  lat: 52.3731081,
+  lng: 4.8932945,
+}
 
 const inputProps: any = {
   autoCapitalize: 'off',
@@ -21,14 +28,14 @@ const inputProps: any = {
 }
 
 const Geocoder = ({
-  marker,
-  clickPointInfo,
   placeholder,
   getSuggestions,
   getAddressById,
   ...otherProps
 }: any) => {
   const mapInstance = useMapInstance()
+  const [marker, setMarker] = useState()
+  const [clickPointInfo, setClickPointInfo] = useState()
   const [{ term, results, index, searchMode }, dispatch] = useReducer(
     reducer,
     initialState,
@@ -134,6 +141,22 @@ const Geocoder = ({
     }
   }
 
+  useEffect(() => {
+    const clickHandler = async (e: LeafletMouseEvent) => {
+      const pointInfo = await pointQuery(e)
+      setClickPointInfo(pointInfo)
+    }
+    if (mapInstance) {
+      mapInstance.on('click', clickHandler)
+    }
+
+    return () => {
+      if (mapInstance) {
+        mapInstance.off('click', clickHandler)
+      }
+    }
+  }, [mapInstance])
+
   return (
     <GeocoderStyle {...otherProps}>
       <SearchBar
@@ -145,6 +168,14 @@ const Geocoder = ({
         value={term}
       />
       <SearchResultsList items={results} selected={index} onSelect={onSelect} />
+      <Marker
+        setInstance={setMarker}
+        args={[markerPosition]}
+        options={{
+          icon: DefaultMarkerIcon,
+          opacity: 0,
+        }}
+      />
     </GeocoderStyle>
   )
 }
