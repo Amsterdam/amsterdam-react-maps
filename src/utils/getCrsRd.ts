@@ -1,9 +1,28 @@
+import L, { LatLng, PointExpression } from 'leaflet'
 import proj4, { InterfaceCoordinates } from 'proj4'
-import L, { LatLng } from 'leaflet'
 
-const def =
-  "+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs'"
-const proj4RD = proj4('WGS84', def)
+export const CRS_CONFIG = {
+  RD: {
+    code: 'EPSG:28992',
+    projection:
+      '+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +' +
+      'y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.3507326' +
+      '76542563,-1.8703473836068,4.0812 +no_defs',
+    transformation: {
+      bounds: {
+        topLeft: [-285401, 903401] as PointExpression,
+        bottomRight: [595401.92, 22598.08] as PointExpression,
+      },
+    },
+  },
+  WGS84: {
+    code: 'EPSG:4326',
+    projection: '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs',
+  },
+  EARTH_RADIUS: 6378137,
+}
+
+export const proj4RD = proj4(CRS_CONFIG.WGS84.code, CRS_CONFIG.RD.projection)
 
 /**
  * This method will return RD-coordinates (RD stands for "Rijksdriehoekscoördinaten") in the geodetic coordinate system
@@ -23,24 +42,27 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []) => {
   return {
     ...L.CRS.Simple,
     ...{
-      code: 'EPSG:28992',
+      code: CRS_CONFIG.RD.code,
       infinite: false,
       projection: {
         project: (latlng: LatLng) => {
-          const point = proj4RD.forward([latlng.lng, latlng.lat])
-          return new L.Point(point[0], point[1])
+          const [x, y] = proj4RD.forward([latlng.lng, latlng.lat])
+          return new L.Point(x, y)
         },
         unproject: (point: InterfaceCoordinates) => {
-          const lnglat = proj4RD.inverse([point.x, point.y])
-          return L.latLng(lnglat[1], lnglat[0])
+          const [lng, lat] = proj4RD.inverse([point.x, point.y])
+          return L.latLng(lat, lng)
         },
+        bounds: L.bounds(
+          CRS_CONFIG.RD.transformation.bounds.topLeft,
+          CRS_CONFIG.RD.transformation.bounds.bottomRight,
+        ),
 
-        bounds: L.bounds([-285401.92, 903401.92], [595401.92, 22598.08]),
-
-        proj4def: def,
+        proj4def: CRS_CONFIG.RD.projection,
       },
       transformation: new L.Transformation(1, 285401.92, -1, 903401.92),
-
+      distance: L.CRS.Earth.distance,
+      R: CRS_CONFIG.EARTH_RADIUS,
       scale: (zoom: number) => {
         if (scales[zoom]) {
           return scales[zoom]

@@ -1,19 +1,17 @@
 {
   "compilerOptions": {
     "noLib": false,
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "module": "ES2015",
+    "target": "ES2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "types": [
       "jest",
       "node",
       "react",
       "react-dom",
-      "styled-components"
+      "styled-components",
+      "leaflet",
+      "proj4"
     ],
     "composite": true,
     "sourceMap": true,
@@ -39,14 +37,6 @@
     "custom.d.ts",
     "node_modules/jest-styled-components/typings/index.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "lib"
-  ],
-  "include": [
-    "src",
-    "example",
-    "*.tsx",
-    "*.ts"
-  ]
+  "exclude": ["node_modules", "lib"],
+  "include": ["src", "example"]
 }

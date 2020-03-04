@@ -13,6 +13,8 @@ module.exports = {
   },
   globals: {
     window: true,
+    fetch: true,
+    AbortController: true,
   },
   overrides: [
     {
@@ -32,6 +34,7 @@ module.exports = {
   rules: {
     'no-console': 2,
     'prettier/prettier': ['error'],
+    'react/jsx-key': 2,
     'react/prop-types': 0,
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -59,6 +62,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'consistent-return': 'off',
   },
   settings: {
     'import/resolver': {

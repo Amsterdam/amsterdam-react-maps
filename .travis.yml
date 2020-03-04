@@ -13,6 +13,17 @@ install:
   - yarn
 script:
   - yarn lint
+  - yarn build
+  - yarn build:example
 branches:
   only:
     - master
+deploy:
+  - provider: pages
+    local_dir: ./dist
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+      branch: master
+      node: '12'
+      os: linux
