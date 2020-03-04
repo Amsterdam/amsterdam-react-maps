@@ -3,8 +3,8 @@ import IndexPage from './IndexPage'
 import MapLayers from './pages/MapLayers'
 import PointClick from './pages/PointClick'
 import MapBaseLayers from './pages/MapBaseLayers'
-import GeocoderPage from './Pages/GeocoderPage'
-import GeojsonWfsPage from './Pages/GeojsonWfsPage'
+import Geocoder from './pages/Geocoder'
+import GeojsonWfs from './pages/GeojsonWfs'
 
 const AppRoutes: { [key: string]: RouteProps } = {
   INDEX: { path: '/', component: IndexPage, exact: true },
@@ -17,11 +17,11 @@ const AppRoutes: { [key: string]: RouteProps } = {
   },
   GEOCODER: {
     path: '/geocoder',
-    component: GeocoderPage,
+    component: Geocoder,
   },
   GEOJSON_WFS: {
     path: '/geojson-wfs',
-    component: GeojsonWfsPage,
+    component: GeojsonWfs,
   },
 }
 

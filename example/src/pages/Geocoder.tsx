@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { Map, TileLayer, Marker } from '@datapunt/react-maps'
 import { ViewerContainer } from '@datapunt/asc-ui'
@@ -35,7 +35,6 @@ const GeocoderPage = () => {
     <Map
       events={{
         click: async e => {
-          console.log('click')
           const pointInfo = await pointQuery(e)
           setClickPointInfo(pointInfo)
         },

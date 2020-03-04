@@ -18,6 +18,16 @@ const PAGES = [
     description:
       '(Prototype*) Select a baselayer variant (like map / aerial views)',
   },
+  {
+    to: '/geocoder',
+    title: 'Geocoder',
+    description: '(Prototype*) Search address by name',
+  },
+  {
+    to: '/geojson-wfs',
+    title: 'Wfs Layer',
+    description: '(Prototype*) Shows the implementation of the wfs layer',
+  },
 ]
 
 const IndexPage: React.FC = () => (

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { Map, TileLayer } from '@datapunt/react-maps'
 import { ViewerContainer } from '@datapunt/asc-ui'
