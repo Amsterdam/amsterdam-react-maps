@@ -14,7 +14,7 @@ import {
 } from './ducks'
 import GeocoderStyle from './GeocoderStyle'
 import pointQuery from './services/pointQuery'
-import DefaultMarkerIcon from '../DefaultMarkerIcon'
+import { AmsterdamMarkerIcon } from '../MarkerIcons'
 
 const markerPosition = {
   lat: 52.3731081,
@@ -172,7 +172,7 @@ const Geocoder = ({
         setInstance={setMarker}
         args={[markerPosition]}
         options={{
-          icon: DefaultMarkerIcon,
+          icon: AmsterdamMarkerIcon,
           opacity: 0,
         }}
       />
