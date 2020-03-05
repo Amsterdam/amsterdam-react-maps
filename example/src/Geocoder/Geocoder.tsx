@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useReducer } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { SearchBar } from '@datapunt/asc-ui'
-import { useMapInstance, Marker } from '@datapunt/react-maps'
+import { useMapInstance, Marker, GeoJSON } from '@datapunt/react-maps'
 import SearchResultsList from './SearchResultsList'
 import {
   reducer,
@@ -15,6 +15,7 @@ import {
 import GeocoderStyle from './GeocoderStyle'
 import pointQuery from './services/pointQuery'
 import { AmsterdamMarkerIcon } from '../MarkerIcons'
+import ParksLayer, { getParksLayerOptions } from './ParksLayer'
 
 const markerPosition = {
   lat: 52.3731081,
@@ -72,6 +73,7 @@ const Geocoder = ({
     const { location, address } = clickPointInfo
     marker.setLatLng(location)
     marker.setOpacity(1)
+
     dispatch(searchTermSelected(address?.weergavenaam || ''))
   }, [clickPointInfo, marker])
 
@@ -175,6 +177,10 @@ const Geocoder = ({
           icon: AmsterdamMarkerIcon,
           opacity: 0,
         }}
+      />
+      <GeoJSON
+        args={[ParksLayer]}
+        options={getParksLayerOptions(setClickPointInfo)}
       />
     </GeocoderStyle>
   )

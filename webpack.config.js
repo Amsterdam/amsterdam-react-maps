@@ -68,7 +68,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif|ico|json)$/i,
+        test: /\.(png|jpe?g|gif|ico)$/i,
         use: ['file-loader'],
       },
     ],
