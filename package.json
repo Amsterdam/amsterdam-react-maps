@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@datapunt/asc-assets": "0.18.2-alpha.51",
+    "@datapunt/asc-assets": "0.18.2-alpha.76",
     "@datapunt/asc-core": "0.18.1",
     "@datapunt/asc-ui": "0.18.2-alpha.4",
     "@datapunt/react-maps": "^0.7.2",
