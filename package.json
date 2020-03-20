@@ -24,7 +24,6 @@
     "build:example": "webpack --config ./webpack.config.js --prod"
   },
   "files": [
-    "es",
     "lib"
   ],
   "main": "./lib/index.js",
