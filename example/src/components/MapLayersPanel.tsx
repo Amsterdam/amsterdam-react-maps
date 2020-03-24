@@ -22,8 +22,8 @@ const MapLayersPanel: React.FC = () => {
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { value, checked } = event.currentTarget
 
-    setActiveLayers(current =>
-      checked ? [...current, value] : current.filter(id => value !== id),
+    setActiveLayers((current) =>
+      checked ? [...current, value] : current.filter((id) => value !== id),
     )
   }
 

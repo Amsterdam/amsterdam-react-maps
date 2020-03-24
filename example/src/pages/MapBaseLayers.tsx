@@ -53,7 +53,7 @@ const MapBaseLayers: React.FC = () => {
             <Select
               id="varianten"
               label="Varianten"
-              onChange={e => handleChange(e, DEFAULT_AMSTERDAM_LAYERS)}
+              onChange={(e) => handleChange(e, DEFAULT_AMSTERDAM_LAYERS)}
             >
               {DEFAULT_AMSTERDAM_LAYERS.map(({ id, label }) => (
                 <option key={id} value={id}>
@@ -64,7 +64,7 @@ const MapBaseLayers: React.FC = () => {
             <Select
               id="luchtfotos"
               label="Luchtfoto's"
-              onChange={e => handleChange(e, AERIAL_AMSTERDAM_LAYERS)}
+              onChange={(e) => handleChange(e, AERIAL_AMSTERDAM_LAYERS)}
             >
               {AERIAL_AMSTERDAM_LAYERS.map(({ id, label }) => (
                 <option key={id} value={id}>

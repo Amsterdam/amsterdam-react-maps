@@ -25,9 +25,9 @@ const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
     const [request, controller] = fetchWithAbort(url)
 
     request
-      .then(res => res.json())
-      .then(res => setJson(res))
-      .catch(error => {
+      .then((res) => res.json())
+      .then((res) => setJson(res))
+      .catch((error) => {
         // Ignore abort errors since they are expected to happen.
         if (error instanceof Error && error.name === 'AbortError') {
           return

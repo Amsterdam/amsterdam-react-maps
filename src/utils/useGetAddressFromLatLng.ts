@@ -67,12 +67,12 @@ const useGetAddressFromLatLng = () => {
     const [request, controller] = fetchWithAbort(url)
 
     request
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((res: ValidResponse) => {
         setAddresses(res)
         setLoading(false)
       })
-      .catch(error => {
+      .catch((error) => {
         // Ignore abort errors to prevent loading state from being set to false.
         if (error instanceof Error && error.name === 'AbortError') {
           return
