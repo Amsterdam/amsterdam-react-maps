@@ -72,7 +72,7 @@
     "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.0.1",
     "husky": ">=4",
-    "jest": "^25.2.0",
+    "jest": "^25.2.3",
     "jest-cli": "^25.2.3",
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
