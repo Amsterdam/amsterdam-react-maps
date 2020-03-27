@@ -70,7 +70,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "file-loader": "^6.0.0",
     "gh-pages": "^2.2.0",
-    "html-webpack-plugin": "^4.0.1",
+    "html-webpack-plugin": "^4.0.2",
     "husky": ">=4",
     "jest": "^25.2.3",
     "jest-cli": "^25.2.3",
