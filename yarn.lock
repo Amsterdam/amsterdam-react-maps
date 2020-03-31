@@ -949,10 +949,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datapunt/asc-assets@0.18.2-alpha.136", "@datapunt/asc-assets@^0.18.2-alpha.4+d0db3b30":
-  version "0.18.2-alpha.136"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.18.2-alpha.136.tgz#7ee3b57659988971aef796c55c207208008ab4f8"
-  integrity sha512-wGIFGrO27+Pj4Dnvw1eKDkerei298CAfW3KXXUeAc+QF+vzjTXxIK8HuA5rF3v2RDCaZBKWO/TajnMS9tkb6wg==
+"@datapunt/asc-assets@0.18.2-alpha.145", "@datapunt/asc-assets@^0.18.2-alpha.4+d0db3b30":
+  version "0.18.2-alpha.145"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.18.2-alpha.145.tgz#6bbbc7fe17502c8d7146e911443adb7ab8337b97"
+  integrity sha512-laOr3o9n5OO104jyihtxpKcSOCwJzC1TBMFx9O6V+zYnRWbsnmlczK4NNrnIxvwf0wl9VO3rIGsZVp5eDd35gg==
   dependencies:
     "@svgr/cli" "^5.3.0"
     "@svgr/core" "^5.3.0"
