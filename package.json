@@ -74,7 +74,7 @@
     "husky": ">=4",
     "jest": "^25.2.4",
     "jest-cli": "^25.2.3",
-    "lint-staged": "^10.0.10",
+    "lint-staged": "^10.1.0",
     "prettier": "^2.0.2",
     "react-router-dom": "^5.1.2",
     "style-loader": "^1.1.3",
