@@ -980,10 +980,10 @@
     polished "^3.4.1"
     react-uid "^2.2.0"
 
-"@datapunt/react-maps@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.7.2.tgz#6549fd6a33fdbcc2576ae6cdece6d4a1a70431ec"
-  integrity sha512-dsDN7izAjoz9l01qmHlSp36GNpPjGsXjPkOFyHnRgfYSjq15QasKu4JbyOpRKyHQrW6pyUxA5FeHCr6WG2SKNg==
+"@datapunt/react-maps@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.8.0.tgz#3b13852f8a4697789028486bb8939f19627a579f"
+  integrity sha512-efo8m6fsCO0zrxhUNoDMLv9LDiRHt+sMDeqe/wI5yAPzPF1d/hKI/yQIzPv2SO5TaOEFW9VJhAKOBMZCNpP7/A==
   dependencies:
     geojson "^0.5.0"
     leaflet-draw "^1.0.4"
