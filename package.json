@@ -1,6 +1,6 @@
 {
   "name": "@datapunt/amsterdam-react-maps",
-  "version": "0.1.1",
+  "version": "0.1.2-alpha.1",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,8 @@
     "deploy:gh-pages": "node ./scripts/gh-pages.js",
     "build:clean": "rm -rf es lib *.tsbuildinfo",
     "build": "yarn build:clean && tsc -p ./tsconfig.build.es2015.json && tsc -p ./tsconfig.build.commonjs.json",
-    "build:example": "webpack --config ./webpack.config.js --prod"
+    "build:example": "webpack --config ./webpack.config.js --prod",
+    "prepublish": "yarn build"
   },
   "files": [
     "es",
