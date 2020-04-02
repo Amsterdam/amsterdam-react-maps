@@ -28,7 +28,7 @@ const Zoom: React.FC = () => {
       <Button
         type="button"
         variant="blank"
-        title="Inzoomen"
+        title="Uitzoomen"
         size={32}
         iconSize={12}
         onClick={() => {
