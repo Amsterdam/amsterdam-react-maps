@@ -34,8 +34,7 @@
     "strict": true
   },
   "files": [
-    "custom.d.ts",
-    "node_modules/jest-styled-components/typings/index.d.ts"
+    "custom.d.ts"
   ],
   "exclude": ["node_modules", "lib"],
   "include": ["src", "example"]
