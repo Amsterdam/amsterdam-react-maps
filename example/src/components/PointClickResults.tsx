@@ -52,7 +52,7 @@ const PointClickResults: React.FC = () => {
           {addresses && !loading && (
             <List>
               <TopBar>
-                <Heading element="h3">Resultaten</Heading>
+                <Heading as="h3">Resultaten</Heading>
                 <Button
                   type="button"
                   size={30}
