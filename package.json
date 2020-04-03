@@ -9,7 +9,7 @@
     "geojson": "^0.5.0",
     "leaflet": "^1.6.0",
     "leaflet.nontiledlayer": "^1.0.8",
-    "proj4": "^2.6.0"
+    "proj4": "^2.6.1"
   },
   "peerDependencies": {
     "@datapunt/asc-assets": "0.19.0",
