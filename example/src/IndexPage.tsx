@@ -19,6 +19,12 @@ const PAGES = [
       '(Prototype*) Select a baselayer variant (like map / aerial views)',
   },
   {
+    to: '/map-panel',
+    title: 'Map Panel (mobile & desktop)',
+    description:
+      '(Prototype*) A panel that can be opened from the left (desktop) and dragged from bottom (mobile)',
+  },
+  {
     to: '/draw',
     title: 'Drawing',
     description:

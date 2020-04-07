@@ -1,22 +1,12 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
-import { Button, themeSpacing, themeColor } from '@datapunt/asc-ui'
+import { themeSpacing } from '@datapunt/asc-ui'
 import { Minimise, Enlarge } from '@datapunt/asc-assets'
 import { useMapInstance } from '@datapunt/react-maps'
+import ControlButton from './ControlButton'
 
 const ZoomBar = styled.div`
   margin-bottom: ${themeSpacing(1)};
-`
-
-const ZoomButton = styled(Button)`
-  outline: 2px solid rgb(0, 0, 0, 0.1);
-  margin-top: 2px;
-
-  & svg {
-    path {
-      fill: ${themeColor('tint', 'level6')};
-    }
-  }
 `
 
 const Zoom: React.FC = () => {
@@ -30,7 +20,7 @@ const Zoom: React.FC = () => {
 
   return (
     <ZoomBar>
-      <ZoomButton
+      <ControlButton
         type="button"
         variant="blank"
         title="Inzoomen"
@@ -41,7 +31,7 @@ const Zoom: React.FC = () => {
         }}
         icon={<Enlarge />}
       />
-      <ZoomButton
+      <ControlButton
         type="button"
         variant="blank"
         title="Uitzoomen"
