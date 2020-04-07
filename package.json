@@ -45,7 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@datapunt/asc-assets": "^0.19.0",
+    "@datapunt/asc-assets": "^0.19.1",
     "@datapunt/asc-ui": "^0.19.0",
     "@svgr/webpack": "^5.3.1",
     "@types/eslint": "^6.8.0",
