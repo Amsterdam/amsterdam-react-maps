@@ -49,7 +49,7 @@
     "@datapunt/asc-ui": "^0.19.1",
     "@svgr/webpack": "^5.3.1",
     "@types/eslint": "^6.8.0",
-    "@types/eslint-plugin-prettier": "^2.2.0",
+    "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/jest": "^25.2.1",
     "@types/leaflet": "^1.5.12",
     "@types/node": "^13.11.1",
