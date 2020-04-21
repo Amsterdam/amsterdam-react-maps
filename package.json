@@ -58,7 +58,7 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-router-dom": "^5.1.4",
     "@types/styled-components": "^5.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.28.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^3.5.2",
