@@ -1,7 +1,23 @@
 import React, { memo } from 'react'
-import { Button } from '@datapunt/asc-ui'
+import styled from 'styled-components'
+import { Button, themeSpacing, themeColor } from '@datapunt/asc-ui'
 import { Minimise, Enlarge } from '@datapunt/asc-assets'
 import { useMapInstance } from '@datapunt/react-maps'
+
+const ZoomBar = styled.div`
+  margin-bottom: ${themeSpacing(1)};
+`
+
+const ZoomButton = styled(Button)`
+  outline: 2px solid rgb(0, 0, 0, 0.1);
+  margin-top: 2px;
+
+  & svg {
+    path {
+      fill: ${themeColor('tint', 'level6')};
+    }
+  }
+`
 
 const Zoom: React.FC = () => {
   const mapInstance = useMapInstance()
@@ -13,30 +29,30 @@ const Zoom: React.FC = () => {
   }
 
   return (
-    <div>
-      <Button
+    <ZoomBar>
+      <ZoomButton
         type="button"
         variant="blank"
         title="Inzoomen"
-        size={32}
-        iconSize={12}
+        size={44}
+        iconSize={20}
         onClick={() => {
           handleZoom()
         }}
         icon={<Enlarge />}
       />
-      <Button
+      <ZoomButton
         type="button"
         variant="blank"
         title="Uitzoomen"
-        size={32}
-        iconSize={12}
+        size={44}
+        iconSize={20}
         onClick={() => {
           handleZoom(true)
         }}
         icon={<Minimise />}
       />
-    </div>
+    </ZoomBar>
   )
 }
 
