@@ -950,20 +950,25 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datapunt/asc-assets@^0.19.0", "@datapunt/asc-assets@^0.19.1":
+"@datapunt/asc-assets@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.19.1.tgz#8a81e34696bdb0ca3b0f8e47310589b5ef4d6cc5"
   integrity sha512-Gv+VX5uWJD9iu4x5sh2GBfsk5kuo6y89F5q3ndlSid9oSgjDjnagTd/FiDzmlFqug1HVutBbIC6uyuvbXS2nPw==
+
+"@datapunt/asc-assets@^0.19.2-alpha.48":
+  version "0.19.2-esm.18"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.19.2-esm.18.tgz#ba107a8b8f36f6608ae64abd95f69070b7c53842"
+  integrity sha512-DM+b+3Dx2r1hC0mvvETzvyZ7ak/+becljiW+opgGiNx+UJx/23YK6zQNo/sz0C/gTL0KZxBt2mXsZHAjTfgRiA==
 
 "@datapunt/asc-core@^0.18.3-alpha.0":
   version "0.18.3-alpha.0"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-core/-/asc-core-0.18.3-alpha.0.tgz#1ce4837cbd9a029a494a02a06902c3ad01b27c10"
   integrity sha512-sKSuS+BjH8tKoFW56sX8Lne3Ly7aJt/OygIv6OOtESEo7K0MNBup7gh4SFLEiDUW27iiDMALobu7vXf7xOGcNQ==
 
-"@datapunt/asc-ui@^0.19.1":
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.1.tgz#2b7e6a2cf10fee39a2666a8348a16b64366cd950"
-  integrity sha512-9rpCsbP4q+WwH0ESNrhoBdjLqlomko3TpaqHgo+6VGqABDrXS0FUcc3sngUsdsn2MsI4Z/X9+78peSBHvL1C8w==
+"@datapunt/asc-ui@^0.19.2-alpha.48":
+  version "0.19.2-beta.1"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.2-beta.1.tgz#3dad3e1b4639d54845278df72235894df79d0d52"
+  integrity sha512-4ip0FU1cLwScbZo6G5pfdFD4dtoC+FhZDz+VsSzuJfuAoxG9NZFZXCt0wrnAhO69cIHmb9gy2xyXT5bMSxBYYw==
   dependencies:
     "@datapunt/asc-assets" "^0.19.1"
     "@datapunt/asc-core" "^0.18.3-alpha.0"
@@ -972,7 +977,7 @@
     polished "^3.5.1"
     react-uid "^2.2.0"
 
-"@datapunt/react-maps@^0.8.1":
+"@datapunt/react-maps@^0.8.0":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@datapunt/react-maps/-/react-maps-0.8.1.tgz#404882b53f20e273827e654b4638e6df9059aa71"
   integrity sha512-qijvcVjFPj6JBJOzjXcZK+jcMgzx75kpmdEf7dOk+GEoJmjcJmlkJ2SUF7D3D1ssFsKXdkr037XOkGaBJ8IJuw==

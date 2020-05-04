@@ -1,19 +1,19 @@
 {
   "name": "@datapunt/amsterdam-react-maps",
-  "version": "0.1.2",
+  "version": "0.1.3-alpha.3",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@datapunt/react-maps": "^0.8.1",
     "geojson": "^0.5.0",
-    "leaflet": "^1.6.0",
-    "leaflet.nontiledlayer": "^1.0.8",
     "proj4": "^2.6.2"
   },
   "peerDependencies": {
-    "@datapunt/asc-assets": "0.19.0",
-    "@datapunt/asc-ui": "0.19.0",
+    "@datapunt/asc-assets": "0.19.2-alpha.48",
+    "@datapunt/asc-ui": "0.19.2-alpha.48",
+    "@datapunt/react-maps": "^0.8.1",
+    "leaflet": "^1.6.0",
+    "leaflet.nontiledlayer": "^1.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.0"
@@ -45,8 +45,9 @@
     ]
   },
   "devDependencies": {
-    "@datapunt/asc-assets": "^0.19.0",
-    "@datapunt/asc-ui": "^0.19.1",
+    "@datapunt/asc-assets": "^0.19.2-alpha.48",
+    "@datapunt/asc-ui": "^0.19.2-alpha.48",
+    "@datapunt/react-maps": "^0.8.0",
     "@svgr/webpack": "^5.4.0",
     "@types/eslint": "^6.8.1",
     "@types/eslint-plugin-prettier": "^3.1.0",
@@ -77,6 +78,8 @@
     "husky": ">=4",
     "jest": "^25.5.4",
     "jest-cli": "^26.0.1",
+    "leaflet": "^1.6.0",
+    "leaflet.nontiledlayer": "^1.0.8",
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
