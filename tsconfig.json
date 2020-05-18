@@ -34,7 +34,7 @@
     "strict": true
   },
   "files": [
-    "custom.d.ts"
+    "types.d.ts"
   ],
   "exclude": ["node_modules", "lib"],
   "include": ["src", "example", "assets"]

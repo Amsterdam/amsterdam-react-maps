@@ -30,13 +30,15 @@ const MapLayersPanel: React.FC = () => {
   return (
     <>
       <MapLayersPanelStyle>
-        <Heading element="h4">Kaartlagen</Heading>
+        <Heading as="h4">Kaartlagen</Heading>
         {[
           ...NON_TILED_LAYERS_EXAMPLES,
           ...GEO_JSON_LAYER_EXAMPLES,
           ...WFS_LAYER_EXAMPLES,
         ].map(({ id, title }) => (
           <Label htmlFor={id} key={id} label={title}>
+            {/*
+            // @ts-ignore */}
             <Checkbox id={id} value={id} onChange={handleOnChange} />
           </Label>
         ))}

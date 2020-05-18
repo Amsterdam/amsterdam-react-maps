@@ -1,4 +1,4 @@
-const { CheckerPlugin } = require('awesome-typescript-loader')
+const CheckerPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
@@ -20,9 +20,8 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
+        loader: 'ts-loader',
         options: {
-          useCache: true,
           transpileOnly: true,
         },
       },
@@ -72,7 +71,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'example/public'),
     compress: true,
-    port: 3000,
+    port: 3001,
     historyApiFallback: true,
   },
   plugins: [

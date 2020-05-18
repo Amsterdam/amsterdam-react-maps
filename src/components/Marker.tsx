@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { Marker as MarkerComponent } from '@datapunt/react-maps'
-import L, { LatLng, Marker as MarkerType, MarkerOptions } from 'leaflet'
+import {
+  LatLng,
+  LeafletEventHandlerFn,
+  Marker as MarkerType,
+  MarkerOptions,
+} from 'leaflet'
+import { defaultIcon } from '../icons'
 
 type Props = {
   latLng: LatLng
+  events?: { [key: string]: LeafletEventHandlerFn }
   options?: MarkerOptions
 }
 
-const Marker: React.FC<Props> = ({ latLng, options }) => {
+const Marker: React.FC<Props> = ({ latLng, events, options }) => {
   const [markerInstance, setMarkerInstance] = useState<MarkerType>()
 
   useEffect(() => {
@@ -16,18 +23,13 @@ const Marker: React.FC<Props> = ({ latLng, options }) => {
     }
   }, [latLng])
 
-  const icon = L.icon({
-    iconUrl: 'https://map.data.amsterdam.nl/dist/images/svg/marker.svg',
-    iconSize: [40, 40],
-    iconAnchor: [20, 39],
-  })
-
   return (
     <MarkerComponent
       setInstance={setMarkerInstance}
       args={[latLng]}
+      events={events}
       options={{
-        icon,
+        icon: defaultIcon,
         ...options,
       }}
     />
