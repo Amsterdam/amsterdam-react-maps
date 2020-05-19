@@ -5,7 +5,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@datapunt/react-maps": "^0.8.0",
+    "@datapunt/react-maps": "^0.8.1",
     "geojson": "^0.5.0",
     "leaflet": "^1.6.0",
     "leaflet.nontiledlayer": "^1.0.8",
