@@ -1,11 +1,15 @@
 {
   "name": "@datapunt/amsterdam-react-maps",
-  "version": "0.2.4-alpha.0",
+  "version": "0.2.4-alpha.1",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "geojson": "^0.5.0",
+    "leaflet": "^1.6.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet.markercluster": "^1.4.1",
+    "leaflet.nontiledlayer": "^1.0.8",
     "proj4": "^2.6.2",
     "uuid": "^8.1.0"
   },
@@ -13,10 +17,6 @@
     "@datapunt/asc-assets": "0.19.2-alpha.66",
     "@datapunt/asc-ui": "0.19.2-alpha.66",
     "@datapunt/react-maps": "^0.8.1",
-    "leaflet": "^1.6.0",
-    "leaflet-draw": "^1.0.4",
-    "leaflet.markercluster": "^1.4.1",
-    "leaflet.nontiledlayer": "^1.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.0"
