@@ -18,6 +18,17 @@ const PAGES = [
     description:
       '(Prototype*) Select a baselayer variant (like map / aerial views)',
   },
+  {
+    to: '/draw',
+    title: 'Drawing',
+    description:
+      '(Prototype*) An example of fetching results by drawing a polygon on a map',
+  },
+  {
+    to: '/marker-clustering',
+    title: 'Marker Clustering',
+    description: '(Prototype*) Marker clustering',
+  },
 ]
 
 const IndexPage: React.FC = () => (

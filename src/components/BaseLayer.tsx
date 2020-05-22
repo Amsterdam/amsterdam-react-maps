@@ -7,7 +7,9 @@ type Props = {
   baseLayer?: string
 }
 
-const BaseLayer: React.FC<Props> = ({ baseLayer }) => {
+const BaseLayer: React.FC<Props> = ({
+  baseLayer = DEFAULT_AMSTERDAM_LAYERS[0].urlTemplate,
+}) => {
   const [baseLayerInstance, setBaseLayerInstance] = useState<TileLayerType>()
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const BaseLayer: React.FC<Props> = ({ baseLayer }) => {
     }
   }, [baseLayer, baseLayerInstance])
 
-  return baseLayer ? (
+  return (
     <TileLayer
       setInstance={setBaseLayerInstance}
       args={[baseLayer]}
@@ -25,11 +27,7 @@ const BaseLayer: React.FC<Props> = ({ baseLayer }) => {
         tms: true,
       }}
     />
-  ) : null
-}
-
-BaseLayer.defaultProps = {
-  baseLayer: DEFAULT_AMSTERDAM_LAYERS[0].urlTemplate,
+  )
 }
 
 export default BaseLayer

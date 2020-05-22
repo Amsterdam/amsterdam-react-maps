@@ -1,11 +1,20 @@
-/* eslint-disable global-require */
 import React, { useEffect, useState } from 'react'
 import { Marker as MarkerComponent } from '@datapunt/react-maps'
-import L, { LatLng, Marker as MarkerType } from 'leaflet'
+import {
+  LatLng,
+  LeafletEventHandlerFn,
+  Marker as MarkerType,
+  MarkerOptions,
+} from 'leaflet'
+import { defaultIcon } from '../icons'
 
-type Props = { latLng: LatLng }
+type Props = {
+  latLng: LatLng
+  events?: { [key: string]: LeafletEventHandlerFn }
+  options?: MarkerOptions
+}
 
-const Marker: React.FC<Props> = ({ latLng }) => {
+const Marker: React.FC<Props> = ({ latLng, events, options }) => {
   const [markerInstance, setMarkerInstance] = useState<MarkerType>()
 
   useEffect(() => {
@@ -18,18 +27,10 @@ const Marker: React.FC<Props> = ({ latLng }) => {
     <MarkerComponent
       setInstance={setMarkerInstance}
       args={[latLng]}
+      events={events}
       options={{
-        icon: L.icon({
-          iconUrl: require('leaflet/dist/images/marker-icon.png').default,
-          iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
-            .default,
-          shadowUrl: require('leaflet/dist/images/marker-shadow.png').default,
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-          popupAnchor: [1, -34],
-          tooltipAnchor: [16, -28],
-          shadowSize: [41, 41],
-        }),
+        icon: defaultIcon,
+        ...options,
       }}
     />
   )

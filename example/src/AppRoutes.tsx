@@ -3,6 +3,8 @@ import IndexPage from './IndexPage'
 import MapLayers from './pages/MapLayers'
 import PointClick from './pages/PointClick'
 import MapBaseLayers from './pages/MapBaseLayers'
+import MapWithDrawTool from './pages/MapWithDrawTool'
+import MarkerClustering from './pages/MarkerClustering'
 
 const AppRoutes: { [key: string]: RouteProps } = {
   INDEX: { path: '/', component: IndexPage, exact: true },
@@ -11,6 +13,16 @@ const AppRoutes: { [key: string]: RouteProps } = {
   BASE_LAYERS: {
     path: '/map-base-layers',
     component: MapBaseLayers,
+    exact: true,
+  },
+  DRAW: {
+    path: '/draw',
+    component: MapWithDrawTool,
+    exact: true,
+  },
+  MARKER_CLUSTERING: {
+    path: '/marker-clustering',
+    component: MarkerClustering,
     exact: true,
   },
 }
