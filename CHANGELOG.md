@@ -13,3 +13,11 @@ Prefix the change with one of these keywords:
 - _Removed_: for now removed features.
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
+
+## [0.2.0]
+
+- Added: Draw tool
+- Added: MarkerClusterGroup
+- Added: Map (with amsterdam-maps defaults)
+- Added: BaseLayer component
+- Changed: Marker now accepts options and events
