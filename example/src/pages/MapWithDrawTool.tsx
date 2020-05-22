@@ -10,6 +10,7 @@ import DrawTool, {
 import MarkerClusterGroup from '../../../src/components/MarkerClusterGroup'
 import useStateRef from '../../../src/utils/useStateRef'
 import BaseLayer from '../../../src/components/BaseLayer'
+import 'leaflet-draw/dist/leaflet.draw.css'
 
 const StyledMap = styled(Map)`
   width: 100%;
