@@ -1,6 +1,6 @@
 {
   "name": "@datapunt/amsterdam-react-maps",
-  "version": "0.2.4-alpha.1",
+  "version": "0.2.5",
   "publishConfig": {
     "access": "public"
   },
