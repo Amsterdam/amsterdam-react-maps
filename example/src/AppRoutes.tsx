@@ -5,6 +5,7 @@ import PointClick from './pages/PointClick'
 import MapBaseLayers from './pages/MapBaseLayers'
 import MapWithDrawTool from './pages/MapWithDrawTool'
 import MarkerClustering from './pages/MarkerClustering'
+import MapPanelPage from './pages/MapPanelPage'
 import MapWithRDGeoJSON from './pages/MapWithRDGeoJSON'
 
 const AppRoutes: { [key: string]: RouteProps } = {
@@ -14,6 +15,11 @@ const AppRoutes: { [key: string]: RouteProps } = {
   BASE_LAYERS: {
     path: '/map-base-layers',
     component: MapBaseLayers,
+    exact: true,
+  },
+  MAP_PANEL: {
+    path: '/map-panel',
+    component: MapPanelPage,
     exact: true,
   },
   DRAW: {

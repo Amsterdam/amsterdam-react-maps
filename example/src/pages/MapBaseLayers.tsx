@@ -1,24 +1,17 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Select, ViewerContainer } from '@datapunt/asc-ui'
-import { Map } from '@datapunt/react-maps'
 import Controls from '../../../src/components/Zoom'
 import BaseLayer from '../../../src/components/BaseLayer'
-import Scale from '../../../src/components/Scale'
+import Map from '../../../src/components/Map'
 import {
   MapLayer,
   DEFAULT_AMSTERDAM_LAYERS,
-  DEFAULT_AMSTERDAM_MAPS_OPTIONS,
   AERIAL_AMSTERDAM_LAYERS,
 } from '../../../src/constants'
 import BaseLayerToggle, {
   BaseLayerType,
 } from '../../../src/components/BaseLayerToggle'
-
-const StyledMap = styled(Map)`
-  width: 100%;
-  height: 100vh;
-`
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;
@@ -55,14 +48,7 @@ const MapBaseLayers: React.FC = () => {
   }
 
   return (
-    <StyledMap options={DEFAULT_AMSTERDAM_MAPS_OPTIONS}>
-      <Scale
-        options={{
-          position: 'bottomright',
-          metric: true,
-          imperial: false,
-        }}
-      />
+    <Map fullScreen>
       <StyledViewerContainer
         topLeft={
           panelOpen ? (
@@ -106,7 +92,7 @@ const MapBaseLayers: React.FC = () => {
         bottomRight={<Controls />}
       />
       <BaseLayer baseLayer={baseLayer} />
-    </StyledMap>
+    </Map>
   )
 }
 

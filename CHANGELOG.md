@@ -16,6 +16,7 @@ Prefix the change with one of these keywords:
 
 ## UNRELEASED
 
+- Added: MapPanel (desktop) & MapPanelDrawer (mobile) components
 - Added: RDGeoJSON
 
 ## [0.2.0]
