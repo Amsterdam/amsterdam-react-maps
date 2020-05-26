@@ -5,6 +5,7 @@ import PointClick from './pages/PointClick'
 import MapBaseLayers from './pages/MapBaseLayers'
 import MapWithDrawTool from './pages/MapWithDrawTool'
 import MarkerClustering from './pages/MarkerClustering'
+import MapWithRDGeoJSON from './pages/MapWithRDGeoJSON'
 
 const AppRoutes: { [key: string]: RouteProps } = {
   INDEX: { path: '/', component: IndexPage, exact: true },
@@ -23,6 +24,11 @@ const AppRoutes: { [key: string]: RouteProps } = {
   MARKER_CLUSTERING: {
     path: '/marker-clustering',
     component: MarkerClustering,
+    exact: true,
+  },
+  RD_GEO_JSON: {
+    path: '/rd-geo-json',
+    component: MapWithRDGeoJSON,
     exact: true,
   },
 }

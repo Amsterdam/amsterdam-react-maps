@@ -1697,10 +1697,19 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.0.0.tgz#dc85454b953178cc6043df5208b9e949b54a3bc4"
   integrity sha512-/rM+sWiuOZ5dvuVzV37sUuklsbg+JPOP8d+nNFlo2ZtfpzPiPvh1/gc8liWOLBqe+sR+ZM7guPaIcTt6UZTo7Q==
 
-"@types/proj4@^2.5.0":
+"@types/proj4@*", "@types/proj4@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@types/proj4/-/proj4-2.5.0.tgz#40f1ed1cb9ef66e442ab6e57eba32eadc0f0501a"
   integrity sha512-9bR9qvg4wZE6UiIlmhodCOZ2r38SeN8T35SsmMDuIMfACxxaMvIwiwoTJnEA9f/KEhL+BQSuD+arbZucUzYu7w==
+
+"@types/proj4leaflet@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/proj4leaflet/-/proj4leaflet-1.0.5.tgz#f4b3fedd29363aa64ac9c27c1f65f8f649762c14"
+  integrity sha512-xqw5V5wk0iSjpDSN2X1tuEo6qL4QhfffaTpnHN6ISz3vnT4Z4m4aKdH1vQHlpJ6aJ0TBvcRmI8X2/Lv7t/0qOw==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/leaflet" "*"
+    "@types/proj4" "*"
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -8041,13 +8050,20 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-proj4@^2.6.2:
+proj4@^2.3.14, proj4@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/proj4/-/proj4-2.6.2.tgz#4665d7cbc30fd356375007c2fed53b07dbda1d67"
   integrity sha512-Pn0+HZtXb4JzuN8RR0VM7yyseegiYHbXkF+2FOdGpzRojcZ1BTjWxOh7qfp2vH0EyLu8pvcrhLxidwzgyUy/Gw==
   dependencies:
     mgrs "1.0.0"
     wkt-parser "^1.2.4"
+
+proj4leaflet@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/proj4leaflet/-/proj4leaflet-1.0.2.tgz#dec59f1e8a77a1682e320673e1e56f4161714d2a"
+  integrity sha512-6GdDeUlhX/tHUiMEj80xQhlPjwrXcdfD0D5OBymY8WvxfbmZcdhNqQk7n7nFf53ue6QdP9ls9ZPjsAxnbZDTsw==
+  dependencies:
+    proj4 "^2.3.14"
 
 promise-inflight@^1.0.1:
   version "1.0.1"

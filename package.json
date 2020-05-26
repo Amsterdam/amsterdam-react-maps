@@ -7,6 +7,7 @@
   "dependencies": {
     "geojson": "^0.5.0",
     "proj4": "^2.6.2",
+    "proj4leaflet": "^1.0.2",
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
@@ -63,6 +64,7 @@
     "@types/leaflet.markercluster": "^1.4.2",
     "@types/node": "^14.0.5",
     "@types/proj4": "^2.5.0",
+    "@types/proj4leaflet": "^1.0.5",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",

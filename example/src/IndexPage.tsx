@@ -29,6 +29,11 @@ const PAGES = [
     title: 'Marker Clustering',
     description: '(Prototype*) Marker clustering',
   },
+  {
+    to: '/rd-geo-json',
+    title: 'RD GeoJSON',
+    description: "Display GeoJSON's with RD projection",
+  },
 ]
 
 const IndexPage: React.FC = () => (
