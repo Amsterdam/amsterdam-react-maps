@@ -950,32 +950,23 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datapunt/asc-assets@^0.19.1":
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.19.1.tgz#8a81e34696bdb0ca3b0f8e47310589b5ef4d6cc5"
-  integrity sha512-Gv+VX5uWJD9iu4x5sh2GBfsk5kuo6y89F5q3ndlSid9oSgjDjnagTd/FiDzmlFqug1HVutBbIC6uyuvbXS2nPw==
-
-"@datapunt/asc-assets@^0.19.2-alpha.66":
+"@datapunt/asc-assets@^0.19.2-alpha.66", "@datapunt/asc-assets@^0.19.2-beta.2":
   version "0.19.2-esm.18"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.19.2-esm.18.tgz#ba107a8b8f36f6608ae64abd95f69070b7c53842"
   integrity sha512-DM+b+3Dx2r1hC0mvvETzvyZ7ak/+becljiW+opgGiNx+UJx/23YK6zQNo/sz0C/gTL0KZxBt2mXsZHAjTfgRiA==
 
-"@datapunt/asc-core@^0.18.3-alpha.0":
-  version "0.18.3-alpha.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-core/-/asc-core-0.18.3-alpha.0.tgz#1ce4837cbd9a029a494a02a06902c3ad01b27c10"
-  integrity sha512-sKSuS+BjH8tKoFW56sX8Lne3Ly7aJt/OygIv6OOtESEo7K0MNBup7gh4SFLEiDUW27iiDMALobu7vXf7xOGcNQ==
-
-"@datapunt/asc-ui@^0.19.2-alpha.66":
-  version "0.19.2-beta.1"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.2-beta.1.tgz#3dad3e1b4639d54845278df72235894df79d0d52"
-  integrity sha512-4ip0FU1cLwScbZo6G5pfdFD4dtoC+FhZDz+VsSzuJfuAoxG9NZFZXCt0wrnAhO69cIHmb9gy2xyXT5bMSxBYYw==
+"@datapunt/asc-ui@^0.19.2-beta.2":
+  version "0.19.2-beta.2"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.2-beta.2.tgz#f0e6f32a1d5d7c1f3760f015aff94c58cb0d4d54"
+  integrity sha512-Uej4Pl64Gdu9HUWdF+pz5VVi+aA5QyrnJpuKr6dTc4tlicf1mgDpBk/Iubp7DcvuwWeT5tXtqJehDeKZFy27Vg==
   dependencies:
-    "@datapunt/asc-assets" "^0.19.1"
-    "@datapunt/asc-core" "^0.18.3-alpha.0"
+    "@datapunt/asc-assets" "^0.19.2-beta.2"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
     polished "^3.5.1"
     react-uid "^2.2.0"
+  optionalDependencies:
+    objectFitPolyfill ">=2.3.0"
 
 "@datapunt/react-maps@^0.8.1":
   version "0.8.1"
@@ -7475,6 +7466,11 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.17.0-next.1"
     function-bind "^1.1.1"
     has "^1.0.3"
+
+objectFitPolyfill@>=2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/objectFitPolyfill/-/objectFitPolyfill-2.3.0.tgz#e4c54df5943f5f65351ca07692c613c9da3b5536"
+  integrity sha512-VgF98xGs2upBxO6a4FKGEEip5kXQCYpIwrKSDQ6oyFvPAmTrm6nPD/Y/IetoHx62HE6N82hWvc7Tc0evEBkoyA==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
