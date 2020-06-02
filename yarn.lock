@@ -950,17 +950,17 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datapunt/asc-assets@^0.19.2-alpha.66", "@datapunt/asc-assets@^0.19.2-beta.3":
+"@datapunt/asc-assets@^0.19.2-alpha.66", "@datapunt/asc-assets@^0.19.2-beta.5":
   version "0.19.2-esm.18"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.19.2-esm.18.tgz#ba107a8b8f36f6608ae64abd95f69070b7c53842"
   integrity sha512-DM+b+3Dx2r1hC0mvvETzvyZ7ak/+becljiW+opgGiNx+UJx/23YK6zQNo/sz0C/gTL0KZxBt2mXsZHAjTfgRiA==
 
-"@datapunt/asc-ui@^0.19.2-beta.3":
-  version "0.19.2-beta.3"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.2-beta.3.tgz#537f4ea4eda2abf55a63ceb13d2560679f5cecc9"
-  integrity sha512-utVNnptIIu7YOu4TT60zhsDNtVTLyN9THdJgnDoKGnuFsc480WL56e6Z2Ip813CfH8KoaIE756IGMtK+4c3swQ==
+"@datapunt/asc-ui@^0.19.2-beta.5":
+  version "0.19.2-beta.5"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.19.2-beta.5.tgz#9372c1e3f54a21152e605be5257618ff24e239c2"
+  integrity sha512-spjW3tXULgXH7+5hVDyP2nns2mF5PTqAXkvtvdtRXLoPV0vSaibt7Yd5BqnpV7q0oru85ko1NtJHXlJ9iqVulg==
   dependencies:
-    "@datapunt/asc-assets" "^0.19.2-beta.3"
+    "@datapunt/asc-assets" "^0.19.2-beta.5"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
     polished "^3.5.1"
