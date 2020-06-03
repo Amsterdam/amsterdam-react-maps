@@ -1,7 +1,7 @@
 # Amsterdam React Maps
 
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
-It also contains an "example" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
+It also contains an "examples" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
 
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![Build Status](https://travis-ci.org/Amsterdam/amsterdam-react-maps.svg?branch=master)](https://travis-ci.org/Amsterdam/amsterdam-react-maps)
@@ -20,8 +20,8 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 
 ## Usage
 
-- With npm: `npm install --save @datapunt/amsterdam-react-maps`
-- With yarn: `yarn add @datapunt/amsterdam-react-maps`
+- With npm: `npm install --save @datapunt/arm-core`
+- With yarn: `yarn add @datapunt/arm-core`
 
 ## Docs
 

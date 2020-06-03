@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "module": "ES2015",
-    "outDir": "./es"
-  },
-  "exclude": ["node_modules", "lib", "example"]
-}

@@ -1,0 +1,23 @@
+{
+  "name": "@datapunt/arm-example",
+  "private": true,
+  "license": "MPL-2.0",
+  "author": "Datapunt Amsterdam",
+  "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amsterdam/amsterdam-react-maps.git",
+    "directory": "packages/arm-core"
+  },
+  "bugs": {
+    "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
+  },
+  "version": "0.2.7",
+  "sideEffects": false,
+  "dependencies": {
+    "@datapunt/arm-core": "^0.2.7",
+    "@datapunt/arm-nontiled": "^0.2.7",
+    "@datapunt/arm-draw": "^0.2.7",
+    "@datapunt/arm-cluster": "^0.2.7"
+  }
+}

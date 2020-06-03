@@ -7,9 +7,9 @@
 3. `yarn start` this will start a webpack-dev-server
 
 Note that we have two directories: 
-1. [`example`](../example), which contains our 'recipes'. If you need to create a recipe, mind that you're supposed to create a page per feature / functionality.
+1. [`examples`](examples), which contains our 'recipes'. If you need to create a recipe, mind that you're supposed to create a page per feature / functionality.
 In case you first want to showcase a feature's functionality, but don't want users to use this yet, make sure you add this to the example's description (eg. adding "Prototype*") 
-2. [`src`](../src), where we can export our compound-components / utilities / configurations for amsterdam-specific map-related projects. 
+2. [`src`](packages/arm-core), where we can export our compound-components / utilities / configurations for amsterdam-specific map-related projects. 
 Please keep in mind that we strive to create components / utilities / configurations as generic as possible!
 
 ## Troubleshooting
