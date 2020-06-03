@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "0.2.7",
+  "version": "0.2.8-alpha.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -34,15 +34,15 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.2.7",
+    "@datapunt/arm-core": "^0.2.8-alpha.0",
     "leaflet.nontiledlayer": "^1.0.8"
   },
   "peerDependencies": {
     "@datapunt/react-maps": "^0.8.2-alpha.0",
+    "leaflet": "^1.6.0",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6",
-    "styled-components": ">=4.4.1",
-    "leaflet": "^1.6.0"
+    "styled-components": ">=4.4.1"
   },
   "publishConfig": {
     "access": "public"
