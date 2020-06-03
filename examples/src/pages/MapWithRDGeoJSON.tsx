@@ -3,9 +3,12 @@ import { Feature, Geometry, GeometryObject } from 'geojson'
 import { Layer } from 'leaflet'
 import styled from 'styled-components'
 import { Button, ViewerContainer } from '@datapunt/asc-ui'
-import { components } from '@datapunt/arm-core'
-
-const { Map, BaseLayer, RDGeoJSON, rdGeoJSONDefaultStyle } = components
+import {
+  Map,
+  BaseLayer,
+  RDGeoJSON,
+  rdGeoJSONDefaultStyle,
+} from '@datapunt/arm-core'
 
 type APIResult = {
   geometrie: Geometry

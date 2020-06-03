@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
   Button,
@@ -113,14 +113,33 @@ const StyledContextMenuItem = styled(ContextMenuItem)`
   }
 `
 
-const BaseLayerToggle: React.FC = () => {
-  const [toggleBaseLayerType, setToggleBaseLayerType] = useState(
-    BaseLayerType.Topo,
-  )
+type Props = {
+  onChangeLayer?: (id: string, type: BaseLayerType) => void
+  aerialLayers?: MapLayer[]
+  topoLayers?: MapLayer[]
+  aerialDefaultIndex?: number
+  topoDefaultIndex?: number
+  activeLayer?: BaseLayerType
+}
+
+const BaseLayerToggle: React.FC<Props> = ({
+  onChangeLayer,
+  aerialLayers = AERIAL_AMSTERDAM_LAYERS,
+  topoLayers = DEFAULT_AMSTERDAM_LAYERS,
+  aerialDefaultIndex = 0,
+  topoDefaultIndex = 0,
+  activeLayer = BaseLayerType.Topo,
+}) => {
+  const didMount = useRef(false)
+  const [toggleBaseLayerType, setToggleBaseLayerType] = useState(activeLayer)
+
   const [selectedLayer, setSelectedLayer] = useState({
-    [BaseLayerType.Aerial]: AERIAL_AMSTERDAM_LAYERS[0].urlTemplate,
-    [BaseLayerType.Topo]: DEFAULT_AMSTERDAM_LAYERS[0].urlTemplate,
+    [BaseLayerType.Aerial]: aerialLayers[aerialDefaultIndex].urlTemplate,
+    [BaseLayerType.Topo]: topoLayers[topoDefaultIndex].urlTemplate,
   })
+
+  const currentAmsterdamLayers =
+    toggleBaseLayerType === BaseLayerType.Topo ? topoLayers : aerialLayers
 
   const handleToggle = useCallback(() => {
     setToggleBaseLayerType(
@@ -154,6 +173,16 @@ const BaseLayerToggle: React.FC = () => {
     [toggleBaseLayerType],
   )
 
+  useEffect(() => {
+    const id = currentAmsterdamLayers.find(
+      ({ urlTemplate }) => urlTemplate === selectedLayer[toggleBaseLayerType],
+    )?.id
+    if (didMount.current && onChangeLayer && id) {
+      onChangeLayer(id, toggleBaseLayerType)
+    }
+    didMount.current = true
+  }, [onChangeLayer, toggleBaseLayerType, selectedLayer])
+
   return (
     <Wrapper>
       <ToggleButton
@@ -178,7 +207,7 @@ const BaseLayerToggle: React.FC = () => {
             <ContextMenuSelect
               name="context-menu"
               id="arm-baselayer-toggle-select"
-              onChange={(e) => handleChange(e, DEFAULT_AMSTERDAM_LAYERS)}
+              onChange={(e) => handleChange(e, currentAmsterdamLayers)}
             >
               {BASE_LAYERS[toggleBaseLayerType].map(({ id, label }) => (
                 <option key={id} value={id}>

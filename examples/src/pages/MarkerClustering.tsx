@@ -4,11 +4,9 @@ import { ViewerContainer } from '@datapunt/asc-ui'
 import 'leaflet.markercluster'
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
-import { components } from '@datapunt/arm-core'
+import { Map, Zoom, BaseLayer, Scale } from '@datapunt/arm-core'
 import { MarkerClusterGroup } from '@datapunt/arm-cluster'
 import getDataSelection, { DataSelection } from '../api/getDataSelection'
-
-const { Map, Zoom, BaseLayer, Scale } = components
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;

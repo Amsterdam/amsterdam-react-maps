@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ViewerContainer } from '@datapunt/asc-ui'
-import { components } from '@datapunt/arm-core'
+import { Zoom, BaseLayer, Map } from '@datapunt/arm-core'
 import PointClickResults from '../components/PointClickResults'
-
-const { Zoom, BaseLayer, Map } = components
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;
