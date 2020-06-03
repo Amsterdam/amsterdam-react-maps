@@ -6,7 +6,7 @@ const dist = path.resolve(__dirname, 'dist')
 
 module.exports = {
   entry: {
-    app: ['./example/src/index.tsx'],
+    app: ['./examples/src/index.tsx'],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -77,7 +77,7 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
-      template: './example/public/index.html',
+      template: './examples/public/index.html',
     }),
   ],
 }

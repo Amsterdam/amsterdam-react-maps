@@ -33,9 +33,7 @@
     "emitDecoratorMetadata": true,
     "strict": true
   },
-  "files": [
-    "types.d.ts"
-  ],
+  "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
-  "include": ["src", "example", "assets"]
+  "include": ["examples"]
 }

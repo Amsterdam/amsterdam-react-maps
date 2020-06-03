@@ -1,54 +1,21 @@
 {
-  "name": "@datapunt/amsterdam-react-maps",
-  "version": "0.2.7",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "geojson": "^0.5.0",
-    "proj4": "^2.6.2",
-    "proj4leaflet": "^1.0.2",
-    "uuid": "^8.1.0"
-  },
-  "peerDependencies": {
-    "@datapunt/asc-assets": "0.0.20.0",
-    "@datapunt/asc-ui": "0.0.20.0",
-    "@datapunt/react-maps": "^0.8.2-alpha.0",
-    "leaflet": "^1.6.0",
-    "leaflet-draw": "^1.0.4",
-    "leaflet.markercluster": "^1.4.1",
-    "leaflet.nontiledlayer": "^1.0.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
-  },
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples"
+  ],
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "concurrently \"yarn build:ts:es -w\" \"webpack-dev-server\"",
     "lint": "eslint ./ --ext .ts,.tsx",
     "deploy:gh-pages": "node ./scripts/gh-pages.js",
-    "build:clean": "rm -rf es lib *.tsbuildinfo",
-    "build": "yarn build:clean && tsc -p ./tsconfig.build.es2015.json && tsc -p ./tsconfig.build.commonjs.json",
+    "build:clean": "find ./packages -name \"*.d.ts\" -type f -delete && find ./packages -name \"*.tsbuildinfo\" -type f -delete",
+    "build": "yarn build:clean && yarn build:ts && yarn build:ts:es",
+    "build:ts": "tsc -b packages/arm-core packages/arm-draw packages/arm-cluster packages/arm-nontiled",
+    "build:ts:es": "tsc -b packages/arm-core/tsconfig.es.json packages/arm-draw/tsconfig.es.json packages/arm-cluster/tsconfig.es.json packages/arm-nontiled/tsconfig.es.json",
     "build:example": "webpack --config ./webpack.config.js --prod",
     "test": "yarn jest",
     "test:watch": "yarn test --watch --onlyChanged",
     "prepublish": "yarn build"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@datapunt/asc-assets": "^0.20.0",
@@ -72,6 +39,7 @@
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
+    "concurrently": "^5.2.0",
     "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -93,6 +61,7 @@
     "leaflet-draw": "^1.0.4",
     "leaflet.markercluster": "^1.4.1",
     "leaflet.nontiledlayer": "^1.0.8",
+    "lerna": "^3.22.0",
     "lint-staged": "^10.2.7",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
