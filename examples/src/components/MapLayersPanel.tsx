@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Checkbox, Heading, Label } from '@datapunt/asc-ui'
 import { LeafletMouseEvent, FeatureGroup, DomEvent } from 'leaflet'
-import { components } from '@datapunt/arm-core'
+import { GeoJSONLayer, WfsLayer } from '@datapunt/arm-core'
 import { NonTiledLayer } from '@datapunt/arm-nontiled'
 import {
   GEO_JSON_LAYER_EXAMPLES,
   NON_TILED_LAYERS_EXAMPLES,
   WFS_LAYER_EXAMPLES,
 } from '../../config'
-
-const { GeoJSONLayer, WfsLayer } = components
 
 const MapLayersPanelStyle = styled.div`
   width: 400px;

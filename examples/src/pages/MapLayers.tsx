@@ -2,10 +2,8 @@ import React from 'react'
 import { TileLayer } from '@datapunt/react-maps'
 import styled from 'styled-components'
 import { ViewerContainer } from '@datapunt/asc-ui'
-import { constants, components } from '@datapunt/arm-core'
+import { constants, Map, Zoom } from '@datapunt/arm-core'
 import MapLayersPanel from '../components/MapLayersPanel'
-
-const { Map, Zoom } = components
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;

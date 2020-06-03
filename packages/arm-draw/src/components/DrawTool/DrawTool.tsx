@@ -5,11 +5,10 @@ import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
 import { v4 as uuidv4 } from 'uuid'
 import L, { LayerEvent, LeafletKeyboardEvent, Polygon, Polyline } from 'leaflet'
 import 'leaflet-draw'
-import { utils, icons } from '@datapunt/arm-core'
+import { useStateRef, icons } from '@datapunt/arm-core'
 import { useMapInstance } from '@datapunt/react-maps'
 import DrawToolBare from './DrawToolBare'
 
-const { useStateRef } = utils
 const { drawIcon } = icons
 
 const GlobalStyle = createGlobalStyle`

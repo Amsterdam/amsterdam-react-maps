@@ -5,9 +5,7 @@ import styled from 'styled-components'
 import { Close } from '@datapunt/asc-assets'
 import { Button, Heading, Icon, Spinner, TopBar } from '@datapunt/asc-ui'
 import { LeafletMouseEvent } from 'leaflet'
-import { utils, components } from '@datapunt/arm-core'
-
-const { Marker } = components
+import { useGetAddressFromLatLng, Marker } from '@datapunt/arm-core'
 
 const PointClickPanel = styled.div`
   background-color: #fff;
@@ -22,12 +20,7 @@ const List = styled.div`
 `
 
 const PointClickResults: React.FC = () => {
-  const {
-    addresses,
-    setLatLng,
-    loading,
-    latLng,
-  } = utils.useGetAddressFromLatLng()
+  const { addresses, setLatLng, loading, latLng } = useGetAddressFromLatLng()
   const mapInstance = useMapInstance()
 
   useEffect(() => {

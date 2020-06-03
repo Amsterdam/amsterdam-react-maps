@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ViewerContainer } from '@datapunt/asc-ui'
-import { components } from '@datapunt/arm-core'
-
-const { Map, BaseLayerToggle, Zoom } = components
+import { Map, BaseLayerToggle, Zoom } from '@datapunt/arm-core'
 
 const StyledViewerContainer = styled(ViewerContainer)`
   height: 100vh;

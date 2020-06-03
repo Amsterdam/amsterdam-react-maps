@@ -3,9 +3,14 @@ import styled, { createGlobalStyle, css } from 'styled-components'
 import { hooks, Paragraph, Spinner, ViewerContainer } from '@datapunt/asc-ui'
 import { useMapInstance } from '@datapunt/react-maps'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
-import { components, utils } from '@datapunt/arm-core'
-
-const { Map, Marker, BaseLayer, Zoom, mapPanelComponents } = components
+import {
+  Map,
+  Marker,
+  BaseLayer,
+  Zoom,
+  mapPanelComponents,
+  usePanToLatLng,
+} from '@datapunt/arm-core'
 
 const {
   MapPanel,
@@ -15,8 +20,6 @@ const {
   MapPanelProvider,
   MapPanelContext,
 } = mapPanelComponents
-
-const { usePanToLatLng } = utils
 
 type StyledViewerContainerProps = {
   left?: string

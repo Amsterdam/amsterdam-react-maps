@@ -2,14 +2,11 @@ import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ViewerContainer } from '@datapunt/asc-ui'
-import { components, utils } from '@datapunt/arm-core'
+import { BaseLayer, Map, useStateRef } from '@datapunt/arm-core'
 import { MarkerClusterGroup } from '@datapunt/arm-cluster'
 import { DrawTool, ExtendedLayer } from '@datapunt/arm-draw'
 import 'leaflet-draw/dist/leaflet.draw.css'
 import getDataSelection from '../api/getDataSelection'
-
-const { BaseLayer, Map } = components
-const { useStateRef } = utils
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;
