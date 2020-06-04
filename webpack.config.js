@@ -4,6 +4,16 @@ const path = require('path')
 
 const dist = path.resolve(__dirname, 'dist')
 
+const modernModules = [
+  path.resolve(__dirname, 'node_modules/@datapunt/asc-assets'),
+  path.resolve(__dirname, 'node_modules/@datapunt/asc-ui'),
+  path.resolve(__dirname, 'node_modules/@datapunt/react-maps'),
+  path.resolve(__dirname, 'packages/arm-core'),
+  path.resolve(__dirname, 'packages/arm-draw'),
+  path.resolve(__dirname, 'packages/arm-nontiled'),
+  path.resolve(__dirname, 'packages/arm-cluster'),
+]
+const srcPath = path.resolve(__dirname, 'examples')
 module.exports = {
   entry: {
     app: ['./examples/src/index.tsx'],
@@ -19,11 +29,38 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true,
-        },
+        test: /\.(j|t)sx?$/,
+        include: [srcPath, ...modernModules],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    modules: false,
+                    useBuiltIns: 'usage',
+                    corejs: 3,
+                    targets: {
+                      esmodules: false,
+                    },
+                  },
+                ],
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ],
+              plugins: [
+                [
+                  'babel-plugin-styled-components',
+                  {
+                    pure: true,
+                  },
+                ],
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,

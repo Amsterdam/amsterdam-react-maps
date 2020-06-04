@@ -10,7 +10,7 @@ const StyledViewerContainer = styled(ViewerContainer)`
 
 const PointClick: React.FC = () => {
   return (
-    <Map>
+    <Map fullScreen>
       <StyledViewerContainer
         topRight={<PointClickResults />}
         bottomRight={<Zoom />}
