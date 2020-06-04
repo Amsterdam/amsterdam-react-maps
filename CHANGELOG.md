@@ -15,7 +15,12 @@ Prefix the change with one of these keywords:
 - _Security_: in case of vulnerabilities.
 
 ## UNRELEASED
+- Deprecated: amsterdam-react-maps package
 
+##  [0.2.7]
+
+- Added: BaseLayerToggle component
+- Added: DrawTool
 - Added: MapPanel (desktop) & MapPanelDrawer (mobile) components
 - Added: RDGeoJSON
 
