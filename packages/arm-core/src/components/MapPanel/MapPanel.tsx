@@ -34,7 +34,7 @@ const MapPanelContent = styled.div`
   z-index: 0;
 `
 
-const MapPanel: React.FC = ({ children }) => {
+const MapPanel: React.FC = ({ children, ...otherProps }) => {
   const {
     drawerPosition,
     setPositionFromSnapPoint,
@@ -48,7 +48,7 @@ const MapPanel: React.FC = ({ children }) => {
     )
   }
   return (
-    <MapPanelStyle style={{ width: drawerPosition }}>
+    <MapPanelStyle style={{ width: drawerPosition }} {...otherProps}>
       <MapPanelContent>{children}</MapPanelContent>
       <Handle
         type="button"

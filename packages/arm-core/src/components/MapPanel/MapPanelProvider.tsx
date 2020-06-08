@@ -3,23 +3,26 @@ import MapPanelContext, { Variant } from './MapPanelContext'
 import {
   MAP_PANEL_DRAWER_SNAP_POSITIONS,
   MAP_PANEL_SNAP_POSITIONS,
+  PositionPerSnapPoint,
   SnapPoint,
 } from './constants'
 
 type Props = {
   initialPosition: SnapPoint
   variant: Variant
+  mapPanelSnapPositions?: PositionPerSnapPoint
+  mapPanelDrawerSnapPositions?: PositionPerSnapPoint
 }
 
 const MapPanelProvider: React.FC<Props> = ({
   initialPosition,
   variant,
   children,
+  mapPanelSnapPositions = MAP_PANEL_SNAP_POSITIONS,
+  mapPanelDrawerSnapPositions = MAP_PANEL_DRAWER_SNAP_POSITIONS,
 }) => {
   const mapper =
-    variant === 'panel'
-      ? MAP_PANEL_SNAP_POSITIONS
-      : MAP_PANEL_DRAWER_SNAP_POSITIONS
+    variant === 'panel' ? mapPanelSnapPositions : mapPanelDrawerSnapPositions
   const [drawerPositionRaw, setDrawerPosition] = useState<string | number>(
     mapper[initialPosition],
   )

@@ -1696,10 +1696,10 @@
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.20.0.tgz#ba2698490660f5a26d04e559c2501151a5ca762e"
   integrity sha512-NYgcEgZsM2AjWmdUFsyPp5w1LB9GNJcvk7XQIp+5VlboZEHDbgTyuy1zkWtHreg5qBjjaBgtivzkG0np1hO/Kg==
 
-"@datapunt/asc-ui@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.20.0.tgz#d03a7bff1e01d44467c99ace99e469281cf6557f"
-  integrity sha512-g00C1CqLsX4wNY4EnIHLpOqbDlxc7fouzAmEGgbOjInc5v5TXWEhRfNxz4H7gLwgscwal1twDztc5Zv9AtrK/w==
+"@datapunt/asc-ui@^0.20.1-alpha.14":
+  version "0.20.1-alpha.14"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.20.1-alpha.14.tgz#90bfaa69f5d0c1c773d179132585f3bf9c84b96e"
+  integrity sha512-zNML2zs9ZhGkTE2vUChAnY7ty2G22kkFn9IS/uIZRfeyfv7uNIgvkFIkg6USlPrxwNLpSM1Rvqwz8GXzKvT1mw==
   dependencies:
     "@datapunt/asc-assets" "^0.20.0"
     classnames "^2.2.6"

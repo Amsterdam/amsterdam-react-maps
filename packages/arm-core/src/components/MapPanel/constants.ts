@@ -16,7 +16,13 @@ export enum SnapPoint {
   Closed,
 }
 
-export const MAP_PANEL_DRAWER_SNAP_POSITIONS = {
+export type PositionPerSnapPoint = {
+  [SnapPoint.Full]: string
+  [SnapPoint.Halfway]: string
+  [SnapPoint.Closed]: string
+}
+
+export const MAP_PANEL_DRAWER_SNAP_POSITIONS: PositionPerSnapPoint = {
   [SnapPoint.Full]: '0',
   [SnapPoint.Halfway]: '50%',
   [SnapPoint.Closed]: `calc(100% - ${
@@ -24,7 +30,7 @@ export const MAP_PANEL_DRAWER_SNAP_POSITIONS = {
   }px)`,
 }
 
-export const MAP_PANEL_SNAP_POSITIONS = {
+export const MAP_PANEL_SNAP_POSITIONS: PositionPerSnapPoint = {
   [SnapPoint.Full]: '480px',
   [SnapPoint.Halfway]: '480px',
   [SnapPoint.Closed]: '30px',
