@@ -81,6 +81,7 @@ const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
     setDraggable,
     setPositionFromSnapPoint,
     matchPositionWithSnapPoint,
+    topOffset,
   } = useContext(MapPanelContext)
 
   const MapDrawerRef = useRef<HTMLDivElement>(null)
@@ -122,7 +123,7 @@ const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
       const limit =
         window.innerHeight - MapDrawerRef.current.clientHeight - newPosition
       if (limit < 0) {
-        setDrawerPosition(newPosition)
+        setDrawerPosition(newPosition - topOffset)
       }
     }
   }

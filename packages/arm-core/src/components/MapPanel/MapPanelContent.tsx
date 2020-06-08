@@ -49,17 +49,19 @@ const StyledRow = styled(Row)`
     padding-right: 0;
   }
 `
-const StyledContainer = styled.div<{ height: '50vh' | '100vh' }>`
+const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
   position: relative;
   background-color: ${themeColor('tint', 'level1')};
   @media screen and ${breakpoint('min-width', 'tabletM')} {
     margin: ${themeSpacing(5, 0)};
     pointer-events: all;
-    height: calc(100vh - ${themeSpacing(5)});
+    height: calc(100% - ${themeSpacing(5)});
   }
   @media screen and ${breakpoint('max-width', 'tabletM')} {
     top: ${PANEL_HANDLE_PADDING * -1}px;
-    height: calc(${({ height }) => height} - ${PANEL_HANDLE_HEIGHT}px);
+    height: calc(
+      ${({ containerHeight }) => containerHeight} - ${PANEL_HANDLE_HEIGHT}px
+    );
   }
 `
 
@@ -152,7 +154,7 @@ const MapPanelContent: React.FC<Props> = ({
   return (
     <MapDrawerContentStyle {...{ variant, stackOrder, animate }}>
       <StyledContainer
-        height={
+        containerHeight={
           matchPositionWithSnapPoint(SnapPoint.Halfway) ? '50vh' : '100vh'
         }
       >

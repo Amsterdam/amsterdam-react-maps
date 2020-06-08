@@ -12,6 +12,7 @@ type Props = {
   variant: Variant
   mapPanelSnapPositions?: PositionPerSnapPoint
   mapPanelDrawerSnapPositions?: PositionPerSnapPoint
+  topOffset?: number
 }
 
 const MapPanelProvider: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const MapPanelProvider: React.FC<Props> = ({
   children,
   mapPanelSnapPositions = MAP_PANEL_SNAP_POSITIONS,
   mapPanelDrawerSnapPositions = MAP_PANEL_DRAWER_SNAP_POSITIONS,
+  topOffset = 0,
 }) => {
   const mapper =
     variant === 'panel' ? mapPanelSnapPositions : mapPanelDrawerSnapPositions
@@ -56,6 +58,7 @@ const MapPanelProvider: React.FC<Props> = ({
         drawerPosition,
         draggable,
         setDraggable,
+        topOffset,
         matchPositionWithSnapPoint,
         setPositionFromSnapPoint,
         variant,
