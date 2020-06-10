@@ -148,11 +148,12 @@ const MapPanelContent: React.FC<Props> = ({
   stackOrder,
   children,
   onClose,
+  ...otherProps
 }) => {
   const { matchPositionWithSnapPoint, variant } = useContext(MapDrawerContext)
 
   return (
-    <MapDrawerContentStyle {...{ variant, stackOrder, animate }}>
+    <MapDrawerContentStyle {...{ variant, stackOrder, animate, ...otherProps }}>
       <StyledContainer
         containerHeight={
           matchPositionWithSnapPoint(SnapPoint.Halfway) ? '50vh' : '100vh'
