@@ -3,7 +3,6 @@ import {
   breakpoint,
   Button,
   Heading,
-  Paragraph,
   Row,
   themeColor,
   themeSpacing,
@@ -175,9 +174,7 @@ const MapPanelContent: React.FC<Props> = ({
               />
             )}
           </Header>
-          <Content {...otherProps}>
-            <Paragraph>{children}</Paragraph>
-          </Content>
+          <Content {...otherProps}>{children}</Content>
         </StyledRow>
       </StyledContainer>
     </MapDrawerContentStyle>
