@@ -55,6 +55,7 @@ type Props = {
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   openByDefault?: boolean
+  mapInstance?: L.DrawMap
 }
 
 const DrawTool: React.FC<Props> = ({
@@ -62,12 +63,13 @@ const DrawTool: React.FC<Props> = ({
   onDelete,
   onDrawEnd,
   openByDefault,
+  mapInstance: mapInstanceProp,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
   const [showDrawTool, setShowDrawTool] = useStateRef(openByDefault || false)
 
-  const mapInstance = useMapInstance() as L.DrawMap
+  const mapInstance = mapInstanceProp || (useMapInstance() as L.DrawMap)
 
   const drawnItems = useMemo(() => new L.FeatureGroup(), [])
 

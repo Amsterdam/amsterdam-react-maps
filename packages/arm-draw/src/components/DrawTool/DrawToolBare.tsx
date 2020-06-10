@@ -21,7 +21,7 @@ const ToolButton = styled(DrawToolButton)<{ isOpen: boolean }>`
     isOpen &&
     css`
       background-color: ${themeColor('secondary')};
-      ${svgFill('tint', 'level1')}
+      ${svgFill(themeColor('tint', 'level1'))}
 
       &:hover {
         background-color: ${themeColor('secondary')};

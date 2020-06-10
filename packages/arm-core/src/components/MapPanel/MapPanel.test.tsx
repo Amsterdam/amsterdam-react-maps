@@ -17,6 +17,7 @@ describe('MapPanel', () => {
           draggable: true,
           setDraggable: jest.fn(),
           variant: 'panel',
+          topOffset: 0,
         }}
       >
         <MapPanel>
@@ -42,6 +43,7 @@ describe('MapPanel', () => {
           draggable: true,
           setDraggable: jest.fn(),
           variant: 'panel',
+          topOffset: 0,
         }}
       >
         <MapPanel>

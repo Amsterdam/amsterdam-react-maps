@@ -22,8 +22,8 @@ const {
 } = mapPanelComponents
 
 type StyledViewerContainerProps = {
-  left?: string
-  height?: string
+  leftOffset?: string
+  viewerHeight?: string
   ignoreTransition: boolean
 }
 
@@ -41,10 +41,10 @@ export enum SnapPoint {
 
 const StyledViewerContainer = styled(ViewerContainer).attrs<
   StyledViewerContainerProps
->(({ height, left }) => ({
+>(({ viewerHeight, leftOffset }) => ({
   style: {
-    height,
-    left,
+    height: viewerHeight,
+    left: leftOffset,
   },
 }))<StyledViewerContainerProps>`
   z-index: 400;
@@ -79,7 +79,7 @@ const ViewerContainerWithMapDrawerOffset: React.FC<Props> = ({
         <StyledViewerContainer
           {...otherProps}
           ignoreTransition={draggable}
-          height={height}
+          viewerHeight={height}
           bottomLeft={
             <MapPanelLegendButton
               {...{ showDesktopVariant, currentOverlay, setCurrentOverlay }}
@@ -90,7 +90,7 @@ const ViewerContainerWithMapDrawerOffset: React.FC<Props> = ({
         <StyledViewerContainer
           {...otherProps}
           ignoreTransition={draggable}
-          left={drawerPosition}
+          leftOffset={drawerPosition}
           topLeft={
             <MapPanelLegendButton
               {...{ showDesktopVariant, currentOverlay, setCurrentOverlay }}

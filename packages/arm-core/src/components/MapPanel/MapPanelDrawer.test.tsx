@@ -27,6 +27,7 @@ describe('MapDrawer', () => {
           ),
           setPositionFromSnapPoint: setPositionFromSnapPointMock,
           variant: 'drawer',
+          topOffset: 0,
         }}
       >
         <MapDrawer>
@@ -59,6 +60,7 @@ describe('MapDrawer', () => {
           matchPositionWithSnapPoint: jest.fn(),
           setPositionFromSnapPoint: setPositionFromSnapPointMock,
           variant: 'drawer',
+          topOffset: 0,
         }}
       >
         <MapDrawer>
@@ -114,6 +116,7 @@ describe('MapDrawer', () => {
           matchPositionWithSnapPoint: jest.fn(),
           setPositionFromSnapPoint: setPositionFromSnapPointMock,
           variant: 'drawer',
+          topOffset: 0,
         }}
       >
         <MapDrawer>

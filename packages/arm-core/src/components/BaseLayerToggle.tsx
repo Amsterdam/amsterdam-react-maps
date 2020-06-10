@@ -181,7 +181,7 @@ const BaseLayerToggle: React.FC<Props> = ({
       onChangeLayer(id, toggleBaseLayerType)
     }
     didMount.current = true
-  }, [onChangeLayer, toggleBaseLayerType, selectedLayer])
+  }, [toggleBaseLayerType, selectedLayer])
 
   return (
     <Wrapper>

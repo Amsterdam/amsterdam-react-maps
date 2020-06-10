@@ -5,6 +5,7 @@ export type Variant = 'panel' | 'drawer'
 
 type MapPanelContextProps = {
   setDrawerPosition: (position: number) => void
+  topOffset: number
   drawerPosition: string
   draggable: boolean
   setDraggable: (draggable: boolean) => void
@@ -21,4 +22,5 @@ export default createContext<MapPanelContextProps>({
   matchPositionWithSnapPoint: () => false,
   setPositionFromSnapPoint: () => {},
   variant: 'panel',
+  topOffset: 0,
 })
