@@ -27,7 +27,7 @@
     "@datapunt/react-maps": "^0.8.2-alpha.0",
     "@svgr/webpack": "^5.4.0",
     "@testing-library/react": "^10.0.6",
-    "@types/eslint": "^6.8.1",
+    "@types/eslint": "^7.2.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/jest": "^26.0.0",
     "@types/leaflet": "^1.5.12",
