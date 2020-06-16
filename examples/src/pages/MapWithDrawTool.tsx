@@ -144,6 +144,7 @@ const MapWithDrawTool: React.FC = () => {
                 )
               }
             }}
+            isOpen={showDrawTool}
             onToggle={setShowDrawTool}
           />
         }

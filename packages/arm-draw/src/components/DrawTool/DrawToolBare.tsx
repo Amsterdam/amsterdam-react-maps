@@ -115,6 +115,12 @@ const DrawToolBare: React.FC<Props> = ({
     }
   }, [isOpen])
 
+  useEffect(() => {
+    if (typeof show !== 'undefined') {
+      setIsOpen(show)
+    }
+  }, [show])
+
   return (
     <DrawToolStyle orientation={orientation}>
       <ToolButton

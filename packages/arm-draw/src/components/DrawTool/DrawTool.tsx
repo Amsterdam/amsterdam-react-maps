@@ -54,7 +54,7 @@ type Props = {
   onDrawEnd?: (layer: ExtendedLayer) => void
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
-  openByDefault?: boolean
+  isOpen?: boolean
   mapInstance?: L.DrawMap
 }
 
@@ -62,12 +62,18 @@ const DrawTool: React.FC<Props> = ({
   onToggle,
   onDelete,
   onDrawEnd,
-  openByDefault,
+  isOpen,
   mapInstance: mapInstanceProp,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
-  const [showDrawTool, setShowDrawTool] = useStateRef(openByDefault || false)
+  const [showDrawTool, setShowDrawTool] = useStateRef(isOpen || false)
+
+  useEffect(() => {
+    if (typeof isOpen !== 'undefined') {
+      setShowDrawTool(isOpen)
+    }
+  }, [isOpen])
 
   const mapInstance = mapInstanceProp || (useMapInstance() as L.DrawMap)
 
