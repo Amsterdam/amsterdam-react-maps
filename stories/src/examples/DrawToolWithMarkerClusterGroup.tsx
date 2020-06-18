@@ -1,10 +1,10 @@
 import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import styled from 'styled-components'
-import { ViewerContainer } from '@datapunt/asc-ui'
+import { ViewerContainer, themeColor, ascDefaultTheme } from '@datapunt/asc-ui'
 import { BaseLayer, Map, useStateRef } from '@datapunt/arm-core'
 import { MarkerClusterGroup } from '@datapunt/arm-cluster'
-import { DrawTool, ExtendedLayer } from '@datapunt/arm-draw'
+import { DrawTool, ExtendedLayer, PolygonType } from '@datapunt/arm-draw'
 import getDataSelection from './api/getDataSelection'
 
 const StyledViewerContainer = styled(ViewerContainer)`
@@ -117,6 +117,24 @@ const DrawToolWithMarkerClusterGroup: React.FC = () => {
     }
   }, [mapInstance])
 
+  // The same result can be achieved for a Polyline
+  const initalDrawnItem = useMemo(
+    () =>
+      L.polygon(
+        [
+          [52.375120046525105, 4.889097815688928],
+          [52.370002964209455, 4.885899048674768],
+          [52.371241385470576, 4.900439799661425],
+          [52.3761937456813, 4.9003854485337985],
+        ],
+        {
+          color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
+          bubblingMouseEvents: false,
+        },
+      ) as PolygonType,
+    [],
+  )
+
   return (
     <Map setInstance={setMapInstance} fullScreen>
       {showDrawTool &&
@@ -145,6 +163,7 @@ const DrawToolWithMarkerClusterGroup: React.FC = () => {
             }}
             isOpen={showDrawTool}
             onToggle={setShowDrawTool}
+            drawnItem={initalDrawnItem}
           />
         }
       />
