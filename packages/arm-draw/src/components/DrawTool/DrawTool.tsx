@@ -3,11 +3,12 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
 import { v4 as uuidv4 } from 'uuid'
-import L, { LayerEvent, LeafletKeyboardEvent, Polygon, Polyline } from 'leaflet'
+import L, { LayerEvent, LeafletKeyboardEvent } from 'leaflet'
 import 'leaflet-draw'
 import { useStateRef, icons } from '@datapunt/arm-core'
 import { useMapInstance } from '@datapunt/react-maps'
 import DrawToolBare from './DrawToolBare'
+import { PolygonType, PolylineType, ExtendedLayer } from './types'
 
 const { drawIcon } = icons
 
@@ -34,16 +35,6 @@ tooltipPolyline.cont = 'Klik op de kaart om een lijn te maken'
 tooltipPolyline.end =
   'Klik op de kaart om verder te gaan of klik op de laatste punt om te eindigen'
 
-type extraLayerTypes = {
-  id: string
-  editing: { _enabled: boolean; disable: () => void }
-}
-
-type PolygonType = extraLayerTypes & Polygon
-type PolylineType = extraLayerTypes & Polyline
-
-export type ExtendedLayer = PolygonType | PolylineType
-
 L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
   options: {
     icon: drawIcon,
@@ -54,6 +45,7 @@ type Props = {
   onDrawEnd?: (layer: ExtendedLayer) => void
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
+  drawnItem?: ExtendedLayer
   openByDefault?: boolean
   mapInstance?: L.DrawMap
 }
@@ -62,6 +54,7 @@ const DrawTool: React.FC<Props> = ({
   onToggle,
   onDelete,
   onDrawEnd,
+  drawnItem,
   openByDefault,
   mapInstance: mapInstanceProp,
 }) => {
@@ -113,6 +106,7 @@ const DrawTool: React.FC<Props> = ({
 
   const getLayersInEditMode = () => {
     const layers: ExtendedLayer[] = []
+
     drawnItems.eachLayer((layer) => {
       const typedLayer = layer as ExtendedLayer
       if (typedLayer.editing._enabled) {
@@ -180,13 +174,13 @@ const DrawTool: React.FC<Props> = ({
   }
 
   /**
-   * Called when user ends drawing. This will do the following:
+   * Used to add layer to the draw map instance. This will do the following:
    * - Set a layer id
    * - Exit edit mode
    * - Add an event listener on the layer
    */
-  const onDrawCreated = (e: L.DrawEvents.Created) => {
-    const layer = e.layer as PolygonType | PolylineType
+  const setDrawnItem = (layer: PolygonType | PolylineType) => {
+    // eslint-disable-next-line no-param-reassign
     layer.id = uuidv4()
     exitEditMode()
     drawnItems.addLayer(layer)
@@ -195,6 +189,12 @@ const DrawTool: React.FC<Props> = ({
     if (onDrawEnd) {
       onDrawEnd(layer)
     }
+  }
+
+  const onDrawCreated = (e: L.DrawEvents.Created) => {
+    const layer = e.layer as PolygonType | PolylineType
+
+    setDrawnItem(layer)
   }
 
   // Toggle drawing mode
@@ -231,6 +231,13 @@ const DrawTool: React.FC<Props> = ({
       }
     }
   }, [mapInstance])
+
+  useEffect(() => {
+    if (!mapInstance) {
+      return
+    }
+    if (drawnItem) setDrawnItem(drawnItem)
+  }, [mapInstance, drawnItem])
 
   return (
     <>
