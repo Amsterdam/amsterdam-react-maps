@@ -12,12 +12,12 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "0.2.8-alpha.2",
+  "version": "0.2.8-alpha.3",
   "sideEffects": false,
   "dependencies": {
-    "@datapunt/arm-cluster": "^0.2.8-alpha.2",
-    "@datapunt/arm-core": "^0.2.8-alpha.2",
-    "@datapunt/arm-draw": "^0.2.8-alpha.2",
-    "@datapunt/arm-nontiled": "^0.2.8-alpha.2"
+    "@datapunt/arm-cluster": "^0.2.8-alpha.3",
+    "@datapunt/arm-core": "^0.2.8-alpha.3",
+    "@datapunt/arm-draw": "^0.2.8-alpha.3",
+    "@datapunt/arm-nontiled": "^0.2.8-alpha.3"
   }
 }
