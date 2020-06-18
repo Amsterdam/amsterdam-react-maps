@@ -1,0 +1,38 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { Map } from '@datapunt/arm-core'
+import MapPanelExample from '../examples/MapPanelExample'
+
+<Meta title="UI/Map Panel" />
+
+# MapPanel
+
+This component could be used to show results of actions that where performed on the Map.
+
+## Desktop
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <MapPanelExample />
+    </Map>
+  </Story>
+</Preview>
+
+## Mobile
+
+<Preview>
+  <Story
+    name="Mobile"
+    parameters={{
+      viewport: {
+        viewports: INITIAL_VIEWPORTS,
+        defaultViewport: 'iphone6',
+      },
+    }}
+  >
+    <Map fullScreen>
+      <MapPanelExample />
+    </Map>
+  </Story>
+</Preview>

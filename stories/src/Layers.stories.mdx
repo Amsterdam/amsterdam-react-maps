@@ -1,0 +1,160 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, number, color, text } from '@storybook/addon-knobs'
+import {
+  Map,
+  BaseLayer,
+  WfsLayer,
+  RDGeoJSON,
+  constants,
+} from '@datapunt/arm-core'
+import { DomEvent } from 'leaflet'
+import { NonTiledLayer } from '@datapunt/arm-nontiled'
+import { GeoJSON } from '@datapunt/react-maps'
+import geoJSONStub from './stubs/geoJSON.json'
+import RDGeoJSONStub from './stubs/rdGeoJSON.json'
+
+<Meta title="Layers" decorators={[withKnobs]} />
+
+# Layers
+
+## WFS
+
+<Preview>
+  <Story name="WFS">
+    <Map
+      fullScreen
+      options={{
+        ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+        zoom: 13,
+        center: [52.3711013, 4.8893335],
+      }}
+    >
+      <WfsLayer
+        url="https://map.data.amsterdam.nl/maps/bag?REQUEST=Getfeature&VERSION=1.1.0&SERVICE=wfs&TYPENAME=ms:pand&srsName=EPSG:4326&outputformat=geojson"
+        options={{
+          onEachFeature: (feature, layer) => {
+            layer.bindPopup(
+              `<p>Id: ${feature.properties.id}</p><p>Display: ${feature.properties.display}</p>`,
+            )
+            layer.on('click', (e) => {
+              DomEvent.stopPropagation(e)
+              layer.openPopup()
+            })
+          },
+        }}
+        zoomLevel={{ max: 13 }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## RDGeoJSON
+
+<Preview>
+  <Story name="GeoJSON (RD)">
+    <Map fullScreen>
+      <RDGeoJSON
+        geometry={RDGeoJSONStub}
+        options={{
+          onEachFeature: (feature, layer) => {
+            const popupContent = text(
+              'Layer popup text (set in onEachFeature)',
+              'Hello!',
+              'Other options',
+            )
+            layer.bindPopup(popupContent)
+          },
+          style: {
+            color: color('fillColor', '#ff0000', 'Style'),
+            fillColor: color('fillColor', '#ff00ff', 'Style'),
+            weight: number(
+              'weight',
+              2,
+              {
+                range: true,
+                min: 0,
+                max: 10,
+                step: 1,
+              },
+              'Style',
+            ),
+            opacity: number(
+              'opacity',
+              0.6,
+              {
+                range: true,
+                min: 0,
+                max: 1,
+                step: 0.1,
+              },
+              'Style',
+            ),
+            fillOpacity: number(
+              'opacity',
+              0.2,
+              {
+                range: true,
+                min: 0,
+                max: 1,
+                step: 0.1,
+              },
+              'Style',
+            ),
+          },
+        }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## NonTiled (WMS)
+
+<Preview>
+  <Story name="NonTiled">
+    <Map fullScreen>
+      <NonTiledLayer
+        url="https://map.data.amsterdam.nl/maps/aardgasvrij?service=WMS&request=GetMap&version=1.1.1&layers=buurten%2Cbuurtinitiatieven%2Cbuurten_kookgas"
+        options={{
+          identify: false,
+          format: 'image/png',
+          transparent: true,
+          layers: ['buurten', 'buurtinitiatieven', 'buurten_kookgas'],
+        }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## GeoJSON
+
+<Preview>
+  <Story name="GeoJSON">
+    <Map
+      fullScreen
+      options={{
+        ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+        zoom: 14,
+        center: [52.3711013, 4.8893335],
+      }}
+    >
+      <GeoJSON
+        args={[geoJSONStub]}
+        options={{
+          onEachFeature: (feature, layer) => {
+            layer.bindPopup(
+              `<p>Stadsdeel: ${feature.properties.stadsdeel}</p><p>Straatnaam: ${feature.properties.straatnaam}</p>`,
+            )
+            layer.on('click', (e) => {
+              DomEvent.stopPropagation(e)
+              layer.openPopup()
+            })
+          },
+        }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

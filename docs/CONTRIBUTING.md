@@ -2,15 +2,20 @@
 
 ## Development
 
-1. Run `yarn` to install dependencies
-2. use npm link to link [ASC](https://github.com/Amsterdam/amsterdam-styled-components) or [react-maps](https://github.com/Amsterdam/react-maps) (please read [this](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react).). From your either of your the packages, link leaflet and react to this package, for example: `npm link ../amsterdam-react-maps/node_modules/react && npm link ../amsterdam-react-maps/node_modules/leaflet`  
-3. `yarn start` this will start a webpack-dev-server
+1. Run `yarn` to install dependencies  
+2. `yarn start` this will start storybook
 
-Note that we have two directories: 
-1. [`examples`](examples), which contains our 'recipes'. If you need to create a recipe, mind that you're supposed to create a page per feature / functionality.
+Note that we have several packages: 
+1. [`stories`](stories), which contains our 'recipes' in MDX format that will display in Storybook. If you need to create a story, mind that you're supposed to create a page per feature / functionality.
 In case you first want to showcase a feature's functionality, but don't want users to use this yet, make sure you add this to the example's description (eg. adding "Prototype*") 
-2. [`src`](packages/arm-core), where we can export our compound-components / utilities / configurations for amsterdam-specific map-related projects. 
+2. [`arm-core`](packages/arm-core), where we can export our compound-components / utilities / configurations for amsterdam-specific map-related projects. 
 Please keep in mind that we strive to create components / utilities / configurations as generic as possible!
+3. We have some other seperate packages for components that require other leaflet dependencies: 
+ - [`arm-cluster`](packages/arm-cluster): Marker clustering component, useful when you need to show a lot of markers
+ - [`arm-draw`](packages/arm-draw): A small tool that allows you to draw polygons or polylines
+ - [`arm-nontiled`](packages/arm-nontiled): For when you need to render a non-tiled layer
+
+Use npm link to link [ASC](https://github.com/Amsterdam/amsterdam-styled-components) or [react-maps](https://github.com/Amsterdam/react-maps) (please read [this](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react).). From your either of your the packages, link leaflet and react to this package, for example: `npm link ../amsterdam-react-maps/node_modules/react && npm link ../amsterdam-react-maps/node_modules/leaflet`
 
 ## Troubleshooting
 

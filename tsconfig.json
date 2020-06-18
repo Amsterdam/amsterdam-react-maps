@@ -35,5 +35,5 @@
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
-  "include": ["examples"]
+  "include": ["stories"]
 }

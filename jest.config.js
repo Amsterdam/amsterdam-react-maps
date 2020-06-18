@@ -8,7 +8,7 @@ module.exports = {
       '<rootDir>/test/__mocks__/imageMock.ts',
     'arm-core/es/(.*)': '<rootDir>/packages/arm-core/lib/$1',
   },
-  testPathIgnorePatterns: ['/node_modules/', '/es/', '/lib/', '/examples/'],
+  testPathIgnorePatterns: ['/node_modules/', '/es/', '/lib/', '/stories/'],
   transform: {
     '\\.(ts|tsx)$': 'ts-jest',
   },

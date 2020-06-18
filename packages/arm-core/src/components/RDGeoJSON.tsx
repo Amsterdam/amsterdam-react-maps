@@ -58,10 +58,11 @@ const RDGeoJSON: React.FC<Props> = ({
 
     return () => {
       if (geoJSON && mapInstance) {
+        setGeoJSON(undefined)
         geoJSON.removeFrom(mapInstance)
       }
     }
-  }, [geoJSON, mapInstance])
+  }, [geoJSON, mapInstance, options])
 
   return null
 }

@@ -4,7 +4,6 @@ import { hooks, Paragraph, Spinner, ViewerContainer } from '@datapunt/asc-ui'
 import { useMapInstance } from '@datapunt/react-maps'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
 import {
-  Map,
   Marker,
   BaseLayer,
   Zoom,
@@ -262,7 +261,7 @@ const Results: React.FC<ResultProps> = ({
   )
 }
 
-const MapPanelPage: React.FC<{ variant?: string }> = () => {
+const MapPanelExample: React.FC<{ variant?: string }> = () => {
   const [currentLatLng, setCurrentLatLng] = useState<LatLng | null>(null)
   const [currentOverlay, setCurrentOverlay] = useState<Overlay>(Overlay.None)
   const [showDesktopVariant] = hooks.useMatchMedia({ minBreakpoint: 'tabletM' })
@@ -277,7 +276,7 @@ const MapPanelPage: React.FC<{ variant?: string }> = () => {
 
   const Element = showDesktopVariant ? MapPanel : MapPanelDrawer
   return (
-    <Map fullScreen>
+    <>
       <GlobalStyle />
       <MapPanelProvider
         variant={showDesktopVariant ? 'panel' : 'drawer'}
@@ -319,8 +318,8 @@ const MapPanelPage: React.FC<{ variant?: string }> = () => {
         />
       </MapPanelProvider>
       <BaseLayer />
-    </Map>
+    </>
   )
 }
 
-export default MapPanelPage
+export default MapPanelExample

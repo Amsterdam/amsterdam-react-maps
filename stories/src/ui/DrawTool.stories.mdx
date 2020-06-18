@@ -1,0 +1,27 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Map, ViewerContainer, BaseLayer } from '@datapunt/arm-core'
+import { DrawTool } from '@datapunt/arm-draw'
+import DrawToolWithMarkerClusterGroup from '../examples/DrawToolWithMarkerClusterGroup'
+
+<Meta title="UI/DrawTool" component={DrawTool} />
+
+# DrawTool
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <ViewerContainer topRight={<DrawTool />} />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## Coupled with MarkerClusterGroup
+
+<Preview>
+  <Story name="Coupled with MarkerClusterGroup">
+    <DrawToolWithMarkerClusterGroup />
+  </Story>
+</Preview>

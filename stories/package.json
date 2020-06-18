@@ -1,0 +1,44 @@
+{
+  "name": "stories",
+  "private": true,
+  "license": "MPL-2.0",
+  "version": "0.2.8-alpha.2",
+  "author": "Datapunt Amsterdam",
+  "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amsterdam/amsterdam-react-maps.git",
+    "directory": "packages/stories"
+  },
+  "main": "lib/stories.js",
+  "scripts": {
+    "start": "node_modules/.bin/start-storybook -p 6006 -c .storybook",
+    "build": "build-storybook -c .storybook -o lib"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint-plugin-mdx": "^1.7.0",
+    "ts-loader": "^7.0.5"
+  },
+  "dependencies": {
+    "@datapunt/arm-cluster": "^0.2.8-alpha.2",
+    "@datapunt/arm-core": "^0.2.8-alpha.2",
+    "@datapunt/arm-draw": "^0.2.8-alpha.2",
+    "@datapunt/arm-nontiled": "^0.2.8-alpha.2",
+    "@datapunt/asc-assets": "^0.20.0",
+    "@datapunt/asc-ui": "^0.20.1-alpha.14",
+    "@datapunt/react-maps": "^0.8.2-alpha.0",
+    "leaflet": "^1.6.0",
+    "react": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}
