@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn --cwd stories start",
     "lint": "eslint ./ --ext js,mdx,ts,tsx",
-    "deploy:gh-pages": "node ./scripts/gh-pages.js",
+    "deploy:gh-pages": "yarn build:storybook && node ./scripts/gh-pages.js",
     "build:clean": "find ./packages -name \"*.d.ts\" -type f -delete && find ./packages -name \"*.tsbuildinfo\" -type f -delete",
     "build": "yarn build:clean && yarn build:ts && yarn build:ts:es",
     "build:storybook": "yarn --cwd stories build",
