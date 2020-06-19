@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Map, ViewerContainer, BaseLayer } from '@datapunt/arm-core'
+import PointClickResults from './examples/PointClickResults'
+
+<Meta title="Click and Search Nearby" />
+
+# Click and Search Nearby
+
+Click on the map and see what happens
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <ViewerContainer topRight={<PointClickResults />} />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

@@ -1,0 +1,25 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Button, SearchBar } from '@datapunt/asc-ui'
+import { Map, BaseLayer, Zoom, ViewerContainer } from '@datapunt/arm-core'
+
+<Meta title="UI/ViewerContainer" component={ViewerContainer} />
+
+# ViewerContainer
+
+The ViewerContainer is a overlay on top of the map with 4 containers in each corner that can contain any type of component.
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <ViewerContainer
+        bottomRight={<Zoom />}
+        bottomLeft="Even some text is allowed"
+        topLeft={<Button>I&apos;m a random button</Button>}
+        topRight={<SearchBar />}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

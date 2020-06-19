@@ -1,0 +1,71 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, boolean, number } from '@storybook/addon-knobs'
+import { Map, ViewerContainer, Zoom, BaseLayer } from '@datapunt/arm-core'
+import { MarkerClusterGroup } from '@datapunt/arm-cluster'
+import markers from './stubs/markers.json'
+
+<Meta
+  title="MarkerClusteringGroup"
+  component={MarkerClusterGroup}
+  decorators={[withKnobs]}
+/>
+
+# MarkerClusteringGroup
+
+Groups markers together in clusters. You can bind events, like a click event for example, on each marker (zoom in and click on a single marker to see in action).
+This example uses stub data for markers. You can retrieve some real data using API's that support a `shape` parameter,
+[for example this request](https://api.data.amsterdam.nl/dataselectie/bag/geolocation/?shape=[[4.894230533839637,52.375020731825956],[4.8918540164222115,52.37132657239667],[4.899263378646926,52.37054197320004],[4.90232182515308,52.37058473631911],[4.899663252673563,52.37456004610897]]).
+For more info and available options, check out (https://github.com/Leaflet/Leaflet.markercluster)[https://github.com/Leaflet/Leaflet.markercluster]
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <ViewerContainer bottomRight={<Zoom />} />
+      <MarkerClusterGroup
+        events={{
+          click: (e) => {
+            window.alert(
+              `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
+            )
+          },
+        }}
+        markers={markers}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## With Knobs (play with options under "Knobs" tab in Canvas mode)
+
+<Preview>
+  <Story name="With Knobs (play with options)">
+    <Map fullScreen>
+      <ViewerContainer bottomRight={<Zoom />} />
+      <MarkerClusterGroup
+        optionsOverrides={{
+          spiderfyOnMaxZoom: boolean('spiderfyOnMaxZoom', false),
+          showCoverageOnHover: boolean('showCoverageOnHover', false),
+          zoomToBoundsOnClick: boolean('zoomToBoundsOnClick', true),
+          maxClusterRadius: number('maxClusterRadius', 50, {
+            range: true,
+            min: 0,
+            max: 100,
+            step: 1,
+          }),
+          chunkedLoading: boolean('chunkedLoading', true),
+          disableClusteringAtZoom: number('disableClusteringAtZoom', 16, {
+            range: true,
+            min: 1,
+            max: 20,
+            step: 1,
+          }),
+        }}
+        markers={markers}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

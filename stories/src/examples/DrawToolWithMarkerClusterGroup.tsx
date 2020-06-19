@@ -5,8 +5,7 @@ import { ViewerContainer } from '@datapunt/asc-ui'
 import { BaseLayer, Map, useStateRef } from '@datapunt/arm-core'
 import { MarkerClusterGroup } from '@datapunt/arm-cluster'
 import { DrawTool, ExtendedLayer } from '@datapunt/arm-draw'
-import 'leaflet-draw/dist/leaflet.draw.css'
-import getDataSelection from '../api/getDataSelection'
+import getDataSelection from './api/getDataSelection'
 
 const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;
@@ -20,7 +19,7 @@ type MarkerGroup = {
 const DATA_SELECTION_ENDPOINT =
   'https://api.data.amsterdam.nl/dataselectie/bag/geolocation/'
 
-const MapWithDrawTool: React.FC = () => {
+const DrawToolWithMarkerClusterGroup: React.FC = () => {
   const [showDrawTool, setShowDrawTool] = useState(true)
   const [mapInstance, setMapInstance] = useState<L.Map>()
   const [markerGroups, setMarkerGroups, markerGroupsRef] = useStateRef<
@@ -153,4 +152,4 @@ const MapWithDrawTool: React.FC = () => {
   )
 }
 
-export default MapWithDrawTool
+export default DrawToolWithMarkerClusterGroup

@@ -15,13 +15,12 @@ script:
   - yarn lint
   - yarn test
   - yarn build
-  - yarn build:example
 branches:
   only:
     - master
 deploy:
   - provider: pages
-    local_dir: ./dist
+    local_dir: ./stories/lib
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     on:

@@ -1,7 +1,7 @@
 # Amsterdam React Maps
 
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
-It also contains an "examples" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
+It also contains an "stories" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
 
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![Build Status](https://travis-ci.org/Amsterdam/amsterdam-react-maps.svg?branch=master)](https://travis-ci.org/Amsterdam/amsterdam-react-maps)
@@ -25,7 +25,8 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 
 ## Docs
 
-- [Code of Conduct](./docs/CODE_OF_CONDUCT.md)
+- [Getting Started](./docs/GETTING_STARTED.md)
+- [Contributing](./docs/CONTRIBUTING.md)
 - [Changelog](./docs/CHANGELOG.md)
 - [Maintainers](./docs/MAINTAINERS.md)
-- [Contributing](./docs/CONTRIBUTING.md)
+- [Code of Conduct](./docs/CODE_OF_CONDUCT.md)

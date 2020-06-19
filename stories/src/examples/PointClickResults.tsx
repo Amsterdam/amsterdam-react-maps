@@ -30,7 +30,6 @@ const PointClickResults: React.FC = () => {
     if (mapInstance) {
       mapInstance.on('click', clickHandler)
     }
-
     return () => {
       if (mapInstance) {
         mapInstance.off('click', clickHandler)
@@ -46,7 +45,7 @@ const PointClickResults: React.FC = () => {
           {addresses && !loading && (
             <List>
               <TopBar>
-                <Heading as="h3">Resultaten</Heading>
+                <Heading as="h3">Results</Heading>
                 <Button
                   type="button"
                   size={30}

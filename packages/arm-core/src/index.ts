@@ -11,6 +11,7 @@ export { default as WfsLayer } from './components/WfsLayer'
 export { default as BaseLayer } from './components/BaseLayer'
 export { default as BaseLayerToggle } from './components/BaseLayerToggle'
 export { default as ControlButton } from './components/ControlButton'
+export { default as ViewerContainer } from './components/ViewerContainer'
 export {
   default as RDGeoJSON,
   defaultStyle as rdGeoJSONDefaultStyle,
