@@ -24,4 +24,4 @@ that a package is updated or you're not using the right node version. Please che
 case. Otherwise just run this command (if you are using nvm):
 `rm -Rf node_modules && nvm install --lts && nvm alias default --lts && yarn cache clean && yarn`
 
-Still having trouble? Contact one of our [core maintainers](./MAINTAINERS.md)
+Still having trouble? Contact one of our [core maintainers](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/MAINTAINERS.md)
