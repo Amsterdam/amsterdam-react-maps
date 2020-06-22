@@ -45,7 +45,7 @@ const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
   height: 100%;
   align-content: flex-start;
   touch-action: none;
-  padding: ${themeSpacing(0, 2)};
+  padding: ${themeSpacing(0, 4)};
 
   @media screen and ${breakpoint('min-width', 'tabletM')} {
     margin: ${themeSpacing(5, 0)};
