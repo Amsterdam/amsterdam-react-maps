@@ -4,6 +4,7 @@
 
 1. Run `yarn` to install dependencies  
 2. `yarn start` this will start storybook
+3. Start `yarn build:ts:es --watch` in another terminal if you want to make changes to components in the `packages` directory.
 
 Note that we have several packages: 
 1. [`stories`](stories), which contains our 'recipes' in MDX format that will display in Storybook. If you need to create a story, mind that you're supposed to create a page per feature / functionality.

@@ -1,8 +1,9 @@
 import { GlobalStyle, ThemeProvider } from '@datapunt/asc-ui'
 import { addDecorator, addParameters } from '@storybook/react'
 import React from 'react'
+import styled from 'styled-components'
 import { withA11y } from '@storybook/addon-a11y'
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
+import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
 import sortStories from './util/sort-stories'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-draw/dist/leaflet.draw.css'
@@ -12,12 +13,16 @@ const SORT_ORDER = {
   UI: ['DrawTool', 'ViewerContainer', 'Map Panel', 'BaseLayerToggle'],
 }
 
+const StoryWrapper = styled.div`
+  position: relative;
+`
+
 function withGlobalStyles(storyFn) {
   return (
     <ThemeProvider>
       <>
         <GlobalStyle />
-        {storyFn()}
+        <StoryWrapper>{storyFn()}</StoryWrapper>
       </>
     </ThemeProvider>
   )
