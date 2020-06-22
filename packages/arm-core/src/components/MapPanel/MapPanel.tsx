@@ -1,16 +1,21 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
-import { Button } from '@datapunt/asc-ui'
+import styled, { css } from 'styled-components'
+import { Button, themeColor } from '@datapunt/asc-ui'
 import { ChevronRight, ChevronLeft } from '@datapunt/asc-assets'
 import MapPanelContext from './MapPanelContext'
 import { OPEN_LEGEND_TITLE, SnapPoint } from './constants'
 
-const Handle = styled(Button)`
+const Handle = styled(Button)<{ isOpen: boolean }>`
   width: 30px;
   height: 100%;
   pointer-events: all;
-  z-index: 1;
+  z-index: 100;
   flex-shrink: 0;
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      background-color: transparent;
+    `}
 
   &&:focus {
     outline: none;
@@ -25,6 +30,7 @@ const MapPanelStyle = styled.div`
   top: 0;
   z-index: 401;
   overflow: hidden;
+  background-color: ${themeColor('tint', 'level1')};
 `
 
 const MapPanelContent = styled.div`
@@ -58,6 +64,7 @@ const MapPanel: React.FC = ({ children, ...otherProps }) => {
         iconSize={20}
         icon={isMapPanelOpen ? <ChevronLeft /> : <ChevronRight />}
         onClick={handleDrawerPosition}
+        isOpen={isMapPanelOpen}
       />
     </MapPanelStyle>
   )

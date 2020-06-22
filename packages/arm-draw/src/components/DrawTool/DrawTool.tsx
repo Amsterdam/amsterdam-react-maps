@@ -42,6 +42,7 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
 })
 
 type Props = {
+  onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
@@ -53,6 +54,7 @@ type Props = {
 const DrawTool: React.FC<Props> = ({
   onToggle,
   onDelete,
+  onDrawStart,
   onDrawEnd,
   isOpen,
   drawnItem,
@@ -92,6 +94,11 @@ const DrawTool: React.FC<Props> = ({
     })
     drawing.enable()
     setInCreateMode(true)
+
+    if (onDrawStart) {
+      // @ts-ignore
+      onDrawStart(drawing)
+    }
   }
 
   const createPolyline = (): null | void => {
@@ -108,6 +115,11 @@ const DrawTool: React.FC<Props> = ({
     })
     drawing.enable()
     setInCreateMode(true)
+
+    if (onDrawStart) {
+      // @ts-ignore
+      onDrawStart(drawing)
+    }
   }
 
   const getLayersInEditMode = () => {
