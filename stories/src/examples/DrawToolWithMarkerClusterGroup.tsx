@@ -16,10 +16,16 @@ type MarkerGroup = {
   markers: LatLngTuple[]
 }
 
+type Props = {
+  hasInitialDrawing: boolean
+}
+
 const DATA_SELECTION_ENDPOINT =
   'https://api.data.amsterdam.nl/dataselectie/bag/geolocation/'
 
-const DrawToolWithMarkerClusterGroup: React.FC = () => {
+const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
+  hasInitialDrawing = false,
+}) => {
   const [showDrawTool, setShowDrawTool] = useState(true)
   const [mapInstance, setMapInstance] = useState<L.Map>()
   const [markerGroups, setMarkerGroups, markerGroupsRef] = useStateRef<
@@ -163,7 +169,7 @@ const DrawToolWithMarkerClusterGroup: React.FC = () => {
             }}
             isOpen={showDrawTool}
             onToggle={setShowDrawTool}
-            drawnItem={initalDrawnItem}
+            drawnItem={hasInitialDrawing && initalDrawnItem}
           />
         }
       />
