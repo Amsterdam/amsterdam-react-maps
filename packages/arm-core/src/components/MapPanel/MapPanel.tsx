@@ -31,7 +31,6 @@ const MapPanelContent = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 0;
 `
 
 const MapPanel: React.FC = ({ children, ...otherProps }) => {
@@ -47,6 +46,7 @@ const MapPanel: React.FC = ({ children, ...otherProps }) => {
       isMapPanelOpen ? SnapPoint.Closed : SnapPoint.Halfway,
     )
   }
+
   return (
     <MapPanelStyle style={{ width: drawerPosition }} {...otherProps}>
       <MapPanelContent>{children}</MapPanelContent>

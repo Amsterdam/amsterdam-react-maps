@@ -11,6 +11,7 @@ import 'leaflet-draw/dist/leaflet.draw.css'
 const SORT_ORDER = {
   Introduction: ['Welcome', 'Getting Started', 'Contributing'],
   UI: ['DrawTool', 'ViewerContainer', 'Map Panel', 'BaseLayerToggle'],
+  Other: [],
 }
 
 const StoryWrapper = styled.div`

@@ -261,11 +261,10 @@ const Results: React.FC<ResultProps> = ({
   )
 }
 
-const MapPanelExample: React.FC<{ variant?: string }> = () => {
+const MapPanelExample: React.FC = () => {
   const [currentLatLng, setCurrentLatLng] = useState<LatLng | null>(null)
   const [currentOverlay, setCurrentOverlay] = useState<Overlay>(Overlay.None)
   const [showDesktopVariant] = hooks.useMatchMedia({ minBreakpoint: 'tabletM' })
-
   useEffect(() => {
     if (!currentLatLng) {
       setCurrentOverlay(Overlay.None)
@@ -289,7 +288,7 @@ const MapPanelExample: React.FC<{ variant?: string }> = () => {
           />
           {currentOverlay === Overlay.Legend && (
             <MapLegendContent
-              stackOrder={2}
+              stackOrder={3}
               animate
               onClose={() => {
                 setCurrentOverlay(
