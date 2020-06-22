@@ -4,10 +4,15 @@ The instructions below cover how to use Amsterdam React Maps (ARM) in a React ap
 
 To simply render a Map in your application, this would be the bare minimum setup:
 
-1. Make sure you have the following dependencies installed:
+1. Install the core package: `yarn add @datapunt/arm-core`
+
+2. Make sure you have the following peer dependencies installed:
 `yarn add @datapunt/asc-assets @datapunt/asc-ui @datapunt/react-maps leaflet styled-components`
 
-2. Add the following code to your application where you want to render the map, so it will look a bit like this:
+If you want to install other packages, make sure you have the peer-dependencies installed as well. For example:
+`arm-draw` has an extra peer-dependency of `leaflet-draw`, so make sure you have that installed.
+
+3. Add the following code to your application where you want to render the map, so it will look a bit like this:
 
 ```js
 import 'leaflet/dist/leaflet.css' // make sure this is always included!

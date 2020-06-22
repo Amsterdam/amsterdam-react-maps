@@ -34,8 +34,7 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.2.8-alpha.3",
-    "leaflet.markercluster": "^1.4.1"
+    "@datapunt/arm-core": "^0.2.8-alpha.3"
   },
   "peerDependencies": {
     "@datapunt/asc-ui": "^0.20.0",

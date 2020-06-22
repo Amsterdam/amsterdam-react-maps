@@ -34,8 +34,7 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.2.8-alpha.3",
-    "leaflet.nontiledlayer": "^1.0.8"
+    "@datapunt/arm-core": "^0.2.8-alpha.3"
   },
   "peerDependencies": {
     "@datapunt/react-maps": "^0.8.2-alpha.0",

@@ -35,7 +35,6 @@
   "typings": "lib/index.d.ts",
   "dependencies": {
     "@datapunt/arm-core": "^0.2.8-alpha.3",
-    "leaflet-draw": "^1.0.4",
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
