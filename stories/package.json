@@ -16,18 +16,14 @@
     "build": "build-storybook -c .storybook -o lib"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.3.19",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addon-viewport": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "eslint-plugin-mdx": "^1.7.0",
-    "ts-loader": "^7.0.5"
+    "@storybook/addon-a11y": "^6.0.0-beta.32",
+    "@storybook/addon-actions": "^6.0.0-beta.32",
+    "@storybook/addon-docs": "^6.0.0-beta.32",
+    "@storybook/addon-knobs": "^6.0.0-beta.32",
+    "@storybook/addon-links": "^6.0.0-beta.32",
+    "@storybook/addon-viewport": "^6.0.0-beta.32",
+    "@storybook/react": "^6.0.0-beta.32",
+    "eslint-plugin-mdx": "^1.7.0"
   },
   "dependencies": {
     "@datapunt/arm-cluster": "^0.2.8-alpha.2",
