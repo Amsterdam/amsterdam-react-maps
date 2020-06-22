@@ -3,7 +3,6 @@ import {
   breakpoint,
   Button,
   Heading,
-  Row,
   themeColor,
   themeSpacing,
 } from '@datapunt/asc-ui'
@@ -17,7 +16,7 @@ import {
 } from './constants'
 
 type StyleProps = {
-  stackOrder?: 1 | 2
+  stackOrder?: number
   variant?: Variant
   animate?: boolean
 }
@@ -40,17 +39,14 @@ const StyledButton = styled(Button)`
   z-index: 2; // Make sure the button is on not beneath the MapDrawer's Handle
 `
 
-const StyledRow = styled(Row)`
-  height: 100%;
-  align-content: flex-start;
-  touch-action: none;
-  @media screen and ${breakpoint('min-width', 'tabletM')} {
-    padding-right: 0;
-  }
-`
 const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
   position: relative;
   background-color: ${themeColor('tint', 'level1')};
+  height: 100%;
+  align-content: flex-start;
+  touch-action: none;
+  padding: ${themeSpacing(0, 2)};
+
   @media screen and ${breakpoint('min-width', 'tabletM')} {
     margin: ${themeSpacing(5, 0)};
     pointer-events: all;
@@ -89,8 +85,16 @@ const MapDrawerContentStyle = styled.div<StyleProps>`
   bottom: 0;
   top: 0;
   width: 100%;
-  z-index: ${({ stackOrder }) => stackOrder && stackOrder * 10};
   background-color: ${themeColor('tint', 'level1')};
+  z-index: 0;
+  ${({ stackOrder }) =>
+    stackOrder &&
+    stackOrder > 0 &&
+    css`
+      box-shadow: 1px 1px 5px 0 #00000042;
+      z-index: ${stackOrder * 10};
+      width: calc(100% - ${stackOrder > 2 ? stackOrder * 5 : 0}px);
+    `}
   ${({ animate, variant }) =>
     animate &&
     css`
@@ -103,9 +107,6 @@ const Content = styled.div`
   max-height: calc(100% - 50px);
   overflow: auto;
   pointer-events: all;
-  @media screen and ${breakpoint('min-width', 'tabletM')} {
-    padding-right: ${themeSpacing(10)};
-  }
   @media screen and ${breakpoint('max-width', 'tabletM')} {
     padding-bottom: ${themeSpacing(
       30,
@@ -158,24 +159,22 @@ const MapPanelContent: React.FC<Props> = ({
           matchPositionWithSnapPoint(SnapPoint.Halfway) ? '50vh' : '100vh'
         }
       >
-        <StyledRow>
-          <Header>
-            <Heading as="h4" styleAs="h1">
-              {title}
-            </Heading>
-            {onClose && (
-              <StyledButton
-                variant="blank"
-                title="Sluit"
-                type="button"
-                size={30}
-                onClick={onClose}
-                icon={<Close />}
-              />
-            )}
-          </Header>
-          <Content {...otherProps}>{children}</Content>
-        </StyledRow>
+        <Header>
+          <Heading as="h4" styleAs="h1">
+            {title}
+          </Heading>
+          {onClose && (
+            <StyledButton
+              variant="blank"
+              title="Sluit"
+              type="button"
+              size={30}
+              onClick={onClose}
+              icon={<Close />}
+            />
+          )}
+        </Header>
+        <Content {...otherProps}>{children}</Content>
       </StyledContainer>
     </MapDrawerContentStyle>
   )
