@@ -3485,9 +3485,9 @@
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
 "@types/leaflet-draw@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/leaflet-draw/-/leaflet-draw-1.0.2.tgz#57c6749bf9ee265a544b410fb0f7ef644a1f9d69"
-  integrity sha512-rHlpibY3yXJ1g/ArFMR++y3HvTh5s58KwpsNKSxQT49e64ODzLPesTLhkbFF8Fhs3CbHm0qfeEIcw0oFRMP43w==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/leaflet-draw/-/leaflet-draw-1.0.3.tgz#73a003bf1def575c7cfd3205fa48d26bd0dc4273"
+  integrity sha512-ayNnO40vafd1Do3h7v0++toEzcO1CEjtFBqPunF3695WU0OTPzJ82XUQcd4MlYTuPSP3OsZm5ni361tgmcjxNw==
   dependencies:
     "@types/leaflet" "*"
 
