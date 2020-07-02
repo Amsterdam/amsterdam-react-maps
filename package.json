@@ -15,7 +15,9 @@
     "build:ts:es": "tsc -b packages/arm-core/tsconfig.es.json packages/arm-draw/tsconfig.es.json packages/arm-cluster/tsconfig.es.json packages/arm-nontiled/tsconfig.es.json",
     "test": "yarn jest",
     "test:watch": "yarn test --watch --onlyChanged",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "publish:canary": "lerna publish --canary --yes",
+    "publish:stable": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
