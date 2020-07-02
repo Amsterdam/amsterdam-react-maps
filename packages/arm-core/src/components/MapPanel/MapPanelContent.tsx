@@ -47,6 +47,7 @@ const CloseButton = styled(Button)`
 const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
   position: relative;
   background-color: ${themeColor('tint', 'level1')};
+  width: 100%;
   height: 100%;
   align-content: flex-start;
   touch-action: none;
@@ -172,14 +173,16 @@ const MapPanelContent: React.FC<Props> = ({
               {title}
             </Heading>
           </div>
-          <CloseButton
-            variant="blank"
-            title="Sluit"
-            type="button"
-            size={30}
-            onClick={onClose}
-            icon={<Close />}
-          />
+          {onClose && (
+            <CloseButton
+              variant="blank"
+              title="Sluit"
+              type="button"
+              size={30}
+              onClick={onClose}
+              icon={<Close />}
+            />
+          )}
         </Header>
         <Content {...otherProps}>{children}</Content>
       </StyledContainer>
