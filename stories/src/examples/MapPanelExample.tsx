@@ -144,7 +144,7 @@ const CustomMarker: React.FC<{
 }
 
 const MapLegendContent = ({ ...otherProps }) => (
-  <MapPanelContent title="Legenda" {...otherProps}>
+  <MapPanelContent title="Legenda" subTitle="Een kaartpaneel" {...otherProps}>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam
     corporis culpa error et illum ipsa ipsam laudantium, maiores molestias non
     quaerat quasi qui temporibus voluptates. Adipisci dolore odit placeat sint

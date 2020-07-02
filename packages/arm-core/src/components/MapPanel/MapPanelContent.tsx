@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { Close } from '@datapunt/asc-assets'
 import {
   breakpoint,
   Button,
@@ -6,14 +6,14 @@ import {
   themeColor,
   themeSpacing,
 } from '@datapunt/asc-ui'
+import React, { useContext } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { Close } from '@datapunt/asc-assets'
-import MapDrawerContext, { Variant } from './MapPanelContext'
 import {
   PANEL_HANDLE_HEIGHT,
   PANEL_HANDLE_PADDING,
   SnapPoint,
 } from './constants'
+import MapDrawerContext, { Variant } from './MapPanelContext'
 
 type StyleProps = {
   stackOrder?: number
@@ -23,20 +23,25 @@ type StyleProps = {
 
 type Props = {
   title: string
+  subTitle?: string
   onClose?: () => void
 } & StyleProps
 
 const Header = styled.header`
   display: flex;
-  justify-content: space-between;
-  align-self: flex-start;
   width: 100%;
-  padding-bottom: ${themeSpacing(5)};
+  padding: ${themeSpacing(0, 4, 4, 0)};
 `
 
-const StyledButton = styled(Button)`
-  position: relative;
-  z-index: 2; // Make sure the button is on not beneath the MapDrawer's Handle
+const SubTitleHeading = styled(Heading)`
+  margin: 0 0 ${themeSpacing(1)} 0;
+  font-size: 22px;
+  line-height: 22px;
+  color: ${themeColor('secondary', 'main')};
+`
+
+const CloseButton = styled(Button)`
+  margin-left: auto;
 `
 
 const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
@@ -45,6 +50,7 @@ const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
   height: 100%;
   align-content: flex-start;
   touch-action: none;
+  padding-left: ${themeSpacing(4)};
 
   @media screen and ${breakpoint('min-width', 'tabletM')} {
     margin: ${themeSpacing(5, 0)};
@@ -143,6 +149,7 @@ const Content = styled.div`
 
 const MapPanelContent: React.FC<Props> = ({
   title,
+  subTitle,
   animate,
   stackOrder,
   children,
@@ -159,19 +166,20 @@ const MapPanelContent: React.FC<Props> = ({
         }
       >
         <Header>
-          <Heading as="h4" styleAs="h1">
-            {title}
-          </Heading>
-          {onClose && (
-            <StyledButton
-              variant="blank"
-              title="Sluit"
-              type="button"
-              size={30}
-              onClick={onClose}
-              icon={<Close />}
-            />
-          )}
+          <div>
+            {subTitle && <SubTitleHeading as="h3">{subTitle}</SubTitleHeading>}
+            <Heading as="h4" styleAs="h1">
+              {title}
+            </Heading>
+          </div>
+          <CloseButton
+            variant="blank"
+            title="Sluit"
+            type="button"
+            size={30}
+            onClick={onClose}
+            icon={<Close />}
+          />
         </Header>
         <Content {...otherProps}>{children}</Content>
       </StyledContainer>
