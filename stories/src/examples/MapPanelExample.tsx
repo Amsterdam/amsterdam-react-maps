@@ -1,24 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
-import styled, { createGlobalStyle, css } from 'styled-components'
+import {
+  BaseLayer,
+  MapPanel,
+  MapPanelContent,
+  MapPanelContext,
+  MapPanelDrawer,
+  MapPanelLegendButton,
+  MapPanelProvider,
+  Marker,
+  usePanToLatLng,
+  Zoom,
+} from '@datapunt/arm-core'
 import { hooks, Paragraph, Spinner, ViewerContainer } from '@datapunt/asc-ui'
 import { useMapInstance } from '@datapunt/react-maps'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
-import {
-  Marker,
-  BaseLayer,
-  Zoom,
-  mapPanelComponents,
-  usePanToLatLng,
-} from '@datapunt/arm-core'
-
-const {
-  MapPanel,
-  MapPanelDrawer,
-  MapPanelLegendButton,
-  MapPanelContent,
-  MapPanelProvider,
-  MapPanelContext,
-} = mapPanelComponents
+import React, { useContext, useEffect, useState } from 'react'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 type StyledViewerContainerProps = {
   leftOffset?: string
