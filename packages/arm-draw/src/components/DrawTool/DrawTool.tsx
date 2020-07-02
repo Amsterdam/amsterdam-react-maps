@@ -47,7 +47,7 @@ type Props = {
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   isOpen?: boolean
-  drawnItem?: ExtendedLayer
+  drawnItems?: Array<ExtendedLayer>
   mapInstance?: L.DrawMap
 }
 
@@ -57,7 +57,7 @@ const DrawTool: React.FC<Props> = ({
   onDrawStart,
   onDrawEnd,
   isOpen,
-  drawnItem,
+  drawnItems,
   mapInstance: mapInstanceProp,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
@@ -72,7 +72,7 @@ const DrawTool: React.FC<Props> = ({
 
   const mapInstance = mapInstanceProp || (useMapInstance() as L.DrawMap)
 
-  const drawnItems = useMemo(() => new L.FeatureGroup(), [])
+  const drawnItemsGroup = useMemo(() => new L.FeatureGroup(), [])
 
   const createPolygon = (): null | void => {
     if (!mapInstance) {
@@ -125,7 +125,7 @@ const DrawTool: React.FC<Props> = ({
   const getLayersInEditMode = () => {
     const layers: ExtendedLayer[] = []
 
-    drawnItems.eachLayer((layer) => {
+    drawnItemsGroup.eachLayer((layer) => {
       const typedLayer = layer as ExtendedLayer
       if (typedLayer.editing._enabled) {
         layers.push(typedLayer)
@@ -138,7 +138,7 @@ const DrawTool: React.FC<Props> = ({
   const deleteDrawing = () => {
     const layersToDelete = getLayersInEditMode()
     layersToDelete.forEach((layer) => {
-      drawnItems.removeLayer(layer)
+      drawnItemsGroup.removeLayer(layer)
     })
     if (onDelete) {
       onDelete(layersToDelete)
@@ -201,7 +201,7 @@ const DrawTool: React.FC<Props> = ({
     // eslint-disable-next-line no-param-reassign
     layer.id = uuidv4()
     exitEditMode()
-    drawnItems.addLayer(layer)
+    drawnItemsGroup.addLayer(layer)
     layer.on('click', handleDrawingClick)
 
     if (onDrawEnd) {
@@ -225,9 +225,9 @@ const DrawTool: React.FC<Props> = ({
     }
 
     if (showDrawTool) {
-      mapInstance.addLayer(drawnItems)
-    } else if (mapInstance.hasLayer(drawnItems)) {
-      mapInstance.removeLayer(drawnItems)
+      mapInstance.addLayer(drawnItemsGroup)
+    } else if (mapInstance.hasLayer(drawnItemsGroup)) {
+      mapInstance.removeLayer(drawnItemsGroup)
     }
   }, [showDrawTool, mapInstance, onToggle])
 
@@ -254,8 +254,12 @@ const DrawTool: React.FC<Props> = ({
     if (!mapInstance) {
       return
     }
-    if (drawnItem) setDrawnItem(drawnItem)
-  }, [mapInstance, drawnItem])
+    if (drawnItems && drawnItems.length) {
+      drawnItems.forEach((drawnItem) => {
+        setDrawnItem(drawnItem)
+      })
+    }
+  }, [mapInstance, drawnItems])
 
   return (
     <>

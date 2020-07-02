@@ -17,14 +17,14 @@ type MarkerGroup = {
 }
 
 type Props = {
-  hasInitialDrawing: boolean
+  hasInitialDrawings: boolean
 }
 
 const DATA_SELECTION_ENDPOINT =
   'https://api.data.amsterdam.nl/dataselectie/bag/geolocation/'
 
 const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
-  hasInitialDrawing = false,
+  hasInitialDrawings = false,
 }) => {
   const [showDrawTool, setShowDrawTool] = useState(true)
   const [mapInstance, setMapInstance] = useState<L.Map>()
@@ -47,7 +47,9 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
 
       if (markerGroupsRef.current) {
         setMarkerGroups([
-          ...markerGroupsRef.current.filter(({ id }) => id !== layer.id),
+          ...markerGroupsRef.current.filter(
+            ({ id }: MarkerGroup) => id !== layer.id,
+          ),
           {
             id: layer.id,
             markers: res.markers,
@@ -124,27 +126,39 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
   }, [mapInstance])
 
   // The same result can be achieved for a Polyline
-  const initalDrawnItem = useMemo(
+  const initalDrawnItems = useMemo(
     () =>
-      L.polygon(
-        [
-          [52.375120046525105, 4.889097815688928],
-          [52.370002964209455, 4.885899048674768],
-          [52.371241385470576, 4.900439799661425],
-          [52.3761937456813, 4.9003854485337985],
-        ],
-        {
-          color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
-          bubblingMouseEvents: false,
-        },
-      ) as PolygonType,
+      [
+        L.polygon(
+          [
+            [52.37000756868467, 4.894187572618143],
+            [52.36638286187091, 4.893981190127323],
+            [52.369541390869465, 4.89828766015057],
+          ],
+          {
+            color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
+            bubblingMouseEvents: false,
+          },
+        ),
+        L.polygon(
+          [
+            [52.37594820185194, 4.892147803888032],
+            [52.37206742179071, 4.888490687556837],
+            [52.373527030104974, 4.89814504712679],
+          ],
+          {
+            color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
+            bubblingMouseEvents: false,
+          },
+        ),
+      ] as Array<PolygonType>,
     [],
   )
 
   return (
     <Map setInstance={setMapInstance} fullScreen>
       {showDrawTool &&
-        markerGroups.map(({ markers, id }) => (
+        markerGroups.map(({ markers, id }: MarkerGroup) => (
           <MarkerClusterGroup key={id} markers={markers} />
         ))}
       <BaseLayer />
@@ -155,21 +169,21 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
               await getMarkerGroup(layer)
               bindDistanceAndAreaToTooltip(layer)
             }}
-            onDelete={(layersInEditMode) => {
+            onDelete={(layersInEditMode: Array<ExtendedLayer>) => {
               const editLayerIds = layersInEditMode.map(({ id }) => id)
 
               // remove the markerGroups.
               if (markerGroupsRef.current) {
                 setMarkerGroups(
                   markerGroupsRef.current.filter(
-                    ({ id }) => !editLayerIds.includes(id),
+                    ({ id }: MarkerGroup) => !editLayerIds.includes(id),
                   ),
                 )
               }
             }}
             isOpen={showDrawTool}
             onToggle={setShowDrawTool}
-            drawnItem={hasInitialDrawing && initalDrawnItem}
+            drawnItems={hasInitialDrawings && initalDrawnItems}
           />
         }
       />
