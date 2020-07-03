@@ -23,6 +23,7 @@
     "@storybook/addon-links": "^6.0.0-beta.32",
     "@storybook/addon-viewport": "^6.0.0-beta.32",
     "@storybook/react": "^6.0.0-beta.32",
+    "babel-plugin-styled-components": "^1.10.7",
     "eslint-plugin-mdx": "^1.7.0"
   },
   "dependencies": {
