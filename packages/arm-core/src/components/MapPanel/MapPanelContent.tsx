@@ -30,7 +30,7 @@ type Props = {
 const Header = styled.header`
   display: flex;
   width: 100%;
-  padding: ${themeSpacing(0, 4, 4, 0)};
+  padding: ${themeSpacing(4)};
 `
 
 const SubTitleHeading = styled(Heading)`
@@ -45,19 +45,19 @@ const CloseButton = styled(Button)`
 `
 
 const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
+  display: flex;
+  flex-direction: column;
   position: relative;
   background-color: ${themeColor('tint', 'level1')};
   width: 100%;
   height: 100%;
   align-content: flex-start;
   touch-action: none;
-  padding-left: ${themeSpacing(4)};
 
   @media screen and ${breakpoint('min-width', 'tabletM')} {
-    margin: ${themeSpacing(5, 0)};
     pointer-events: all;
-    height: calc(100% - ${themeSpacing(5)});
   }
+
   @media screen and ${breakpoint('max-width', 'tabletM')} {
     top: ${PANEL_HANDLE_PADDING * -1}px;
     height: calc(
@@ -110,9 +110,19 @@ const MapDrawerContentStyle = styled.div<StyleProps>`
 `
 
 const Content = styled.div`
-  max-height: calc(100% - 50px);
+  width: 100%;
+  padding: ${themeSpacing(0, 4)};
   overflow: auto;
   pointer-events: all;
+
+  /* Firefox does not support padding on the bottom when scrolling, so we need to work around this (see: https://bugzilla.mozilla.org/show_bug.cgi?id=748518). */
+  ::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: ${themeSpacing(4)};
+  }
+
   @media screen and ${breakpoint('max-width', 'tabletM')} {
     padding-bottom: ${themeSpacing(
       30,
