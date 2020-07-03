@@ -1,7 +1,7 @@
-import React from 'react'
 import { Map as ReactMap } from '@datapunt/react-maps'
-import styled, { css } from 'styled-components'
 import { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
+import React from 'react'
+import styled, { css } from 'styled-components'
 import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from '../constants'
 
 type StyleProps = {
@@ -22,7 +22,7 @@ const StyledMap = styled((
     fullScreen &&
     css`
       width: 100%;
-      height: 100vh;
+      height: 100%;
     `}
 `
 

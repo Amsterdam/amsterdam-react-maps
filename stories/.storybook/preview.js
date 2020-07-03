@@ -1,12 +1,12 @@
 import { GlobalStyle, ThemeProvider } from '@datapunt/asc-ui'
-import { addDecorator, addParameters } from '@storybook/react'
-import React from 'react'
-import styled from 'styled-components'
 import { withA11y } from '@storybook/addon-a11y'
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
-import sortStories from './util/sort-stories'
-import 'leaflet/dist/leaflet.css'
+import { addDecorator, addParameters } from '@storybook/react'
 import 'leaflet-draw/dist/leaflet.draw.css'
+import 'leaflet/dist/leaflet.css'
+import React from 'react'
+import styled from 'styled-components'
+import sortStories from './util/sort-stories'
 
 const SORT_ORDER = {
   Introduction: ['Welcome', 'Getting Started', 'Contributing'],
@@ -15,6 +15,7 @@ const SORT_ORDER = {
 }
 
 const StoryWrapper = styled.div`
+  height: 100vh; /* Ensure the map takes up the whole story preview */
   position: relative;
 `
 
@@ -33,6 +34,7 @@ addDecorator(withGlobalStyles)
 addDecorator(withA11y)
 
 addParameters({
+  layout: 'fullscreen',
   options: {
     storySort: sortStories(SORT_ORDER),
     showRoots: true,
