@@ -31,7 +31,12 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strict": true
+    "strict": true,
+    "plugins": [{
+      "transform": "typescript-plugin-styled-components",
+      "type": "config",
+      "pure": true
+    }]
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
