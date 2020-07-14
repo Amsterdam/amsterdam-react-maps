@@ -15,6 +15,7 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## UNRELEASED
+- Changed: Marker component now accepts the more generic LatLngExpression instead of only a LatLng
 
 ## [0.3.4]
 - Deprecated: amsterdam-react-maps package

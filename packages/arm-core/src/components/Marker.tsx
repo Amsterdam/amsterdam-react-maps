@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
 import { Marker as MarkerComponent } from '@datapunt/react-maps'
 import {
-  LatLng,
+  LatLngExpression,
   LeafletEventHandlerFn,
   Marker as MarkerType,
   MarkerOptions,
 } from 'leaflet'
+import React, { useEffect, useState } from 'react'
 import { defaultIcon } from '../icons'
 
 type Props = {
-  latLng: LatLng
+  latLng: LatLngExpression
   events?: { [key: string]: LeafletEventHandlerFn }
   options?: MarkerOptions
 }
