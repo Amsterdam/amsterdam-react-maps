@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## UNRELEASED
+## [0.3.5]
 - Changed: Marker component now accepts the more generic LatLngExpression instead of only a LatLng
 
 ## [0.3.4]
