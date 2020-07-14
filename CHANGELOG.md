@@ -15,18 +15,18 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## UNRELEASED
+
+## [0.3.4]
 - Deprecated: amsterdam-react-maps package
 - Changed: usePanToLatLng now accepts a LatLngLiteral instead of a LatLng
 
-##  [0.2.7]
-
+## [0.2.7]
 - Added: BaseLayerToggle component
 - Added: DrawTool
 - Added: MapPanel (desktop) & MapPanelDrawer (mobile) components
 - Added: RDGeoJSON
 
 ## [0.2.0]
-
 - Added: Draw tool
 - Added: MarkerClusterGroup
 - Added: Map (with amsterdam-maps defaults)
