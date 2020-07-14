@@ -15,17 +15,14 @@ import {
 } from './constants'
 import MapDrawerContext, { Variant } from './MapPanelContext'
 
-type StyleProps = {
+export interface MapPanelContentProps {
+  title: string
+  subTitle?: string
+  onClose?: () => void
   stackOrder?: number
   variant?: Variant
   animate?: boolean
 }
-
-type Props = {
-  title: string
-  subTitle?: string
-  onClose?: () => void
-} & StyleProps
 
 const Header = styled.header`
   display: flex;
@@ -86,7 +83,11 @@ const slideFromLeft = keyframes`
   }
 `
 
-const MapDrawerContentStyle = styled.div<StyleProps>`
+const MapDrawerContentStyle = styled.div<{
+  stackOrder?: number
+  variant?: Variant
+  animate?: boolean
+}>`
   position: absolute;
   bottom: 0;
   top: 0;
@@ -158,7 +159,7 @@ const Content = styled.div`
   background-attachment: local, local, scroll, scroll;
 `
 
-const MapPanelContent: React.FC<Props> = ({
+const MapPanelContent: React.FC<MapPanelContentProps> = ({
   title,
   subTitle,
   animate,
