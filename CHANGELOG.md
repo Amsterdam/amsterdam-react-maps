@@ -16,6 +16,7 @@ Prefix the change with one of these keywords:
 
 ## UNRELEASED
 - Deprecated: amsterdam-react-maps package
+- Changed: usePanToLatLng now accepts a LatLngLiteral instead of a LatLng
 
 ##  [0.2.7]
 

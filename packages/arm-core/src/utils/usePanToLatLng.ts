@@ -1,5 +1,5 @@
 import { useMapInstance } from '@datapunt/react-maps'
-import { LatLng } from 'leaflet'
+import { LatLngLiteral } from 'leaflet'
 
 const usePanToLatLng = () => {
   const mapInstance = useMapInstance()
@@ -10,7 +10,7 @@ const usePanToLatLng = () => {
    * @param offset The offset in percentage
    */
   const pan = (
-    latLng: LatLng,
+    latLng: LatLngLiteral,
     offsetDirection?: 'horizontal' | 'vertical',
     offset?: number,
   ) => {
