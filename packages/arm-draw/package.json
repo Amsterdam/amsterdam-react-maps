@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "0.3.5",
+  "version": "0.3.6-alpha.34+52fbe2d",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -49,5 +49,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "52fbe2d1a402dc7b484ade69a9ca0257f500bceb"
 }
