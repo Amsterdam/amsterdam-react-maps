@@ -49,6 +49,7 @@ type Props = {
   isOpen?: boolean
   drawnItems?: Array<ExtendedLayer>
   mapInstance?: L.DrawMap
+  drawnItemsGroup?: L.FeatureGroup
 }
 
 const DrawTool: React.FC<Props> = ({
@@ -59,6 +60,7 @@ const DrawTool: React.FC<Props> = ({
   isOpen,
   drawnItems,
   mapInstance: mapInstanceProp,
+  drawnItemsGroup: drawnItemsGroupProp,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
@@ -72,7 +74,8 @@ const DrawTool: React.FC<Props> = ({
 
   const mapInstance = mapInstanceProp || (useMapInstance() as L.DrawMap)
 
-  const drawnItemsGroup = useMemo(() => new L.FeatureGroup(), [])
+  const drawnItemsGroup =
+    drawnItemsGroupProp || useMemo(() => new L.FeatureGroup(), [])
 
   const createPolygon = (): null | void => {
     if (!mapInstance) {
