@@ -1156,22 +1156,22 @@
     "@datapunt/arm-core" "^0.3.5"
     uuid "^8.1.0"
 
-"@datapunt/asc-assets@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.20.0.tgz#ba2698490660f5a26d04e559c2501151a5ca762e"
-  integrity sha512-NYgcEgZsM2AjWmdUFsyPp5w1LB9GNJcvk7XQIp+5VlboZEHDbgTyuy1zkWtHreg5qBjjaBgtivzkG0np1hO/Kg==
-
 "@datapunt/asc-assets@^0.21.1":
   version "0.21.1"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.21.1.tgz#fac82261ce555ce3845fdfff95c87b47ffd78429"
   integrity sha512-zvrKl8KborzW1xNMJbFnGYTzg2onWpW9l+K6oPrRGPrcFcFg55DSqstTmvsubseVsmF4NCOa1S8dsGJxNZCXzA==
 
-"@datapunt/asc-ui@^0.20.1-alpha.14":
-  version "0.20.1-alpha.37"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.20.1-alpha.37.tgz#08b683c2212f01b12c55a8bc2074059d650d86ee"
-  integrity sha512-Gvp26GDCpGTmWrhT9OHhnfap23QQ67+/U+CCaCOFXiEj448fLK9KqE1ikguvZk28RUZ+lGyCaRXCxQ+JOj+kcg==
+"@datapunt/asc-assets@^0.21.2-alpha.0":
+  version "0.21.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.21.2-alpha.0.tgz#c1cefc03f4117fec44aca62f1c99a309f4f4d514"
+  integrity sha512-5gJNKqGPjdbqIWvc6zerYExcH5n99amRZ+rT8ZOemY8Fyn/xP9XOK5PfB6+sgEheqAe1rNWjB/Fvquk65jM8Mw==
+
+"@datapunt/asc-ui@^0.22.0":
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.22.0.tgz#f5ccd707a3206c75a1e468503429c533a45b1a0b"
+  integrity sha512-i2dyClCBvp8amw0eR/ftH31+hdE8cwLLQ9Y98O2IslcpeBAL689VSJMjzbIopApJeIoIJOfzzEhNYGpI7jsHMQ==
   dependencies:
-    "@datapunt/asc-assets" "^0.20.0"
+    "@datapunt/asc-assets" "^0.21.2-alpha.0"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
     polished "^3.5.1"
