@@ -44,6 +44,7 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
 type Props = {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
+  onInitLayers?: (layer: ExtendedLayer) => void
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   isOpen?: boolean
@@ -59,6 +60,7 @@ const DrawTool: React.FC<Props> = ({
   onDrawEnd,
   isOpen,
   drawnItems,
+  onInitLayers,
   mapInstance: mapInstanceProp,
   drawnItemsGroup: drawnItemsGroupProp,
 }) => {
@@ -206,16 +208,16 @@ const DrawTool: React.FC<Props> = ({
     exitEditMode()
     drawnItemsGroup.addLayer(layer)
     layer.on('click', handleDrawingClick)
-
-    if (onDrawEnd) {
-      onDrawEnd(layer)
-    }
   }
 
   const onDrawCreated = (e: L.DrawEvents.Created) => {
     const layer = e.layer as PolygonType | PolylineType
 
     setDrawnItem(layer)
+
+    if (onDrawEnd) {
+      onDrawEnd(layer)
+    }
   }
 
   // Toggle drawing mode
@@ -261,6 +263,9 @@ const DrawTool: React.FC<Props> = ({
       drawnItems.forEach((drawnItem) => {
         setDrawnItem(drawnItem)
       })
+      if (onInitLayers) {
+        onInitLayers(drawnItems)
+      }
     }
   }, [mapInstance, drawnItems])
 
