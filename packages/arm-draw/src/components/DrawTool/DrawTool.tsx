@@ -202,7 +202,7 @@ const DrawTool: React.FC<Props> = ({
    */
   const setDrawnItem = (layer: PolygonType | PolylineType) => {
     // eslint-disable-next-line no-param-reassign
-    layer.id = uuidv4()
+    layer.id = layer.id || uuidv4()
     exitEditMode()
     drawnItemsGroup.addLayer(layer)
     layer.on('click', handleDrawingClick)
