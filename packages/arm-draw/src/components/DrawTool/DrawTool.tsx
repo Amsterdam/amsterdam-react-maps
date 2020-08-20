@@ -1,14 +1,14 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect, useMemo, useState } from 'react'
-import { createGlobalStyle } from 'styled-components'
+import { icons, useStateRef } from '@datapunt/arm-core'
 import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
-import { v4 as uuidv4 } from 'uuid'
+import { useMapInstance } from '@datapunt/react-maps'
 import L, { LayerEvent, LeafletKeyboardEvent } from 'leaflet'
 import 'leaflet-draw'
-import { useStateRef, icons } from '@datapunt/arm-core'
-import { useMapInstance } from '@datapunt/react-maps'
+import React, { useEffect, useMemo, useState } from 'react'
+import { createGlobalStyle } from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
 import DrawToolBare from './DrawToolBare'
-import { PolygonType, PolylineType, ExtendedLayer } from './types'
+import { ExtendedLayer, PolygonType, PolylineType } from './types'
 
 const { drawIcon } = icons
 
@@ -44,7 +44,7 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
 type Props = {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
-  onInitLayers?: (layer: ExtendedLayer) => void
+  onInitLayers?: (layers: ExtendedLayer[]) => void
   onToggle?: (showDrawTool: boolean) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   isOpen?: boolean
