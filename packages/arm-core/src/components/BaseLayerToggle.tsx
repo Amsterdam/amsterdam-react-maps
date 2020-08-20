@@ -19,22 +19,13 @@ import {
 import BaseLayer from './BaseLayer'
 
 const AerialBackground = require('../../static/aerial-background.png')
-  .default as string
 const AerialBackgroundRetina = require('../../static/aerial-background@2.png')
-  .default as string
 const TopoBackground = require('../../static/topo-background.png')
-  .default as string
 const TopoBackgroundRetina = require('../../static/topo-background@2.png')
-  .default as string
 
 export enum BaseLayerType {
   Aerial = 'luchtfoto',
   Topo = 'topografie',
-}
-
-const BASE_LAYERS = {
-  [BaseLayerType.Aerial]: AERIAL_AMSTERDAM_LAYERS,
-  [BaseLayerType.Topo]: DEFAULT_AMSTERDAM_LAYERS,
 }
 
 const BASE_LAYER_STYLE = {
@@ -133,6 +124,13 @@ const BaseLayerToggle: React.FC<Props> = ({
   const didMount = useRef(false)
   const [toggleBaseLayerType, setToggleBaseLayerType] = useState(activeLayer)
 
+  const baseLayers = useMemo(() => {
+    return {
+      [BaseLayerType.Aerial]: aerialLayers,
+      [BaseLayerType.Topo]: topoLayers,
+    }
+  }, [aerialLayers, topoLayers])
+
   const [selectedLayer, setSelectedLayer] = useState({
     [BaseLayerType.Aerial]: aerialLayers[aerialDefaultIndex].urlTemplate,
     [BaseLayerType.Topo]: topoLayers[topoDefaultIndex].urlTemplate,
@@ -191,56 +189,58 @@ const BaseLayerToggle: React.FC<Props> = ({
         onClick={handleToggle}
         layerType={layerTypeForButton}
       />
-      <Menu
-        data-test="context-menu"
-        title="Actiemenu"
-        arrowIcon={<Ellipsis />}
-        selectElementForTouchScreen={
-          <>
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label
-              style={{ display: 'none' }}
-              htmlFor="arm-baselayer-toggle-select"
+      {baseLayers[toggleBaseLayerType].length > 1 && (
+        <Menu
+          data-test="context-menu"
+          title="Actiemenu"
+          arrowIcon={<Ellipsis />}
+          selectElementForTouchScreen={
+            <>
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label
+                style={{ display: 'none' }}
+                htmlFor="arm-baselayer-toggle-select"
+              >
+                Open menu
+              </label>
+              <ContextMenuSelect
+                name="context-menu"
+                id="arm-baselayer-toggle-select"
+                onChange={(e) => handleChange(e, currentAmsterdamLayers)}
+              >
+                {baseLayers[toggleBaseLayerType].map(({ id, label }) => (
+                  <option key={id} value={id}>
+                    {label}
+                  </option>
+                ))}
+              </ContextMenuSelect>
+            </>
+          }
+          position="bottom"
+        >
+          {baseLayers[toggleBaseLayerType].map(({ id, label, urlTemplate }) => (
+            <StyledContextMenuItem
+              key={id}
+              onClick={(e) => {
+                setSelectedLayer({
+                  ...selectedLayer,
+                  [toggleBaseLayerType]: urlTemplate,
+                })
+                e.currentTarget.blur()
+              }}
+              icon={
+                urlTemplate === selectedLayer[toggleBaseLayerType] ? (
+                  <CheckmarkIcon inline size={12}>
+                    <Checkmark />
+                  </CheckmarkIcon>
+                ) : null
+              }
             >
-              Open menu
-            </label>
-            <ContextMenuSelect
-              name="context-menu"
-              id="arm-baselayer-toggle-select"
-              onChange={(e) => handleChange(e, currentAmsterdamLayers)}
-            >
-              {BASE_LAYERS[toggleBaseLayerType].map(({ id, label }) => (
-                <option key={id} value={id}>
-                  {label}
-                </option>
-              ))}
-            </ContextMenuSelect>
-          </>
-        }
-        position="bottom"
-      >
-        {BASE_LAYERS[toggleBaseLayerType].map(({ id, label, urlTemplate }) => (
-          <StyledContextMenuItem
-            key={id}
-            onClick={(e) => {
-              setSelectedLayer({
-                ...selectedLayer,
-                [toggleBaseLayerType]: urlTemplate,
-              })
-              e.currentTarget.blur()
-            }}
-            icon={
-              urlTemplate === selectedLayer[toggleBaseLayerType] ? (
-                <CheckmarkIcon inline size={12}>
-                  <Checkmark />
-                </CheckmarkIcon>
-              ) : null
-            }
-          >
-            {label}
-          </StyledContextMenuItem>
-        ))}
-      </Menu>
+              {label}
+            </StyledContextMenuItem>
+          ))}
+        </Menu>
+      )}
       <BaseLayer baseLayer={selectedLayer[toggleBaseLayerType]} />
     </Wrapper>
   )

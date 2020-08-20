@@ -1,5 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
-import { Map, ViewerContainer, BaseLayerToggle } from '@datapunt/arm-core'
+import { Map, ViewerContainer, BaseLayerToggle, constants } from '@datapunt/arm-core'
 
 <Meta title="UI/BaseLayerToggle" component={BaseLayerToggle} />
 
@@ -11,6 +11,23 @@ import { Map, ViewerContainer, BaseLayerToggle } from '@datapunt/arm-core'
   <Story name="Default">
     <Map fullScreen>
       <ViewerContainer bottomLeft={<BaseLayerToggle />} />
+    </Map>
+  </Story>
+</Preview>
+
+## Dual layer toggle
+
+<Preview>
+  <Story name="Dual layer toggle">
+    <Map fullScreen>
+      <ViewerContainer
+        bottomLeft={
+          <BaseLayerToggle
+            aerialLayers={[constants.AERIAL_AMSTERDAM_LAYERS[0]]}
+            topoLayers={[constants.DEFAULT_AMSTERDAM_LAYERS[0]]}
+          />
+        }
+      />
     </Map>
   </Story>
 </Preview>
