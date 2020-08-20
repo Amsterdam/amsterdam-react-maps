@@ -76,10 +76,17 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
 <Preview>
   <Story name="With marker filtering">
     <Map fullScreen>
-      <ViewerContainer bottomRight={<Zoom />} bottomLeft={<MarkerFilters markers={markers} clusterComponent={(markersFiltered) =>
-        <MarkerClusterGroup
-          markers={markersFiltered}
-        />} />} />
+      <ViewerContainer
+        bottomRight={<Zoom />}
+        bottomLeft={
+          <MarkerFilters
+            markers={markers}
+            clusterComponent={(markersFiltered) => (
+              <MarkerClusterGroup markers={markersFiltered} />
+            )}
+          />
+        }
+      />
       <BaseLayer />
     </Map>
   </Story>
