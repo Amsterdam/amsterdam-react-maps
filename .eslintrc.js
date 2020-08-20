@@ -65,6 +65,7 @@ module.exports = {
     'consistent-return': 'off',
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': ['error'],
+    'react/no-unused-prop-types': 'off',
   },
   settings: {
     'import/resolver': {
