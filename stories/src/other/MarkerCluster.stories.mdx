@@ -2,6 +2,7 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 import { Map, ViewerContainer, Zoom, BaseLayer } from '@datapunt/arm-core'
 import { MarkerClusterGroup } from '@datapunt/arm-cluster'
+import MarkerFilters from '../examples/MarkerFilters'
 import markers from '../stubs/markers.json'
 
 <Meta
@@ -65,6 +66,20 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
         }}
         markers={markers}
       />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## With marker filtering
+
+<Preview>
+  <Story name="With marker filtering">
+    <Map fullScreen>
+      <ViewerContainer bottomRight={<Zoom />} bottomLeft={<MarkerFilters markers={markers} clusterComponent={(markersFiltered) =>
+        <MarkerClusterGroup
+          markers={markersFiltered}
+        />} />} />
       <BaseLayer />
     </Map>
   </Story>
