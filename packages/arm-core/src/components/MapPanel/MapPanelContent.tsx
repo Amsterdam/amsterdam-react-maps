@@ -25,8 +25,6 @@ export interface MapPanelContentProps {
 }
 
 const Header = styled.header`
-  display: flex;
-  width: 100%;
   padding: ${themeSpacing(4)};
   padding-bottom: 0;
 `
@@ -39,7 +37,7 @@ const SubTitleHeading = styled(Heading)`
 `
 
 const CloseButton = styled(Button)`
-  margin-left: auto;
+  float: right;
 `
 
 const StyledContainer = styled.div<{ containerHeight: '50vh' | '100vh' }>`
@@ -180,18 +178,6 @@ const MapPanelContent: React.FC<MapPanelContentProps> = ({
       >
         {showHeader && (
           <Header>
-            {(title || subTitle) && (
-              <div>
-                {subTitle && (
-                  <SubTitleHeading as="h3">{subTitle}</SubTitleHeading>
-                )}
-                {title && (
-                  <Heading as="h4" styleAs="h1">
-                    {title}
-                  </Heading>
-                )}
-              </div>
-            )}
             {onClose && (
               <CloseButton
                 variant="blank"
@@ -201,6 +187,12 @@ const MapPanelContent: React.FC<MapPanelContentProps> = ({
                 onClick={onClose}
                 icon={<Close />}
               />
+            )}
+            {subTitle && <SubTitleHeading as="h3">{subTitle}</SubTitleHeading>}
+            {title && (
+              <Heading as="h4" styleAs="h1">
+                {title}
+              </Heading>
             )}
           </Header>
         )}
