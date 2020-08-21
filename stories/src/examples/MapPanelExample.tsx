@@ -144,7 +144,7 @@ const CustomMarker: React.FC<{
 }
 
 const MapLegendContent = ({ ...otherProps }) => (
-  <MapPanelContent title="Legenda" subTitle="Een kaartpaneel" {...otherProps}>
+  <MapPanelContent {...otherProps}>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam
     corporis culpa error et illum ipsa ipsam laudantium, maiores molestias non
     quaerat quasi qui temporibus voluptates. Adipisci dolore odit placeat sint
@@ -257,7 +257,15 @@ const Results: React.FC<ResultProps> = ({
   )
 }
 
-const MapPanelExample: React.FC = () => {
+interface MapPanelExampleProps {
+  panelTitle?: string
+  panelSubTitle?: string
+}
+
+const MapPanelExample: React.FC<MapPanelExampleProps> = ({
+  panelTitle,
+  panelSubTitle,
+}) => {
   const [currentLatLng, setCurrentLatLng] = useState<LatLng | null>(null)
   const [currentOverlay, setCurrentOverlay] = useState<Overlay>(Overlay.None)
   const [showDesktopVariant] = hooks.useMatchMedia({ minBreakpoint: 'tabletM' })
@@ -284,6 +292,8 @@ const MapPanelExample: React.FC = () => {
           />
           {currentOverlay === Overlay.Legend && (
             <MapLegendContent
+              title={panelTitle}
+              subTitle={panelSubTitle}
               stackOrder={3}
               animate
               onClose={() => {
@@ -302,7 +312,7 @@ const MapPanelExample: React.FC = () => {
               }}
             />
           )}
-          <MapLegendContent />
+          <MapLegendContent title={panelTitle} subTitle={panelSubTitle} />
         </Element>
         <ViewerContainerWithMapDrawerOffset
           {...{
