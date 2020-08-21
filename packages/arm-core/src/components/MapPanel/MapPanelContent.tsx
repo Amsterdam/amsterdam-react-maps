@@ -16,7 +16,7 @@ import {
 import MapDrawerContext, { Variant } from './MapPanelContext'
 
 export interface MapPanelContentProps {
-  title: string
+  title?: string
   subTitle?: string
   onClose?: () => void
   stackOrder?: number
@@ -28,6 +28,7 @@ const Header = styled.header`
   display: flex;
   width: 100%;
   padding: ${themeSpacing(4)};
+  padding-bottom: 0;
 `
 
 const SubTitleHeading = styled(Heading)`
@@ -112,7 +113,7 @@ const MapDrawerContentStyle = styled.div<{
 
 const Content = styled.div`
   width: 100%;
-  padding: ${themeSpacing(0, 4)};
+  padding: ${themeSpacing(4, 4, 0, 4)};
   overflow: auto;
   pointer-events: all;
 
@@ -169,7 +170,7 @@ const MapPanelContent: React.FC<MapPanelContentProps> = ({
   ...otherProps
 }) => {
   const { matchPositionWithSnapPoint, variant } = useContext(MapDrawerContext)
-
+  const showHeader = !!(title || onClose || subTitle)
   return (
     <MapDrawerContentStyle {...{ variant, stackOrder, animate }}>
       <StyledContainer
@@ -177,24 +178,32 @@ const MapPanelContent: React.FC<MapPanelContentProps> = ({
           matchPositionWithSnapPoint(SnapPoint.Halfway) ? '50vh' : '100vh'
         }
       >
-        <Header>
-          <div>
-            {subTitle && <SubTitleHeading as="h3">{subTitle}</SubTitleHeading>}
-            <Heading as="h4" styleAs="h1">
-              {title}
-            </Heading>
-          </div>
-          {onClose && (
-            <CloseButton
-              variant="blank"
-              title="Sluit"
-              type="button"
-              size={30}
-              onClick={onClose}
-              icon={<Close />}
-            />
-          )}
-        </Header>
+        {showHeader && (
+          <Header>
+            {(title || subTitle) && (
+              <div>
+                {subTitle && (
+                  <SubTitleHeading as="h3">{subTitle}</SubTitleHeading>
+                )}
+                {title && (
+                  <Heading as="h4" styleAs="h1">
+                    {title}
+                  </Heading>
+                )}
+              </div>
+            )}
+            {onClose && (
+              <CloseButton
+                variant="blank"
+                title="Sluit"
+                type="button"
+                size={30}
+                onClick={onClose}
+                icon={<Close />}
+              />
+            )}
+          </Header>
+        )}
         <Content {...otherProps}>{children}</Content>
       </StyledContainer>
     </MapDrawerContentStyle>
