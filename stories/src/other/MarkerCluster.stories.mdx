@@ -25,13 +25,16 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
     <Map fullScreen>
       <ViewerContainer bottomRight={<Zoom />} />
       <MarkerClusterGroup
-        markers={createClusterMarkers({ markers, events: {
-          click: (e) => {
-            window.alert(
-              `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
-            )
+        markers={createClusterMarkers({
+          markers,
+          events: {
+            click: (e) => {
+              window.alert(
+                `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
+              )
+            },
           },
-        }})}
+        })}
       />
       <BaseLayer />
     </Map>
