@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react'
+import React, { ReactNode, useMemo, useState, useCallback } from 'react'
 import { Label, Checkbox, themeColor } from '@datapunt/asc-ui'
 import styled from 'styled-components'
 
@@ -54,6 +54,16 @@ export default function MarkerFilters({
     return markersFiltered
   }, [markers, activeDatasets])
 
+  const onChange = useCallback(
+    (markerSetId: number) => {
+      const updatedDatasets = activeDatasets.includes(markerSetId)
+        ? activeDatasets.filter((id) => id !== markerSetId)
+        : activeDatasets.concat(markerSetId)
+      setActiveDataset(updatedDatasets)
+    },
+    [activeDatasets, setActiveDataset],
+  )
+
   return (
     <Panel>
       Total: {markersFiltered.length}
@@ -64,12 +74,7 @@ export default function MarkerFilters({
               <Checkbox
                 id={markerSet.title}
                 checked={activeDatasets.includes(markerSet.id)}
-                onChange={() => {
-                  const updatedDatasets = activeDatasets.includes(markerSet.id)
-                    ? activeDatasets.filter((id) => id !== markerSet.id)
-                    : activeDatasets.concat(markerSet.id)
-                  setActiveDataset(updatedDatasets)
-                }}
+                onChange={() => onChange(markerSet.id)}
               />
             </Label>
           </li>
