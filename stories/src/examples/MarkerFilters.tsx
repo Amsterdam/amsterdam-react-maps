@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo, useState, useCallback } from 'react'
-import { Label, Checkbox, themeColor } from '@datapunt/asc-ui'
+import { Label, Checkbox, themeColor, themeSpacing } from '@datapunt/asc-ui'
 import styled from 'styled-components'
 import L from 'leaflet'
 
@@ -16,8 +16,8 @@ const UnstyledOl = styled.ol`
 
 const Panel = styled.div`
   background-color: ${themeColor('tint', 'level2')};
-  padding: 10px;
-  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: ${themeSpacing(3)};
+  box-shadow: 0 0 0 ${themeSpacing(1)} rgba(0, 0, 0, 0.1);
 `
 
 const setCount = 6
