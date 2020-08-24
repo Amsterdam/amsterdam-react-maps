@@ -1,9 +1,10 @@
 import React, { ReactNode, useMemo, useState, useCallback } from 'react'
 import { Label, Checkbox, themeColor } from '@datapunt/asc-ui'
 import styled from 'styled-components'
+import L from 'leaflet'
 
 interface MarkerFiltersProps {
-  markers: Array<[number, number]>
+  markers: L.LatLngTuple[]
   clusterComponent: (markers: any) => ReactNode
 }
 
@@ -43,7 +44,7 @@ export default function MarkerFilters({
 
   const markersFiltered = useMemo(() => {
     // eslint-disable-next-line no-shadow
-    let markersFiltered: any[] = []
+    let markersFiltered: MarkerFiltersProps['markers'] = []
     const setLen = markers.length / setCount
     for (let i = 0; i < activeDatasets.length; i += 1) {
       const start = activeDatasets[i] * setLen
