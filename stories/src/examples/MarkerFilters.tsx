@@ -29,9 +29,8 @@ export default function MarkerFilters({
 
   const markerSets = useMemo(() => {
     const datasets = []
-    let i = 0
 
-    for (i; i < setCount; i += 1) {
+    for (let i = 0; i < setCount; i += 1) {
       datasets.push({
         id: i,
         title: `Dataset ${i + 1}`,
@@ -43,11 +42,10 @@ export default function MarkerFilters({
   }, [markers])
 
   const markersFiltered = useMemo(() => {
-    let i = 0
     // eslint-disable-next-line no-shadow
     let markersFiltered: any[] = []
     const setLen = markers.length / setCount
-    for (i; i < activeDatasets.length; i += 1) {
+    for (let i = 0; i < activeDatasets.length; i += 1) {
       const start = activeDatasets[i] * setLen
       markersFiltered = markersFiltered.concat(
         markers.slice(start, start + setLen),
