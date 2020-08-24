@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useMapInstance } from '@datapunt/react-maps'
 import L, {
   Icon,
@@ -43,14 +43,13 @@ const MarkerClusterGroup: React.FC<Props> = ({
   markers,
   markerIcon = defaultIcon,
   events,
-  optionsOverrides = {},
+  optionsOverrides,
 }) => {
   const mapInstance = useMapInstance()
 
-  useEffect(() => {
-    let markerClusterGroup: L.MarkerClusterGroup
-    if (mapInstance && markers) {
-      markerClusterGroup = L.markerClusterGroup({
+  const markerClusterGroup = useMemo(() => {
+    if (mapInstance) {
+      return L.markerClusterGroup({
         spiderfyOnMaxZoom: false,
         showCoverageOnHover: false,
         zoomToBoundsOnClick: true,
@@ -71,27 +70,37 @@ const MarkerClusterGroup: React.FC<Props> = ({
             iconSize: L.point(39, 39),
             iconAnchor: L.point(19, 19),
           }),
-        ...optionsOverrides,
+        ...(optionsOverrides || {}),
       })
+    }
+    return null
+  }, [mapInstance, optionsOverrides])
 
-      markers.forEach(([lat, lng]) => {
+  useEffect(() => {
+    if (mapInstance && markerClusterGroup) {
+      // Bulk remove all the existing layers
+      markerClusterGroup.clearLayers()
+      for (let i = 0; i < markers.length; i += 1) {
+        const [lat, lng] = markers[i]
         const icon = markerIcon
+        // NOTE: It might be more performant to use pre-instantiated markers rather than creating new ones on every incoming markers payload.
         const marker = L.marker(new L.LatLng(lat, lng), { icon })
         if (events) {
           marker.on(events)
         }
         markerClusterGroup.addLayer(marker)
-      })
+      }
 
-      mapInstance.addLayer(markerClusterGroup)
+      if (!mapInstance.hasLayer(markerClusterGroup)) {
+        mapInstance.addLayer(markerClusterGroup)
+      }
     }
-
     return () => {
       if (mapInstance && markerClusterGroup) {
         mapInstance.removeLayer(markerClusterGroup)
       }
     }
-  }, [mapInstance, markers, optionsOverrides])
+  }, [mapInstance, markerClusterGroup, markers])
 
   return <Styles />
 }
