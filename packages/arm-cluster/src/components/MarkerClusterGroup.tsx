@@ -59,11 +59,15 @@ export function createClusterMarkers({
 type MarkerClusterGroupProps = {
   markers: Marker[]
   optionsOverrides?: MarkerClusterGroupOptions
+  events?: LeafletEventHandlerFnMap
+  setInstance?: (clusterLayer: L.MarkerClusterGroup | null) => void
 }
 
 const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
   markers,
   optionsOverrides,
+  events,
+  setInstance,
 }) => {
   const mapInstance = useMapInstance()
 
@@ -95,6 +99,32 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
     }
     return null
   }, [mapInstance, optionsOverrides])
+
+  useEffect(() => {
+    if (setInstance && markerClusterGroup) {
+      setInstance(markerClusterGroup)
+    }
+    return () => {
+      if (setInstance && markerClusterGroup) {
+        setInstance(null)
+      }
+    }
+  }, [setInstance, markerClusterGroup])
+
+  useEffect(() => {
+    if (markerClusterGroup && events) {
+      Object.entries(events).forEach(([event, eventHandler]) => {
+        markerClusterGroup.on(event, eventHandler)
+      })
+    }
+    return () => {
+      if (markerClusterGroup && events) {
+        Object.entries(events).forEach(([event, eventHandler]) => {
+          markerClusterGroup.off(event, eventHandler)
+        })
+      }
+    }
+  }, [events, markerClusterGroup])
 
   useEffect(() => {
     if (mapInstance && markerClusterGroup) {
