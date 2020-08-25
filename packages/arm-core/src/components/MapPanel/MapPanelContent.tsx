@@ -6,7 +6,7 @@ import {
   themeColor,
   themeSpacing,
 } from '@datapunt/asc-ui'
-import React, { useContext } from 'react'
+import React, { useContext, ReactNode } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import {
   PANEL_HANDLE_HEIGHT,
@@ -16,8 +16,8 @@ import {
 import MapDrawerContext, { Variant } from './MapPanelContext'
 
 export interface MapPanelContentProps {
-  title?: string
-  subTitle?: string
+  title?: ReactNode
+  subTitle?: ReactNode
   onClose?: () => void
   stackOrder?: number
   variant?: Variant
