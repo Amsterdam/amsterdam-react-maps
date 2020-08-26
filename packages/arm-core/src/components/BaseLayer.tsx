@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { TileLayer } from '@datapunt/react-maps'
-import { TileLayer as TileLayerType } from 'leaflet'
+import { TileLayer as TileLayerType, TileLayerOptions } from 'leaflet'
 import { DEFAULT_AMSTERDAM_LAYERS } from '../constants'
 
 type Props = {
   baseLayer?: string
+  options: TileLayerOptions
 }
 
 const BaseLayer: React.FC<Props> = ({
   baseLayer = DEFAULT_AMSTERDAM_LAYERS[0].urlTemplate,
+  options = {
+    subdomains: ['t1', 't2', 't3', 't4'],
+    tms: true,
+  },
 }) => {
   const [baseLayerInstance, setBaseLayerInstance] = useState<TileLayerType>()
 
@@ -22,10 +27,7 @@ const BaseLayer: React.FC<Props> = ({
     <TileLayer
       setInstance={setBaseLayerInstance}
       args={[baseLayer]}
-      options={{
-        subdomains: ['1', '2', '3', '4'],
-        tms: true,
-      }}
+      options={options}
     />
   )
 }

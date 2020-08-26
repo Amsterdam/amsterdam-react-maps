@@ -20,7 +20,7 @@ export type MapLayer = {
   urlTemplate: string
 }
 
-const MAP_SERVER_ROOT = 'https://t{s}.data.amsterdam.nl'
+const MAP_SERVER_ROOT = 'https://{s}.data.amsterdam.nl'
 
 export const DEFAULT_AMSTERDAM_LAYERS: MapLayer[] = [
   {

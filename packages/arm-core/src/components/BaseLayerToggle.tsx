@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { TileLayerOptions } from 'leaflet'
 import {
   Button,
   ContextMenu,
@@ -111,6 +112,7 @@ type Props = {
   aerialDefaultIndex?: number
   topoDefaultIndex?: number
   activeLayer?: BaseLayerType
+  options: TileLayerOptions
 }
 
 const BaseLayerToggle: React.FC<Props> = ({
@@ -120,6 +122,7 @@ const BaseLayerToggle: React.FC<Props> = ({
   aerialDefaultIndex = 0,
   topoDefaultIndex = 0,
   activeLayer = BaseLayerType.Topo,
+  options,
 }) => {
   const didMount = useRef(false)
   const [toggleBaseLayerType, setToggleBaseLayerType] = useState(activeLayer)
@@ -241,7 +244,10 @@ const BaseLayerToggle: React.FC<Props> = ({
           ))}
         </Menu>
       )}
-      <BaseLayer baseLayer={selectedLayer[toggleBaseLayerType]} />
+      <BaseLayer
+        options={options}
+        baseLayer={selectedLayer[toggleBaseLayerType]}
+      />
     </Wrapper>
   )
 }
