@@ -112,7 +112,7 @@ type Props = {
   aerialDefaultIndex?: number
   topoDefaultIndex?: number
   activeLayer?: BaseLayerType
-  options: TileLayerOptions
+  options?: TileLayerOptions
 }
 
 const BaseLayerToggle: React.FC<Props> = ({
