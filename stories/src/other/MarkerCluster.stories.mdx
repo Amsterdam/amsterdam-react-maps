@@ -1,7 +1,7 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 import { Map, ViewerContainer, Zoom, BaseLayer } from '@datapunt/arm-core'
-import { MarkerClusterGroup } from '@datapunt/arm-cluster'
+import { MarkerClusterGroup, createClusterMarkers } from '@datapunt/arm-cluster'
 import MarkerFilters from '../examples/MarkerFilters'
 import markers from '../stubs/markers.json'
 
@@ -25,14 +25,16 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
     <Map fullScreen>
       <ViewerContainer bottomRight={<Zoom />} />
       <MarkerClusterGroup
-        events={{
-          click: (e) => {
-            window.alert(
-              `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
-            )
+        markers={createClusterMarkers({
+          markers,
+          events: {
+            click: (e) => {
+              window.alert(
+                `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
+              )
+            },
           },
-        }}
-        markers={markers}
+        })}
       />
       <BaseLayer />
     </Map>
@@ -64,23 +66,23 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
             step: 1,
           }),
         }}
-        markers={markers}
+        markers={createClusterMarkers({ markers })}
       />
       <BaseLayer />
     </Map>
   </Story>
 </Preview>
 
-## With marker filtering
+## With marker filtering and custom markers
 
 <Preview>
-  <Story name="With marker filtering">
+  <Story name="With marker filtering and custom markers">
     <Map fullScreen>
       <ViewerContainer
         bottomRight={<Zoom />}
         bottomLeft={
           <MarkerFilters
-            markers={markers}
+            markersSource={markers}
             clusterComponent={(markersFiltered) => (
               <MarkerClusterGroup markers={markersFiltered} />
             )}

@@ -1,12 +1,7 @@
 import React, { ReactNode, useMemo, useState, useCallback } from 'react'
 import { Label, Checkbox, themeColor, themeSpacing } from '@datapunt/asc-ui'
-import styled from 'styled-components'
-import L from 'leaflet'
-
-interface MarkerFiltersProps {
-  markers: L.LatLngTuple[]
-  clusterComponent: (markers: any) => ReactNode
-}
+import styled, { createGlobalStyle } from 'styled-components'
+import L, { Marker, LatLngTuple } from 'leaflet'
 
 const UnstyledOl = styled.ol`
   margin: 0;
@@ -22,41 +17,84 @@ const Panel = styled.div`
 
 const setCount = 6
 
+const MarkerStyles = createGlobalStyle`
+  .custom-marker {
+    background-color: ${themeColor('primary')};
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-in;
+    text-transform: uppercase;
+  }
+`
+
+function createDatasetMarkers(datasetId: string, coordinates: LatLngTuple[]) {
+  return coordinates.map(([lat, lng]) => {
+    const html = `<span aria-label="Marker uit dataset ${datasetId} op location lat: ${lat} lng: ${lng}">${datasetId}</span>`
+    const markerObject = L.marker(new L.LatLng(lat, lng), {
+      icon: L.divIcon({
+        html,
+        className: `custom-marker custom-marker--${datasetId}`,
+        iconSize: L.point(20, 20),
+        iconAnchor: L.point(10, 10),
+      }),
+    })
+    return markerObject
+  })
+}
+
+interface MarkerFiltersProps {
+  markersSource: L.LatLngTuple[]
+  clusterComponent: (markers: L.Marker[]) => ReactNode
+}
+
 export default function MarkerFilters({
-  markers,
+  markersSource,
   clusterComponent,
 }: MarkerFiltersProps) {
-  const [activeDatasets, setActiveDataset] = useState([0, 1, 2])
+  const [activeDatasets, setActiveDataset] = useState(['a', 'b', 'c'])
 
+  // Create some fake datasets from the source makers
   const markerSets = useMemo(() => {
     const datasets = []
+    const setLen = markersSource.length / setCount
 
     for (let i = 0; i < setCount; i += 1) {
+      // Divide the markerSource into $setCount parts
+      const start = i * setLen
+      const id = String.fromCharCode(97 + i)
       datasets.push({
-        id: i,
-        title: `Dataset ${i + 1}`,
-        markers,
-        isActive: false,
+        id,
+        title: `Dataset ${id}`,
+        markers: createDatasetMarkers(
+          id,
+          markersSource.slice(start, start + setLen),
+        ),
       })
     }
     return datasets
-  }, [markers])
+  }, [markersSource])
 
+  // Concat the markers from the filtered datasets
   const markersFiltered = useMemo(() => {
     // eslint-disable-next-line no-shadow
-    let markersFiltered: MarkerFiltersProps['markers'] = []
-    const setLen = markers.length / setCount
+    const markersFiltered: Marker[] = []
+
     for (let i = 0; i < activeDatasets.length; i += 1) {
-      const start = activeDatasets[i] * setLen
-      markersFiltered = markersFiltered.concat(
-        markers.slice(start, start + setLen),
-      )
+      const markerSet = markerSets.find(({ id }) => id === activeDatasets[i])
+      if (markerSet) {
+        markersFiltered.push(...markerSet.markers)
+      }
     }
     return markersFiltered
-  }, [markers, activeDatasets])
+  }, [markerSets, activeDatasets])
 
+  // Update the active datasets state
   const onChange = useCallback(
-    (markerSetId: number) => {
+    (markerSetId: string) => {
       const updatedDatasets = activeDatasets.includes(markerSetId)
         ? activeDatasets.filter((id) => id !== markerSetId)
         : activeDatasets.concat(markerSetId)
@@ -81,6 +119,7 @@ export default function MarkerFilters({
           </li>
         ))}
       </UnstyledOl>
+      <MarkerStyles />
       {clusterComponent(markersFiltered)}
     </Panel>
   )
