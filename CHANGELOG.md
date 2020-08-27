@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## [0.3.6] (unreleased)
+## [0.4.0] (unreleased)
 - Changed: MarkerClusterGroup has a breaking change. The L.MarkerClusterGroup layer is constructed outside of the component. 
 - Added: MarkerClusterGroup accepts events for the L.MarkerClusterGroup layer instead of individual markers
 - Added: MarkerClusterGroup now has a setInstance method
