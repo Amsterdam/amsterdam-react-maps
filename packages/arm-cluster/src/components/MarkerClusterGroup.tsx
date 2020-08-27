@@ -71,18 +71,22 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
 }) => {
   const mapInstance = useMapInstance()
 
+  // Create the markerClusterGroup instance
   const markerClusterGroup = useMemo(() => {
-    if (mapInstance) {
-      return L.markerClusterGroup({
-        spiderfyOnMaxZoom: false,
-        showCoverageOnHover: false,
-        zoomToBoundsOnClick: true,
-        maxClusterRadius: 50,
-        chunkedLoading: true,
-        disableClusteringAtZoom: 16,
-        iconCreateFunction: (marker) =>
-          L.divIcon({
-            html: `
+    if (!mapInstance) {
+      return undefined
+    }
+
+    return L.markerClusterGroup({
+      spiderfyOnMaxZoom: false,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      maxClusterRadius: 50,
+      chunkedLoading: true,
+      disableClusteringAtZoom: 16,
+      iconCreateFunction: (marker) =>
+        L.divIcon({
+          html: `
             <div
               class="arm__icon-text"
               aria-label="Cluster met ${marker.getChildCount()} onderdelen"
@@ -90,55 +94,60 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
               ${marker.getChildCount()}
             </div>
             `,
-            className: 'arm__icon--clustergroup-default',
-            iconSize: L.point(39, 39),
-            iconAnchor: L.point(19, 19),
-          }),
-        ...(optionsOverrides || {}),
-      })
-    }
-    return undefined
+          className: 'arm__icon--clustergroup-default',
+          iconSize: L.point(39, 39),
+          iconAnchor: L.point(19, 19),
+        }),
+      ...(optionsOverrides || {}),
+    })
   }, [mapInstance, optionsOverrides])
 
+  // Call back with the markerClusterGroup
   useEffect(() => {
-    if (setInstance && markerClusterGroup) {
-      setInstance(markerClusterGroup)
+    if (!setInstance || !markerClusterGroup) {
+      return undefined
     }
+
+    setInstance(markerClusterGroup)
+
     return () => {
-      if (setInstance && markerClusterGroup) {
-        setInstance(undefined)
-      }
+      setInstance(undefined)
     }
   }, [setInstance, markerClusterGroup])
 
+  // Add the layer events to markerClusterGroup
   useEffect(() => {
-    if (markerClusterGroup && events) {
-      Object.entries(events).forEach(([event, eventHandler]) => {
-        markerClusterGroup.on(event, eventHandler)
-      })
+    if (!markerClusterGroup || !events) {
+      return undefined
     }
+
+    Object.entries(events).forEach(([event, eventHandler]) => {
+      markerClusterGroup.on(event, eventHandler)
+    })
+
     return () => {
-      if (markerClusterGroup && events) {
-        Object.entries(events).forEach(([event, eventHandler]) => {
-          markerClusterGroup.off(event, eventHandler)
-        })
-      }
+      Object.entries(events).forEach(([event, eventHandler]) => {
+        markerClusterGroup.off(event, eventHandler)
+      })
     }
   }, [events, markerClusterGroup])
 
+  // Add / Remove Markers to the markerClusterGroup
   useEffect(() => {
-    if (mapInstance && markerClusterGroup) {
-      // Bulk remove all the existing layers
-      markerClusterGroup.clearLayers()
-      markerClusterGroup.addLayers(markers)
-      if (!mapInstance.hasLayer(markerClusterGroup)) {
-        mapInstance.addLayer(markerClusterGroup)
-      }
+    if (!mapInstance || !markerClusterGroup) {
+      return undefined
     }
+
+    // Bulk remove all the existing layers
+    markerClusterGroup.clearLayers()
+    markerClusterGroup.addLayers(markers)
+
+    if (!mapInstance.hasLayer(markerClusterGroup)) {
+      mapInstance.addLayer(markerClusterGroup)
+    }
+
     return () => {
-      if (mapInstance && markerClusterGroup) {
-        mapInstance.removeLayer(markerClusterGroup)
-      }
+      mapInstance.removeLayer(markerClusterGroup)
     }
   }, [mapInstance, markerClusterGroup, markers])
 
