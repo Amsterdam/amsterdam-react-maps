@@ -1221,26 +1221,21 @@
     "@datapunt/arm-core" "^0.3.5"
     uuid "^8.1.0"
 
-"@datapunt/asc-assets@^0.21.2-alpha.0":
-  version "0.21.2-alpha.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.21.2-alpha.0.tgz#c1cefc03f4117fec44aca62f1c99a309f4f4d514"
-  integrity sha512-5gJNKqGPjdbqIWvc6zerYExcH5n99amRZ+rT8ZOemY8Fyn/xP9XOK5PfB6+sgEheqAe1rNWjB/Fvquk65jM8Mw==
-
 "@datapunt/asc-assets@^0.23.0":
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.23.0.tgz#1bcd12def321795f1d8aad4a6a38c53a0f2ef5bb"
   integrity sha512-ADZP2hFW7Pd9SVyNvZwZa6xta0+QqU6gZV5wZK9jG8SvGzBETWFU0TmLa2RwsOOztFmDyf/iqB7wWxSiwfdhTw==
 
-"@datapunt/asc-ui@^0.22.0":
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.22.0.tgz#f5ccd707a3206c75a1e468503429c533a45b1a0b"
-  integrity sha512-i2dyClCBvp8amw0eR/ftH31+hdE8cwLLQ9Y98O2IslcpeBAL689VSJMjzbIopApJeIoIJOfzzEhNYGpI7jsHMQ==
+"@datapunt/asc-ui@^0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.23.0.tgz#ea7abe0dc77f40c0f11d462310df19a56f9cd0b7"
+  integrity sha512-Hnn8bfhZAhL3XOVxGby/uTqEfxSF2xYF4UsQ0ouhS3oMZBwqToLcMBEszWXNtmPP7Z1mj5OxsYw+/GoAVY0/FA==
   dependencies:
-    "@datapunt/asc-assets" "^0.21.2-alpha.0"
+    "@datapunt/asc-assets" "^0.23.0"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
-    polished "^3.5.1"
-    react-uid "^2.2.0"
+    polished "^3.6.5"
+    react-uid "^2.3.0"
   optionalDependencies:
     objectFitPolyfill ">=2.3.0"
 
@@ -11909,10 +11904,10 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-polished@^3.4.4, polished@^3.5.1:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.5.tgz#dbefdde64c675935ec55119fe2a2ab627ca82e9c"
-  integrity sha512-VwhC9MlhW7O5dg/z7k32dabcAFW1VI2+7fSe8cE/kXcfL7mVdoa5UxciYGW2sJU78ldDLT6+ROEKIZKFNTnUXQ==
+polished@^3.4.4, polished@^3.6.5:
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.6.tgz#91ef9eface9be5366c07672b63b736f50c151185"
+  integrity sha512-yiB2ims2DZPem0kCD6V0wnhcVGFEhNh0Iw0axNpKU+oSAgFt6yx6HxIT23Qg0WWvgS379cS35zT4AOyZZRzpQQ==
   dependencies:
     "@babel/runtime" "^7.9.2"
 
@@ -12634,7 +12629,7 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-uid@^2.2.0:
+react-uid@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.3.0.tgz#bfd47cfd5ad3e37956ed1a8520964842d7bdcc6b"
   integrity sha512-tsPZ77GR0pISGYmpCLHAbZTabKXZ7zBniKPVqVMMfnXFyo39zq5g/psIlD5vLTKkjQEhWOO8JhqcHnxkwNu6eA==
