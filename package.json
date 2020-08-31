@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@datapunt/asc-assets": "^0.21.1",
+    "@datapunt/asc-assets": "^0.23.0",
     "@datapunt/asc-ui": "^0.22.0",
     "@datapunt/react-maps": "^0.8.2-alpha.0",
     "@svgr/webpack": "^5.4.0",
