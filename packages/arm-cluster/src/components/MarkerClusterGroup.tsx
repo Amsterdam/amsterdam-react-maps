@@ -1,15 +1,15 @@
-import React, { useEffect, useMemo } from 'react'
-import { useMapInstance } from '@datapunt/react-maps'
-import L, {
-  MarkerClusterGroupOptions,
-  Marker,
-  LatLngTuple,
-  LeafletEventHandlerFnMap,
-} from 'leaflet'
-import 'leaflet.markercluster'
-import { createGlobalStyle } from 'styled-components'
 import { icons } from '@datapunt/arm-core'
 import { themeColor } from '@datapunt/asc-ui'
+import { useMapInstance } from '@datapunt/react-maps'
+import L, {
+  LatLngTuple,
+  LeafletEventHandlerFnMap,
+  Marker,
+  MarkerClusterGroupOptions,
+} from 'leaflet'
+import 'leaflet.markercluster'
+import React, { useEffect, useMemo } from 'react'
+import { createGlobalStyle } from 'styled-components'
 
 const Styles = createGlobalStyle`
   .arm__icon--clustergroup-default {
@@ -30,7 +30,7 @@ const Styles = createGlobalStyle`
   }
 `
 
-type CreateClusterMarkersFnProps = {
+interface CreateClusterMarkersOptions {
   markers: LatLngTuple[]
   events?: LeafletEventHandlerFnMap
 }
@@ -39,21 +39,18 @@ type CreateClusterMarkersFnProps = {
 export function createClusterMarkers({
   markers,
   events,
-}: CreateClusterMarkersFnProps) {
-  const markerObjects: Marker[] = []
-
-  for (let i = 0; i < markers.length; i += 1) {
-    const [lat, lng] = markers[i]
+}: CreateClusterMarkersOptions) {
+  return markers.map(([lat, lng]) => {
     const marker = L.marker(new L.LatLng(lat, lng), {
       icon: icons.defaultIcon,
     })
+
     if (events) {
       marker.on(events)
     }
-    markerObjects.push(marker)
-  }
 
-  return markerObjects
+    return marker
+  })
 }
 
 type MarkerClusterGroupProps = {
