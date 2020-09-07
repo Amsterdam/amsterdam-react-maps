@@ -15,6 +15,7 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## [0.4.0] (unreleased)
+- Added: `setInstance` prop to Marker component
 - Changed: MarkerClusterGroup has a breaking change. The L.MarkerClusterGroup layer is constructed outside of the component. 
 - Added: MarkerClusterGroup accepts events for the L.MarkerClusterGroup layer instead of individual markers
 - Added: MarkerClusterGroup now has a setInstance method
