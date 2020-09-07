@@ -12,9 +12,10 @@ type Props = {
   latLng: LatLngExpression
   events?: { [key: string]: LeafletEventHandlerFn }
   options?: MarkerOptions
+  setInstance?: (markerInstance?: MarkerType) => void
 }
 
-const Marker: React.FC<Props> = ({ latLng, events, options }) => {
+const Marker: React.FC<Props> = ({ latLng, events, options, setInstance }) => {
   const [markerInstance, setMarkerInstance] = useState<MarkerType>()
 
   useEffect(() => {
@@ -22,6 +23,18 @@ const Marker: React.FC<Props> = ({ latLng, events, options }) => {
       markerInstance.setLatLng(latLng)
     }
   }, [latLng])
+
+  useEffect(() => {
+    if (!setInstance || !markerInstance) {
+      return undefined
+    }
+
+    setInstance(markerInstance)
+
+    return () => {
+      setInstance(undefined)
+    }
+  }, [markerInstance, setInstance])
 
   return (
     <MarkerComponent
