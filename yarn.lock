@@ -1221,22 +1221,17 @@
     "@datapunt/arm-core" "^0.3.5"
     uuid "^8.1.0"
 
-"@datapunt/asc-assets@^0.23.0":
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.23.0.tgz#1bcd12def321795f1d8aad4a6a38c53a0f2ef5bb"
-  integrity sha512-ADZP2hFW7Pd9SVyNvZwZa6xta0+QqU6gZV5wZK9jG8SvGzBETWFU0TmLa2RwsOOztFmDyf/iqB7wWxSiwfdhTw==
-
 "@datapunt/asc-assets@^0.24.0":
   version "0.24.0"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.24.0.tgz#78e255c4b6fe5caf9a5b8386f63dde01d5310fec"
   integrity sha512-kt4SQBPgge35dtbPwgXIqj0uh8D48/zA10AlqtIL1gOR3NeNhBycrOg/CLU0XXiIYap3B9bmLm8oms1pOwY5qg==
 
-"@datapunt/asc-ui@^0.23.0":
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.23.0.tgz#ea7abe0dc77f40c0f11d462310df19a56f9cd0b7"
-  integrity sha512-Hnn8bfhZAhL3XOVxGby/uTqEfxSF2xYF4UsQ0ouhS3oMZBwqToLcMBEszWXNtmPP7Z1mj5OxsYw+/GoAVY0/FA==
+"@datapunt/asc-ui@^0.24.0":
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.24.0.tgz#540e02d88c6d9bf10e25a0b4f294bc2254366d82"
+  integrity sha512-400fz0itq2o4inY+Dtsh0ojmle8Hxp0XgZu09MrKv6e476QOhRc6hSNoAOGgR3coTGzqEhRaBXxrupdFBoeZqg==
   dependencies:
-    "@datapunt/asc-assets" "^0.23.0"
+    "@datapunt/asc-assets" "^0.24.0"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
     polished "^3.6.5"
