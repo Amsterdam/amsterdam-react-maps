@@ -1226,6 +1226,11 @@
   resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.23.0.tgz#1bcd12def321795f1d8aad4a6a38c53a0f2ef5bb"
   integrity sha512-ADZP2hFW7Pd9SVyNvZwZa6xta0+QqU6gZV5wZK9jG8SvGzBETWFU0TmLa2RwsOOztFmDyf/iqB7wWxSiwfdhTw==
 
+"@datapunt/asc-assets@^0.24.0":
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/@datapunt/asc-assets/-/asc-assets-0.24.0.tgz#78e255c4b6fe5caf9a5b8386f63dde01d5310fec"
+  integrity sha512-kt4SQBPgge35dtbPwgXIqj0uh8D48/zA10AlqtIL1gOR3NeNhBycrOg/CLU0XXiIYap3B9bmLm8oms1pOwY5qg==
+
 "@datapunt/asc-ui@^0.23.0":
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/@datapunt/asc-ui/-/asc-ui-0.23.0.tgz#ea7abe0dc77f40c0f11d462310df19a56f9cd0b7"

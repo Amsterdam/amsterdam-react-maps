@@ -31,7 +31,7 @@
     "@datapunt/arm-core": "^0.3.5",
     "@datapunt/arm-draw": "^0.3.5",
     "@datapunt/arm-nontiled": "^0.3.5",
-    "@datapunt/asc-assets": "^0.23.0",
+    "@datapunt/asc-assets": "^0.24.0",
     "@datapunt/asc-ui": "^0.23.0",
     "@datapunt/react-maps": "^0.8.2-alpha.0",
     "leaflet": "^1.6.0",
