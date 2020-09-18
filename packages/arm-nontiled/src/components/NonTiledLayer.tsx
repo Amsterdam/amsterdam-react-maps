@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import L, { Layer } from 'leaflet'
 import { useMapInstance } from '@datapunt/react-maps'
+import L, { Layer } from 'leaflet'
 import 'leaflet.nontiledlayer'
+import React, { useEffect, useState } from 'react'
 
 const NonTiledLayer: React.FC<{
   url: string
@@ -14,16 +14,16 @@ const NonTiledLayer: React.FC<{
   const layerUrl = params ? `${url}?${query}` : url
 
   useEffect(() => {
-    if (mapInstance !== null && !layer) {
+    if (!layer) {
       setLayer(L.nonTiledLayer.wms(layerUrl, options).addTo(mapInstance))
     }
 
     return () => {
-      if (layer && mapInstance && mapInstance.hasLayer(layer)) {
+      if (layer && mapInstance.hasLayer(layer)) {
         layer.removeFrom(mapInstance)
       }
     }
-  }, [mapInstance, layer])
+  }, [layer])
 
   return null
 }

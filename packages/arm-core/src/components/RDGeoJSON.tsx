@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { useMapInstance } from '@datapunt/react-maps'
 import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
+import { useMapInstance } from '@datapunt/react-maps'
+import { GeoJsonProperties, Geometry } from 'geojson'
 import L, { GeoJSON, GeoJSONOptions } from 'leaflet'
 import proj4 from 'proj4'
 import 'proj4leaflet'
-import { GeoJsonProperties, Geometry } from 'geojson'
+import { useEffect, useState } from 'react'
 import { CRS_CONFIG } from '../utils/getCrsRd'
 
 type Props = {
@@ -31,9 +31,6 @@ const RDGeoJSON: React.FC<Props> = ({
   const mapInstance = useMapInstance()
   const [geoJSON, setGeoJSON] = useState<GeoJSON>()
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
     ;(async () => {
       if (geoJSON) {
         return
@@ -57,12 +54,12 @@ const RDGeoJSON: React.FC<Props> = ({
     })()
 
     return () => {
-      if (geoJSON && mapInstance) {
+      if (geoJSON) {
         setGeoJSON(undefined)
         geoJSON.removeFrom(mapInstance)
       }
     }
-  }, [geoJSON, mapInstance, options])
+  }, [geoJSON, options])
 
   return null
 }

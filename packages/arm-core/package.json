@@ -43,7 +43,7 @@
   "peerDependencies": {
     "@datapunt/asc-assets": "^0.20.0",
     "@datapunt/asc-ui": "^0.20.0",
-    "@datapunt/react-maps": "^0.8.2-alpha.0",
+    "@datapunt/react-maps": "^0.9.1",
     "leaflet": "^1.6.0",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6",

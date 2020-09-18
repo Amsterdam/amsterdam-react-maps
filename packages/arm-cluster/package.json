@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@datapunt/asc-ui": "^0.20.0",
-    "@datapunt/react-maps": "^0.8.2-alpha.0",
+    "@datapunt/react-maps": "^0.9.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
     "react": ">=16.8.6",

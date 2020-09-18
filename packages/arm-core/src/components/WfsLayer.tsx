@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { GeoJSONOptions, Map, GeoJSON as GeoJSONLayer } from 'leaflet'
+import { GeoJSON, useMapInstance } from '@datapunt/react-maps'
 import { FeatureCollection } from 'geojson'
-
-import { useMapInstance, GeoJSON } from '@datapunt/react-maps'
-import fetchWithAbort from '../utils/fetchWithAbort'
+import { GeoJSON as GeoJSONLayer, GeoJSONOptions, Map } from 'leaflet'
+import React, { useEffect, useState } from 'react'
+import { MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL } from '../constants'
 import { ZoomLevel } from '../types'
-import { MIN_ZOOM_LEVEL, MAX_ZOOM_LEVEL } from '../constants'
+import fetchWithAbort from '../utils/fetchWithAbort'
 import getBBox from '../utils/getBBox'
 
 const NO_DATA: FeatureCollection = {
@@ -38,22 +37,17 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
 
   useEffect(() => {
     function onMoveEnd() {
-      if (mapInstance) {
-        setBbox(getBBox(mapInstance))
-      }
+      setBbox(getBBox(mapInstance))
     }
 
-    mapInstance?.on('moveend', onMoveEnd)
+    mapInstance.on('moveend', onMoveEnd)
+
     return () => {
-      mapInstance?.off('moveend', onMoveEnd)
+      mapInstance.off('moveend', onMoveEnd)
     }
-  }, [mapInstance])
+  }, [])
 
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
-
     if (!isVisible(mapInstance, zoomLevel)) {
       setJson(NO_DATA)
       return
@@ -77,7 +71,7 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
     return () => {
       controller.abort()
     }
-  }, [mapInstance, bbox])
+  }, [bbox])
 
   useEffect(() => {
     if (layerInstance) {

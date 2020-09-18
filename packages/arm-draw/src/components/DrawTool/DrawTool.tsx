@@ -49,7 +49,6 @@ type Props = {
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   isOpen?: boolean
   drawnItems?: Array<ExtendedLayer>
-  mapInstance?: L.DrawMap
   drawnItemsGroup?: L.FeatureGroup
 }
 
@@ -61,7 +60,6 @@ const DrawTool: React.FC<Props> = ({
   isOpen,
   drawnItems,
   onInitLayers,
-  mapInstance: mapInstanceProp,
   drawnItemsGroup: drawnItemsGroupProp,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
@@ -74,15 +72,12 @@ const DrawTool: React.FC<Props> = ({
     }
   }, [isOpen])
 
-  const mapInstance = mapInstanceProp || (useMapInstance() as L.DrawMap)
+  const mapInstance = useMapInstance() as L.DrawMap
 
   const drawnItemsGroup =
     drawnItemsGroupProp || useMemo(() => new L.FeatureGroup(), [])
 
   const createPolygon = (): null | void => {
-    if (!mapInstance) {
-      return null
-    }
     const drawing = new L.Draw.Polygon(mapInstance, {
       shapeOptions: {
         color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
@@ -107,9 +102,6 @@ const DrawTool: React.FC<Props> = ({
   }
 
   const createPolyline = (): null | void => {
-    if (!mapInstance) {
-      return null
-    }
     const drawing = new L.Draw.Polyline(mapInstance, {
       showLength: true,
       shapeOptions: {
@@ -222,9 +214,6 @@ const DrawTool: React.FC<Props> = ({
 
   // Toggle drawing mode
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
     if (onToggle) {
       onToggle(showDrawTool)
     }
@@ -234,31 +223,23 @@ const DrawTool: React.FC<Props> = ({
     } else if (mapInstance.hasLayer(drawnItemsGroup)) {
       mapInstance.removeLayer(drawnItemsGroup)
     }
-  }, [showDrawTool, mapInstance, onToggle])
+  }, [showDrawTool, onToggle])
 
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
     // @ts-ignore
     mapInstance.on(L.Draw.Event.CREATED, onDrawCreated)
     mapInstance.on('click', handleClick)
     mapInstance.on('keydown', handleKeyDown)
 
     return () => {
-      if (mapInstance) {
-        // @ts-ignore
-        mapInstance.off(L.Draw.Event.CREATED, onDrawCreated)
-        mapInstance.off('click', handleClick)
-        mapInstance.off('keydown', handleKeyDown)
-      }
+      // @ts-ignore
+      mapInstance.off(L.Draw.Event.CREATED, onDrawCreated)
+      mapInstance.off('click', handleClick)
+      mapInstance.off('keydown', handleKeyDown)
     }
-  }, [mapInstance])
+  }, [])
 
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
     if (drawnItems && drawnItems.length) {
       drawnItems.forEach((drawnItem) => {
         setDrawnItem(drawnItem)
@@ -267,7 +248,7 @@ const DrawTool: React.FC<Props> = ({
         onInitLayers(drawnItems)
       }
     }
-  }, [mapInstance, drawnItems])
+  }, [drawnItems])
 
   return (
     <>

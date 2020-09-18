@@ -14,33 +14,34 @@ const usePanToLatLng = () => {
     offsetDirection?: 'horizontal' | 'vertical',
     offset?: number,
   ) => {
-    if (mapInstance) {
-      const {
-        // @ts-ignore
-        _southWest: { lat: swLat, lng: swLng },
-        // @ts-ignore
-        _northEast: { lat: neLat, lng: neLng },
-      } = mapInstance.getBounds()
+    const {
+      // @ts-ignore
+      _southWest: { lat: swLat, lng: swLng },
+      // @ts-ignore
+      _northEast: { lat: neLat, lng: neLng },
+    } = mapInstance.getBounds()
 
-      if (offsetDirection === 'vertical') {
-        const extraLat = (swLat - neLat) * (offset ? offset / 100 : 0)
-        const { lat: markerLat, lng } = latLng
-        const lat = markerLat + extraLat
-        mapInstance.panTo({
-          lng,
-          lat,
-        })
-      } else {
-        const extraLng = (swLng - neLng) * (offset ? offset / 100 : 0)
-        const { lat, lng: markerLng } = latLng
-        const lng = markerLng + extraLng
-        mapInstance.panTo({
-          lng,
-          lat,
-        })
-      }
+    if (offsetDirection === 'vertical') {
+      const extraLat = (swLat - neLat) * (offset ? offset / 100 : 0)
+      const { lat: markerLat, lng } = latLng
+      const lat = markerLat + extraLat
+
+      mapInstance.panTo({
+        lng,
+        lat,
+      })
+    } else {
+      const extraLng = (swLng - neLng) * (offset ? offset / 100 : 0)
+      const { lat, lng: markerLng } = latLng
+      const lng = markerLng + extraLng
+
+      mapInstance.panTo({
+        lng,
+        lat,
+      })
     }
   }
+
   return {
     pan,
   }
