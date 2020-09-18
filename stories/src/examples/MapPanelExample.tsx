@@ -117,22 +117,20 @@ const CustomMarker: React.FC<{
   } = useContext(MapPanelContext)
   const mapInstance = useMapInstance()
   const { pan } = usePanToLatLng()
+
   useEffect(() => {
     const clickHandler = (e: LeafletMouseEvent) => {
       setPositionFromSnapPoint(SnapPoint.Halfway)
       setCurrentLatLng(e.latlng)
     }
-    if (mapInstance) {
-      mapInstance.on('click', clickHandler)
-    }
+
+    mapInstance.on('click', clickHandler)
 
     return () => {
-      if (mapInstance) {
-        setCurrentLatLng(null)
-        mapInstance.off('click', clickHandler)
-      }
+      setCurrentLatLng(null)
+      mapInstance.off('click', clickHandler)
     }
-  }, [mapInstance])
+  }, [])
 
   // Use this logic to automatically pan the map to the center of the marker when the drawer is positioned in the middle
   useEffect(() => {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { GeoJSON } from '@datapunt/react-maps'
 import { GeoJsonObject } from 'geojson'
 import { GeoJSONOptions } from 'leaflet'
-import { useMapInstance, GeoJSON } from '@datapunt/react-maps'
+import React, { useEffect, useState } from 'react'
 import fetchWithAbort from '../utils/fetchWithAbort'
 
 type Props = {
@@ -15,13 +15,9 @@ type Props = {
  * impact the overall map performance
  */
 const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
-  const mapInstance = useMapInstance()
   const [json, setJson] = useState<GeoJsonObject>()
 
   useEffect(() => {
-    if (!mapInstance) {
-      return
-    }
     const [request, controller] = fetchWithAbort(url)
 
     request
@@ -39,7 +35,7 @@ const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
     return () => {
       controller.abort()
     }
-  }, [mapInstance])
+  }, [])
 
   return json ? <GeoJSON args={[json]} options={options} /> : null
 }

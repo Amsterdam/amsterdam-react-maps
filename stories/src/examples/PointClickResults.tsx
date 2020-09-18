@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle,camelcase */
-import React, { useEffect } from 'react'
-import { useMapInstance } from '@datapunt/react-maps'
-import styled from 'styled-components'
+import { Marker, useGetAddressFromLatLng } from '@datapunt/arm-core'
 import { Close } from '@datapunt/asc-assets'
 import { Button, Heading, Icon, Spinner, TopBar } from '@datapunt/asc-ui'
+import { useMapInstance } from '@datapunt/react-maps'
 import { LeafletMouseEvent } from 'leaflet'
-import { useGetAddressFromLatLng, Marker } from '@datapunt/arm-core'
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
 
 const PointClickPanel = styled.div`
   background-color: #fff;
@@ -27,15 +27,13 @@ const PointClickResults: React.FC = () => {
     const clickHandler = (e: LeafletMouseEvent) => {
       setLatLng(e.latlng)
     }
-    if (mapInstance) {
-      mapInstance.on('click', clickHandler)
-    }
+
+    mapInstance.on('click', clickHandler)
+
     return () => {
-      if (mapInstance) {
-        mapInstance.off('click', clickHandler)
-      }
+      mapInstance.off('click', clickHandler)
     }
-  }, [mapInstance])
+  }, [])
 
   return (
     <>

@@ -70,10 +70,6 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
 
   // Create the markerClusterGroup instance
   const markerClusterGroup = useMemo(() => {
-    if (!mapInstance) {
-      return undefined
-    }
-
     return L.markerClusterGroup({
       spiderfyOnMaxZoom: false,
       showCoverageOnHover: false,
@@ -97,7 +93,7 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
         }),
       ...(optionsOverrides || {}),
     })
-  }, [mapInstance, optionsOverrides])
+  }, [optionsOverrides])
 
   // Call back with the markerClusterGroup
   useEffect(() => {
@@ -131,7 +127,7 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
 
   // Add / Remove Markers to the markerClusterGroup
   useEffect(() => {
-    if (!mapInstance || !markerClusterGroup) {
+    if (!markerClusterGroup) {
       return undefined
     }
 
@@ -146,7 +142,7 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
     return () => {
       mapInstance.removeLayer(markerClusterGroup)
     }
-  }, [mapInstance, markerClusterGroup, markers])
+  }, [markerClusterGroup, markers])
 
   return <Styles />
 }

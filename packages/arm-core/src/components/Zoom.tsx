@@ -1,8 +1,8 @@
+import { Enlarge, Minimise } from '@datapunt/asc-assets'
+import { themeSpacing } from '@datapunt/asc-ui'
+import { useMapInstance } from '@datapunt/react-maps'
 import React, { memo } from 'react'
 import styled from 'styled-components'
-import { themeSpacing } from '@datapunt/asc-ui'
-import { Minimise, Enlarge } from '@datapunt/asc-assets'
-import { useMapInstance } from '@datapunt/react-maps'
 import ControlButton from './ControlButton'
 
 const ZoomBar = styled.div`
@@ -13,9 +13,7 @@ const Zoom: React.FC = () => {
   const mapInstance = useMapInstance()
 
   const handleZoom = (out = false) => {
-    if (mapInstance !== null) {
-      mapInstance.setZoom(mapInstance.getZoom() + (out ? -1 : 1))
-    }
+    mapInstance.setZoom(mapInstance.getZoom() + (out ? -1 : 1))
   }
 
   return (
