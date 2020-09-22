@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## UNRELEASED
+## [0.4.0]
 
 - Changed: Moved packages to @amsterdam organization on NPM.
 - Added: `setInstance` prop to Marker component
