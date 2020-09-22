@@ -1,8 +1,8 @@
 {
-  "name": "@datapunt/arm-core",
+  "name": "@amsterdam/arm-core",
   "description": "",
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
     "type": "git",
@@ -41,9 +41,9 @@
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
-    "@datapunt/asc-assets": "^0.20.0",
-    "@datapunt/asc-ui": "^0.20.0",
-    "@datapunt/react-maps": "^0.9.1",
+    "@amsterdam/asc-assets": "^0.25.0",
+    "@amsterdam/asc-ui": "^0.25.0",
+    "@amsterdam/react-maps": "^0.10.0",
     "leaflet": "^1.6.0",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6",

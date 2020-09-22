@@ -4,10 +4,10 @@ The instructions below cover how to use Amsterdam React Maps (ARM) in a React ap
 
 To simply render a Map in your application, this would be the bare minimum setup:
 
-1. Install the core package: `yarn add @datapunt/arm-core`
+1. Install the core package: `yarn add @amsterdam/arm-core`
 
 2. Make sure you have the following peer dependencies installed:
-`yarn add @datapunt/asc-assets @datapunt/asc-ui @datapunt/react-maps leaflet styled-components`
+`yarn add @amsterdam/asc-assets @amsterdam/asc-ui @amsterdam/react-maps leaflet styled-components`
 
 If you want to install other packages, make sure you have the peer-dependencies installed as well. For example:
 `arm-draw` has an extra peer-dependency of `leaflet-draw`, so make sure you have that installed.
@@ -16,7 +16,7 @@ If you want to install other packages, make sure you have the peer-dependencies 
 
 ```js
 import 'leaflet/dist/leaflet.css' // make sure this is always included!
-import { Map, BaseLayer } from '@datapunt/arm-core'
+import { Map, BaseLayer } from '@amsterdam/arm-core'
 
 const MyComponent = () => {
   <Map fullScreen>
@@ -32,7 +32,7 @@ you want to add a toggle button that would switch the map "base layer" (the actu
 
 ```js
 ...
-import { Map, ViewerContainer, BaseLayerToggle } from '@datapunt/arm-core'
+import { Map, ViewerContainer, BaseLayerToggle } from '@amsterdam/arm-core'
 
 const MyComponent = () => {
   <Map fullScreen>

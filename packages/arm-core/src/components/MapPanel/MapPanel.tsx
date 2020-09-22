@@ -1,9 +1,9 @@
+import { ChevronLeft, ChevronRight } from '@amsterdam/asc-assets'
+import { Button, themeColor } from '@amsterdam/asc-ui'
 import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
-import { Button, themeColor } from '@datapunt/asc-ui'
-import { ChevronRight, ChevronLeft } from '@datapunt/asc-assets'
-import MapPanelContext from './MapPanelContext'
 import { OPEN_LEGEND_TITLE, SnapPoint } from './constants'
+import MapPanelContext from './MapPanelContext'
 
 const Handle = styled(Button)<{ isOpen: boolean }>`
   width: 30px;

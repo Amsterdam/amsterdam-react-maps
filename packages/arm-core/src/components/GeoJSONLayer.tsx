@@ -1,4 +1,4 @@
-import { GeoJSON } from '@datapunt/react-maps'
+import { GeoJSON } from '@amsterdam/react-maps'
 import { GeoJsonObject } from 'geojson'
 import { GeoJSONOptions } from 'leaflet'
 import React, { useEffect, useState } from 'react'

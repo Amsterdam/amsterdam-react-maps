@@ -1,4 +1,4 @@
-import { GlobalStyle, ThemeProvider } from '@datapunt/asc-ui'
+import { GlobalStyle, ThemeProvider } from '@amsterdam/asc-ui'
 import { withA11y } from '@storybook/addon-a11y'
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
 import { addDecorator, addParameters } from '@storybook/react'

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { TileLayer } from '@datapunt/react-maps'
+import { TileLayer } from '@amsterdam/react-maps'
 import { TileLayer as TileLayerType, TileLayerOptions } from 'leaflet'
+import React, { useEffect, useState } from 'react'
 import { DEFAULT_AMSTERDAM_LAYERS } from '../constants'
 
 type Props = {

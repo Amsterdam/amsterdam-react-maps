@@ -1,12 +1,12 @@
-import { Close } from '@datapunt/asc-assets'
+import { Close } from '@amsterdam/asc-assets'
 import {
   breakpoint,
   Button,
   Heading,
   themeColor,
   themeSpacing,
-} from '@datapunt/asc-ui'
-import React, { useContext, ReactNode } from 'react'
+} from '@amsterdam/asc-ui'
+import React, { ReactNode, useContext } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import {
   PANEL_HANDLE_HEIGHT,

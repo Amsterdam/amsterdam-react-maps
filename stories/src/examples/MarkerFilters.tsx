@@ -1,7 +1,7 @@
-import React, { ReactNode, useMemo, useState, useCallback } from 'react'
-import { Label, Checkbox, themeColor, themeSpacing } from '@datapunt/asc-ui'
+import { Checkbox, Label, themeColor, themeSpacing } from '@amsterdam/asc-ui'
+import L, { LatLngTuple, Marker } from 'leaflet'
+import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import L, { Marker, LatLngTuple } from 'leaflet'
 
 const UnstyledOl = styled.ol`
   margin: 0;

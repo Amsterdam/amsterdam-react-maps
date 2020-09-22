@@ -1,4 +1,4 @@
-import { Marker as MarkerComponent } from '@datapunt/react-maps'
+import { Marker as MarkerComponent } from '@amsterdam/react-maps'
 import {
   LatLngExpression,
   LeafletEventHandlerFn,

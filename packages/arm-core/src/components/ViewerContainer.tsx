@@ -1,6 +1,6 @@
+import { themeSpacing } from '@amsterdam/asc-ui'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { themeSpacing } from '@datapunt/asc-ui'
 
 type Props = {
   topLeft?: React.ReactNode

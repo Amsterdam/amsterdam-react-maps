@@ -1,7 +1,5 @@
 /* eslint-disable global-require */
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import styled from 'styled-components'
-import { TileLayerOptions } from 'leaflet'
+import { Checkmark, Ellipsis } from '@amsterdam/asc-assets'
 import {
   Button,
   ContextMenu,
@@ -10,8 +8,10 @@ import {
   Icon,
   themeColor,
   themeSpacing,
-} from '@datapunt/asc-ui'
-import { Checkmark, Ellipsis } from '@datapunt/asc-assets'
+} from '@amsterdam/asc-ui'
+import { TileLayerOptions } from 'leaflet'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import styled from 'styled-components'
 import {
   AERIAL_AMSTERDAM_LAYERS,
   DEFAULT_AMSTERDAM_LAYERS,

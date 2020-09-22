@@ -1,14 +1,14 @@
+import { useMapInstance } from '@amsterdam/react-maps'
+import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
-import { useMapInstance } from '@datapunt/react-maps'
-import DrawTool from './DrawTool'
 import {
   POLYGON_BUTTON_TITLE,
   POLYLINE_BUTTON_TITLE,
   TOGGLE_BUTTON_TITLE,
 } from './config'
+import DrawTool from './DrawTool'
 
-jest.mock('@datapunt/react-maps')
+jest.mock('@amsterdam/react-maps')
 
 describe('DrawTool', () => {
   let onMock: jest.Mock

@@ -1,8 +1,8 @@
 {
-  "name": "@datapunt/arm-cluster",
+  "name": "@amsterdam/arm-cluster",
   "description": "",
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
     "type": "git",
@@ -34,11 +34,11 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.3.5"
+    "@amsterdam/arm-core": "^0.3.5"
   },
   "peerDependencies": {
-    "@datapunt/asc-ui": "^0.20.0",
-    "@datapunt/react-maps": "^0.9.1",
+    "@amsterdam/asc-ui": "^0.25.0",
+    "@amsterdam/react-maps": "^0.10.0",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
     "react": ">=16.8.6",

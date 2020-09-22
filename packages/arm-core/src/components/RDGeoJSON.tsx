@@ -1,5 +1,5 @@
-import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
+import { useMapInstance } from '@amsterdam/react-maps'
 import { GeoJsonProperties, Geometry } from 'geojson'
 import L, { GeoJSON, GeoJSONOptions } from 'leaflet'
 import proj4 from 'proj4'

@@ -1,8 +1,8 @@
 {
-  "name": "@datapunt/arm-example",
+  "name": "@amsterdam/arm-example",
   "private": true,
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
     "type": "git",

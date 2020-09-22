@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import { icons, useStateRef } from '@datapunt/arm-core'
-import { ascDefaultTheme, themeColor } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+import { icons, useStateRef } from '@amsterdam/arm-core'
+import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
+import { useMapInstance } from '@amsterdam/react-maps'
 import L, { LayerEvent, LeafletKeyboardEvent } from 'leaflet'
 import 'leaflet-draw'
 import React, { useEffect, useMemo, useState } from 'react'

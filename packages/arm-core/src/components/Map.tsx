@@ -1,4 +1,4 @@
-import { Map as ReactMap } from '@datapunt/react-maps'
+import { Map as ReactMap } from '@amsterdam/react-maps'
 import { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
 import React from 'react'
 import styled, { css } from 'styled-components'

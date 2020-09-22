@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle,camelcase */
-import { Marker, useGetAddressFromLatLng } from '@datapunt/arm-core'
-import { Close } from '@datapunt/asc-assets'
-import { Button, Heading, Icon, Spinner, TopBar } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+import { Marker, useGetAddressFromLatLng } from '@amsterdam/arm-core'
+import { Close } from '@amsterdam/asc-assets'
+import { Button, Heading, Icon, Spinner, TopBar } from '@amsterdam/asc-ui'
+import { useMapInstance } from '@amsterdam/react-maps'
 import { LeafletMouseEvent } from 'leaflet'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'

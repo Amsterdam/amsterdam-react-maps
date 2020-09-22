@@ -1,8 +1,8 @@
 {
-  "name": "@datapunt/arm-draw",
+  "name": "@amsterdam/arm-draw",
   "description": "Draw tool",
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
     "type": "git",
@@ -34,13 +34,13 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.3.5",
+    "@amsterdam/arm-core": "^0.3.5",
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
-    "@datapunt/asc-assets": "^0.20.0",
-    "@datapunt/asc-ui": "^0.20.0",
-    "@datapunt/react-maps": "^0.9.1",
+    "@amsterdam/asc-assets": "^0.25.0",
+    "@amsterdam/asc-ui": "^0.25.0",
+    "@amsterdam/react-maps": "^0.10.0",
     "leaflet": "^1.6.0",
     "leaflet-draw": "^1.0.4",
     "react": ">=16.8.6",

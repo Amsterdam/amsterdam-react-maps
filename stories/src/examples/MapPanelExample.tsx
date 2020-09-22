@@ -9,9 +9,9 @@ import {
   Marker,
   usePanToLatLng,
   Zoom,
-} from '@datapunt/arm-core'
-import { hooks, Paragraph, Spinner, ViewerContainer } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+} from '@amsterdam/arm-core'
+import { hooks, Paragraph, Spinner, ViewerContainer } from '@amsterdam/asc-ui'
+import { useMapInstance } from '@amsterdam/react-maps'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
 import React, { useContext, useEffect, useState } from 'react'
 import styled, { createGlobalStyle, css } from 'styled-components'

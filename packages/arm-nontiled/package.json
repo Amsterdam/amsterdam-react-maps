@@ -1,8 +1,8 @@
 {
-  "name": "@datapunt/arm-nontiled",
+  "name": "@amsterdam/arm-nontiled",
   "description": "Non-tiled map layers",
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
     "type": "git",
@@ -34,10 +34,10 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@datapunt/arm-core": "^0.3.5"
+    "@amsterdam/arm-core": "^0.3.5"
   },
   "peerDependencies": {
-    "@datapunt/react-maps": "^0.9.1",
+    "@amsterdam/react-maps": "^0.10.0",
     "leaflet": "^1.6.0",
     "leaflet.nontiledlayer": "^1.0.8",
     "react": ">=16.8.6",

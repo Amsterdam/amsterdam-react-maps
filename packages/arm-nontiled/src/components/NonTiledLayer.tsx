@@ -1,4 +1,4 @@
-import { useMapInstance } from '@datapunt/react-maps'
+import { useMapInstance } from '@amsterdam/react-maps'
 import L, { Layer } from 'leaflet'
 import 'leaflet.nontiledlayer'
 import React, { useEffect, useState } from 'react'

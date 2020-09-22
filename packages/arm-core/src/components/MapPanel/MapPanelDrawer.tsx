@@ -1,14 +1,14 @@
+import { themeColor } from '@amsterdam/asc-ui'
 import React, { RefObject, useContext, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { themeColor } from '@datapunt/asc-ui'
-import MapPanelContext from './MapPanelContext'
 import {
+  OPEN_LEGEND_TITLE,
   PANEL_HANDLE_HEIGHT,
   PANEL_HANDLE_PADDING,
-  OPEN_LEGEND_TITLE,
-  SNAP_OFFSET,
   SnapPoint,
+  SNAP_OFFSET,
 } from './constants'
+import MapPanelContext from './MapPanelContext'
 
 const Handle = styled.button.attrs({
   type: 'button',

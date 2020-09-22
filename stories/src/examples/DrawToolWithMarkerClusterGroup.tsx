@@ -1,10 +1,10 @@
+import { MarkerClusterGroup } from '@amsterdam/arm-cluster'
+import { BaseLayer, Map, useStateRef } from '@amsterdam/arm-core'
+import { DrawTool, ExtendedLayer, PolygonType } from '@amsterdam/arm-draw'
+import { ascDefaultTheme, themeColor, ViewerContainer } from '@amsterdam/asc-ui'
 import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { ViewerContainer, themeColor, ascDefaultTheme } from '@datapunt/asc-ui'
-import { BaseLayer, Map, useStateRef } from '@datapunt/arm-core'
-import { MarkerClusterGroup } from '@datapunt/arm-cluster'
-import { DrawTool, ExtendedLayer, PolygonType } from '@datapunt/arm-draw'
 import getDataSelection from './api/getDataSelection'
 
 const StyledViewerContainer = styled(ViewerContainer)`

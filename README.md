@@ -20,8 +20,8 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 
 ## Usage
 
-- With npm: `npm install --save @datapunt/arm-core`
-- With yarn: `yarn add @datapunt/arm-core`
+- With npm: `npm install --save @amsterdam/arm-core`
+- With yarn: `yarn add @amsterdam/arm-core`
 
 ## Docs
 

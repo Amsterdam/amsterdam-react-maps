@@ -1,7 +1,7 @@
+import { Close } from '@amsterdam/asc-assets'
+import { Button, svgFill, themeColor } from '@amsterdam/asc-ui'
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Button, svgFill, themeColor } from '@datapunt/asc-ui'
-import { Close } from '@datapunt/asc-assets'
 import {
   POLYGON_BUTTON_TITLE,
   POLYLINE_BUTTON_TITLE,

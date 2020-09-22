@@ -16,6 +16,7 @@ Prefix the change with one of these keywords:
 
 ## UNRELEASED
 
+- Changed: Moved packages to @amsterdam organization on NPM.
 - Added: `setInstance` prop to Marker component
 - Changed: MarkerClusterGroup has a breaking change. The L.MarkerClusterGroup layer is constructed outside of the component. 
 - Added: MarkerClusterGroup accepts events for the L.MarkerClusterGroup layer instead of individual markers
@@ -25,19 +26,23 @@ Prefix the change with one of these keywords:
 - Changed: Updated version of `@datapunt/react-maps` to version 0.9.1
 
 ## [0.3.5]
+
 - Changed: Marker component now accepts the more generic LatLngExpression instead of only a LatLng
 
 ## [0.3.4]
+
 - Deprecated: amsterdam-react-maps package
 - Changed: usePanToLatLng now accepts a LatLngLiteral instead of a LatLng
 
 ## [0.2.7]
+
 - Added: BaseLayerToggle component
 - Added: DrawTool
 - Added: MapPanel (desktop) & MapPanelDrawer (mobile) components
 - Added: RDGeoJSON
 
 ## [0.2.0]
+
 - Added: Draw tool
 - Added: MarkerClusterGroup
 - Added: Map (with amsterdam-maps defaults)

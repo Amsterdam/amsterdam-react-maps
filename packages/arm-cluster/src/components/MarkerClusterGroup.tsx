@@ -1,6 +1,6 @@
-import { icons } from '@datapunt/arm-core'
-import { themeColor } from '@datapunt/asc-ui'
-import { useMapInstance } from '@datapunt/react-maps'
+import { icons } from '@amsterdam/arm-core'
+import { themeColor } from '@amsterdam/asc-ui'
+import { useMapInstance } from '@amsterdam/react-maps'
 import L, {
   LatLngTuple,
   LeafletEventHandlerFnMap,
