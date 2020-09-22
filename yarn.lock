@@ -1081,38 +1081,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datapunt/arm-cluster@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@datapunt/arm-cluster/-/arm-cluster-0.3.5.tgz#7bcd4cd904a9d005f164c07dcd6031b84b508829"
-  integrity sha512-AujWRIjbMCAH7qDrB8Lvb3v2oLGmMrhmNrR3iqh0QpkxtG9K18HAQ53aI0gqbg6kOdouLvxSqq86/Xp4XRT64g==
-  dependencies:
-    "@datapunt/arm-core" "^0.3.5"
-
-"@datapunt/arm-core@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@datapunt/arm-core/-/arm-core-0.3.5.tgz#7e08e340c52205b3064dcf57dcfbe937f220299a"
-  integrity sha512-ltZ/i/BGJuHFQy4Z+9ypi8V9Ej/FWtuh4Irtam3vYxblSycpfy5H3nAegVi5321RcxZ3Qsbftzgvpiy4v9tWMA==
-  dependencies:
-    geojson "^0.5.0"
-    proj4 "^2.6.2"
-    proj4leaflet "^1.0.2"
-    uuid "^8.1.0"
-
-"@datapunt/arm-draw@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@datapunt/arm-draw/-/arm-draw-0.3.5.tgz#ea2aaba89bba0fe34769c3bd0982f5e4fedc97e7"
-  integrity sha512-uoLaf98I063zQRUzTIEVpZ687Pt/7zYF77wRWDUNYvOcuXXnqvcgIrJVfDQ/S3cNjACSNnMctW3hsnA+Pph+GQ==
-  dependencies:
-    "@datapunt/arm-core" "^0.3.5"
-    uuid "^8.1.0"
-
-"@datapunt/arm-nontiled@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@datapunt/arm-nontiled/-/arm-nontiled-0.3.5.tgz#3755fed22785feed0c2afde1234a33c7e8199b51"
-  integrity sha512-FpT0sT0FIZE4JjTqHDsS11VZRS2N6JBrgd+hR+TojwVQ7SbB8Q1CAE7N/bLrdcEf6+m8a7NN77jBV0dQziSMRw==
-  dependencies:
-    "@datapunt/arm-core" "^0.3.5"
-
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
