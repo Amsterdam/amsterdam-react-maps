@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@amsterdam/asc-assets@^0.25.0":
+"@amsterdam/asc-assets@^0.25.0", "@amsterdam/asc-assets@^0.25.1":
   version "0.25.1"
   resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.25.1.tgz#977144d8994f718298c4222c146f294d441e2699"
   integrity sha512-f4Y+Vw03BR7xJo0Ax2NasV8VbTgK3DQPkMFvcTI07kj1jgqnvB7Zg9vLLB74LRh/I1s1+l1jLvw5dUHmXgN3gg==
 
 "@amsterdam/asc-ui@^0.25.0":
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/@amsterdam/asc-ui/-/asc-ui-0.25.0.tgz#f64314e227c45d5fd0647655582328c291e9810e"
-  integrity sha512-0yySpAMPPfr3WNOzcUYTxjEKfzBdr0OkJWCLg37IV9VPKi9S+P2KgNhIoD9XtxD6aFW0dyUicMRvTL5G8vrCow==
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@amsterdam/asc-ui/-/asc-ui-0.25.1.tgz#44bd94ffd8f59982e8409ac54f298c7252ed9b6b"
+  integrity sha512-LTbWkeLd3j2/wcyQmB68IMFCTjcyDt/17+HqodiUen5BClplart5nTCFjGijduFdJxYH1fPQHfvrCYmVqpS/GQ==
   dependencies:
-    "@amsterdam/asc-assets" "^0.25.0"
+    "@amsterdam/asc-assets" "^0.25.1"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
     polished "^3.6.5"
