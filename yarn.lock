@@ -3311,9 +3311,9 @@
     "@types/leaflet" "*"
 
 "@types/leaflet.markercluster@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@types/leaflet.markercluster/-/leaflet.markercluster-1.4.2.tgz#86b8ab7ca2397b48d9ba637757aaf7a6d1cc6f0f"
-  integrity sha512-QQ//hevAxMH2dlRQdRre7V/1G+TbtuDtZnZF/75TNwVIgklrsQVCIcS/cvLsl7UUryfPJ6xmoYHfFzK5iGVgpg==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@types/leaflet.markercluster/-/leaflet.markercluster-1.4.3.tgz#5824d9be3dd5c0864a22a1fca36664550a96a76c"
+  integrity sha512-X/b/Enz84PzmcA9z7pxsHEBEUNghmvznEBcRQeuxyYL/QU6jAR7LIb/ot03ATNPO56wSFzbCnsOf7yJ+7FzS1Q==
   dependencies:
     "@types/leaflet" "*"
 
