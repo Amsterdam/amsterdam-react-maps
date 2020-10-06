@@ -2,20 +2,20 @@
 # yarn lockfile v1
 
 
-"@amsterdam/asc-assets@^0.25.0", "@amsterdam/asc-assets@^0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.25.1.tgz#977144d8994f718298c4222c146f294d441e2699"
-  integrity sha512-f4Y+Vw03BR7xJo0Ax2NasV8VbTgK3DQPkMFvcTI07kj1jgqnvB7Zg9vLLB74LRh/I1s1+l1jLvw5dUHmXgN3gg==
+"@amsterdam/asc-assets@^0.25.0", "@amsterdam/asc-assets@^0.25.2":
+  version "0.25.2"
+  resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.25.2.tgz#6ba4ec227bddbb38b134d91e2b7dba014280503b"
+  integrity sha512-eKOAznYpOt07Csd4jHi8Q436hF1v7dF7tlp97ijld3n8o2Os4gnrN/a8vceyiR8Cwa3bAuwoKFrwf+/0g70cqA==
 
 "@amsterdam/asc-ui@^0.25.0":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@amsterdam/asc-ui/-/asc-ui-0.25.1.tgz#44bd94ffd8f59982e8409ac54f298c7252ed9b6b"
-  integrity sha512-LTbWkeLd3j2/wcyQmB68IMFCTjcyDt/17+HqodiUen5BClplart5nTCFjGijduFdJxYH1fPQHfvrCYmVqpS/GQ==
+  version "0.25.2"
+  resolved "https://registry.yarnpkg.com/@amsterdam/asc-ui/-/asc-ui-0.25.2.tgz#7e608a01dbe3ff7e68703c7176e2ebe4a28a34af"
+  integrity sha512-ZbI3H6KpOYfDWib0vnq6jtWjzX43Ubqckahs4qApCdKmmVFpX0X9KL0UldbFmEloDZUvUcpmu+8WeCYTCA13rg==
   dependencies:
-    "@amsterdam/asc-assets" "^0.25.1"
+    "@amsterdam/asc-assets" "^0.25.2"
     classnames "^2.2.6"
     deepmerge "^4.2.2"
-    polished "^3.6.5"
+    polished "^4.0.1"
     react-uid "^2.3.0"
   optionalDependencies:
     objectFitPolyfill ">=2.3.0"
@@ -11826,10 +11826,17 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-polished@^3.4.4, polished@^3.6.5:
+polished@^3.4.4:
   version "3.6.7"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.6.7.tgz#44cbd0047f3187d83db0c479ef0c7d5583af5fb6"
   integrity sha512-b4OViUOihwV0icb9PHmWbR+vPqaSzSAEbgLskvb7ANPATVXGiYv/TQFHQo65S53WU9i5EQ1I03YDOJW7K0bmYg==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
+polished@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.1.tgz#7aa7075bd3e4745e4ac59f0279e91100a20c4bcb"
+  integrity sha512-wsACmaPErslm30ZafPK6meKVh33h969O945jnP1nDw3xmfJTCPu9VHVfYVoH1kuE97dmTSDkXmCI/NsxN+U6Gg==
   dependencies:
     "@babel/runtime" "^7.9.2"
 
