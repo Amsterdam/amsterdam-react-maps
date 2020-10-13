@@ -2,11 +2,19 @@ import * as constants from './constants'
 import * as icons from './icons'
 
 export { default as BaseLayer } from './components/BaseLayer'
-export { default as BaseLayerToggle } from './components/BaseLayerToggle'
-export { default as ControlButton } from './components/ControlButton'
+export { default as BaseLayerControl } from './components/controls/BaseLayerControl'
+export { default as Control } from './components/controls/Control'
+export {
+  default as LegendControl,
+  LegendControlProps,
+} from './components/controls/LegendControl'
+export { default as MapControls } from './components/controls/MapControls'
+export { default as ZoomControl } from './components/controls/ZoomControl'
+export * from './components/DrawerOverlay'
 export { default as GeoJSONLayer } from './components/GeoJSONLayer'
-export { default as Map } from './components/Map'
-export * from './components/MapPanel'
+export { default as Map, MapProps } from './components/Map'
+export { default as MapContainer } from './components/MapContainer'
+export { default as MapOverlay } from './components/MapOverlay'
 export { default as Marker } from './components/Marker'
 export {
   default as RDGeoJSON,
@@ -15,7 +23,6 @@ export {
 export { default as Scale } from './components/Scale'
 export { default as ViewerContainer } from './components/ViewerContainer'
 export { default as WfsLayer } from './components/WfsLayer'
-export { default as Zoom } from './components/Zoom'
 export { default as fetchWithAbort } from './utils/fetchWithAbort'
 export { default as getBBox } from './utils/getBBox'
 export { default as getCrsRd } from './utils/getCrsRd'

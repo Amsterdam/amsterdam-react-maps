@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { icons, useStateRef } from '@amsterdam/arm-core'
 import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
@@ -41,7 +40,7 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
   },
 })
 
-type Props = {
+export interface DrawToolProps {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
   onInitLayers?: (layers: ExtendedLayer[]) => void
@@ -52,7 +51,7 @@ type Props = {
   drawnItemsGroup?: L.FeatureGroup
 }
 
-const DrawTool: React.FC<Props> = ({
+const DrawTool: React.FC<DrawToolProps> = ({
   onDelete,
   onDrawStart,
   onDrawEnd,
@@ -116,6 +115,7 @@ const DrawTool: React.FC<Props> = ({
 
     drawnItemsGroup.eachLayer((layer) => {
       const typedLayer = layer as ExtendedLayer
+      // eslint-disable-next-line no-underscore-dangle
       if (typedLayer.editing._enabled) {
         layers.push(typedLayer)
       }
@@ -140,6 +140,7 @@ const DrawTool: React.FC<Props> = ({
     setInEditMode(false)
     setInCreateMode(false)
     getLayersInEditMode().forEach((drawnLayer) => {
+      // eslint-disable-next-line no-underscore-dangle
       if (drawnLayer.editing._enabled) {
         drawnLayer.editing.disable()
       }
@@ -150,6 +151,7 @@ const DrawTool: React.FC<Props> = ({
     const target = event.target as ExtendedLayer
     const { editing } = target
 
+    // eslint-disable-next-line no-underscore-dangle
     if (editing._enabled) {
       exitEditMode()
     } else {

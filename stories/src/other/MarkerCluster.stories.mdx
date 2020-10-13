@@ -1,6 +1,11 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
-import { Map, ViewerContainer, Zoom, BaseLayer } from '@amsterdam/arm-core'
+import {
+  Map,
+  ViewerContainer,
+  ZoomControl,
+  BaseLayer,
+} from '@amsterdam/arm-core'
 import {
   MarkerClusterGroup,
   createClusterMarkers,
@@ -26,7 +31,7 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
 <Preview>
   <Story name="Default">
     <Map fullScreen>
-      <ViewerContainer bottomRight={<Zoom />} />
+      <ViewerContainer bottomRight={<ZoomControl />} />
       <MarkerClusterGroup
         markers={createClusterMarkers({
           markers,
@@ -49,7 +54,7 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
 <Preview>
   <Story name="With Knobs (play with options)">
     <Map fullScreen>
-      <ViewerContainer bottomRight={<Zoom />} />
+      <ViewerContainer bottomRight={<ZoomControl />} />
       <MarkerClusterGroup
         optionsOverrides={{
           spiderfyOnMaxZoom: boolean('spiderfyOnMaxZoom', false),
@@ -82,7 +87,7 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
   <Story name="With marker filtering and custom markers">
     <Map fullScreen>
       <ViewerContainer
-        bottomRight={<Zoom />}
+        bottomRight={<ZoomControl />}
         bottomLeft={
           <MarkerFilters
             markersSource={markers}

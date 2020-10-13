@@ -1,6 +1,11 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { Button, SearchBar } from '@amsterdam/asc-ui'
-import { Map, BaseLayer, Zoom, ViewerContainer } from '@amsterdam/arm-core'
+import {
+  Map,
+  BaseLayer,
+  ZoomControl,
+  ViewerContainer,
+} from '@amsterdam/arm-core'
 
 <Meta title="UI/ViewerContainer" component={ViewerContainer} />
 
@@ -14,7 +19,7 @@ The ViewerContainer is a overlay on top of the map with 4 containers in each cor
   <Story name="Default">
     <Map fullScreen>
       <ViewerContainer
-        bottomRight={<Zoom />}
+        bottomRight={<ZoomControl />}
         bottomLeft="Even some text is allowed"
         topLeft={<Button>I&apos;m a random button</Button>}
         topRight={<SearchBar />}

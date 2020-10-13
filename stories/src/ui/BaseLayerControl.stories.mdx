@@ -2,20 +2,20 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import {
   Map,
   ViewerContainer,
-  BaseLayerToggle,
+  BaseLayerControl,
   constants,
 } from '@amsterdam/arm-core'
 
-<Meta title="UI/BaseLayerToggle" component={BaseLayerToggle} />
+<Meta title="UI/BaseLayerControl" component={BaseLayerControl} />
 
-# BaseLayerToggle component
+# BaseLayerControl component
 
 ## Default
 
 <Preview>
   <Story name="Default">
     <Map fullScreen>
-      <ViewerContainer bottomLeft={<BaseLayerToggle />} />
+      <ViewerContainer bottomLeft={<BaseLayerControl />} />
     </Map>
   </Story>
 </Preview>
@@ -27,7 +27,7 @@ import {
     <Map fullScreen>
       <ViewerContainer
         bottomLeft={
-          <BaseLayerToggle
+          <BaseLayerControl
             aerialLayers={[constants.AERIAL_AMSTERDAM_LAYERS[0]]}
             topoLayers={[constants.DEFAULT_AMSTERDAM_LAYERS[0]]}
           />

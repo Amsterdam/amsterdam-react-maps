@@ -1,6 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { Map } from '@amsterdam/arm-core'
+import { Map, MapContainer } from '@amsterdam/arm-core'
 import MapPanelExample from '../examples/MapPanelExample'
 
 <Meta title="UI/Map Panel" />
@@ -13,9 +13,11 @@ This component could be used to show results of actions that where performed on 
 
 <Preview>
   <Story name="Default">
-    <Map fullScreen>
-      <MapPanelExample panelTitle="Legenda" panelSubTitle="Een kaartpaneel" />
-    </Map>
+    <MapContainer>
+      <Map fullScreen>
+        <MapPanelExample />
+      </Map>
+    </MapContainer>
   </Story>
 </Preview>
 
@@ -31,16 +33,6 @@ This component could be used to show results of actions that where performed on 
       },
     }}
   >
-    <Map fullScreen>
-      <MapPanelExample panelTitle="Legenda" panelSubTitle="Een kaartpaneel" />
-    </Map>
-  </Story>
-</Preview>
-
-## Without header
-
-<Preview>
-  <Story name="Without header">
     <Map fullScreen>
       <MapPanelExample />
     </Map>
