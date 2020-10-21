@@ -35,7 +35,7 @@
     "@amsterdam/arm-draw": "^0.4.0",
     "@amsterdam/arm-nontiled": "^0.4.0",
     "leaflet": "^1.6.0",
-    "react": "^16.13.1",
+    "react": "^17.0.0",
     "styled-components": "^5.1.1"
   }
 }
