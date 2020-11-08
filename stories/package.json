@@ -27,7 +27,7 @@
     "eslint-plugin-mdx": "^1.7.0"
   },
   "dependencies": {
-    "@amsterdam/asc-assets": "^0.25.0",
+    "@amsterdam/asc-assets": "^0.26.0",
     "@amsterdam/asc-ui": "^0.25.0",
     "@amsterdam/react-maps": "^0.10.0",
     "@amsterdam/arm-cluster": "^0.4.0",

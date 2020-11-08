@@ -2,10 +2,15 @@
 # yarn lockfile v1
 
 
-"@amsterdam/asc-assets@^0.25.0", "@amsterdam/asc-assets@^0.25.2":
+"@amsterdam/asc-assets@^0.25.2":
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.25.2.tgz#6ba4ec227bddbb38b134d91e2b7dba014280503b"
   integrity sha512-eKOAznYpOt07Csd4jHi8Q436hF1v7dF7tlp97ijld3n8o2Os4gnrN/a8vceyiR8Cwa3bAuwoKFrwf+/0g70cqA==
+
+"@amsterdam/asc-assets@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.26.0.tgz#e77b1ee2bd6feb7e71d744bf78ba102ee18949ba"
+  integrity sha512-hQKovIJIOlfIL4rRAX//pLSTp2KRudjIR+SWE4EE1SgtUDkYqB1L9VX83ryKDltL/4ZNeAyrYuB0y5Pwq1cTcw==
 
 "@amsterdam/asc-ui@^0.25.0":
   version "0.25.2"
