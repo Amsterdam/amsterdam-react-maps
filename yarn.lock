@@ -8,9 +8,9 @@
   integrity sha512-eKOAznYpOt07Csd4jHi8Q436hF1v7dF7tlp97ijld3n8o2Os4gnrN/a8vceyiR8Cwa3bAuwoKFrwf+/0g70cqA==
 
 "@amsterdam/asc-assets@^0.26.0":
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.26.0.tgz#e77b1ee2bd6feb7e71d744bf78ba102ee18949ba"
-  integrity sha512-hQKovIJIOlfIL4rRAX//pLSTp2KRudjIR+SWE4EE1SgtUDkYqB1L9VX83ryKDltL/4ZNeAyrYuB0y5Pwq1cTcw==
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/@amsterdam/asc-assets/-/asc-assets-0.26.1.tgz#52678fdf91e03625dae7ce0fe03aaf499961ae3f"
+  integrity sha512-u7RwYTJC8ZuxBQMOtwUezcTvyKmrXiWgZCO2lXlgFfCSqDPVCgtPgfw97C20uUOG4hOnUTI8ze6PXnpYUpH9Ow==
 
 "@amsterdam/asc-ui@^0.25.0":
   version "0.25.2"
