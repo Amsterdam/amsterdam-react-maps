@@ -16,13 +16,13 @@
     "build": "build-storybook -c .storybook -o lib"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.0.18",
-    "@storybook/addon-actions": "^6.0.18",
-    "@storybook/addon-docs": "^6.0.18",
-    "@storybook/addon-knobs": "^6.0.18",
-    "@storybook/addon-links": "^6.0.18",
-    "@storybook/addon-viewport": "^6.0.18",
-    "@storybook/react": "^6.0.18",
+    "@storybook/addon-a11y": "^6.1.0-alpha.35",
+    "@storybook/addon-actions": "^6.1.0-alpha.35",
+    "@storybook/addon-docs": "^6.1.0-alpha.35",
+    "@storybook/addon-knobs": "^6.1.0-alpha.35",
+    "@storybook/addon-links": "^6.1.0-alpha.35",
+    "@storybook/addon-viewport": "^6.1.0-alpha.35",
+    "@storybook/react": "^6.1.0-alpha.35",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint-plugin-mdx": "^1.7.0"
   },
