@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        job: [lint, test, build, build:storybook]
+        job: [lint, test, build]
 
     steps:
     - uses: actions/checkout@v2
