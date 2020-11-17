@@ -27,13 +27,13 @@
     "eslint-plugin-mdx": "^1.7.0"
   },
   "dependencies": {
-    "@amsterdam/asc-assets": "^0.26.0",
-    "@amsterdam/asc-ui": "^0.25.0",
-    "@amsterdam/react-maps": "^0.10.0",
     "@amsterdam/arm-cluster": "^0.4.0",
     "@amsterdam/arm-core": "^0.4.0",
     "@amsterdam/arm-draw": "^0.4.0",
     "@amsterdam/arm-nontiled": "^0.4.0",
+    "@amsterdam/asc-assets": "^0.26.1",
+    "@amsterdam/asc-ui": "^0.26.1",
+    "@amsterdam/react-maps": "^0.11.0",
     "leaflet": "^1.6.0",
     "react": "^17.0.0",
     "styled-components": "^5.1.1"
