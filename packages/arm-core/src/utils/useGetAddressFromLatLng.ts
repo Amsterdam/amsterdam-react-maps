@@ -44,7 +44,14 @@ function requestFormatter(baseUrl: string, xy: InterfaceCoordinates) {
   return `${baseUrl}${x},${y},50`
 }
 
-const useGetAddressFromLatLng = () => {
+export interface AddressFromLatLng {
+  addresses?: ValidResponse
+  loading: boolean
+  latLng?: LatLng
+  setLatLng: (latLng?: LatLng) => void
+}
+
+const useGetAddressFromLatLng = (): AddressFromLatLng => {
   const [addresses, setAddresses] = useState<ValidResponse>()
   const [latLng, setLatLng] = useState<LatLng>()
   const [loading, setLoading] = useState(false)

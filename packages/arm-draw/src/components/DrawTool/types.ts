@@ -1,11 +1,15 @@
 import { Polygon, Polyline } from 'leaflet'
 
-type extraLayerTypes = {
+interface ExtraLayerTypes {
   id: string
-  editing: { _enabled: boolean; disable: () => void }
+  editing: {
+    _enabled: boolean
+    disable: () => void
+    enable: () => void
+  }
 }
 
-export type PolygonType = extraLayerTypes & Polygon
-export type PolylineType = extraLayerTypes & Polyline
+export type PolygonType = ExtraLayerTypes & Polygon
+export type PolylineType = ExtraLayerTypes & Polyline
 
 export type ExtendedLayer = PolygonType | PolylineType

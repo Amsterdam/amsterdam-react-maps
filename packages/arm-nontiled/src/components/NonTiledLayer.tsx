@@ -11,7 +11,7 @@ const NonTiledLayer: React.FC<{
   const [layer, setLayer] = useState<Layer>()
   const mapInstance = useMapInstance()
   const query = new URLSearchParams(params)
-  const layerUrl = params ? `${url}?${query}` : url
+  const layerUrl = params ? `${url}?${query.toString()}` : url
 
   useEffect(() => {
     if (!layer) {

@@ -62,15 +62,13 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
       .catch((error) => {
         // Ignore abort errors since they are expected to happen.
         if (error instanceof Error && error.name === 'AbortError') {
-          return
+          return Promise.resolve(null)
         }
 
         return Promise.reject(error)
       })
 
-    return () => {
-      controller.abort()
-    }
+    return () => controller.abort()
   }, [bbox])
 
   useEffect(() => {

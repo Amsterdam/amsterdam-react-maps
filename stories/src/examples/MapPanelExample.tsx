@@ -34,9 +34,9 @@ export enum SnapPoint {
   Closed,
 }
 
-const StyledViewerContainer = styled(ViewerContainer).attrs<
-  StyledViewerContainerProps
->(({ viewerHeight, leftOffset }) => ({
+const StyledViewerContainer = styled(
+  ViewerContainer,
+).attrs<StyledViewerContainerProps>(({ viewerHeight, leftOffset }) => ({
   style: {
     height: viewerHeight,
     left: leftOffset,
@@ -77,7 +77,9 @@ const ViewerContainerWithMapDrawerOffset: React.FC<Props> = ({
           viewerHeight={height}
           bottomLeft={
             <MapPanelLegendButton
-              {...{ showDesktopVariant, currentOverlay, setCurrentOverlay }}
+              showDesktopVariant={showDesktopVariant}
+              currentOverlay={currentOverlay}
+              setCurrentOverlay={setCurrentOverlay}
             />
           }
         />
@@ -88,7 +90,9 @@ const ViewerContainerWithMapDrawerOffset: React.FC<Props> = ({
           leftOffset={drawerPosition}
           topLeft={
             <MapPanelLegendButton
-              {...{ showDesktopVariant, currentOverlay, setCurrentOverlay }}
+              showDesktopVariant={showDesktopVariant}
+              currentOverlay={currentOverlay}
+              setCurrentOverlay={setCurrentOverlay}
             />
           }
           bottomRight={<Zoom />}

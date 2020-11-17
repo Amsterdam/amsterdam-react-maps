@@ -68,8 +68,9 @@ const MapPanelDrawerContentWrapper = styled.div`
   height: 100%;
 `
 
-export const getBoundingClientRect = (ref: RefObject<HTMLDivElement>) =>
-  ref?.current?.getBoundingClientRect() as DOMRect
+export const getBoundingClientRect = (
+  ref: RefObject<HTMLDivElement>,
+): DOMRect | null => ref?.current?.getBoundingClientRect() ?? null
 
 const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
   const [initialDragPosition, setInitialDragPosition] = useState(0)
@@ -93,10 +94,14 @@ const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
   }
 
   const startDragging = (e: React.TouchEvent) => {
-    if (MapDrawerRef.current) {
-      const rect = getBoundingClientRect(MapDrawerRef)
+    const rect = MapDrawerRef.current
+      ? getBoundingClientRect(MapDrawerRef)
+      : null
+
+    if (rect) {
       setInitialDragPosition(e.touches[0].clientY - rect.top)
     }
+
     setDraggable(true)
   }
 
@@ -105,8 +110,14 @@ const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
 
     if (MapDrawerRef.current) {
       const rect = getBoundingClientRect(MapDrawerRef)
+
+      if (!rect) {
+        return
+      }
+
       const middleTopLimit = (window.innerHeight / 2) * SNAP_OFFSET // times 0.x
       const middleBottomLimit = (window.innerHeight / 2) * (1 + SNAP_OFFSET) // times 1.x
+
       if (rect.top < middleBottomLimit && rect.top > middleTopLimit) {
         setPositionFromSnapPoint(SnapPoint.Halfway)
       } else if (rect.top < middleTopLimit) {

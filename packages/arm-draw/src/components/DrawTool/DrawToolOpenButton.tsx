@@ -2,9 +2,9 @@ import React, { ButtonHTMLAttributes, FunctionComponent } from 'react'
 import { TOGGLE_BUTTON_TITLE } from './config'
 import { ToolButton } from './DrawToolControls'
 
-const DrawToolOpenButton: FunctionComponent<ButtonHTMLAttributes<
-  HTMLButtonElement
->> = ({ ...otherProps }) => (
+const DrawToolOpenButton: FunctionComponent<
+  ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ ...otherProps }) => (
   // @ts-ignore
   <ToolButton
     title={TOGGLE_BUTTON_TITLE}

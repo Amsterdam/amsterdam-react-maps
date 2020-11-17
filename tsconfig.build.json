@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig",
   "exclude": [
-    "lib",
-    "node_modules",
     "**/*.test.tsx"
   ]
 }
