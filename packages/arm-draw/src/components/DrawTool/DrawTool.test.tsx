@@ -1,12 +1,10 @@
 import { useMapInstance } from '@amsterdam/react-maps'
-import { fireEvent, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
-import {
-  POLYGON_BUTTON_TITLE,
-  POLYLINE_BUTTON_TITLE,
-  TOGGLE_BUTTON_TITLE,
-} from './config'
+import L from 'leaflet'
+import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
 import DrawTool from './DrawTool'
+import { PolygonType } from './types'
 
 jest.mock('@amsterdam/react-maps')
 
@@ -31,48 +29,46 @@ describe('DrawTool', () => {
       hasLayer: hasLayerMock,
     }))
   })
-  describe('Toggle button', () => {
-    it('should toggle the draw buttons', () => {
-      const { getByTitle, queryByTitle } = render(<DrawTool />)
-      const toggleButton = getByTitle(TOGGLE_BUTTON_TITLE)
-      const polylineButton = queryByTitle(POLYLINE_BUTTON_TITLE)
-      const polygonButton = queryByTitle(POLYGON_BUTTON_TITLE)
-      expect(toggleButton).toBeDefined()
 
-      expect(polylineButton).toBeNull()
-      expect(polygonButton).toBeNull()
+  const initialDrawnItems = [
+    L.polygon(
+      [
+        [52.37000756868467, 4.894187572618143],
+        [52.36638286187091, 4.893981190127323],
+        [52.369541390869465, 4.89828766015057],
+      ],
+      {
+        color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
+        bubblingMouseEvents: false,
+      },
+    ),
+    L.polygon(
+      [
+        [52.37594820185194, 4.892147803888032],
+        [52.37206742179071, 4.888490687556837],
+        [52.373527030104974, 4.89814504712679],
+      ],
+      {
+        color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
+        bubblingMouseEvents: false,
+      },
+    ),
+  ] as Array<PolygonType>
 
-      fireEvent.click(toggleButton)
-
-      expect(polylineButton).toBeDefined()
-      expect(polygonButton).toBeDefined()
-
-      fireEvent.click(toggleButton)
-
-      expect(polylineButton).toBeNull()
-      expect(polygonButton).toBeNull()
-    })
-
-    it('should toggle drawings on the map', () => {
+  describe('Drawtool', () => {
+    it('should call onInitLayers and onDrawEnd when passing initial drawing', () => {
       hasLayerMock = jest.fn(() => false)
-      const onToggleMock = jest.fn()
-      const { getByTitle } = render(<DrawTool onToggle={onToggleMock} />)
-      const toggleButton = getByTitle(TOGGLE_BUTTON_TITLE)
-      expect(onToggleMock).toHaveBeenCalledTimes(1)
-      expect(addLayerMock).toHaveBeenCalledTimes(0)
-      expect(removeLayerMock).toHaveBeenCalledTimes(0)
-      // Open
-      fireEvent.click(toggleButton)
-      hasLayerMock = jest.fn(() => true)
-      expect(onToggleMock).toHaveBeenCalledTimes(2)
-      expect(addLayerMock).toHaveBeenCalledTimes(1)
-      expect(removeLayerMock).toHaveBeenCalledTimes(0)
-
-      // Close
-      fireEvent.click(toggleButton)
-      expect(onToggleMock).toHaveBeenCalledTimes(3)
-      expect(addLayerMock).toHaveBeenCalledTimes(1)
-      expect(removeLayerMock).toHaveBeenCalledTimes(1)
+      const onInitLayersMock = jest.fn()
+      const onDrawEndMock = jest.fn()
+      render(
+        <DrawTool
+          onDrawEnd={onDrawEndMock}
+          onInitLayers={onInitLayersMock}
+          drawnItems={initialDrawnItems}
+        />,
+      )
+      expect(onInitLayersMock).toHaveBeenNthCalledWith(1, initialDrawnItems)
+      expect(onDrawEndMock).toHaveBeenCalledTimes(2) // 2 initial drawings
     })
   })
 })
