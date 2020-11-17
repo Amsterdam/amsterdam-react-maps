@@ -7,7 +7,7 @@ import 'leaflet-draw'
 import React, { useEffect, useMemo, useState } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
-import DrawToolBare from './DrawToolBare'
+import DrawToolControls from './DrawToolControls'
 import { ExtendedLayer, PolygonType, PolylineType } from './types'
 
 const { drawIcon } = icons
@@ -45,7 +45,7 @@ type Props = {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
   onInitLayers?: (layers: ExtendedLayer[]) => void
-  onToggle?: (showDrawTool: boolean) => void
+  onClose?: () => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
   isOpen?: boolean
   drawnItems?: Array<ExtendedLayer>
@@ -53,24 +53,16 @@ type Props = {
 }
 
 const DrawTool: React.FC<Props> = ({
-  onToggle,
   onDelete,
   onDrawStart,
   onDrawEnd,
-  isOpen,
   drawnItems,
   onInitLayers,
   drawnItemsGroup: drawnItemsGroupProp,
+  onClose,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
-  const [showDrawTool, setShowDrawTool] = useStateRef(isOpen || false)
-
-  useEffect(() => {
-    if (typeof isOpen !== 'undefined') {
-      setShowDrawTool(isOpen)
-    }
-  }, [isOpen])
 
   const mapInstance = useMapInstance() as L.DrawMap
 
@@ -200,42 +192,32 @@ const DrawTool: React.FC<Props> = ({
     exitEditMode()
     drawnItemsGroup.addLayer(layer)
     layer.on('click', handleDrawingClick)
-  }
-
-  const onDrawCreated = (e: L.DrawEvents.Created) => {
-    const layer = e.layer as PolygonType | PolylineType
-
-    setDrawnItem(layer)
 
     if (onDrawEnd) {
       onDrawEnd(layer)
     }
   }
 
-  // Toggle drawing mode
-  useEffect(() => {
-    if (onToggle) {
-      onToggle(showDrawTool)
-    }
-
-    if (showDrawTool) {
-      mapInstance.addLayer(drawnItemsGroup)
-    } else if (mapInstance.hasLayer(drawnItemsGroup)) {
-      mapInstance.removeLayer(drawnItemsGroup)
-    }
-  }, [showDrawTool, onToggle])
+  const onDrawCreated = (e: L.DrawEvents.Created) => {
+    const layer = e.layer as PolygonType | PolylineType
+    setDrawnItem(layer)
+  }
 
   useEffect(() => {
     // @ts-ignore
     mapInstance.on(L.Draw.Event.CREATED, onDrawCreated)
     mapInstance.on('click', handleClick)
     mapInstance.on('keydown', handleKeyDown)
+    mapInstance.addLayer(drawnItemsGroup)
 
     return () => {
       // @ts-ignore
       mapInstance.off(L.Draw.Event.CREATED, onDrawCreated)
       mapInstance.off('click', handleClick)
       mapInstance.off('keydown', handleKeyDown)
+      if (mapInstance.hasLayer(drawnItemsGroup)) {
+        mapInstance.removeLayer(drawnItemsGroup)
+      }
     }
   }, [])
 
@@ -253,15 +235,14 @@ const DrawTool: React.FC<Props> = ({
   return (
     <>
       <GlobalStyle />
-      <DrawToolBare
+      <DrawToolControls
         orientation="vertical-top"
         inEditMode={inEditMode}
         inDrawMode={inCreateMode}
-        onToggle={setShowDrawTool}
-        show={showDrawTool}
         onRemove={deleteDrawing}
         onStartPolygon={createPolygon}
         onStartPolyline={createPolyline}
+        onClose={onClose}
       />
     </>
   )

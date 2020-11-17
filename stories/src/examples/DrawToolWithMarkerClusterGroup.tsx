@@ -1,6 +1,14 @@
-import { MarkerClusterGroup } from '@amsterdam/arm-cluster'
+import {
+  createClusterMarkers,
+  MarkerClusterGroup,
+} from '@amsterdam/arm-cluster'
 import { BaseLayer, Map, useStateRef } from '@amsterdam/arm-core'
-import { DrawTool, ExtendedLayer, PolygonType } from '@amsterdam/arm-draw'
+import {
+  DrawToolOpenButton,
+  DrawTool,
+  ExtendedLayer,
+  PolygonType,
+} from '@amsterdam/arm-draw'
 import { ascDefaultTheme, themeColor, ViewerContainer } from '@amsterdam/asc-ui'
 import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
 import React, { useEffect, useMemo, useState } from 'react'
@@ -26,7 +34,7 @@ const DATA_SELECTION_ENDPOINT =
 const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
   hasInitialDrawings = false,
 }) => {
-  const [showDrawTool, setShowDrawTool] = useState(true)
+  const [showDrawTool, setShowDrawTool] = useState(hasInitialDrawings)
   const [mapInstance, setMapInstance] = useState<L.Map>()
   const [markerGroups, setMarkerGroups, markerGroupsRef] = useStateRef<
     MarkerGroup[]
@@ -126,7 +134,7 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
   }, [mapInstance])
 
   // The same result can be achieved for a Polyline
-  const initalDrawnItems = useMemo(
+  const initialDrawnItems = useMemo(
     () =>
       [
         L.polygon(
@@ -159,32 +167,41 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
     <Map setInstance={setMapInstance} fullScreen>
       {showDrawTool &&
         markerGroups.map(({ markers, id }: MarkerGroup) => (
-          <MarkerClusterGroup key={id} markers={markers} />
+          <MarkerClusterGroup
+            key={id}
+            markers={createClusterMarkers({ markers })}
+          />
         ))}
       <BaseLayer />
       <StyledViewerContainer
         topRight={
-          <DrawTool
-            onDrawEnd={async (layer: ExtendedLayer) => {
-              await getMarkerGroup(layer)
-              bindDistanceAndAreaToTooltip(layer)
-            }}
-            onDelete={(layersInEditMode: Array<ExtendedLayer>) => {
-              const editLayerIds = layersInEditMode.map(({ id }) => id)
+          !showDrawTool ? (
+            <DrawToolOpenButton onClick={() => setShowDrawTool(true)} />
+          ) : (
+            <DrawTool
+              onDrawEnd={async (layer: ExtendedLayer) => {
+                await getMarkerGroup(layer)
+                bindDistanceAndAreaToTooltip(layer)
+              }}
+              onDelete={(layersInEditMode: Array<ExtendedLayer>) => {
+                const editLayerIds = layersInEditMode.map(({ id }) => id)
 
-              // remove the markerGroups.
-              if (markerGroupsRef.current) {
-                setMarkerGroups(
-                  markerGroupsRef.current.filter(
-                    ({ id }: MarkerGroup) => !editLayerIds.includes(id),
-                  ),
-                )
-              }
-            }}
-            isOpen={showDrawTool}
-            onToggle={setShowDrawTool}
-            drawnItems={hasInitialDrawings && initalDrawnItems}
-          />
+                // remove the markerGroups.
+                if (markerGroupsRef.current) {
+                  setMarkerGroups(
+                    markerGroupsRef.current.filter(
+                      ({ id }: MarkerGroup) => !editLayerIds.includes(id),
+                    ),
+                  )
+                }
+              }}
+              onClose={() => {
+                setMarkerGroups([])
+                setShowDrawTool(false)
+              }}
+              drawnItems={hasInitialDrawings && initialDrawnItems}
+            />
+          )
         }
       />
     </Map>
