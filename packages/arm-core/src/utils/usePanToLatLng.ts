@@ -1,7 +1,13 @@
 import { useMapInstance } from '@amsterdam/react-maps'
 import { LatLngLiteral } from 'leaflet'
 
-const usePanToLatLng = () => {
+type PanFn = (
+  latLng: LatLngLiteral,
+  offsetDirection?: 'horizontal' | 'vertical',
+  offset?: number,
+) => void
+
+const usePanToLatLng = (): { pan: PanFn } => {
   const mapInstance = useMapInstance()
   /**
    * Pan to a position on the map

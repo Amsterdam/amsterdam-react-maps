@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
 import { Checkmark, Ellipsis } from '@amsterdam/asc-assets'
 import {
@@ -19,10 +20,12 @@ import {
 } from '../constants'
 import BaseLayer from './BaseLayer'
 
-const AerialBackground = require('../../static/aerial-background.png')
-const AerialBackgroundRetina = require('../../static/aerial-background@2.png')
-const TopoBackground = require('../../static/topo-background.png')
-const TopoBackgroundRetina = require('../../static/topo-background@2.png')
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+const AerialBackground: string = require('../../static/aerial-background.png')
+const AerialBackgroundRetina: string = require('../../static/aerial-background@2.png')
+const TopoBackground: string = require('../../static/topo-background.png')
+const TopoBackgroundRetina: string = require('../../static/topo-background@2.png')
+/* eslint-enable @typescript-eslint/no-unsafe-assignment */
 
 export enum BaseLayerType {
   Aerial = 'luchtfoto',
@@ -56,15 +59,15 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   align-self: self-start;
   text-align: left;
   background: ${({ layerType }) =>
-    `url(${BASE_LAYER_STYLE[layerType as BaseLayerType].background[0]})`};
+    `url(${BASE_LAYER_STYLE[layerType].background[0]})`};
   text-transform: capitalize;
   width: 44px;
   margin-right: 2px;
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background: ${({ layerType }) => `url(${
-      BASE_LAYER_STYLE[layerType as BaseLayerType].background[1]
-    }) no-repeat top left /
+    background: ${({
+      layerType,
+    }) => `url(${BASE_LAYER_STYLE[layerType].background[1]}) no-repeat top left /
       120px 44px`};
   }
 

@@ -66,8 +66,8 @@ const DrawTool: React.FC<Props> = ({
 
   const mapInstance = useMapInstance() as L.DrawMap
 
-  const drawnItemsGroup =
-    drawnItemsGroupProp || useMemo(() => new L.FeatureGroup(), [])
+  const internalDrawnItemsGroup = useMemo(() => new L.FeatureGroup(), [])
+  const drawnItemsGroup = drawnItemsGroupProp ?? internalDrawnItemsGroup
 
   const createPolygon = (): null | void => {
     const drawing = new L.Draw.Polygon(mapInstance, {
@@ -147,8 +147,9 @@ const DrawTool: React.FC<Props> = ({
   }
 
   const handleDrawingClick = (event: LayerEvent) => {
-    const { target } = event
+    const target = event.target as ExtendedLayer
     const { editing } = target
+
     if (editing._enabled) {
       exitEditMode()
     } else {

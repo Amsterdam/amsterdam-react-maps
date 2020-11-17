@@ -3,10 +3,13 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import L from 'leaflet'
 import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
+import { mocked } from 'ts-jest'
 import DrawTool from './DrawTool'
 import { PolygonType } from './types'
 
 jest.mock('@amsterdam/react-maps')
+
+const mockedUseMapInstance = mocked(useMapInstance)
 
 describe('DrawTool', () => {
   let onMock: jest.Mock
@@ -21,7 +24,7 @@ describe('DrawTool', () => {
     removeLayerMock = jest.fn()
     hasLayerMock = jest.fn(() => true)
     // @ts-ignore
-    useMapInstance.mockImplementation(() => ({
+    mockedUseMapInstance.mockImplementation(() => ({
       addLayer: addLayerMock,
       removeLayer: removeLayerMock,
       on: onMock,

@@ -1,17 +1,11 @@
 import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
 import { GeoJsonProperties, Geometry } from 'geojson'
-import L, { GeoJSON, GeoJSONOptions } from 'leaflet'
+import L, { GeoJSONOptions } from 'leaflet'
 import proj4 from 'proj4'
 import 'proj4leaflet'
-import { useEffect, useState } from 'react'
+import { FunctionComponent, useEffect, useMemo } from 'react'
 import { CRS_CONFIG } from '../utils/getCrsRd'
-
-type Props = {
-  geometry: Geometry
-  properties?: GeoJsonProperties
-  options?: GeoJSONOptions
-}
 
 export const defaultStyle = {
   color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
@@ -23,19 +17,21 @@ export const defaultStyle = {
 
 proj4.defs(CRS_CONFIG.RD.code, CRS_CONFIG.RD.projection)
 
-const RDGeoJSON: React.FC<Props> = ({
+export interface RDGeoJSONProps {
+  geometry: Geometry
+  properties?: GeoJsonProperties
+  options?: GeoJSONOptions
+}
+
+const RDGeoJSON: FunctionComponent<RDGeoJSONProps> = ({
   geometry,
   properties = null,
   options = { style: defaultStyle },
 }) => {
   const mapInstance = useMapInstance()
-  const [geoJSON, setGeoJSON] = useState<GeoJSON>()
-  useEffect(() => {
-    ;(async () => {
-      if (geoJSON) {
-        return
-      }
-      const geo = L.Proj.geoJson(
+  const geoJSON = useMemo(
+    () =>
+      L.Proj.geoJson(
         {
           type: 'Feature',
           geometry,
@@ -48,18 +44,17 @@ const RDGeoJSON: React.FC<Props> = ({
           },
         },
         options,
-      )
-      geo.addTo(mapInstance)
-      setGeoJSON(geo)
-    })()
+      ),
+    [geometry, properties, options],
+  )
+
+  useEffect(() => {
+    geoJSON.addTo(mapInstance)
 
     return () => {
-      if (geoJSON) {
-        setGeoJSON(undefined)
-        geoJSON.removeFrom(mapInstance)
-      }
+      geoJSON.removeFrom(mapInstance)
     }
-  }, [geoJSON, options])
+  }, [geoJSON])
 
   return null
 }

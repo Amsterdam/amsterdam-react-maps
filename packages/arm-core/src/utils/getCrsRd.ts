@@ -1,4 +1,4 @@
-import L, { LatLng, PointExpression } from 'leaflet'
+import L, { CRS, LatLng, PointExpression } from 'leaflet'
 import proj4, { InterfaceCoordinates } from 'proj4'
 
 export const CRS_CONFIG = {
@@ -33,7 +33,11 @@ export const proj4RD = proj4(CRS_CONFIG.WGS84.code, CRS_CONFIG.RD.projection)
  * @param zeroScale
  * @param scales
  */
-const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []) => {
+const getCrsRd = (
+  maxZoom = 16,
+  zeroScale = 3440.64,
+  scales: number[] = [],
+): CRS => {
   // eslint-disable-next-line no-const-assign,no-plusplus
   for (let i = 0; i <= maxZoom; i++) {
     scales.push(1 / (zeroScale * 0.5 ** i))
@@ -61,6 +65,7 @@ const getCrsRd = (maxZoom = 16, zeroScale = 3440.64, scales: number[] = []) => {
         proj4def: CRS_CONFIG.RD.projection,
       },
       transformation: new L.Transformation(1, 285401.92, -1, 903401.92),
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       distance: L.CRS.Earth.distance,
       R: CRS_CONFIG.EARTH_RADIUS,
       scale: (zoom: number) => {

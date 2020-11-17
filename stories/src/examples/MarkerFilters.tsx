@@ -1,6 +1,12 @@
 import { Checkbox, Label, themeColor, themeSpacing } from '@amsterdam/asc-ui'
 import L, { LatLngTuple, Marker } from 'leaflet'
-import React, { ReactNode, useCallback, useMemo, useState } from 'react'
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
 const UnstyledOl = styled.ol`
@@ -51,10 +57,10 @@ interface MarkerFiltersProps {
   clusterComponent: (markers: L.Marker[]) => ReactNode
 }
 
-export default function MarkerFilters({
+const MarkerFilters: FunctionComponent<MarkerFiltersProps> = ({
   markersSource,
   clusterComponent,
-}: MarkerFiltersProps) {
+}) => {
   const [activeDatasets, setActiveDataset] = useState(['a', 'b', 'c'])
 
   // Create some fake datasets from the source makers
@@ -81,15 +87,15 @@ export default function MarkerFilters({
   // Concat the markers from the filtered datasets
   const markersFiltered = useMemo(() => {
     // eslint-disable-next-line no-shadow
-    const markersFiltered: Marker[] = []
+    const markers: Marker[] = []
 
     for (let i = 0; i < activeDatasets.length; i += 1) {
       const markerSet = markerSets.find(({ id }) => id === activeDatasets[i])
       if (markerSet) {
-        markersFiltered.push(...markerSet.markers)
+        markers.push(...markerSet.markers)
       }
     }
-    return markersFiltered
+    return markers
   }, [markerSets, activeDatasets])
 
   // Update the active datasets state
@@ -124,3 +130,5 @@ export default function MarkerFilters({
     </Panel>
   )
 }
+
+export default MarkerFilters

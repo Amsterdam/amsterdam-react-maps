@@ -39,7 +39,7 @@ interface CreateClusterMarkersOptions {
 export function createClusterMarkers({
   markers,
   events,
-}: CreateClusterMarkersOptions) {
+}: CreateClusterMarkersOptions): Marker[] {
   return markers.map(([lat, lng]) => {
     const marker = L.marker(new L.LatLng(lat, lng), {
       icon: icons.defaultIcon,

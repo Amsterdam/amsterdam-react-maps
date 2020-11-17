@@ -11,7 +11,7 @@ import {
 } from '@amsterdam/arm-draw'
 import { ascDefaultTheme, themeColor, ViewerContainer } from '@amsterdam/asc-ui'
 import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { FunctionComponent, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import getDataSelection from './api/getDataSelection'
 
@@ -19,19 +19,19 @@ const StyledViewerContainer = styled(ViewerContainer)`
   z-index: 400;
 `
 
-type MarkerGroup = {
+interface MarkerGroup {
   id: string
   markers: LatLngTuple[]
 }
 
-type Props = {
+interface DrawToolWithMarkerClusterGroupProps {
   hasInitialDrawings: boolean
 }
 
 const DATA_SELECTION_ENDPOINT =
   'https://api.data.amsterdam.nl/dataselectie/bag/geolocation/'
 
-const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
+const DrawToolWithMarkerClusterGroup: FunctionComponent<DrawToolWithMarkerClusterGroupProps> = ({
   hasInitialDrawings = false,
 }) => {
   const [showDrawTool, setShowDrawTool] = useState(hasInitialDrawings)
@@ -45,7 +45,7 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
       shape: JSON.stringify(latLngs[0].map(({ lat, lng }) => [lng, lat])),
     })
 
-  const getMarkerGroup = async (layer: ExtendedLayer): Promise<null | void> => {
+  const getMarkerGroup = async (layer: ExtendedLayer) => {
     if (!(layer instanceof Polygon)) {
       return null
     }
@@ -69,11 +69,12 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
       // eslint-disable-next-line no-console
       console.warn(e)
     }
+
+    return null
   }
 
-  const editVertex = async (e: L.DrawEvents.EditVertex) => {
-    await getMarkerGroup(e.poly as ExtendedLayer)
-  }
+  const editVertex = (e: L.DrawEvents.EditVertex) =>
+    getMarkerGroup(e.poly as ExtendedLayer)
 
   const getTotalDistance = (latLngs: LatLng[]) => {
     return latLngs.reduce(
@@ -91,7 +92,7 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
   }
 
   const bindDistanceAndAreaToTooltip = (layer: ExtendedLayer) => {
-    const latLngs = layer.getLatLngs().flat().flat()
+    const latLngs = layer.getLatLngs().flat(2)
     const distance = getTotalDistance(latLngs)
 
     let toolTipText: string
@@ -122,12 +123,14 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
   useEffect(() => {
     if (mapInstance) {
       // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       mapInstance.on(L.Draw.Event.EDITVERTEX, editVertex)
     }
 
     return () => {
       if (mapInstance) {
         // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         mapInstance.off(L.Draw.Event.EDITVERTEX, editVertex)
       }
     }
@@ -199,7 +202,7 @@ const DrawToolWithMarkerClusterGroup: React.FC<Props> = ({
                 setMarkerGroups([])
                 setShowDrawTool(false)
               }}
-              drawnItems={hasInitialDrawings && initialDrawnItems}
+              drawnItems={hasInitialDrawings ? initialDrawnItems : undefined}
             />
           )
         }

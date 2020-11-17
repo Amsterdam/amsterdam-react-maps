@@ -1,6 +1,6 @@
 import { Close } from '@amsterdam/asc-assets'
 import { Button, svgFill, themeColor } from '@amsterdam/asc-ui'
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled, { css } from 'styled-components'
 import {
   POLYGON_BUTTON_TITLE,
@@ -85,7 +85,7 @@ type Orientation =
   | 'horizontal-left'
   | 'horizontal-right'
 
-type Props = {
+export interface DrawToolControlsProps {
   orientation: Orientation
   onStartPolygon: () => void
   onStartPolyline: () => void
@@ -94,10 +94,9 @@ type Props = {
   inDrawMode: boolean
   onClose?: () => void
   show?: boolean
-  selectedLayer?: any
 }
 
-const DrawToolControls: React.FC<Props> = ({
+const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
   onStartPolygon,
   onStartPolyline,
   inEditMode,

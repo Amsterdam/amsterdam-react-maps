@@ -1,7 +1,7 @@
 import { Button } from '@amsterdam/asc-ui'
 import styled from 'styled-components'
 
-const ControlButton = styled(Button)<any>`
+const ControlButton = styled(Button)`
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 `
 
