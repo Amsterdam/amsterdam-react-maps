@@ -38,9 +38,9 @@
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
-    "@amsterdam/asc-assets": "^0.25.0",
-    "@amsterdam/asc-ui": "^0.25.0",
-    "@amsterdam/react-maps": "^0.10.0",
+    "@amsterdam/asc-assets": "^0.26.1",
+    "@amsterdam/asc-ui": "^0.26.1",
+    "@amsterdam/react-maps": "^0.11.0",
     "leaflet": "^1.6.0",
     "leaflet-draw": "^1.0.4",
     "react": ">=16.8.6",
