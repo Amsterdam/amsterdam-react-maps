@@ -22,10 +22,10 @@ import BaseLayer from '../BaseLayer'
 import Control from './Control'
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-const AerialBackground: string = require('../../static/aerial-background.png')
-const AerialBackgroundRetina: string = require('../../static/aerial-background@2.png')
-const TopoBackground: string = require('../../static/topo-background.png')
-const TopoBackgroundRetina: string = require('../../static/topo-background@2.png')
+const AerialBackground: string = require('../../../static/aerial-background.png')
+const AerialBackgroundRetina: string = require('../../../static/aerial-background@2.png')
+const TopoBackground: string = require('../../../static/topo-background.png')
+const TopoBackgroundRetina: string = require('../../../static/topo-background@2.png')
 /* eslint-enable @typescript-eslint/no-unsafe-assignment */
 
 export enum BaseLayerType {
