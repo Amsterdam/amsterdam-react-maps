@@ -10,7 +10,7 @@
     "deploy:gh-pages": "yarn build:storybook && node ./scripts/gh-pages.js",
     "build:clean": "find ./packages -name \"*.d.ts\" -type f -delete && find ./packages -name \"*.tsbuildinfo\" -type f -delete",
     "build": "yarn build:clean && yarn build:ts && yarn build:ts:es",
-    "build:storybook": "yarn --cwd stories build",
+    "build:storybook": "yarn --cwd stories && yarn && yarn build",
     "build:ts": "ttsc -b packages/arm-core packages/arm-draw packages/arm-cluster packages/arm-nontiled",
     "build:ts:es": "ttsc -b packages/arm-core/tsconfig.es.json packages/arm-draw/tsconfig.es.json packages/arm-cluster/tsconfig.es.json packages/arm-nontiled/tsconfig.es.json",
     "test": "yarn jest",
