@@ -19,14 +19,22 @@ const DrawerPanel = styled.div<DrawerPanelProps>`
   animation: slidein 0.25s ease-in-out;
   background-color: ${themeColor('tint', 'level1')};
 
-  ${({ stackLevel = 0 }) => css`
-    margin-top: ${themeSpacing(STACK_SPACING * stackLevel)};
+  ${({ deviceMode = DeviceMode.Mobile, stackLevel = 0 }) => {
+    if (isMobile(deviceMode)) {
+      return css`
+        margin-top: ${themeSpacing(STACK_SPACING * stackLevel)};
 
-    ${stackLevel > 0 &&
-    css`
-      box-shadow: 0 0 0 ${themeSpacing(1)} rgba(0, 0, 0, 0.1);
-    `}
-  `}
+        ${stackLevel > 0 &&
+        css`
+          box-shadow: 0 0 0 ${themeSpacing(1)} rgba(0, 0, 0, 0.1);
+        `}
+      `
+    }
+
+    return css`
+      margin-right: ${themeSpacing(STACK_SPACING * stackLevel)};
+    `
+  }}
 
   ${({ deviceMode = DeviceMode.Mobile }) =>
     isMobile(deviceMode)

@@ -3,7 +3,7 @@
 import { RefObject, useLayoutEffect, useMemo, useState } from 'react'
 
 export default function useObserveSize<T extends Element>(
-  ref: RefObject<T>,
+  ref: T | RefObject<T> | null,
 ): ResizeObserverSize | null {
   const [size, setSize] = useState<ResizeObserverSize | null>(null)
   const resizeObserver = useMemo(
@@ -26,7 +26,11 @@ export default function useObserveSize<T extends Element>(
   )
 
   useLayoutEffect(() => {
-    const element = ref.current
+    if (!ref) {
+      return
+    }
+
+    const element = ref instanceof Element ? ref : ref.current
 
     if (!element) {
       return
@@ -35,7 +39,7 @@ export default function useObserveSize<T extends Element>(
     resizeObserver.observe(element)
 
     return () => resizeObserver.unobserve(element)
-  }, [])
+  }, [ref])
 
   return size
 }
