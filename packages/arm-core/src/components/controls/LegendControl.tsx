@@ -1,5 +1,6 @@
 import { MapLayers } from '@amsterdam/asc-assets'
 import { Button } from '@amsterdam/asc-ui'
+import styled from 'styled-components'
 import React from 'react'
 import Control from './Control'
 
@@ -8,6 +9,10 @@ export interface LegendControlProps {
   active: boolean
   onToggle: (active: boolean) => void
 }
+
+const StyledButton = styled(Button)`
+  min-width: inherit;
+`
 
 const LegendControl: React.FC<LegendControlProps> = ({
   showDesktopVariant,
@@ -20,16 +25,16 @@ const LegendControl: React.FC<LegendControlProps> = ({
 
   return (
     <Control>
-      <Button
+      <StyledButton
         type="button"
-        variant={active ? 'secondary' : 'blank'}
+        variant={active ? 'tertiary' : 'blank'}
         title="Legenda"
         iconSize={20}
         onClick={() => onToggle(!active)}
         {...iconProps}
       >
         Legenda
-      </Button>
+      </StyledButton>
     </Control>
   )
 }

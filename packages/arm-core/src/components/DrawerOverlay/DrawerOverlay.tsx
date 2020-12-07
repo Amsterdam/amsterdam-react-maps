@@ -1,5 +1,11 @@
 import { ChevronRight } from '@amsterdam/asc-assets'
-import { Button, themeColor, themeSpacing } from '@amsterdam/asc-ui'
+import {
+  Button,
+  Icon,
+  styles,
+  themeColor,
+  themeSpacing,
+} from '@amsterdam/asc-ui'
 import React, {
   Children,
   cloneElement,
@@ -21,7 +27,7 @@ import Control from '../controls/Control'
 import MapOverlay from '../MapOverlay'
 
 const HANDLE_SIZE_MOBILE = 70
-const HANDLE_SIZE_DESKTOP = 30
+const HANDLE_SIZE_DESKTOP = 50
 // The height of the preview area in pixels, handle and controls excluded.
 const PREVIEW_SIZE = 200
 const SNAP_OFFSET = 0.5 // 0 - 1, increase this to snap quicker to bottom or top, instead of middle
@@ -88,10 +94,50 @@ const DrawerHandleMobile = styled(Button)`
   }
 `
 
+const DrawerHandleMiniDesktop = styled.div`
+  width: 20px;
+  height: 44px;
+  background-color: ${themeColor('tint', 'level1')};
+  top: 16px;
+  position: absolute;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  box-sizing: content-box;
+  border-left: none;
+  transition: background-color 0.1s ease-in-out;
+  &:before {
+    content: '';
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+`
+
 const DrawerHandleDesktop = styled(Button)`
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
-  width: ${HANDLE_SIZE_DESKTOP}px;
+  width: ${HANDLE_SIZE_DESKTOP - 20}px;
   height: 100%;
+  position: relative;
+  margin-right: ${themeSpacing(5)};
+
+  & > ${styles.IconStyle} {
+    opacity: 0;
+  }
+
+  &:hover {
+    & > ${styles.IconStyle} {
+      opacity: 1;
+    }
+    ${DrawerHandleMiniDesktop} {
+      background-color: ${themeColor('tint', 'level3')};
+    }
+  }
 `
 
 const HandleIcon = styled(ChevronRight)<{ isOpen: boolean }>`
@@ -192,7 +238,7 @@ const DrawerOverlay: FunctionComponent<DrawerOverlayProps> = ({
   const drawerContainerHeight = drawerContainerSize?.blockSize ?? 0
 
   const lockedControlsRef = useRef<HTMLDivElement>(null)
-  const lockedControlsSize = useObserveSize(lockedControlsRef)
+  const lockedControlsSize = useObserveSize(lockedControlsRef, 0, 16)
   const lockedControlsWidth = lockedControlsSize?.inlineSize ?? 0
   const lockedControlsHeight = lockedControlsSize?.blockSize ?? 0
 
@@ -419,7 +465,7 @@ const DrawerOverlay: FunctionComponent<DrawerOverlayProps> = ({
   }
 
   drawerContainerStyle.transform = getDrawerPositionTransform()
-
+  console.log(state)
   return (
     <DrawerMapOverlay>
       {otherControls.length > 0 && (
@@ -450,16 +496,24 @@ const DrawerOverlay: FunctionComponent<DrawerOverlayProps> = ({
           <DrawerHandle
             type="button"
             variant="blank"
-            icon={
-              isDesktop(mode) ? (
-                <HandleIcon isOpen={state === DrawerState.Open} />
-              ) : null
-            }
             size={32}
-            iconSize={20}
             title="Open paneel"
             onClick={handleToggle}
-          />
+          >
+            {isDesktop(mode) ? (
+              <>
+                <Icon size={20}>
+                  <HandleIcon isOpen={state === DrawerState.Open} />
+                </Icon>
+                <DrawerHandleMiniDesktop>
+                  <Icon size={20}>
+                    <HandleIcon isOpen={state === DrawerState.Open} />
+                  </Icon>
+                </DrawerHandleMiniDesktop>
+              </>
+            ) : null}
+          </DrawerHandle>
+
           <DrawerContent ref={drawerContentRef} style={drawerContentStyle}>
             {Children.toArray(children)
               .filter((child): child is ReactElement => isValidElement(child))

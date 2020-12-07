@@ -2,23 +2,30 @@
 /// <reference types="resize-observer-browser" />
 import { RefObject, useLayoutEffect, useMemo, useState } from 'react'
 
+// NOTE: entry.borderBoxSize does not work in Safari, so use contentRect for now.
+// Therefore we need to calculate the ResizeObserverSize by also passing the offset manually (in case the ref has a padding)
 export default function useObserveSize<T extends Element>(
   ref: T | RefObject<T> | null,
+  paddingOffsetInline = 0,
+  paddingOffsetBlock = 0,
 ): ResizeObserverSize | null {
   const [size, setSize] = useState<ResizeObserverSize | null>(null)
   const resizeObserver = useMemo(
     () =>
-      // eslint-disable-next-line no-undef
       new ResizeObserver((entries) => {
         entries.forEach((entry) => {
-          const borderBoxSize: ResizeObserverSize | undefined = Array.isArray(
-            entry.borderBoxSize,
-          )
-            ? entry.borderBoxSize[0]
-            : entry.borderBoxSize
+          const inlineSize =
+            entry.contentRect?.left +
+              entry.contentRect?.right +
+              paddingOffsetInline || 0
 
-          if (borderBoxSize) {
-            setSize(borderBoxSize)
+          const blockSize = entry.contentRect?.bottom + paddingOffsetBlock || 0
+
+          if (inlineSize) {
+            setSize({
+              inlineSize,
+              blockSize,
+            })
           }
         })
       }),

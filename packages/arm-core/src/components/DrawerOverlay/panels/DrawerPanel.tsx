@@ -33,6 +33,10 @@ const DrawerPanel = styled.div<DrawerPanelProps>`
 
     return css`
       margin-right: ${themeSpacing(STACK_SPACING * stackLevel)};
+      ${stackLevel > 0 &&
+      css`
+        box-shadow: 1px 0 2px 1px #00000057;
+      `}
     `
   }}
 
