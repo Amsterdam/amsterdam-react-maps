@@ -234,12 +234,9 @@ const MapPanelExample: FunctionComponent = () => {
       node: (
         <LegendControl
           showDesktopVariant={showDesktopVariant}
-          active={legendActive}
-          onToggle={() => {
-            setLegendActive(!legendActive)
-            if (!legendActive) {
-              openPanel()
-            }
+          onClick={() => {
+            setLegendActive(true)
+            openPanel()
           }}
         />
       ),
@@ -262,9 +259,7 @@ const MapPanelExample: FunctionComponent = () => {
             size={legendActive ? 'small' : 'large'}
           />
         )}
-        {legendActive && (
-          <LegendPanel {...(latLng ? { onClose: closeLegend } : {})} />
-        )}
+        {legendActive && <LegendPanel onClose={closeLegend} />}
       </DrawerOverlay>
     </>
   )

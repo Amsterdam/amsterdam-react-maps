@@ -501,16 +501,11 @@ const DrawerOverlay: FunctionComponent<DrawerOverlayProps> = ({
             onClick={handleToggle}
           >
             {isDesktop(mode) ? (
-              <>
+              <DrawerHandleMiniDesktop>
                 <Icon size={20}>
                   <HandleIcon isOpen={state === DrawerState.Open} />
                 </Icon>
-                <DrawerHandleMiniDesktop>
-                  <Icon size={20}>
-                    <HandleIcon isOpen={state === DrawerState.Open} />
-                  </Icon>
-                </DrawerHandleMiniDesktop>
-              </>
+              </DrawerHandleMiniDesktop>
             ) : null}
           </DrawerHandle>
 
