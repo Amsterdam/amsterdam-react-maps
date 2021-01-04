@@ -15,7 +15,7 @@ const { drawIcon } = icons
 const GlobalStyle = createGlobalStyle`
   .leaflet-interactive.leaflet-mouse-marker {
     cursor: copy;
-    
+
     &.leaflet-editing-icon {
       cursor: pointer;
     }
@@ -50,6 +50,8 @@ type Props = {
   isOpen?: boolean
   drawnItems?: Array<ExtendedLayer>
   drawnItemsGroup?: L.FeatureGroup
+  disablePolygonButton?: boolean
+  disablePolylineButton?: boolean
 }
 
 const DrawTool: React.FC<Props> = ({
@@ -60,6 +62,8 @@ const DrawTool: React.FC<Props> = ({
   onInitLayers,
   drawnItemsGroup: drawnItemsGroupProp,
   onClose,
+  disablePolygonButton,
+  disablePolylineButton,
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
@@ -244,6 +248,8 @@ const DrawTool: React.FC<Props> = ({
         onStartPolygon={createPolygon}
         onStartPolyline={createPolyline}
         onClose={onClose}
+        disablePolygonButton={disablePolygonButton}
+        disablePolylineButton={disablePolylineButton}
       />
     </>
   )
