@@ -94,6 +94,8 @@ export interface DrawToolControlsProps {
   inDrawMode: boolean
   onClose?: () => void
   show?: boolean
+  disablePolygonButton?: boolean
+  disablePolylineButton?: boolean
 }
 
 const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
@@ -104,6 +106,8 @@ const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
   onRemove,
   orientation,
   onClose,
+  disablePolygonButton,
+  disablePolylineButton,
 }) => (
   <DrawToolStyle orientation={orientation}>
     <ToolButton
@@ -121,7 +125,7 @@ const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
       <DrawToolButton
         title={POLYLINE_BUTTON_TITLE}
         size={44}
-        disabled={inDrawMode}
+        disabled={disablePolylineButton || inDrawMode}
         variant="blank"
         iconSize={35}
         icon={
@@ -144,7 +148,7 @@ const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
       <DrawToolButton
         title={POLYGON_BUTTON_TITLE}
         size={44}
-        disabled={inDrawMode}
+        disabled={disablePolygonButton || inDrawMode}
         variant="blank"
         iconSize={35}
         icon={
