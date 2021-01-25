@@ -13,6 +13,7 @@
     "build:storybook": "yarn --cwd stories build",
     "build:ts": "ttsc -b packages/arm-core packages/arm-draw packages/arm-cluster packages/arm-nontiled",
     "build:ts:es": "ttsc -b packages/arm-core/tsconfig.es.json packages/arm-draw/tsconfig.es.json packages/arm-cluster/tsconfig.es.json packages/arm-nontiled/tsconfig.es.json",
+    "build:netlify": "yarn build && yarn build:storybook",
     "test": "yarn jest",
     "test:watch": "yarn test --watch --onlyChanged",
     "publish:canary": "yarn build && lerna publish --canary --yes",
