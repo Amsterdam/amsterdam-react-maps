@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [0.4.1]
+
+- Fixed: switched to es6 style imports to fix background image resolution in BaseLayerToggle in apps that prefer `esModule: true` [see also](https://github.com/facebook/create-react-app/pull/9934)
+
 ## [0.4.0]
 
 - Changed: Moved packages to @amsterdam organization on NPM.
