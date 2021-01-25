@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable global-require */
 import { Checkmark, Ellipsis } from '@amsterdam/asc-assets'
 import {
   Button,
@@ -20,12 +18,14 @@ import {
 } from '../constants'
 import BaseLayer from './BaseLayer'
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-const AerialBackground: string = require('../../static/aerial-background.png')
-const AerialBackgroundRetina: string = require('../../static/aerial-background@2.png')
-const TopoBackground: string = require('../../static/topo-background.png')
-const TopoBackgroundRetina: string = require('../../static/topo-background@2.png')
-/* eslint-enable @typescript-eslint/no-unsafe-assignment */
+// @ts-ignore
+import AerialBackground from '../../static/aerial-background.png'
+// @ts-ignore
+import AerialBackgroundRetina from '../../static/aerial-background@2.png'
+// @ts-ignore
+import TopoBackground from '../../static/topo-background.png'
+// @ts-ignore
+import TopoBackgroundRetina from '../../static/topo-background@2.png'
 
 export enum BaseLayerType {
   Aerial = 'luchtfoto',
@@ -59,15 +59,15 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   align-self: self-start;
   text-align: left;
   background: ${({ layerType }) =>
-    `url(${BASE_LAYER_STYLE[layerType].background[0]})`};
+    `url(${BASE_LAYER_STYLE[layerType].background[0] as string})`};
   text-transform: capitalize;
   width: 44px;
   margin-right: 2px;
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background: ${({
-      layerType,
-    }) => `url(${BASE_LAYER_STYLE[layerType].background[1]}) no-repeat top left /
+    background: ${({ layerType }) => `url(${
+      BASE_LAYER_STYLE[layerType].background[1] as string
+    }) no-repeat top left /
       120px 44px`};
   }
 
@@ -129,7 +129,6 @@ const BaseLayerToggle: React.FC<Props> = ({
 }) => {
   const didMount = useRef(false)
   const [toggleBaseLayerType, setToggleBaseLayerType] = useState(activeLayer)
-
   const baseLayers = useMemo(() => {
     return {
       [BaseLayerType.Aerial]: aerialLayers,
