@@ -47,6 +47,7 @@ const MapPanelDrawerStyle = styled.div<MapPanelDrawerProps>`
   z-index: 1000;
   touch-action: manipulation;
   pointer-events: all;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
   ${({ ignoreTransition }) =>
     !ignoreTransition &&
     css`
