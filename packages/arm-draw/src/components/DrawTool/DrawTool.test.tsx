@@ -1,9 +1,9 @@
+import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
 import { render } from '@testing-library/react'
-import React from 'react'
 import L from 'leaflet'
-import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
-import { mocked } from 'ts-jest'
+import React from 'react'
+import { mocked } from 'ts-jest/utils'
 import DrawTool from './DrawTool'
 import { PolygonType } from './types'
 
