@@ -1,7 +1,7 @@
 import { GeoJSON, useMapInstance } from '@amsterdam/react-maps'
 import { FeatureCollection } from 'geojson'
 import { GeoJSON as GeoJSONLayer, GeoJSONOptions, Map } from 'leaflet'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL } from '../constants'
 import { ZoomLevel } from '../types'
 import fetchWithAbort from '../utils/fetchWithAbort'

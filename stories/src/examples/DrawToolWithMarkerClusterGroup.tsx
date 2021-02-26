@@ -11,7 +11,7 @@ import {
 } from '@amsterdam/arm-draw'
 import { ascDefaultTheme, themeColor, ViewerContainer } from '@amsterdam/asc-ui'
 import L, { LatLng, LatLngTuple, Polygon } from 'leaflet'
-import React, { FunctionComponent, useEffect, useMemo, useState } from 'react'
+import { FunctionComponent, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import getDataSelection from './api/getDataSelection'
 

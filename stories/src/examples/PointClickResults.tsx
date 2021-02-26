@@ -4,7 +4,7 @@ import { Close } from '@amsterdam/asc-assets'
 import { Button, Heading, Icon, Spinner, TopBar } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
 import { LeafletMouseEvent } from 'leaflet'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const PointClickPanel = styled.div`

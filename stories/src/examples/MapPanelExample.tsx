@@ -13,7 +13,7 @@ import {
 import { hooks, Paragraph, Spinner, ViewerContainer } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import styled, { createGlobalStyle, css } from 'styled-components'
 
 type StyledViewerContainerProps = {

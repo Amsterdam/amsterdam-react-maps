@@ -1,5 +1,5 @@
 import { MapLayers } from '@amsterdam/asc-assets'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import ControlButton from '../ControlButton'
 import { Overlay, SnapPoint } from './constants'
 import MapPanelContext from './MapPanelContext'

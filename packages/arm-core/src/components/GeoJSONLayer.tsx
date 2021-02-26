@@ -1,7 +1,7 @@
 import { GeoJSON } from '@amsterdam/react-maps'
 import { GeoJsonObject } from 'geojson'
 import { GeoJSONOptions } from 'leaflet'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import fetchWithAbort from '../utils/fetchWithAbort'
 
 type Props = {

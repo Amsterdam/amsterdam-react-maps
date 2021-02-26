@@ -2,7 +2,7 @@ import {
   Map as ReactMap,
   MapProps as ReactMapProps,
 } from '@amsterdam/react-maps'
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import styled, { css } from 'styled-components'
 import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from '../constants'
 

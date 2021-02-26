@@ -1,6 +1,6 @@
 import { Checkbox, Label, themeColor, themeSpacing } from '@amsterdam/asc-ui'
 import L, { LatLngTuple, Marker } from 'leaflet'
-import React, {
+import {
   FunctionComponent,
   ReactNode,
   useCallback,

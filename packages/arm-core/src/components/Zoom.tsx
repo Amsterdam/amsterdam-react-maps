@@ -1,7 +1,7 @@
 import { Enlarge, Minimise } from '@amsterdam/asc-assets'
 import { themeSpacing } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import styled from 'styled-components'
 import ControlButton from './ControlButton'
 

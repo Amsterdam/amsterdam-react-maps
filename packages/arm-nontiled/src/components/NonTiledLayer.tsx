@@ -1,7 +1,7 @@
 import { useMapInstance } from '@amsterdam/react-maps'
 import L, { Layer } from 'leaflet'
 import 'leaflet.nontiledlayer'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const NonTiledLayer: React.FC<{
   url: string

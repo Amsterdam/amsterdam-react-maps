@@ -1,6 +1,6 @@
 import { Close } from '@amsterdam/asc-assets'
 import { Button, svgFill, themeColor } from '@amsterdam/asc-ui'
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import styled, { css } from 'styled-components'
 import {
   POLYGON_BUTTON_TITLE,

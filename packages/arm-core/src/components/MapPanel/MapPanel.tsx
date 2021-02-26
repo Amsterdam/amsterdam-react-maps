@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from '@amsterdam/asc-assets'
 import { Button, themeColor } from '@amsterdam/asc-ui'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { OPEN_LEGEND_TITLE, SnapPoint } from './constants'
 import MapPanelContext from './MapPanelContext'

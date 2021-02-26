@@ -1,6 +1,6 @@
 import { useMapInstance } from '@amsterdam/react-maps'
 import { Control, control } from 'leaflet'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 type Props = {
   options?: Control.ScaleOptions

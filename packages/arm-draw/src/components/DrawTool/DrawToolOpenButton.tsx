@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FunctionComponent } from 'react'
+import { ButtonHTMLAttributes, FunctionComponent } from 'react'
 import { TOGGLE_BUTTON_TITLE } from './config'
 import { ToolButton } from './DrawToolControls'
 

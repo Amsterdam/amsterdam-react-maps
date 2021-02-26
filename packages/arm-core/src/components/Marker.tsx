@@ -5,7 +5,7 @@ import {
   Marker as MarkerType,
   MarkerOptions,
 } from 'leaflet'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { defaultIcon } from '../icons'
 
 type Props = {

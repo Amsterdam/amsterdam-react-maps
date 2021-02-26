@@ -9,7 +9,7 @@ import {
   themeSpacing,
 } from '@amsterdam/asc-ui'
 import { TileLayerOptions } from 'leaflet'
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
   AERIAL_AMSTERDAM_LAYERS,

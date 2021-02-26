@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import MapPanelContext, { Variant } from './MapPanelContext'
 import {
   MAP_PANEL_DRAWER_SNAP_POSITIONS,

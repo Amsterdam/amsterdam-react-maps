@@ -6,7 +6,7 @@ import {
   themeColor,
   themeSpacing,
 } from '@amsterdam/asc-ui'
-import React, { ReactNode, useContext } from 'react'
+import { ReactNode, useContext } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import {
   PANEL_HANDLE_HEIGHT,

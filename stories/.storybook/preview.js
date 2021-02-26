@@ -4,7 +4,6 @@ import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
 import { addDecorator, addParameters } from '@storybook/react'
 import 'leaflet-draw/dist/leaflet.draw.css'
 import 'leaflet/dist/leaflet.css'
-import React from 'react'
 import styled from 'styled-components'
 import sortStories from './util/sort-stories'
 

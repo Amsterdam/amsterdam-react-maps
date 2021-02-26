@@ -8,7 +8,7 @@ import L, {
   MarkerClusterGroupOptions,
 } from 'leaflet'
 import 'leaflet.markercluster'
-import React, { useEffect, useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 const Styles = createGlobalStyle`

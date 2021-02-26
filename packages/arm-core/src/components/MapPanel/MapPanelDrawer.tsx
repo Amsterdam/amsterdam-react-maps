@@ -1,5 +1,5 @@
 import { themeColor } from '@amsterdam/asc-ui'
-import React, { RefObject, useContext, useRef, useState } from 'react'
+import { RefObject, useContext, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import {
   OPEN_LEGEND_TITLE,
