@@ -2,7 +2,7 @@
   "name": "stories",
   "private": true,
   "license": "MPL-2.0",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "author": "Gemeente Amsterdam",
   "homepage": "https://github.com/Amsterdam/amsterdam-react-maps#readme",
   "repository": {
@@ -26,10 +26,10 @@
     "babel-plugin-styled-components": "^1.10.7"
   },
   "dependencies": {
-    "@amsterdam/arm-cluster": "^0.4.1",
-    "@amsterdam/arm-core": "^0.4.1",
-    "@amsterdam/arm-draw": "^0.4.1",
-    "@amsterdam/arm-nontiled": "^0.4.1",
+    "@amsterdam/arm-cluster": "^0.5.0",
+    "@amsterdam/arm-core": "^0.5.0",
+    "@amsterdam/arm-draw": "^0.5.0",
+    "@amsterdam/arm-nontiled": "^0.5.0",
     "@amsterdam/asc-assets": "^0.28.0",
     "@amsterdam/asc-ui": "^0.28.0",
     "@amsterdam/react-maps": "^0.11.0",
