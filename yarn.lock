@@ -20,10 +20,10 @@
   optionalDependencies:
     objectFitPolyfill ">=2.3.0"
 
-"@amsterdam/react-maps@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@amsterdam/react-maps/-/react-maps-0.11.0.tgz#bfa5a9de85da1f804fdb37e6e4829a2443f8f612"
-  integrity sha512-0N1IMekUtsinbO/pAusoQ0dwgTTUJugIYDpmTHgu/GqXqpLMn0XUeakamZVp1C4G4xSChnCcsIPyrbC36GYe3g==
+"@amsterdam/react-maps@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@amsterdam/react-maps/-/react-maps-0.12.0.tgz#66f1e2328b77535d294c52b4bae8c5423254ce59"
+  integrity sha512-+623q75kwIpP0v9G3u4hSRbabW42azJ1u2Qoj3Ylyfujn5aShAyeSRH87rVWp6KbptmeRbaDuVFKGc733kGQjQ==
 
 "@babel/code-frame@7.10.4":
   version "7.10.4"
