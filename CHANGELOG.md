@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## [Unreleased]
+## [0.5.0]
 - Changed: Add shadow in the map mobile drawer for better UX [#1108](https://github.com/Amsterdam/amsterdam-react-maps/pull/1108)
 - Changed: **BREAKING** Updated Amsterdam Styled Components version to 0.28.0
 - Changed: **BREAKING** Minimum supported version of React to v17
