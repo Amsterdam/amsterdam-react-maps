@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## UNRELEASED
+- Removed: **BREAKING** onInitLayers and unused isOpen props on draw tool
+- Added: onEndInitialItems prop for draw tool
+
 ## [0.5.1]
 - Changed: Update React Maps to version 0.12.0
 

@@ -44,33 +44,22 @@ describe('DrawTool', () => {
         bubblingMouseEvents: false,
       },
     ),
-    L.polygon(
-      [
-        [52.37594820185194, 4.892147803888032],
-        [52.37206742179071, 4.888490687556837],
-        [52.373527030104974, 4.89814504712679],
-      ],
-      {
-        color: themeColor('support', 'invalid')({ theme: ascDefaultTheme }),
-        bubblingMouseEvents: false,
-      },
-    ),
   ] as Array<PolygonType>
 
   describe('Drawtool', () => {
-    it('should call onInitLayers and onDrawEnd when passing initial drawing', () => {
+    it('should call onEndInitialItems and not onDrawEnd when passing initial drawing', () => {
       hasLayerMock = jest.fn(() => false)
       const onInitLayersMock = jest.fn()
       const onDrawEndMock = jest.fn()
       render(
         <DrawTool
           onDrawEnd={onDrawEndMock}
-          onInitLayers={onInitLayersMock}
+          onEndInitialItems={onInitLayersMock}
           drawnItems={initialDrawnItems}
         />,
       )
-      expect(onInitLayersMock).toHaveBeenNthCalledWith(1, initialDrawnItems)
-      expect(onDrawEndMock).toHaveBeenCalledTimes(2) // 2 initial drawings
+      expect(onInitLayersMock).toHaveBeenNthCalledWith(1, ...initialDrawnItems)
+      expect(onDrawEndMock).not.toHaveBeenCalled()
     })
   })
 })
