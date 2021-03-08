@@ -44,10 +44,9 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
 type Props = {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
-  onInitLayers?: (layers: ExtendedLayer[]) => void
   onClose?: () => void
+  onEndInitialItems?: (layer: ExtendedLayer) => void
   onDelete?: (layersInEditMode: Array<ExtendedLayer>) => void
-  isOpen?: boolean
   drawnItems?: Array<ExtendedLayer>
   drawnItemsGroup?: L.FeatureGroup
   disablePolygonButton?: boolean
@@ -58,8 +57,8 @@ const DrawTool: React.FC<Props> = ({
   onDelete,
   onDrawStart,
   onDrawEnd,
+  onEndInitialItems,
   drawnItems,
-  onInitLayers,
   drawnItemsGroup: drawnItemsGroupProp,
   onClose,
   disablePolygonButton,
@@ -191,13 +190,16 @@ const DrawTool: React.FC<Props> = ({
    * - Exit edit mode
    * - Add an event listener on the layer
    */
-  const setDrawnItem = (layer: PolygonType | PolylineType) => {
+  const addLayerToMap = (layer: PolygonType | PolylineType) => {
     // eslint-disable-next-line no-param-reassign
     layer.id = layer.id || uuidv4()
     exitEditMode()
     drawnItemsGroup.addLayer(layer)
     layer.on('click', handleDrawingClick)
+  }
 
+  const setDrawnItem = (layer: PolygonType | PolylineType) => {
+    addLayerToMap(layer)
     if (onDrawEnd) {
       onDrawEnd(layer)
     }
@@ -229,11 +231,12 @@ const DrawTool: React.FC<Props> = ({
   useEffect(() => {
     if (drawnItems && drawnItems.length) {
       drawnItems.forEach((drawnItem) => {
-        setDrawnItem(drawnItem)
+        addLayerToMap(drawnItem)
+
+        if (onEndInitialItems) {
+          onEndInitialItems(drawnItem)
+        }
       })
-      if (onInitLayers) {
-        onInitLayers(drawnItems)
-      }
     }
   }, [drawnItems])
 
