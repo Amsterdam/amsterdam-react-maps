@@ -1,1 +1,1 @@
-export { default } from './DrawTool'
+export { default, DrawToolProps } from './DrawTool'

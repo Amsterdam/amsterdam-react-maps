@@ -1,17 +1,11 @@
-import DrawTool from './components/DrawTool/DrawTool'
-import DrawToolControls from './components/DrawTool/DrawToolControls'
-import DrawToolOpenButton from './components/DrawTool/DrawToolOpenButton'
-import {
-  PolygonType,
-  PolylineType,
-  ExtendedLayer,
-} from './components/DrawTool/types'
-
+export { default as DrawTool, DrawToolProps } from './components/DrawTool'
 export {
-  DrawTool,
-  DrawToolControls,
-  DrawToolOpenButton,
+  default as DrawToolControls,
+  DrawToolControlsProps,
+} from './components/DrawTool/DrawToolControls'
+export { default as DrawToolOpenButton } from './components/DrawTool/DrawToolOpenButton'
+export {
   ExtendedLayer,
   PolygonType,
   PolylineType,
-}
+} from './components/DrawTool/types'

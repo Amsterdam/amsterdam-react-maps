@@ -93,7 +93,6 @@ export interface DrawToolControlsProps {
   inEditMode: boolean
   inDrawMode: boolean
   onClose?: () => void
-  show?: boolean
   disablePolygonButton?: boolean
   disablePolylineButton?: boolean
 }
@@ -108,8 +107,9 @@ const DrawToolControls: FunctionComponent<DrawToolControlsProps> = ({
   onClose,
   disablePolygonButton,
   disablePolylineButton,
+  ...otherProps
 }) => (
-  <DrawToolStyle orientation={orientation}>
+  <DrawToolStyle orientation={orientation} {...otherProps}>
     <ToolButton
       title={TOGGLE_BUTTON_TITLE}
       size={44}

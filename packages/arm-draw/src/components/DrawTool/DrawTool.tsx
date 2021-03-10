@@ -4,7 +4,7 @@ import { ascDefaultTheme, themeColor } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
 import L, { LayerEvent, LeafletKeyboardEvent } from 'leaflet'
 import 'leaflet-draw'
-import { useEffect, useMemo, useState } from 'react'
+import { FunctionComponent, useEffect, useMemo, useState } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
 import DrawToolControls from './DrawToolControls'
@@ -41,7 +41,7 @@ L.Edit.PolyVerticesEdit = L.Edit.PolyVerticesEdit.extend({
   },
 })
 
-type Props = {
+export interface DrawToolProps {
   onDrawStart?: (layer: ExtendedLayer) => void
   onDrawEnd?: (layer: ExtendedLayer) => void
   onClose?: () => void
@@ -53,7 +53,7 @@ type Props = {
   disablePolylineButton?: boolean
 }
 
-const DrawTool: React.FC<Props> = ({
+const DrawTool: FunctionComponent<DrawToolProps> = ({
   onDelete,
   onDrawStart,
   onDrawEnd,
@@ -63,6 +63,7 @@ const DrawTool: React.FC<Props> = ({
   onClose,
   disablePolygonButton,
   disablePolylineButton,
+  ...otherProps
 }) => {
   const [inEditMode, setInEditMode] = useState(false)
   const [inCreateMode, setInCreateMode, inCreateModeRef] = useStateRef(false)
@@ -253,6 +254,7 @@ const DrawTool: React.FC<Props> = ({
         onClose={onClose}
         disablePolygonButton={disablePolygonButton}
         disablePolylineButton={disablePolylineButton}
+        {...otherProps}
       />
     </>
   )

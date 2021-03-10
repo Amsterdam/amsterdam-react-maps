@@ -15,8 +15,11 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## UNRELEASED
-- Removed: **BREAKING** onInitLayers and unused isOpen props on draw tool
-- Added: onEndInitialItems prop for draw tool
+- Removed: **BREAKING** unused props in several components 
+- Removed: **BREAKING** `onInitLayers` and unused `isOpen` props on draw tool
+- Added: `onEndInitialItems` prop for draw tool
+- Added: All components exported from `@amsterdam/arm-draw` now also export their respective prop types
+- Changed: `DrawTool` component will now pass along other props down the component hierarchy
 
 ## [0.5.1]
 - Changed: Update React Maps to version 0.12.0
