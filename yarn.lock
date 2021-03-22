@@ -9494,9 +9494,9 @@ leaflet.markercluster@^1.4.1:
   integrity sha512-Fvf/cq4o806mJL50n+fZW9+QALDDLPvt7vuAjlD2vfnxx3srMDs2vWINJze4nKYJYRY45OC6tM/669C3pLwMCA==
 
 leaflet.nontiledlayer@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/leaflet.nontiledlayer/-/leaflet.nontiledlayer-1.0.8.tgz#1bba1244e29859a7e86eb92802ca94feccd9099a"
-  integrity sha512-Q19ZOKq9obf8S+MsYey6bZ484N3Ehykcl1Moe8AQrR7Vlnp5t5djabHHyFaXmNkL2coAywjr6wHK41E2n9D5Lg==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/leaflet.nontiledlayer/-/leaflet.nontiledlayer-1.0.9.tgz#ed50e894579285f088a9939b131f9806b03ee419"
+  integrity sha512-w4yeTLNFhTToAmGQ7P9cAiGFVwVLJzuO3A/tFNMWRVYl1BLvrvlqY7hKE33pmmeoQ6m5ZsWd0qbdYq/d+zBuUQ==
   dependencies:
     leaflet "^1.6.0"
 
