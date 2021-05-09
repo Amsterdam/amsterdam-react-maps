@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -34,7 +34,7 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@amsterdam/arm-core": "^0.5.1",
+    "@amsterdam/arm-core": "^0.6.0",
     "uuid": "^8.1.0"
   },
   "peerDependencies": {
