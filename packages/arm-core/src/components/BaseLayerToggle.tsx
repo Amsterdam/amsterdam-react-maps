@@ -126,6 +126,7 @@ const BaseLayerToggle: React.FC<Props> = ({
   topoDefaultIndex = 0,
   activeLayer = BaseLayerType.Topo,
   options,
+  ...otherProps
 }) => {
   const didMount = useRef(false)
   const [toggleBaseLayerType, setToggleBaseLayerType] = useState(activeLayer)
@@ -187,7 +188,7 @@ const BaseLayerToggle: React.FC<Props> = ({
   }, [toggleBaseLayerType, selectedLayer])
 
   return (
-    <Wrapper>
+    <Wrapper {...otherProps}>
       <ToggleButton
         variant="blank"
         title="Wissel tussen luchtfoto's of een topografische kaarten"
