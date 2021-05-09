@@ -19,6 +19,7 @@ Prefix the change with one of these keywords:
 - Removed: **BREAKING** `onInitLayers` and unused `isOpen` props on draw tool
 - Added: `onEndInitialItems` prop for draw tool
 - Added: All components exported from `@amsterdam/arm-draw` now also export their respective prop types
+- Added: Pass along props to `BaseLayerToggle` component.
 - Changed: `DrawTool` component will now pass along other props down the component hierarchy
 
 ## [0.5.1]
