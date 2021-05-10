@@ -2,10 +2,10 @@
 
 ## Development
 
-1. Run `yarn` to install dependencies
-2. Run `yarn build` to build the packages required by Storybook.
-3. `yarn start` this will start storybook
-4. Start `yarn build:ts:es --watch` in another terminal if you want to make changes to components in the `packages` directory.
+1. Run `npm install` to install dependencies
+2. Run `npm run build` to build the packages required by Storybook.
+3. `npm run start` this will start storybook
+4. Start `npm run build:ts:es --watch` in another terminal if you want to make changes to components in the `packages` directory.
 
 Note that we have several packages: 
 1. [`stories`](stories), which contains our 'recipes' in MDX format that will display in Storybook. If you need to create a story, mind that you're supposed to create a page per feature / functionality.
@@ -24,6 +24,6 @@ Use npm link to link [ASC](https://github.com/Amsterdam/amsterdam-styled-compone
 Sometimes you either can't build the project or run tests properly. Usually this is due to the fact
 that a package is updated or you're not using the right node version. Please check if this is the
 case. Otherwise just run this command (if you are using nvm):
-`rm -Rf node_modules && nvm install --lts && nvm alias default --lts && yarn cache clean && yarn`
+`rm -Rf node_modules && nvm install --lts && nvm alias default --lts && npm i`
 
 Still having trouble? Contact one of our [core maintainers](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/MAINTAINERS.md)
