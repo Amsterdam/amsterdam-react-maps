@@ -15,9 +15,8 @@ const MapPanelLegendButton: React.FC<Props> = ({
   currentOverlay,
   setCurrentOverlay,
 }) => {
-  const { matchPositionWithSnapPoint, setPositionFromSnapPoint } = useContext(
-    MapPanelContext,
-  )
+  const { matchPositionWithSnapPoint, setPositionFromSnapPoint } =
+    useContext(MapPanelContext)
   const extraProps = showDesktopVariant
     ? { iconLeft: <MapLayers /> }
     : { icon: <MapLayers />, size: 32 }
