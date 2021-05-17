@@ -17,13 +17,14 @@ const Zoom: React.FC = () => {
   }
 
   return (
-    <ZoomBar>
+    <ZoomBar data-testid="zoom">
       <ControlButton
         type="button"
         variant="blank"
         title="Inzoomen"
         size={44}
         iconSize={20}
+        data-testid="zoomIn"
         onClick={() => {
           handleZoom()
         }}
@@ -35,6 +36,7 @@ const Zoom: React.FC = () => {
         title="Uitzoomen"
         size={44}
         iconSize={20}
+        data-testid="zoomOut"
         onClick={() => {
           handleZoom(true)
         }}
