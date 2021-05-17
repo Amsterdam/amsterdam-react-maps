@@ -9,11 +9,9 @@ jest.mock('@amsterdam/react-maps')
 const mockedUseMapInstance = mocked(useMapInstance)
 
 describe('Zoom', () => {
-  //   let getZoom: jest.Mock
   let setZoom: jest.Mock
 
   beforeEach(() => {
-    // getZoom = jest.fn()
     setZoom = jest.fn()
     // @ts-ignore
     mockedUseMapInstance.mockImplementation(() => ({
@@ -22,16 +20,28 @@ describe('Zoom', () => {
     }))
   })
 
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
   it('should render correctly', () => {
     render(<Zoom />)
 
     expect(screen.queryByTestId('zoom')).not.toBeNull()
     expect(screen.queryByTestId('zoomIn')).not.toBeNull()
     expect(screen.queryByTestId('zoomOut')).not.toBeNull()
+  })
+
+  it('should handle click zoomIn', () => {
+    render(<Zoom />)
 
     fireEvent.click(screen.getByTestId('zoomIn'))
 
     expect(setZoom).toHaveBeenCalledWith(11)
+  })
+
+  it('should handle click zoomOut', () => {
+    render(<Zoom />)
 
     fireEvent.click(screen.getByTestId('zoomOut'))
 
