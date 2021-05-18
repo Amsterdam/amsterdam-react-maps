@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-// import { themeSpacing } from '@amsterdam/asc-ui'
 
 import ViewerContainer from './ViewerContainer'
 
@@ -14,8 +13,6 @@ describe('ViewerContainer', () => {
       />,
     )
 
-    screen.debug()
-
     expect(screen.queryByTestId('container')).toBeInTheDocument()
 
     expect(screen.queryByTestId('topLeft')).toBeInTheDocument()
@@ -27,8 +24,5 @@ describe('ViewerContainer', () => {
     expect(screen.queryByText('top right content')).toBeInTheDocument()
     expect(screen.queryByText('bottom left content')).toBeInTheDocument()
     expect(screen.queryByText('bottom right content')).toBeInTheDocument()
-
-    // @ts-ignore
-    // expect(screen.getByTestId('topLeft')).toHaveStyleRule('left', '16px')
   })
 })
