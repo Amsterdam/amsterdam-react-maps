@@ -28,6 +28,7 @@
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
     "@svgr/webpack": "^5.4.0",
+    "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^11.0.2",
     "@types/jest": "^26.0.0",
     "@types/leaflet": "^1.5.12",
