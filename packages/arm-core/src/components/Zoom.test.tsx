@@ -27,9 +27,9 @@ describe('Zoom', () => {
   it('should render correctly', () => {
     render(<Zoom />)
 
-    expect(screen.queryByTestId('zoom')).not.toBeNull()
-    expect(screen.queryByTestId('zoomIn')).not.toBeNull()
-    expect(screen.queryByTestId('zoomOut')).not.toBeNull()
+    expect(screen.queryByTestId('zoom')).toBeInTheDocument()
+    expect(screen.queryByTestId('zoomIn')).toBeInTheDocument()
+    expect(screen.queryByTestId('zoomOut')).toBeInTheDocument()
   })
 
   it('should handle click zoomIn', () => {
