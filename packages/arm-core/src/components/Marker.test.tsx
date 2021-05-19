@@ -1,17 +1,17 @@
-// import { render, screen } from '@testing-library/react'
-// import { useMapInstance } from '@amsterdam/react-maps'
-// import { mocked } from 'ts-jest/utils'
+// import { render } from '@testing-library/react'
+import { useMapInstance } from '@amsterdam/react-maps'
+import { mocked } from 'ts-jest/utils'
 
 // import Marker from './Marker'
 
-// jest.mock('@amsterdam/react-maps')
+jest.mock('@amsterdam/react-maps')
 
-// const mockedUseMapInstance = mocked(useMapInstance)
+const mockedUseMapInstance = mocked(useMapInstance)
 
 describe('Marker', () => {
   beforeEach(() => {
     // @ts-ignore
-    // mockedUseMapInstance.mockImplementation(() => ({}))
+    mockedUseMapInstance.mockImplementation(() => ({}))
   })
 
   afterEach(() => {
