@@ -19,6 +19,12 @@
     "publish:canary": "npm run build && lerna publish --canary --yes",
     "publish:stable": "npm run build && lerna publish"
   },
+  "dependencies": {
+    "leaflet": "^1.6.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet.markercluster": "^1.4.1",
+    "leaflet.nontiledlayer": "^1.0.8"
+  },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.28.0",
     "@amsterdam/asc-ui": "^0.28.0",
@@ -53,14 +59,11 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "geojson": "^0.5.0",
     "gh-pages": "^3.0.0",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1",
     "jest-styled-components": "^7.0.4",
-    "leaflet": "^1.6.0",
-    "leaflet-draw": "^1.0.4",
-    "leaflet.markercluster": "^1.4.1",
-    "leaflet.nontiledlayer": "^1.0.8",
     "lerna": "^4.0.0",
     "prettier": "^2.1.2",
     "react": "^17.0.1",
