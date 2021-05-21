@@ -16,7 +16,6 @@
     "build": "build-storybook -c .storybook -o lib"
   },
   "devDependencies": {
-    "@storybook/cli": "^6.2.9",
     "@storybook/addon-a11y": "^6.2.9",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-docs": "^6.2.9",

@@ -1,4 +1,22 @@
 module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'packages/arm-core/src/**/*.{js,jsx,ts,tsx}',
+    'packages/arm-draw/src/**/*.{js,jsx,ts,tsx}',
+    '!packages/**/src/(styles|internals)/**/*.{js,jsx,ts,tsx}',
+    '!packages/**/*.(test|stories).{js,jsx,ts,tsx}',
+    '!packages/**/(index).{js,jsx,ts,tsx}',
+  ],
+  coverageDirectory: '<rootDir>/coverage',
+  coverageReporters: ['lcov'],
+  coverageThreshold: {
+    global: {
+      statements: 0,
+      branches: 0,
+      functions: 0,
+      lines: 0,
+    },
+  },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   moduleDirectories: ['node_modules'],
   moduleNameMapper: {
@@ -8,6 +26,7 @@ module.exports = {
       '<rootDir>/test/__mocks__/imageMock.ts',
     'arm-core/es/(.*)': '<rootDir>/packages/arm-core/lib/$1',
   },
+  setupFilesAfterEnv: ['<rootDir>/config/testing/test-bundler.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/es/', '/lib/', '/stories/'],
   transform: {
     '\\.(ts|tsx)$': 'ts-jest',

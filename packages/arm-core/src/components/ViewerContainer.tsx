@@ -73,13 +73,17 @@ const ViewerContainer: React.FC<Props> = ({
   ...otherProps
 }) => {
   return (
-    <ViewerContainerWrapper {...otherProps}>
-      <ViewerContainerItem position="top-left">{topLeft}</ViewerContainerItem>
-      <ViewerContainerItem position="top-right">{topRight}</ViewerContainerItem>
-      <ViewerContainerItem position="bottom-left">
+    <ViewerContainerWrapper {...otherProps} data-testid="container">
+      <ViewerContainerItem position="top-left" data-testid="topLeft">
+        {topLeft}
+      </ViewerContainerItem>
+      <ViewerContainerItem position="top-right" data-testid="topRight">
+        {topRight}
+      </ViewerContainerItem>
+      <ViewerContainerItem position="bottom-left" data-testid="bottomLeft">
         {bottomLeft}
       </ViewerContainerItem>
-      <ViewerContainerItem position="bottom-right">
+      <ViewerContainerItem position="bottom-right" data-testid="bottomRight">
         {bottomRight}
         {metaData && (
           <div>
