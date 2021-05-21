@@ -38,7 +38,6 @@ const Marker: React.FC<Props> = ({ latLng, events, options, setInstance }) => {
 
   return (
     <MarkerComponent
-      data-testid="marker"
       setInstance={setMarkerInstance}
       args={[latLng]}
       events={events}
