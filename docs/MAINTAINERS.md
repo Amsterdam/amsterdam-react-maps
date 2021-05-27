@@ -1,5 +1,5 @@
 # Core Maintainers
 
-- [Chris van Mook](https://github.com/chrisvanmook)
-- [Jon Koops](https://github.com/jonkoops)
-- [Roy Derks](https://github.com/royderks)
+- [Jasper Swart - Opdrachten Team](https://github.com/jasperswart)
+- [Samuel Leeuwenburg - SIA Team](https://github.com/samuelleeuwenburg)
+- [Maurits Ridder - SIA Team](https://github.com/mauritsr)
