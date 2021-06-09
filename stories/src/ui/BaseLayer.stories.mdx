@@ -1,0 +1,28 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Map, BaseLayer } from '@amsterdam/arm-core'
+
+<Meta title="UI/BaseLayer" component={BaseLayer} />
+
+# BaseLayer
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
+
+## Black and white
+
+<Preview>
+  <Story name="Black and White">
+    <Map fullScreen>
+      <BaseLayer
+        baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} 
+      />
+    </Map>
+  </Story>
+</Preview>
