@@ -1,0 +1,17 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Map, BaseLayer, Marker } from '@amsterdam/arm-core'
+
+<Meta title="UI/Marker" component={Marker} />
+
+# Marker
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <Marker latLng={{ lat: 52.3731081, lng: 4.8932945 }} />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
