@@ -54,7 +54,7 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
     }
 
     const extent = bbox || getBBox(mapInstance)
-    const [request, controller] = fetchWithAbort(`${url}${extent}`)
+    const { request, controller } = fetchWithAbort(`${url}${extent}`)
 
     request
       .then((res) => res.json())
