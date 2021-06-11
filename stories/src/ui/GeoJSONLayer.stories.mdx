@@ -1,0 +1,17 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { GeoJSONLayer, Map, BaseLayer } from '@amsterdam/arm-core'
+
+<Meta title="UI/GeoJSONLayer" component={GeoJSONLayer} />
+
+# GeoJSONLayer
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    <Map fullScreen>
+      <GeoJSONLayer url="https://map.data.amsterdam.nl/maps/overlastgebieden?REQUEST=GetFeature&SERVICE=wfs&OUTPUTFORMAT=application/json;%20subtype=geojson;%20charset=utf-8&Typename=ms:cameratoezichtgebied&version=1.1.0&srsName=EPSG:4326" />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>
