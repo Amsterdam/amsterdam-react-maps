@@ -18,7 +18,7 @@ const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
   const [json, setJson] = useState<GeoJsonObject>()
 
   useEffect(() => {
-    const [request, controller] = fetchWithAbort(url)
+    const { request, controller } = fetchWithAbort(url)
 
     request
       .then((res) => res.json())

@@ -71,7 +71,7 @@ const useGetAddressFromLatLng = (): AddressFromLatLng => {
     }
 
     const url = requestFormatter(ENDPOINTS.geocoder, xy)
-    const [request, controller] = fetchWithAbort(url)
+    const { request, controller } = fetchWithAbort(url)
 
     request
       .then((res) => res.json())
