@@ -16,9 +16,12 @@ type Props = {
  */
 const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
   const [json, setJson] = useState<GeoJsonObject>()
+  console.log('GeoJSONLayer')
 
   useEffect(() => {
+    console.log('GeoJSONLayer useEffect')
     const { request, controller } = fetchWithAbort(url)
+    console.log('GeoJSONLayer request, controller', request, controller)
 
     request
       .then((res) => res.json())

@@ -5,6 +5,8 @@ const fetchWithAbort = (
   const controller = new AbortController()
   const { signal } = controller
 
+  console.log('fetchWithAbort input', input)
+
   return { request: fetch(input, { ...init, signal }), controller }
 }
 
