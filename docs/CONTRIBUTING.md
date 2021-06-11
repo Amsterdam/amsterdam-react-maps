@@ -5,7 +5,7 @@
 1. Run `npm install` to install dependencies
 2. Run `npm run build` to build the packages required by Storybook.
 3. `npm run start` this will start storybook
-4. Start `npm run build:ts:es --watch` in another terminal if you want to make changes to components in the `packages` directory.
+4. Start `npm run build:ts:es -- --watch` in another terminal if you want to make changes to components in the `packages` directory.
 
 Note that we have several packages: 
 1. [`stories`](stories), which contains our 'recipes' in MDX format that will display in Storybook. If you need to create a story, mind that you're supposed to create a page per feature / functionality.

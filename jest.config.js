@@ -28,6 +28,7 @@ module.exports = {
   },
   setupFilesAfterEnv: ['<rootDir>/config/testing/test-bundler.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/es/', '/lib/', '/stories/'],
+  testEnvironment: 'jsdom',
   transform: {
     '\\.(ts|tsx)$': 'ts-jest',
   },

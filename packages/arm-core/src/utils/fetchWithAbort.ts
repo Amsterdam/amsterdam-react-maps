@@ -1,11 +1,11 @@
 const fetchWithAbort = (
   input: RequestInfo,
   init?: RequestInit,
-): [Promise<Response>, AbortController] => {
+): { request: Promise<Response>; controller: AbortController } => {
   const controller = new AbortController()
   const { signal } = controller
 
-  return [fetch(input, { ...init, signal }), controller]
+  return { request: fetch(input, { ...init, signal }), controller }
 }
 
 export default fetchWithAbort
