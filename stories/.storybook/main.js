@@ -1,3 +1,5 @@
+const maxAssetSize = 1024 * 1024 * 20;
+
 module.exports = {
   stories: ['../src/**/*.stories.@(tsx|mdx)'],
   addons: [
@@ -8,4 +10,14 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-viewport',
   ],
+  webpackFinal: async (config, { configType }) => {
+
+    config.performance = {
+      hints: false,
+      maxAssetSize: maxAssetSize
+    }
+ 
+    // Return the altered config
+    return config;
+  },
 }
