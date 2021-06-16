@@ -37,6 +37,13 @@
     "@amsterdam/arm-core": "^0.6.0",
     "uuid": "^8.1.0"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^11.0.2",
+    "@testing-library/react-hooks": "^7.0.0",
+    "jest": "^27.0.4",
+    "jest-cli": "^27.0.4"
+  },
   "peerDependencies": {
     "@amsterdam/asc-assets": "^0.28.0",
     "@amsterdam/asc-ui": "^0.28.0",
