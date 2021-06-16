@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle,camelcase */
+/* eslint-disable */
 import { Marker, useGetAddressFromLatLng } from '@amsterdam/arm-core'
 import { Close } from '@amsterdam/asc-assets'
 import { Button, Heading, Icon, Spinner, TopBar } from '@amsterdam/asc-ui'
