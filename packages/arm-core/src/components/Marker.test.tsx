@@ -14,6 +14,8 @@ describe('Marker', () => {
       </Map>,
     )
 
-    expect(container.querySelector('.leaflet-marker-icon')).toBeInTheDocument()
+    expect(
+      container.querySelector('.leaflet-marker-pane .leaflet-marker-icon'),
+    ).toBeInTheDocument()
   })
 })
