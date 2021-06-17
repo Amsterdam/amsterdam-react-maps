@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "include": [
     "**/*",
-    "**/.eslintrc.js"
+    "**/.eslintrc.js",
+    "types.d.ts"
   ]
 }
