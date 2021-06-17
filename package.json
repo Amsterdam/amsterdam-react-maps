@@ -15,7 +15,7 @@
     "build:ts:es": "ttsc -b packages/arm-core/tsconfig.es.json packages/arm-draw/tsconfig.es.json packages/arm-cluster/tsconfig.es.json packages/arm-nontiled/tsconfig.es.json",
     "build:netlify": "npm run build && npm run build:storybook",
     "test": "jest",
-    "postinstall": "(cd packages/arm-core && npm i) &&  (cd packages/arm-cluster && npm i) && (cd packages/arm-draw && npm i)",
+    "postinstall": "(cd packages/arm-cluster && npm i) && (cd packages/arm-draw && npm i)",
     "test:watch": "jest --watch --onlyChanged",
     "publish:canary": "npm run build && lerna publish --canary --yes",
     "publish:stable": "npm run build && lerna publish"
