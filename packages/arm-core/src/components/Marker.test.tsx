@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Map } from '@amsterdam/arm-core'
+import Map from './Map'
 import Marker from './Marker'
 
 describe('Marker', () => {
@@ -14,6 +14,8 @@ describe('Marker', () => {
       </Map>,
     )
 
-    expect(container.querySelector('.leaflet-marker-icon')).toBeInTheDocument()
+    expect(
+      container.querySelector('.leaflet-marker-pane .leaflet-marker-icon'),
+    ).toBeInTheDocument()
   })
 })

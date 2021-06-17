@@ -24,3 +24,5 @@ declare module 'leaflet' {
     function wms(url: string, options: L.WMSOptions): NonTiledLayer.WMS;
   }
 }
+
+import 'jest-styled-components';
