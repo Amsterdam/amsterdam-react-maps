@@ -14,6 +14,7 @@ const Map = styled<FunctionComponent<MapProps>>(
   ({
     children,
     options = DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     fullScreen,
     ...otherProps
   }) => (

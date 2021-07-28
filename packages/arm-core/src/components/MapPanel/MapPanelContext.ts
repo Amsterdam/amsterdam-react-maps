@@ -15,12 +15,12 @@ type MapPanelContextProps = {
 }
 
 export default createContext<MapPanelContextProps>({
-  setDrawerPosition: () => {},
+  setDrawerPosition: () => ({}),
   drawerPosition: '0',
   draggable: false,
-  setDraggable: () => {},
+  setDraggable: () => ({}),
   matchPositionWithSnapPoint: () => false,
-  setPositionFromSnapPoint: () => {},
+  setPositionFromSnapPoint: () => ({}),
   variant: 'panel',
   topOffset: 0,
 })
