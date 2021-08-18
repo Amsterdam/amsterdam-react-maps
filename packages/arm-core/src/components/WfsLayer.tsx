@@ -45,7 +45,7 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
     return () => {
       mapInstance.off('moveend', onMoveEnd)
     }
-  }, [])
+  }, [mapInstance])
 
   useEffect(() => {
     if (!isVisible(mapInstance, zoomLevel)) {
@@ -68,7 +68,9 @@ const WfsLayer: React.FC<Props> = ({ url, options, zoomLevel }) => {
         return Promise.reject(error)
       })
 
+    // eslint-disable-next-line consistent-return
     return () => controller.abort()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bbox])
 
   useEffect(() => {

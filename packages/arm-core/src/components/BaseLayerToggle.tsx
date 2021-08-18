@@ -166,7 +166,7 @@ const BaseLayerToggle: React.FC<Props> = ({
         })
       }
     },
-    [toggleBaseLayerType],
+    [toggleBaseLayerType, selectedLayer],
   )
 
   const layerTypeForButton = useMemo(
@@ -185,7 +185,12 @@ const BaseLayerToggle: React.FC<Props> = ({
       onChangeLayer(id, toggleBaseLayerType)
     }
     didMount.current = true
-  }, [toggleBaseLayerType, selectedLayer])
+  }, [
+    toggleBaseLayerType,
+    selectedLayer,
+    currentAmsterdamLayers,
+    onChangeLayer,
+  ])
 
   return (
     <Wrapper {...otherProps}>
