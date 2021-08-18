@@ -23,7 +23,8 @@ const NonTiledLayer: React.FC<{
         layer.removeFrom(mapInstance)
       }
     }
-  }, [layer])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layer, mapInstance])
 
   return null
 }
