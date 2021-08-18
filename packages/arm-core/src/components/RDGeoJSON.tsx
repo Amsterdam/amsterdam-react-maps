@@ -54,7 +54,7 @@ const RDGeoJSON: FunctionComponent<RDGeoJSONProps> = ({
     return () => {
       geoJSON.removeFrom(mapInstance)
     }
-  }, [geoJSON])
+  }, [geoJSON, mapInstance])
 
   return null
 }

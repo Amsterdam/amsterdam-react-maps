@@ -31,6 +31,7 @@ const MapPanelProvider: React.FC<Props> = ({
 
   useEffect(() => {
     setDrawerPosition(mapper[initialPosition])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapper])
 
   const [draggable, setDraggable] = useState(false)

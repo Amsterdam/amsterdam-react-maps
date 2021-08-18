@@ -16,7 +16,8 @@ const Scale: React.FC<Props> = ({ options }) => {
     return () => {
       control.scale().remove()
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapInstance])
 
   return null
 }

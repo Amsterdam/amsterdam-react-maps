@@ -227,6 +227,7 @@ const DrawTool: FunctionComponent<DrawToolProps> = ({
         mapInstance.removeLayer(drawnItemsGroup)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -239,6 +240,7 @@ const DrawTool: FunctionComponent<DrawToolProps> = ({
         }
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [drawnItems])
 
   return (
