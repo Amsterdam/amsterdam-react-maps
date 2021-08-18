@@ -60,7 +60,7 @@ const useGetAddressFromLatLng = (): AddressFromLatLng => {
     setAddresses(undefined)
 
     if (!latLng) {
-      return () => {}
+      return () => ({})
     }
 
     setLoading(true)
