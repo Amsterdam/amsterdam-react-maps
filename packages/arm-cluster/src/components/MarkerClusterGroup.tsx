@@ -142,7 +142,7 @@ const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({
     return () => {
       mapInstance.removeLayer(markerClusterGroup)
     }
-  }, [markerClusterGroup, markers])
+  }, [markerClusterGroup, markers, mapInstance])
 
   return <Styles />
 }
