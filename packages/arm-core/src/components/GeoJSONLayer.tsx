@@ -35,6 +35,7 @@ const GeoJSONLayer: React.FC<Props> = ({ url, options }) => {
     return () => {
       controller.abort()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return json ? <GeoJSON args={[json]} options={options} /> : null

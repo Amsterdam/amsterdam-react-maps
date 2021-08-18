@@ -22,7 +22,7 @@ const Marker: React.FC<Props> = ({ latLng, events, options, setInstance }) => {
     if (markerInstance) {
       markerInstance.setLatLng(latLng)
     }
-  }, [latLng])
+  }, [latLng, markerInstance])
 
   useEffect(() => {
     if (!setInstance || !markerInstance) {
