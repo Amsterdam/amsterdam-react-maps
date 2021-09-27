@@ -2,7 +2,6 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'packages/arm-core/src/**/*.{js,jsx,ts,tsx}',
-    'packages/arm-draw/src/**/*.{js,jsx,ts,tsx}',
     '!packages/**/src/(styles|internals)/**/*.{js,jsx,ts,tsx}',
     '!packages/**/*.(test|stories).{js,jsx,ts,tsx}',
     '!packages/**/(index).{js,jsx,ts,tsx}',
