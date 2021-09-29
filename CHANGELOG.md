@@ -14,6 +14,11 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [0.7.1]
+- Removed: **BREAKING** `@amsterdam/arm-draw` package and `DrawTool`
+- Added: more unit tests
+- Added: more stories
+
 ## [0.6.0]
 - Removed: **BREAKING** unused props in several components 
 - Removed: **BREAKING** `onInitLayers` and unused `isOpen` props on draw tool

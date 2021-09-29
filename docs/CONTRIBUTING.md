@@ -14,7 +14,6 @@ In case you first want to showcase a feature's functionality, but don't want use
 Please keep in mind that we strive to create components / utilities / configurations as generic as possible!
 3. We have some other seperate packages for components that require other leaflet dependencies: 
  - [`arm-cluster`](packages/arm-cluster): Marker clustering component, useful when you need to show a lot of markers
- - [`arm-draw`](packages/arm-draw): A small tool that allows you to draw polygons or polylines
  - [`arm-nontiled`](packages/arm-nontiled): For when you need to render a non-tiled layer
 
 Use npm link to link [ASC](https://github.com/Amsterdam/amsterdam-styled-components) or [react-maps](https://github.com/Amsterdam/react-maps) (please read [this](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react).). From your either of your the packages, link leaflet and react to this package, for example: `npm link ../amsterdam-react-maps/node_modules/react && npm link ../amsterdam-react-maps/node_modules/leaflet`
