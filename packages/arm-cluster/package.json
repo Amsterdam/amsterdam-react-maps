@@ -34,7 +34,7 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@amsterdam/arm-core": "^0.8.0"
+    "@amsterdam/arm-core": "latest"
   },
   "peerDependencies": {
     "@amsterdam/asc-ui": "^0.28.0",
