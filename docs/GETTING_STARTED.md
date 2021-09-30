@@ -27,6 +27,20 @@ const MyComponent = () => {
 export default MyComponent
 ```
 
+And when you want to use mapInstance in a different component:
+
+```js
+...
+import { useMapInstance } from '@amsterdam/react-maps';
+
+const Search = () => {
+    const mapInstance = useMapInstance();
+
+    mapInstance.flyTo(x,y)
+}
+
+export default Search
+```
 And that's it! Of course you want to add some interactions or components to the Map. For example, 
 you want to add a toggle button that would switch the map "base layer" (the actual map):
 
@@ -42,5 +56,6 @@ const MyComponent = () => {
 
 ...
 ```
+
 
 Check out more examples in [storybook](https://amsterdam.github.io/amsterdam-react-maps/#/) or [stories directory](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/stories)
