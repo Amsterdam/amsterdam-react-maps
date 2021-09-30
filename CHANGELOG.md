@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## [0.7.1]
+## [0.7.0]
 - Removed: **BREAKING** `@amsterdam/arm-draw` package and `DrawTool`
 - Added: more unit tests
 - Added: more stories
