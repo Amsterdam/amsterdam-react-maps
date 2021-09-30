@@ -15,8 +15,8 @@
   "version": "0.4.0",
   "sideEffects": false,
   "dependencies": {
-    "@amsterdam/arm-cluster": "^0.4.0",
-    "@amsterdam/arm-core": "^0.4.0",
-    "@amsterdam/arm-nontiled": "^0.4.0"
+    "@amsterdam/arm-cluster": "^0.8.0",
+    "@amsterdam/arm-core": "^0.8.0",
+    "@amsterdam/arm-nontiled": "^0.8.0"
   }
 }
