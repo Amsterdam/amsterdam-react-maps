@@ -27,6 +27,6 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 
 - [Getting Started](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/GETTING_STARTED.md)
 - [Contributing](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/CONTRIBUTING.md)
-- [Changelog](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/CHANGELOG.md)
+- [Changelog](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/CHANGELOG.md)
 - [Maintainers](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/MAINTAINERS.md)
 - [Code of Conduct](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/CODE_OF_CONDUCT.md)
