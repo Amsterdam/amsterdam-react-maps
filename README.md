@@ -18,10 +18,14 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 1. Inspecting examples of implementations, so these can simply be copied to the user's project
 2. Providing compound-components / utilities / configurations for amsterdam-specific projects, so these can be maintained on one place: this repo.
 
-## Usage
+## Structure
 
-- With npm: `npm install --save @amsterdam/arm-core`
-- With yarn: `yarn add @amsterdam/arm-core`
+This project is a monorepo with 3 packages
+
+- [arm-core](packages/arm-core) - core things like Map, ViewFinder, Zoom, getCrsRd
+- [arm-cluster](packages/arm-cluster) - exports MarkerClusterGroup (using leaflet.markercluster)
+- [arm-nontiled](packages/arm-nontiled) - exports NonTiledLayer 
+
 
 ## Docs
 
