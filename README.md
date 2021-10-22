@@ -27,6 +27,13 @@ This project is a monorepo with 3 packages
 - [arm-nontiled](packages/arm-nontiled) - exports NonTiledLayer 
 
 
+## Usage
+
+- `npm install --save @amsterdam/arm-core`
+- `npm install --save @amsterdam/arm-cluster`
+- `npm install --save @amsterdam/arm-nontiled`
+
+
 ## Docs
 
 - [Getting Started](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/docs/GETTING_STARTED.md)
