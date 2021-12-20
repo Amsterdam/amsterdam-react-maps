@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch --onlyChanged",
     "publish:canary": "npm run build && lerna publish --canary --yes",
-    "publish:stable": "npm run build && lerna publish"
+    "publish:stable": "npm run build && lerna publish",
+    "postinstall": "cd ./stories && npm i"
   },
   "dependencies": {
     "leaflet": "^1.6.0",
@@ -44,8 +45,6 @@
     "@types/proj4": "^2.5.0",
     "@types/proj4leaflet": "^1.0.5",
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.4",
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
@@ -70,7 +69,6 @@
     "prettier": "^2.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1",
     "ts-jest": "^27.0.3",
     "ttypescript": "^1.5.10",
