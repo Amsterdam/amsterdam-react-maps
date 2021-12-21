@@ -17,8 +17,7 @@
     "test": "jest",
     "test:watch": "jest --watch --onlyChanged",
     "publish:canary": "npm run build && lerna publish --canary --yes",
-    "publish:stable": "npm run build && lerna publish",
-    "postinstall": "cd ./stories && npm i"
+    "publish:stable": "npm run build && lerna publish"
   },
   "dependencies": {
     "leaflet": "^1.6.0",
