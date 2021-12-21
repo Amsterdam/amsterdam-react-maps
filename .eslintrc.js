@@ -5,6 +5,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:mdx/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
   ],
   plugins: ['jest', 'prettier', '@typescript-eslint', 'react', 'react-hooks'],
   env: {
@@ -41,6 +42,7 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/function-component-definition': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -58,16 +60,6 @@ module.exports = {
     ],
     'react/jsx-props-no-spreading': 0,
     semi: [2, 'never'],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
     'no-use-before-define': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-extra-semi': 'off',
@@ -78,6 +70,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
   },
   settings: {
+    jest: {
+      version: 27,
+    },
     'import/resolver': {
       node: {
         extensions: ['.js', '.ts', '.jsx', '.tsx', '.mdx'],
