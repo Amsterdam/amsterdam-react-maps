@@ -41,8 +41,8 @@
     "@amsterdam/react-maps": "^0.12.0",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "styled-components": ">=4.4.1"
   },
   "publishConfig": {
