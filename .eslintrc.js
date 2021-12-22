@@ -39,12 +39,8 @@ module.exports = {
     'no-console': 1,
     'no-debugger': 1,
     'prettier/prettier': ['error'],
-    'react/prop-types': 0,
-    'react/jsx-wrap-multilines': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/function-component-definition': 'off',
-    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -59,16 +55,9 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.mdx'],
       },
     ],
-    'react/jsx-props-no-spreading': 0,
     semi: [2, 'never'],
-    'no-use-before-define': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-extra-semi': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     jest: {
