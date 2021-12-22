@@ -54,7 +54,6 @@
     "@typescript-eslint/parser": "^5.8.0",
     "contains-path": "^1.0.0",
     "eslint": "8.5.0",
-    "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^25.3.0",

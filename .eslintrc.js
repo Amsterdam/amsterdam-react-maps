@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'airbnb',
+    'eslint:recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:mdx/recommended',
@@ -36,7 +36,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
-    'no-console': 2,
+    'no-console': 1,
+    'no-debugger': 1,
     'prettier/prettier': ['error'],
     'react/prop-types': 0,
     'react/jsx-wrap-multilines': 'off',
