@@ -14,6 +14,9 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [0.10.0]
+- Fixed: **BREAKING** placemment of items in `ViewerContainer`
+
 ## [0.9.0]
 - Removed: **BREAKING** `@amsterdam/arm-draw` package and `DrawTool`
 - Added: more unit tests
