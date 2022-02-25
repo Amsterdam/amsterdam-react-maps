@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { Map, BaseLayer } from '@amsterdam/arm-core'
+import { DEFAULT_AMSTERDAM_LAYERS } from '../../../packages/arm-core/src/constants'
 
 <Meta title="UI/BaseLayer" component={BaseLayer} />
 
@@ -18,10 +19,34 @@ import { Map, BaseLayer } from '@amsterdam/arm-core'
 ## Black and white
 
 <Preview>
-  <Story name="Black and White">
+  <Story name="Normal">
     <Map fullScreen>
       <BaseLayer
-        baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} 
+        baseLayer={DEFAULT_AMSTERDAM_LAYERS[0].urlTemplate} 
+      />
+    </Map>
+  </Story>
+</Preview>
+
+## Light
+
+<Preview>
+  <Story name="Light">
+    <Map fullScreen>
+      <BaseLayer
+        baseLayer={DEFAULT_AMSTERDAM_LAYERS[1].urlTemplate} 
+      />
+    </Map>
+  </Story>
+</Preview>
+
+## Black and white
+
+<Preview>
+  <Story name="Black and white">
+    <Map fullScreen>
+      <BaseLayer
+        baseLayer={DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} 
       />
     </Map>
   </Story>
