@@ -12,7 +12,6 @@ type Props = {
 const OFFSET_UNIT = 4
 
 const ViewerContainerWrapper = styled.div`
-  position: relative;
   bottom: 0;
   left: 0;
   pointer-events: none;
