@@ -31,7 +31,7 @@
     "@amsterdam/arm-core": "^0.9.0",
     "@amsterdam/arm-nontiled": "^0.9.0",
     "@amsterdam/asc-assets": "^0.28.0",
-    "@amsterdam/asc-ui": "^0.28.0",
+    "@amsterdam/asc-ui": "^0.35.2",
     "@amsterdam/react-maps": "^0.12.0",
     "leaflet": "^1.6.0",
     "react": "^17.0.1",
