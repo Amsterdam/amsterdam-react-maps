@@ -16,6 +16,7 @@ Prefix the change with one of these keywords:
 
 ## [0.10.0]
 - Fixed: **BREAKING** placemment of items in `ViewerContainer`
+- Added: more stories
 
 ## [0.9.0]
 - Removed: **BREAKING** `@amsterdam/arm-draw` package and `DrawTool`
