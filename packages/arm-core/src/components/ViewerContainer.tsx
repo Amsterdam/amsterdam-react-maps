@@ -16,6 +16,7 @@ const ViewerContainerWrapper = styled.div`
   position: relative;
   width: inherit;
   height: inherit;
+  top: -100%;
   z-index: 400;
 `
 
