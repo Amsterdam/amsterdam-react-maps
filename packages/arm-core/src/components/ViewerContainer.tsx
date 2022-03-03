@@ -14,8 +14,8 @@ const OFFSET_UNIT = 4
 const ViewerContainerWrapper = styled.div`
   pointer-events: none;
   position: relative;
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   top: -100%;
   z-index: 400;
 `
