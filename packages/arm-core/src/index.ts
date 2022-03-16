@@ -23,3 +23,4 @@ export { default as useGetAddressFromLatLng } from './utils/useGetAddressFromLat
 export { default as usePanToLatLng } from './utils/usePanToLatLng'
 export { default as useStateRef } from './utils/useStateRef'
 export { constants, icons }
+
