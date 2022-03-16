@@ -18,7 +18,6 @@ import { LatLng, LeafletMouseEvent } from 'leaflet'
 import { useContext, useEffect, useState } from 'react'
 import styled, { createGlobalStyle, css } from 'styled-components'
 
-
 type StyledViewerContainerProps = {
   leftOffset?: string
   viewerHeight?: string
