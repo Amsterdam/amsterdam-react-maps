@@ -14,7 +14,7 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## [0.10.1]
+## [0.9.1]
 - Fixed: **BREAKING** placemment of items in `ViewerContainer`
 - Added: more stories
 
