@@ -33,6 +33,11 @@ This project is a monorepo with 3 packages
 - `npm install --save @amsterdam/arm-cluster`
 - `npm install --save @amsterdam/arm-nontiled`
 
+## NPM
+
+- [arm-cluster](https://www.npmjs.com/package/@amsterdam/arm-cluster)
+- [arm-core](https://www.npmjs.com/package/@amsterdam/arm-core)
+- [arm-nontiled](https://www.npmjs.com/package/@amsterdam/arm-nontiled)
 
 ## Docs
 
