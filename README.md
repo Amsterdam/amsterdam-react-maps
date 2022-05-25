@@ -35,8 +35,8 @@ This project is a monorepo with 3 packages
 
 ## NPM
 
-- [arm-cluster](https://www.npmjs.com/package/@amsterdam/arm-cluster)
 - [arm-core](https://www.npmjs.com/package/@amsterdam/arm-core)
+- [arm-cluster](https://www.npmjs.com/package/@amsterdam/arm-cluster)
 - [arm-nontiled](https://www.npmjs.com/package/@amsterdam/arm-nontiled)
 
 ## Docs
