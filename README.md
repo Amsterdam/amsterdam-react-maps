@@ -8,6 +8,7 @@
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
 It also contains an "stories" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
 
+[![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)]
 
 [This is the link to the demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
