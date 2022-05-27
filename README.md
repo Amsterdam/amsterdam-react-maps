@@ -1,4 +1,6 @@
 # Amsterdam React Maps
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
 [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://github.com/storybooks/storybook)
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -6,9 +8,6 @@
 
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
 It also contains an "stories" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
-
-![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
-![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
 
 [This is the link to the demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
