@@ -1,6 +1,7 @@
 # Amsterdam React Maps
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/npm.yml/badge.svg)
 [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://github.com/storybooks/storybook)
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
