@@ -10,7 +10,7 @@
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
 It also contains an "stories" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
 
-[This is the link to the demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
+[This is the link to the story book demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
 ## Motivation
 
