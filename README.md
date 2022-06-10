@@ -1,16 +1,16 @@
 # Amsterdam React Maps
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
+![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/npm.yml/badge.svg)
 [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://github.com/storybooks/storybook)
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
-[![Build Status](https://travis-ci.org/Amsterdam/amsterdam-react-maps.svg?branch=master)](https://travis-ci.org/Amsterdam/amsterdam-react-maps)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 A repo with components / utilities to be used in projects published by [Amsterdam](https://github.com/Amsterdam).
 It also contains an "stories" directory where we put so-called "recipes" that developers at Amsterdam can basically copy/paste in their own projects
 
-![example workflow](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
-
-[This is the link to the demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
+[This is the link to the story book demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
 ## Motivation
 
@@ -37,9 +37,9 @@ This project is a monorepo with 3 packages
 
 ## NPM
 
-- [arm-core](https://www.npmjs.com/package/@amsterdam/arm-core)
-- [arm-cluster](https://www.npmjs.com/package/@amsterdam/arm-cluster)
-- [arm-nontiled](https://www.npmjs.com/package/@amsterdam/arm-nontiled)
+- [@amsterdam/arm-core](https://www.npmjs.com/package/@amsterdam/arm-core)
+- [@amsterdam/arm-cluster](https://www.npmjs.com/package/@amsterdam/arm-cluster)
+- [@amsterdam/arm-nontiled](https://www.npmjs.com/package/@amsterdam/arm-nontiled)
 
 ## Docs
 
