@@ -29,7 +29,7 @@
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.28.0",
     "@amsterdam/asc-ui": "^0.28.0",
-    "@amsterdam/react-maps": "^0.12.1",
+    "@amsterdam/react-maps": "^0.12.2",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
@@ -65,7 +65,7 @@
     "geojson": "^0.5.0",
     "gh-pages": "^4.0.0",
     "jest": "^27.0.4",
-    "jest-cli": "^28.0.0",
+    "jest-cli": "^27.0.4",
     "jest-styled-components": "^7.0.4",
     "lerna": "^5.0.0",
     "node-modules-regexp": "^1.0.0",
