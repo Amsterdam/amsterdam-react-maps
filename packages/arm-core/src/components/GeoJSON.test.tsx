@@ -4,7 +4,7 @@ import { GeoJSON as GeoJSONType } from 'geojson'
 import Map from './Map'
 import { GeoJSON } from '../index'
 
-describe('Marker', () => {
+describe('GeoJSON', () => {
   const geojsonFeature: GeoJSONType = {
     type: 'Feature',
     properties: {

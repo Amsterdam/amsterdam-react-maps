@@ -1,6 +1,11 @@
 import * as constants from './constants'
 import * as icons from './icons'
-import { GeoJSON } from '@amsterdam/react-maps'
+import {
+  GeoJSON,
+  useMapInstance,
+  useMapEvents,
+  useEvents,
+} from '@amsterdam/react-maps'
 
 export { default as BaseLayer } from './components/BaseLayer'
 export { default as BaseLayerToggle } from './components/BaseLayerToggle'
@@ -24,4 +29,4 @@ export { default as useGetAddressFromLatLng } from './utils/useGetAddressFromLat
 export { default as usePanToLatLng } from './utils/usePanToLatLng'
 export { default as useStateRef } from './utils/useStateRef'
 export { constants, icons }
-export { GeoJSON }
+export { GeoJSON, useMapInstance, useMapEvents, useEvents }

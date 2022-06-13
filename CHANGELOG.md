@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [0.9.2]
+- Added: ARM-core now exports GeoJSON, useMapInstance, useMapEvents and useEvents
+- Added: GeoJSON test
+
 ## [0.9.1]
 - Fixed: **BREAKING** placemment of items in `ViewerContainer`
 - Added: more stories
