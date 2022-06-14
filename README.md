@@ -24,7 +24,7 @@ Because we know we cannot create a one-size-fits-all leaflet application, we dec
 
 This project is a monorepo with 3 packages
 
-- [arm-core](packages/arm-core) - core things like Map, BaseLayer, ViewVontainer, Zoom, GeoJSONLayer, Marker, getCrsRd, etc.
+- [arm-core](packages/arm-core) - core things like Map, BaseLayer, ViewVontainer, Zoom, GeoJSON,  GeoJSONLayer, Marker, useMapInstance, useMapEvents, useEvents, getCrsRd, etc.
 - [arm-cluster](packages/arm-cluster) - exports MarkerClusterGroup (using leaflet.markercluster)
 - [arm-nontiled](packages/arm-nontiled) - exports NonTiledLayer 
 
