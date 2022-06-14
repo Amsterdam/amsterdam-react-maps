@@ -27,7 +27,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@amsterdam/asc-assets": "^0.28.0",
+    "@amsterdam/asc-assets": "^0.36.0",
     "@amsterdam/asc-ui": "^0.28.0",
     "@amsterdam/react-maps": "^0.12.2",
     "@babel/core": "^7.10.2",
