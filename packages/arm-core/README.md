@@ -1,10 +1,10 @@
-# Amsterdam React Maps - Core
+# Amsterdam React Maps Core
 
 [This is the link to the story book demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
-## Installing
+## Installation
+Add this package to your project by running:
 - `npm install --save @amsterdam/arm-core`
-
 
 ## Exports components
 - Map
