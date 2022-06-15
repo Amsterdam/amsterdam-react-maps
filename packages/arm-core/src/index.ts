@@ -7,6 +7,12 @@ import {
   useEvents,
 } from '@amsterdam/react-maps'
 
+const AMSTERDAM_MAPS_OPTIONS = constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS
+const AMSTERDAM_LAYERS = constants.DEFAULT_AMSTERDAM_LAYERS
+const MIN_ZOOM_LEVEL = constants.MIN_ZOOM_LEVEL
+const MAX_ZOOM_LEVEL = constants.MAX_ZOOM_LEVEL
+const AERIAL_AMSTERDAM_LAYERS = constants.AERIAL_AMSTERDAM_LAYERS
+
 export { default as BaseLayer } from './components/BaseLayer'
 export { default as BaseLayerToggle } from './components/BaseLayerToggle'
 export { default as ControlButton } from './components/ControlButton'
@@ -30,3 +36,11 @@ export { default as usePanToLatLng } from './utils/usePanToLatLng'
 export { default as useStateRef } from './utils/useStateRef'
 export { constants, icons }
 export { GeoJSON, useMapInstance, useMapEvents, useEvents }
+
+export {
+  AMSTERDAM_MAPS_OPTIONS,
+  AMSTERDAM_LAYERS,
+  AERIAL_AMSTERDAM_LAYERS,
+  MIN_ZOOM_LEVEL,
+  MAX_ZOOM_LEVEL,
+}
