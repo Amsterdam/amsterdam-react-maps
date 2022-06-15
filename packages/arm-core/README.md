@@ -1,7 +1,7 @@
 # Amsterdam React Maps - core
 
 
-# Install
+# Installment
 - `npm install --save @amsterdam/arm-core`
 
 
