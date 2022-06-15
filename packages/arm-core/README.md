@@ -1,11 +1,11 @@
 # Amsterdam React Maps - core
 
 
-# Installment
+## Installment
 - `npm install --save @amsterdam/arm-core`
 
 
-# Exports components
+## Exports components
 - Map
 - BaseLayer
 - BaseLayerToggle
@@ -20,7 +20,7 @@
 - WfsLayer
 - Zoom
 
-# Exports hooks
+## Exports hooks
 - useMapInstance
 - useMapEvents
 - useEvents
@@ -28,12 +28,12 @@
 - usePanToLatLng
 - useStateRef
 
-# Exports services
+## Exports services
 - fetchWithAbort
 - getBBox
 - getCrsRd
 
-# Exports constants
+## Exports constants
 - AMSTERDAM_MAPS_OPTIONS
 - AMSTERDAM_LAYERS,
 - AERIAL_AMSTERDAM_LAYERS
