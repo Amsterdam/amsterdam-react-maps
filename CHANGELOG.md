@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+
+## [0.10.1]
+- Added: README files for Core, Cluster and Nontiled npm packages
+
 ## [0.10.0]
 - Updated: all peerdependencies for react (17 and 18), react-dom, leaflet, leaflet.cluster and leaflet.nontiled
 - Added: ARM-core now exports: 
