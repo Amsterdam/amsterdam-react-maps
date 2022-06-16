@@ -7,4 +7,4 @@ Add this package to your project by running:
 - `npm install --save @amsterdam/arm-nontiled`
 
 ## Exports components
-- NonTiledLayer
+- NonTiledLayer: props url, options, params

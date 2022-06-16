@@ -14,7 +14,9 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-
+## [0.10.2]
+- Added: props tabIndexIn and tabIndexOut to Zoom component
+ 
 ## [0.10.1]
 - Added: README files for Core, Cluster and Nontiled npm packages
 
