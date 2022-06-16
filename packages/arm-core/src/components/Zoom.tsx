@@ -9,7 +9,12 @@ const ZoomBar = styled.div`
   margin-bottom: ${themeSpacing(1)};
 `
 
-const Zoom: React.FC = () => {
+interface Props {
+  tabIndexIn?: number
+  tabIndexOut?: number
+}
+
+const Zoom: React.FC<Props> = ({ tabIndexIn, tabIndexOut }) => {
   const mapInstance = useMapInstance()
 
   const handleZoom = (out = false) => {
@@ -25,6 +30,7 @@ const Zoom: React.FC = () => {
         size={44}
         iconSize={20}
         data-testid="zoomIn"
+        tabIndex={tabIndexIn || 1}
         onClick={() => {
           handleZoom()
         }}
@@ -37,6 +43,7 @@ const Zoom: React.FC = () => {
         size={44}
         iconSize={20}
         data-testid="zoomOut"
+        tabIndex={tabIndexOut || 2}
         onClick={() => {
           handleZoom(true)
         }}
