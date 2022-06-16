@@ -7,7 +7,7 @@ Add this package to your project by running:
 - `npm install --save @amsterdam/arm-cluster`
 
 ## Exports components
-- MarkerClusterGroup
+- MarkerClusterGroup: props markers, optionsOverrides, events, setInstance
 
 ## Exports services
 - createClusterMarkers
