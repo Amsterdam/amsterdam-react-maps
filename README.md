@@ -1,4 +1,4 @@
-# Amsterdam React Maps
+# Amsterdam React Maps (ARM)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/npm.yml/badge.svg)
