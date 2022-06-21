@@ -6,8 +6,22 @@ Part of Amsterdam React Maps library.
 
 ### Installation
 Add this package to your project by running:
-```
+```bash
 npm install --save @amsterdam/arm-core
+```
+### Usage
+
+```js
+import 'leaflet/dist/leaflet.css' // make sure this is always included!
+import { Map, BaseLayer } from '@amsterdam/arm-core'
+
+const MyComponent = () => {
+  <Map fullScreen>
+    <BaseLayer />
+  </Map>
+}
+
+export default MyComponent
 ```
 
 ### Exports components
