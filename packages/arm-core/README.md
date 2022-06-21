@@ -26,12 +26,12 @@ Add this package to your project by running:
 - WfsLayer: props url, options, zoomLevel, setInstance?
 
 ### Exports hooks
-- useMapInstance
-- useMapEvents
-- useEvents
-- useGetAddressFromLatLng
-- usePanToLatLng
-- useStateRef
+- useMapInstance()
+- useMapEvents(events?)
+- useEvents(instance, events?)
+- useGetAddressFromLatLng()
+- usePanToLatLng()
+- useStateRef()
 
 ### Exports services
 - fetchWithAbort
