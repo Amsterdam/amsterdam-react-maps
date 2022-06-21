@@ -14,16 +14,16 @@ Add this package to your project by running:
 - ControlButton: extends Button
 - MapPanel
 - Scale: props options
-- ViewerContainer: props bottomLeft, topLeft, topRight, bottomRight
-- Marker: props latLng, options, setInstance
-- Zoom: props tabIndexInl, tabIndexOut
+- ViewerContainer: props bottomLeft?, topLeft?, topRight?, bottomRight?
+- Marker: props latLng, options?, setInstance?
+- Zoom: props tabIndexIn?, tabIndexOut?
 
 ### Exports leaflet layers
-- BaseLayer: props baseLayer, options, setInstance
-- GeoJSON: props args, options, setInstance
-- GeoJSONLayer: props url, options, setInstance
+- BaseLayer: props baseLayer?, options?, setInstance?
+- GeoJSON: props args, options?, setInstance?
+- GeoJSONLayer: props url, options?, setInstance?
 - RDGeoJSON: props geometry, properties, options, setInstance
-- WfsLayer: props url, options, zoomLevel, setInstance
+- WfsLayer: props url, options?, zoomLevel?, setInstance?
 
 ### Exports hooks
 - useMapInstance
