@@ -34,9 +34,9 @@ Add this package to your project by running:
 - useStateRef()
 
 ### Exports services
-- fetchWithAbort
-- getBBox
-- getCrsRd
+- fetchWithAbort()
+- getBBox(mapInstance)
+- getCrsRd()
 
 ### Exports constants
 - AMSTERDAM_MAPS_OPTIONS
