@@ -29,7 +29,7 @@ const json = {
 const MyComponent = () => (
   <Map fullScreen>
     <GeoJSON args={[json]} />
-    <ViewerContainer bottomLeft={<Zoom />} />
+    <ViewerContainer bottomRight={<Zoom />} />
     <BaseLayer />
   </Map>
 )
