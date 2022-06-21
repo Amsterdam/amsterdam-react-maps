@@ -9,7 +9,7 @@ Add this package to your project by running:
 - `npm install --save @amsterdam/arm-core`
 
 ### Exports components
-- Map: props fullScreen, setInstance
+- Map: props options?, fullScreen?, setInstance?
 - BaseLayerToggle
 - ControlButton: extends Button
 - MapPanel
@@ -21,9 +21,9 @@ Add this package to your project by running:
 ### Exports leaflet layers
 - BaseLayer: props baseLayer?, options?, setInstance?
 - GeoJSON: props args, options?, setInstance?
-- GeoJSONLayer: props url, options?, setInstance?
-- RDGeoJSON: props geometry, properties, options, setInstance
-- WfsLayer: props url, options?, zoomLevel?, setInstance?
+- GeoJSONLayer: props url, options, setInstance?
+- RDGeoJSON: props geometry, properties?, options?, setInstance?
+- WfsLayer: props url, options, zoomLevel, setInstance?
 
 ### Exports hooks
 - useMapInstance
