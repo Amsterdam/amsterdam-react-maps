@@ -6,7 +6,10 @@ Part of Amsterdam React Maps library.
 
 ### Installation
 Add this package to your project by running:
-- `npm install --save @amsterdam/arm-cluster`
+
+```
+npm install --save @amsterdam/arm-cluster
+```
 
 ### Exports component
 - MarkerClusterGroup: props
