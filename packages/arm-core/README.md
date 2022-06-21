@@ -15,13 +15,13 @@ npm install --save @amsterdam/arm-core
 import 'leaflet/dist/leaflet.css' // make sure this is always included!
 import { Map, BaseLayer, GeoJSON, ViewerContainer, Zoom } from '@amsterdam/arm-core'
 
-const MyComponent = () => {
+const MyComponent = () => (
   <Map fullScreen>
     <GeoJSON args={[json]} />
     <ViewerContainer bottomLeft={<Zoom />} />
     <BaseLayer />
   </Map>
-}
+)
 
 export default MyComponent
 ```
