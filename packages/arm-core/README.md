@@ -13,7 +13,7 @@ Add this package to your project by running:
 - MapPanel
 - Scale: props options
 - ViewerContainer: props bottomLeft, topLeft, topRight, bottomRight
-- Marker: latLng, options, setInstance
+- Marker: props latLng, options, setInstance
 - Zoom: props tabIndexInl, tabIndexOut
 
 ### Exports leaflet layers
@@ -38,7 +38,7 @@ Add this package to your project by running:
 
 ### Exports constants
 - AMSTERDAM_MAPS_OPTIONS
-- AMSTERDAM_LAYERS,
+- AMSTERDAM_LAYERS
 - AERIAL_AMSTERDAM_LAYERS
 - MIN_ZOOM_LEVEL
 - MAX_ZOOM_LEVEL
