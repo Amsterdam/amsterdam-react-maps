@@ -13,5 +13,5 @@ Add this package to your project by running:
 - NonTiledLayer: props
   - url
   - options
-  - params
-  - setInstance
+  - params?
+  
