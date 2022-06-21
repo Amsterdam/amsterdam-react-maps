@@ -6,7 +6,9 @@ Part of Amsterdam React Maps library.
 
 ### Installation
 Add this package to your project by running:
-- `npm install --save @amsterdam/arm-core`
+```
+npm install --save @amsterdam/arm-core
+```
 
 ### Exports components
 - Map: props options?, fullScreen?, setInstance?
