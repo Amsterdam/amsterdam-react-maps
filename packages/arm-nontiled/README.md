@@ -6,7 +6,7 @@ Part of Amsterdam React Maps library
 
 Installation
 Add this package to your project by running:
-`npm install --save @amsterdam/arm-nontiled`
+- `npm install --save @amsterdam/arm-nontiled`
 
 ### Exports components
 - NonTiledLayer: props url, options, params, setInstance
