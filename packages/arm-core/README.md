@@ -25,6 +25,20 @@ const MyComponent = () => (
 
 export default MyComponent
 ```
+And when you want to use mapInstance in a different component:
+
+```js
+...
+import { useMapInstance } from '@amsterdam/arm-core';
+
+const Search = () => (
+    const mapInstance = useMapInstance();
+
+    mapInstance.flyTo(x,y)
+)
+
+export default Search
+```
 
 ### Exports components
 - Map: props options?, fullScreen?, setInstance?
