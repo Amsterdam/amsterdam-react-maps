@@ -2,11 +2,11 @@
 
 [This is the link to the story book demo site with examples](https://amsterdam.github.io/amsterdam-react-maps)
 
-## Installation
+### Installation
 Add this package to your project by running:
 - `npm install --save @amsterdam/arm-core`
 
-## Exports components
+### Exports components
 - Map: props fullScreen, setInstance
 - BaseLayerToggle
 - ControlButton: extends Button
@@ -16,14 +16,14 @@ Add this package to your project by running:
 - Marker: latLng, options, setInstance
 - Zoom: props tabIndexInl, tabIndexOut
 
-## Exports leaflet layers
+### Exports leaflet layers
 - BaseLayer: props baseLayer, options, setInstance
 - GeoJSON: props args, options, setInstance
 - GeoJSONLayer: props url, options, setInstance
 - RDGeoJSON: props geometry, properties, options, setInstance
 - WfsLayer: props url, options, zoomLevel, setInstance
 
-## Exports hooks
+### Exports hooks
 - useMapInstance
 - useMapEvents
 - useEvents
@@ -31,12 +31,12 @@ Add this package to your project by running:
 - usePanToLatLng
 - useStateRef
 
-## Exports services
+### Exports services
 - fetchWithAbort
 - getBBox
 - getCrsRd
 
-## Exports constants
+### Exports constants
 - AMSTERDAM_MAPS_OPTIONS
 - AMSTERDAM_LAYERS,
 - AERIAL_AMSTERDAM_LAYERS
