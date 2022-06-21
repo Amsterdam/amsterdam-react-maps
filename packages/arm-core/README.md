@@ -15,6 +15,17 @@ npm install --save @amsterdam/arm-core
 import 'leaflet/dist/leaflet.css' // make sure this is always included!
 import { Map, BaseLayer, GeoJSON, ViewerContainer, Zoom } from '@amsterdam/arm-core'
 
+const json = {
+    type: 'Feature',
+    properties: {
+      name: 'Amsterdam',
+    },
+    geometry: {
+      type: 'Point',
+      coordinates: [52, 4],
+    },
+  }
+
 const MyComponent = () => (
   <Map fullScreen>
     <GeoJSON args={[json]} />
