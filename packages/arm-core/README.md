@@ -44,8 +44,10 @@ import { useMapInstance } from '@amsterdam/arm-core';
 
 const Search = () => (
     const mapInstance = useMapInstance();
-
-    mapInstance.flyTo(x,y)
+    
+    useEffect(() => {
+      mapInstance.flyTo(x,y)
+    }, [mapInstance])
 )
 
 export default Search
