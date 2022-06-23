@@ -84,13 +84,13 @@ export default Search
 - getCrsRd()
 
 ### Exports constants
-- AMSTERDAM_MAPS_OPTIONS
 - AMSTERDAM_LAYERS
 - AERIAL_AMSTERDAM_LAYERS
 - MIN_ZOOM_LEVEL
 - MAX_ZOOM_LEVEL
+
 ```js
-{
+AMSTERDAM_MAPS_OPTIONS = {
   center: [52.3731081, 4.8932945],
   zoom: 10,
   maxZoom: 16,
