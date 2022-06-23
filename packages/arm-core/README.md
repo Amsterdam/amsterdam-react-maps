@@ -89,5 +89,17 @@ export default Search
 - AERIAL_AMSTERDAM_LAYERS
 - MIN_ZOOM_LEVEL
 - MAX_ZOOM_LEVEL
-
-
+```js
+{
+  center: [52.3731081, 4.8932945],
+  zoom: 10,
+  maxZoom: 16,
+  minZoom: 3,
+  zoomControl: false,
+  crs: getCrsRd(),
+  maxBounds: [
+    [52.25168, 4.64034],
+    [52.50536, 5.10737],
+  ],
+}
+```
