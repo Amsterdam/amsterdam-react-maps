@@ -16,47 +16,43 @@ If you want to install other packages, make sure you have the peer-dependencies 
 
 ```js
 import 'leaflet/dist/leaflet.css' // make sure this is always included!
-import { Map, BaseLayer } from '@amsterdam/arm-core'
+import { Map, BaseLayer, GeoJSON, ViewerContainer, Zoom } from '@amsterdam/arm-core'
 
-const MyComponent = () => {
+const json = {
+    type: 'Feature',
+    properties: {
+      name: 'Amsterdam',
+    },
+    geometry: {
+      type: 'Point',
+      coordinates: [52, 4],
+    },
+  }
+
+const MyComponent = () => (
   <Map fullScreen>
+    <GeoJSON args={[json]} />
+    <ViewerContainer bottomRight={<Zoom />} />
     <BaseLayer />
   </Map>
-}
+)
 
 export default MyComponent
 ```
-
 And when you want to use mapInstance in a different component:
 
 ```js
 ...
 import { useMapInstance } from '@amsterdam/arm-core';
 
-const Search = () => {
+const Search = () => (
     const mapInstance = useMapInstance();
-
-    mapInstance.flyTo(x,y)
-}
+    
+    useEffect(() => {
+      mapInstance.flyTo(x,y)
+    }, [mapInstance])
+)
 
 export default Search
 ```
-And that's it! Of course you want to add some interactions or components to the Map. For example, 
-you want to add a zoom buttons.
-
-```js
-...
-import { Map, BaseLayer, ViewerContainer, Zoom } from '@amsterdam/arm-core'
-
-const MyComponent = () => {
-  <Map fullScreen>
-    <BaseLayer />
-    <ViewerContainer bottomRight={<Zoom />} />
-  </Map>
-}
-
-...
-```
-
-
 Check out more examples in [storybook](https://amsterdam.github.io/amsterdam-react-maps/#/) or [stories directory](https://github.com/Amsterdam/amsterdam-react-maps/tree/master/stories)
