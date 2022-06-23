@@ -7,9 +7,7 @@ To simply render a Map in your application, this would be the bare minimum setup
 1. Install the core package: `npm install @amsterdam/arm-core`
 
 2. Make sure you have the following peer dependencies installed:
-`npm install @amsterdam/asc-assets @amsterdam/asc-ui leaflet styled-components`
-
-If you want to install other packages, make sure you have the peer-dependencies installed as well. For example:
+`npm install @amsterdam/asc-assets @amsterdam/asc-ui leaflet styled-components`. If you want to install other packages, make sure you have the peer-dependencies installed as well. For example:
 `arm-cluster` has an extra peer-dependency of `leaflet.markercluster`, so make sure you have that installed.
 
 3. Add the following code to your application where you want to render the map, so it will look a bit like this:
