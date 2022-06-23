@@ -7,7 +7,7 @@ To simply render a Map in your application, this would be the bare minimum setup
 1. Install the core package: `npm install @amsterdam/arm-core`
 
 2. Make sure you have the following peer dependencies installed:
-`npm install @amsterdam/asc-assets @amsterdam/asc-ui @amsterdam/react-maps leaflet styled-components`
+`npm install @amsterdam/asc-assets @amsterdam/asc-ui leaflet styled-components`
 
 If you want to install other packages, make sure you have the peer-dependencies installed as well. For example:
 `arm-cluster` has an extra peer-dependency of `leaflet.markercluster`, so make sure you have that installed.
@@ -31,7 +31,7 @@ And when you want to use mapInstance in a different component:
 
 ```js
 ...
-import { useMapInstance } from '@amsterdam/react-maps';
+import { useMapInstance } from '@amsterdam/arm-core';
 
 const Search = () => {
     const mapInstance = useMapInstance();
@@ -42,15 +42,16 @@ const Search = () => {
 export default Search
 ```
 And that's it! Of course you want to add some interactions or components to the Map. For example, 
-you want to add a toggle button that would switch the map "base layer" (the actual map):
+you want to add a zoom buttons.
 
 ```js
 ...
-import { Map, ViewerContainer, BaseLayerToggle } from '@amsterdam/arm-core'
+import { Map, BaseLayer, ViewerContainer, Zoom } from '@amsterdam/arm-core'
 
 const MyComponent = () => {
   <Map fullScreen>
-    <ViewerContainer bottomLeft={<BaseLayerToggle />} />
+    <BaseLayer />
+    <ViewerContainer bottomRight={<Zoom />} />
   </Map>
 }
 
