@@ -11,6 +11,25 @@ Add this package to your project by running:
 npm install --save @amsterdam/arm-nontiled
 ```
 
+### Usage
+```js
+import 'leaflet/dist/leaflet.css' // make sure this is always included!
+import { Map, BaseLayer, ViewerContainer, Zoom } from '@amsterdam/arm-core'
+import { NonTiledLayer } from '@amsterdam/arm-nontiled'
+
+const markers = []
+
+const MyComponent = () => (
+  <Map fullScreen>
+    <NonTiledLayer  />
+    <ViewerContainer bottomRight={<Zoom />} />
+    <BaseLayer />
+  </Map>
+)
+
+export default MyComponent
+```
+
 ### Exports components
 - NonTiledLayer: props
   - url
