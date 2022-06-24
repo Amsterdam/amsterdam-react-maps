@@ -15,7 +15,7 @@ npm install --save @amsterdam/arm-cluster
 ```js
 import 'leaflet/dist/leaflet.css' // make sure this is always included!
 import { Map, BaseLayer, ViewerContainer, Zoom } from '@amsterdam/arm-core'
-import { MarkerClusterGroup } from '@amsterdam/arm-cluster'
+import { MarkerClusterGroup, createClusterMarkers } from '@amsterdam/arm-cluster'
 
 const markers = []
 
