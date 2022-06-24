@@ -26,7 +26,7 @@ const MyComponent = () => (
       format: 'image/png',
       transparent: true,
       layers: ['buurten', 'buurtinitiatieven', 'buurten_kookgas']
-  }} />
+    }} />
     <ViewerContainer bottomRight={<Zoom />} />
     <BaseLayer />
   </Map>
