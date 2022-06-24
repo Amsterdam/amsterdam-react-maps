@@ -14,9 +14,9 @@ npm install --save @amsterdam/arm-cluster
 ### Exports component
 - MarkerClusterGroup: props
   - markers
-  - optionsOverrides
-  - events
-  - setInstance
+  - optionsOverrides?
+  - events?
+  - setInstance?
 
 ### Exports service
 - createClusterMarkers
