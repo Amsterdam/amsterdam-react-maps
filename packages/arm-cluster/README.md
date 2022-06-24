@@ -21,7 +21,17 @@ const markers = []
 
 const MyComponent = () => (
   <Map fullScreen>
-    <MarkerClusterGroup markers={markers} />
+    <MarkerClusterGroup markers={createClusterMarkers({
+          markers,
+          events: {
+            click: (e) => {
+              window.alert(
+                `Marker clicked!, Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`,
+              )
+            },
+          },
+        })}  
+      />
     <ViewerContainer bottomRight={<Zoom />} />
     <BaseLayer />
   </Map>
