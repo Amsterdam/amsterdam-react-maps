@@ -28,9 +28,6 @@ const MyComponent = () => (
 
 export default MyComponent
 ```
-And when you want to use mapInstance in a different component:
-
-```js
 
 ### Exports component
 - MarkerClusterGroup: props
