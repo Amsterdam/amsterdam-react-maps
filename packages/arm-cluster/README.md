@@ -19,4 +19,4 @@ npm install --save @amsterdam/arm-cluster
   - setInstance?
 
 ### Exports service
-- createClusterMarkers
+- createClusterMarkers(markers, events)
