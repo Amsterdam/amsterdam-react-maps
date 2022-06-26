@@ -14,6 +14,9 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [1.0.0]
+- Updated: moved to version 1
+
 ## [0.10.2]
 - Added: props tabIndexIn and tabIndexOut to Zoom component
  
