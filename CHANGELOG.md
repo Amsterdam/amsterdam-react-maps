@@ -15,6 +15,9 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## [1.0.0]
+- Added: README in `@amsterdam/arm-cluster`
+- Added: README in `@amsterdam/arm-core`
+- Added: README in `@amsterdam/arm-nontiled`
 - Updated: moved to version 1
 
 ## [0.10.2]
