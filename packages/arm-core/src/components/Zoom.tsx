@@ -30,7 +30,7 @@ const Zoom: React.FC<Props> = ({ tabIndexIn, tabIndexOut }) => {
         size={44}
         iconSize={20}
         data-testid="zoomIn"
-        tabIndex={tabIndexIn || 1}
+        tabIndex={tabIndexIn || 5}
         onClick={() => {
           handleZoom()
         }}
@@ -43,7 +43,7 @@ const Zoom: React.FC<Props> = ({ tabIndexIn, tabIndexOut }) => {
         size={44}
         iconSize={20}
         data-testid="zoomOut"
-        tabIndex={tabIndexOut || 2}
+        tabIndex={tabIndexOut || 6}
         onClick={() => {
           handleZoom(true)
         }}
