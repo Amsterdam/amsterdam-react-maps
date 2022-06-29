@@ -14,6 +14,9 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
+## [1.0.1] 
+- Updated: overflow hidden to `Map` component
+
 ## [1.0.0]
 - Added: README in `@amsterdam/arm-cluster`
 - Added: README in `@amsterdam/arm-core`
@@ -22,7 +25,7 @@ Prefix the change with one of these keywords:
 - Updated: moved to version 1
 
 ## [0.10.2]
-- Added: props tabIndexIn and tabIndexOut to Zoom component
+- Added: props tabIndexIn and tabIndexOut to `Zoom` component
  
 ## [0.10.1]
 - Added: README files for Core, Cluster and Nontiled npm packages

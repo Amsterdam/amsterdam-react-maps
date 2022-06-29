@@ -10,6 +10,10 @@ export interface MapProps extends ReactMapProps {
   fullScreen?: boolean
 }
 
+const StyledMap = styled(ReactMap)`
+  overflow: hidden;
+`
+
 const Map = styled<FunctionComponent<MapProps>>(
   ({
     children,
@@ -18,9 +22,9 @@ const Map = styled<FunctionComponent<MapProps>>(
     fullScreen,
     ...otherProps
   }) => (
-    <ReactMap options={options} {...otherProps}>
+    <StyledMap options={options} {...otherProps}>
       {children}
-    </ReactMap>
+    </StyledMap>
   ),
 )`
   ${({ fullScreen }) =>
