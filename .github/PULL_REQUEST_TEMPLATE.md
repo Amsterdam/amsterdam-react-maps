@@ -3,7 +3,7 @@
 Before opening a pull request, please ensure:
 
 - [ ] You've added or updated the README.mdx of the story of the component
-- [ ] You have been following the guidelines, written in the [CONTRIBUTING](/docs/CONTRIBUTING.md) file
+- [ ] You have been following the guidelines, written in the [/docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md) file
 - [ ] Your code has the necessary tests written
 - [ ] You've exported the component in index.ts
 - [ ] You have updated the [CHANGELOG.md unreleased sections](/CHANGELOG.md)
