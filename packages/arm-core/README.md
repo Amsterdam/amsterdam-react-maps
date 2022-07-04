@@ -102,4 +102,22 @@ AMSTERDAM_MAPS_OPTIONS = {
     [52.50536, 5.10737],
   ],
 }
+
+AMSTERDAM_LAYERS =  [
+  {
+    id: 'normal',
+    label: 'Normaal',
+    urlTemplate: `${MAP_SERVER_ROOT}/topo_rd/{z}/{x}/{y}.png`,
+  },
+  {
+    id: 'light',
+    label: 'Licht',
+    urlTemplate: `${MAP_SERVER_ROOT}/topo_rd_light/{z}/{x}/{y}.png`,
+  },
+  {
+    id: 'blackwhite',
+    label: 'Zwart / Wit',
+    urlTemplate: `${MAP_SERVER_ROOT}/topo_rd_zw/{z}/{x}/{y}.png`,
+  },
+]
 ```
