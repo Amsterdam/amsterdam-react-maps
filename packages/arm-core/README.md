@@ -84,6 +84,7 @@ export default Search
 - getCrsRd()
 
 ### Exports constants
+- AMSTERDAM_MAPS_OPTIONS
 - AMSTERDAM_LAYERS
 - AERIAL_AMSTERDAM_LAYERS
 - MIN_ZOOM_LEVEL
