@@ -9,11 +9,12 @@ import {
   MapPanelLegendButton,
   MapPanelProvider,
   Marker,
+  useMapInstance,
   usePanToLatLng,
+  ViewerContainer,
   Zoom,
 } from '@amsterdam/arm-core'
-import { hooks, Paragraph, Spinner, ViewerContainer } from '@amsterdam/asc-ui'
-import { useMapInstance } from '@amsterdam/react-maps'
+import { Paragraph, Spinner, useMatchMedia } from '@amsterdam/asc-ui'
 import { LatLng, LeafletMouseEvent } from 'leaflet'
 import { useContext, useEffect, useState } from 'react'
 import styled, { createGlobalStyle, css } from 'styled-components'
@@ -42,6 +43,7 @@ const StyledViewerContainer = styled(
   style: {
     height: viewerHeight,
     left: leftOffset,
+    width: `calc(100% - ${leftOffset})`
   },
 }))<StyledViewerContainerProps>`
   z-index: 400;
@@ -272,7 +274,7 @@ const MapPanelExample: React.FC<MapPanelExampleProps> = ({
 }) => {
   const [currentLatLng, setCurrentLatLng] = useState<LatLng | null>(null)
   const [currentOverlay, setCurrentOverlay] = useState<Overlay>(Overlay.None)
-  const [showDesktopVariant] = hooks.useMatchMedia({ minBreakpoint: 'tabletM' })
+  const [showDesktopVariant] = useMatchMedia({ minBreakpoint: 'tabletM' })
   useEffect(() => {
     if (!currentLatLng) {
       setCurrentOverlay(Overlay.None)
