@@ -38,7 +38,7 @@
     "geojson": "^0.5.0",
     "proj4": "^2.6.2",
     "proj4leaflet": "^1.0.2",
-    "uuid": "^8.1.0"
+    "uuid": "^9.0.0"
   },
   "peerDependencies": {
     "@amsterdam/asc-assets": ">=0.28.0",
