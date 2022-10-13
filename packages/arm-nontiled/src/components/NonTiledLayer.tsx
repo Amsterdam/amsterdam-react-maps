@@ -7,6 +7,7 @@ const NonTiledLayer: React.FC<{
   url: string
   options: L.WMSOptions
   params?: { [key: string]: string }
+  children?: React.ReactNode
 }> = ({ url, options, params }) => {
   const [layer, setLayer] = useState<Layer>()
   const mapInstance = useMapInstance()

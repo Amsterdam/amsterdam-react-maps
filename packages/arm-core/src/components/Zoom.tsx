@@ -12,6 +12,7 @@ const ZoomBar = styled.div`
 interface Props {
   tabIndexIn?: number
   tabIndexOut?: number
+  children?: React.ReactNode
 }
 
 const Zoom: React.FC<Props> = ({ tabIndexIn, tabIndexOut }) => {

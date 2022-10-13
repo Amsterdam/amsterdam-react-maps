@@ -7,6 +7,7 @@ type Props = {
   bottomLeft?: React.ReactNode
   bottomRight?: React.ReactNode
   metaData?: Array<string>
+  children?: React.ReactNode
 }
 
 const OFFSET_UNIT = 4

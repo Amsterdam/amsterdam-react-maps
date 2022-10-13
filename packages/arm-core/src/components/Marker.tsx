@@ -13,6 +13,7 @@ type Props = {
   events?: { [key: string]: LeafletEventHandlerFn }
   options?: MarkerOptions
   setInstance?: (markerInstance?: MarkerType) => void
+  children?: React.ReactNode
 }
 
 const Marker: React.FC<Props> = ({ latLng, events, options, setInstance }) => {

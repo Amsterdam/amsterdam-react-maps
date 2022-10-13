@@ -37,6 +37,7 @@ const Handle = styled.button.attrs({
 
 type MapPanelDrawerProps = {
   ignoreTransition: boolean
+  children?: React.ReactNode
 }
 
 const MapPanelDrawerStyle = styled.div<MapPanelDrawerProps>`

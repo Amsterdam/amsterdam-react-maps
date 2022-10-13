@@ -16,6 +16,7 @@ interface Props {
   url: string
   options?: GeoJSONOptions
   zoomLevel: ZoomLevel
+  children?: React.ReactNode
 }
 
 const isVisible = (mapInstance: Map, zoomLevel: ZoomLevel) => {
