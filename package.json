@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "start": "npm run start --workspace=stories",
-    "lint": "eslint ./ --ext ts,tsx",
+    "lint": "eslint ./ --ext ts,tsx,mdx",
     "build:clean": "find ./packages -name \"*.d.ts\" -type f -delete && find ./packages -name \"*.tsbuildinfo\" -type f -delete",
     "build": "npm run build:clean && npm run build:ts && npm run build:ts:es",
     "build:storybook": "npm run build --workspace=stories",
