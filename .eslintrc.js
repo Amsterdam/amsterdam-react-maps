@@ -7,7 +7,14 @@ module.exports = {
     'plugin:mdx/recommended',
     'plugin:jest/recommended',
   ],
-  plugins: ['jest', 'prettier', 'mdx', '@typescript-eslint', 'react', 'react-hooks'],
+  plugins: [
+    'jest',
+    'prettier',
+    'mdx',
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+  ],
   env: {
     browser: true,
     node: true,
@@ -24,11 +31,11 @@ module.exports = {
       files: ['*.stories.mdx'],
       rules: {
         'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],
   parserOptions: {
-    project: './tsconfig.eslint.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -52,7 +59,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
   },
   settings: {
-      jest: {
+    jest: {
       version: 27,
     },
     'import/resolver': {
