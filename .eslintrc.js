@@ -4,10 +4,9 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:mdx/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
   ],
-  plugins: ['jest', 'prettier', '@typescript-eslint', 'react', 'react-hooks'],
+  plugins: ['jest', 'prettier', 'typescript', 'react', 'react-hooks'],
   env: {
     browser: true,
     node: true,
@@ -34,6 +33,7 @@ module.exports = {
     },
     sourceType: 'module',
     tsconfigRootDir: __dirname,
+    options: { ecmaVersion: 2015 }
   },
   rules: {
     'no-console': 1,
