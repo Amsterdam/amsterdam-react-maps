@@ -15,7 +15,7 @@ Prefix the change with one of these keywords:
 - Security: in case of vulnerabilities.
 
 ## [1.1.0]
-- Updated: added React 18 supprt 
+- Updated: added React 18 support 
 
 ## [1.0.0]
 - Added: README in `@amsterdam/arm-cluster`
