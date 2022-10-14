@@ -28,6 +28,7 @@ module.exports = {
     },
   ],
   parserOptions: {
+    project: './tsconfig.eslint.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -51,7 +52,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
   },
   settings: {
-    jest: {
+      jest: {
       version: 27,
     },
     'import/resolver': {
