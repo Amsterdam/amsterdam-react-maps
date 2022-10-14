@@ -3,10 +3,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:mdx/recommended',
     'plugin:jest/recommended',
   ],
-  plugins: ['jest', 'prettier', 'typescript', 'react', 'react-hooks'],
+  plugins: ['jest', 'prettier', 'mdx', '@typescript-eslint', 'react', 'react-hooks'],
   env: {
     browser: true,
     node: true,
@@ -23,7 +24,6 @@ module.exports = {
       files: ['*.stories.mdx'],
       rules: {
         'import/prefer-default-export': 'off',
-        'react/jsx-fragments': 'off',
       },
     },
   ],
@@ -33,26 +33,17 @@ module.exports = {
     },
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    options: { ecmaVersion: 2015 }
   },
   rules: {
     'no-console': 1,
     'no-debugger': 1,
     'prettier/prettier': ['error'],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
         vars: 'all',
         args: 'after-used',
         ignoreRestSiblings: false,
-      },
-    ],
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.ts', '.tsx', '.mdx'],
       },
     ],
     semi: [2, 'never'],
