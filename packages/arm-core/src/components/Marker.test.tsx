@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { render } from '@testing-library/react'
 import Map from './Map'
 import Marker from './Marker'

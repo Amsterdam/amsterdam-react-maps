@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { render, fireEvent } from '@testing-library/react'
 import * as MapPanelDrawer from './MapPanelDrawer'
 import MapPanelContext from './MapPanelContext'

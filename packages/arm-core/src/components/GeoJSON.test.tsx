@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { render } from '@testing-library/react'
 import { GeoJSONOptions } from 'leaflet'
 import { GeoJSON as GeoJSONType } from 'geojson'

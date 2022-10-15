@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { render, screen } from '@testing-library/react'
 import Map from './Map'
 
@@ -7,7 +8,6 @@ describe('Map', () => {
   })
 
   it('should render default', () => {
-    //@ts-ignore
     const { container } = render(<Map>map content</Map>)
 
     expect(screen.queryByText('map content')).toBeInTheDocument()
@@ -18,7 +18,6 @@ describe('Map', () => {
   })
 
   it('should render fullScreen', () => {
-    //@ts-ignore
     const { container } = render(<Map fullScreen>map content</Map>)
 
     expect(container.firstChild).toHaveStyleRule('width', '100%')
