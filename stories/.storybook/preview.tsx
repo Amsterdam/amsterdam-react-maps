@@ -26,7 +26,6 @@ const StoryWrapper = styled.div`
 `
 
 function withGlobalStyles(storyFn) {
-  // @ts-nocheck
   return (
     <ThemeProvider>
       <>
