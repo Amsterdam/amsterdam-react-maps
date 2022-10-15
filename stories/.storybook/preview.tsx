@@ -1,15 +1,24 @@
+
 import { GlobalStyle, ThemeProvider } from '@amsterdam/asc-ui'
 import { withA11y } from '@storybook/addon-a11y'
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
 import { addDecorator, addParameters } from '@storybook/react'
 import 'leaflet/dist/leaflet.css'
+import React from 'react'
 import styled from 'styled-components'
 import sortStories from './util/sort-stories'
 
 const SORT_ORDER = {
-  Introduction: ['Welcome', 'Getting Started', 'Contributing'],
-  UI: ['DrawTool', 'ViewerContainer', 'Map Panel', 'BaseLayerToggle'],
-  Other: [],
+  Introduction: ['Welcome', 'Getting Started', 'Contributing', 'Changelog'],
+  UI: [
+    'ViewerContainer',
+    'BaseLayer',
+    'Marker',
+    'Map Panel',
+    'BaseLayerToggle',
+  ],
+
+  Other: ['Layers', 'Click and Search Nearby', 'MarkerClusteringGroup'],
 }
 
 const StoryWrapper = styled.div`
@@ -18,9 +27,11 @@ const StoryWrapper = styled.div`
 `
 
 function withGlobalStyles(storyFn) {
+  // @ts-nocheck
   return (
     <ThemeProvider>
       <>
+        {/* @ts-ignore */}
         <GlobalStyle />
         <StoryWrapper>{storyFn()}</StoryWrapper>
       </>
@@ -29,7 +40,7 @@ function withGlobalStyles(storyFn) {
 }
 
 addDecorator(withGlobalStyles)
-addDecorator(withA11y)
+addDecorator(withA11y as any)
 
 addParameters({
   layout: 'fullscreen',
