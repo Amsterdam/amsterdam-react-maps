@@ -1,12 +1,9 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { useMapInstance } from '@amsterdam/react-maps'
-import { mocked } from 'ts-jest/utils'
 
 import Zoom from './Zoom'
 
 jest.mock('@amsterdam/react-maps')
-
-const mockedUseMapInstance = mocked(useMapInstance)
 
 describe('Zoom', () => {
   let setZoom: jest.Mock
@@ -14,7 +11,7 @@ describe('Zoom', () => {
   beforeEach(() => {
     setZoom = jest.fn()
     // @ts-ignore
-    mockedUseMapInstance.mockImplementation(() => ({
+    useMapInstance.mockImplementation(() => ({
       getZoom: () => 10,
       setZoom,
     }))
@@ -25,6 +22,7 @@ describe('Zoom', () => {
   })
 
   it('should render correctly', () => {
+    //@ts-ignore
     render(<Zoom />)
 
     expect(screen.queryByTestId('zoom')).toBeInTheDocument()
@@ -33,6 +31,7 @@ describe('Zoom', () => {
   })
 
   it('should handle click zoomIn', () => {
+    //@ts-ignore
     render(<Zoom />)
 
     fireEvent.click(screen.getByTestId('zoomIn'))
@@ -41,6 +40,7 @@ describe('Zoom', () => {
   })
 
   it('should handle click zoomOut', () => {
+    //@ts-ignore
     render(<Zoom />)
 
     fireEvent.click(screen.getByTestId('zoomOut'))
