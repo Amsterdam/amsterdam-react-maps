@@ -4,6 +4,7 @@
     "noLib": false,
     "module": "commonjs",
     "target": "es5",
+    "baseUrl": "src",
     "composite": true,
     "sourceMap": true,
     "allowJs": false,
