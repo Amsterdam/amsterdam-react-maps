@@ -17,7 +17,6 @@ const SORT_ORDER = {
     'Map Panel',
     'BaseLayerToggle',
   ],
-
   Other: ['Layers', 'Click and Search Nearby', 'MarkerClusteringGroup'],
 }
 
