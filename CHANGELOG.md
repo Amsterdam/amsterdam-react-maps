@@ -14,8 +14,8 @@ Prefix the change with one of these keywords:
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities.
 
-## [Unreleased]
-- Fixed: MapPanel story
+## [1.1.0]
+- Updated: added React 18 support 
 
 ## [1.0.0]
 - Added: README in `@amsterdam/arm-cluster`

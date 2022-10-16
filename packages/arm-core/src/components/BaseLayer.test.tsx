@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { render } from '@testing-library/react'
 import Map from './Map'
 import BaseLayer from './BaseLayer'
@@ -10,6 +11,7 @@ describe('BaseLayer', () => {
   it('should render correctly', () => {
     const { container } = render(
       <Map>
+        {/* @ts-ignore */}
         <BaseLayer baseLayer="https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png" />
       </Map>,
     )

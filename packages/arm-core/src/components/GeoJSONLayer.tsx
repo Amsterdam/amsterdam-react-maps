@@ -7,6 +7,7 @@ import fetchWithAbort from '../utils/fetchWithAbort'
 type Props = {
   url: string
   options?: GeoJSONOptions
+  children?: React.ReactNode
 }
 
 /**

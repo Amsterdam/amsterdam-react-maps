@@ -8,6 +8,7 @@ type Props = {
   currentOverlay: Overlay
   setCurrentOverlay: (overlay: Overlay) => void
   showDesktopVariant: boolean
+  children?: React.ReactNode
 }
 
 const MapPanelLegendButton: React.FC<Props> = ({

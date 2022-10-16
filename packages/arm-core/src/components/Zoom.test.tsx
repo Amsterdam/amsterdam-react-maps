@@ -1,20 +1,17 @@
+// @ts-nocheck
 import { render, fireEvent, screen } from '@testing-library/react'
 import { useMapInstance } from '@amsterdam/react-maps'
-import { mocked } from 'ts-jest/utils'
 
 import Zoom from './Zoom'
 
 jest.mock('@amsterdam/react-maps')
-
-const mockedUseMapInstance = mocked(useMapInstance)
 
 describe('Zoom', () => {
   let setZoom: jest.Mock
 
   beforeEach(() => {
     setZoom = jest.fn()
-    // @ts-ignore
-    mockedUseMapInstance.mockImplementation(() => ({
+    useMapInstance.mockImplementation(() => ({
       getZoom: () => 10,
       setZoom,
     }))

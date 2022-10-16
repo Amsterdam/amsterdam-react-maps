@@ -37,7 +37,7 @@
     "@amsterdam/arm-core": "latest"
   },
   "peerDependencies": {
-    "@amsterdam/react-maps": "^1.0.0",
+    "@amsterdam/react-maps": "^1.1.0",
     "leaflet": ">=1.6.0",
     "leaflet.nontiledlayer": "^1.0.9",
     "react": ">=17.0.1",

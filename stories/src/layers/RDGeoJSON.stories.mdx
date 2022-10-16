@@ -1,0 +1,67 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, number, color, text } from '@storybook/addon-knobs'
+import { Map, BaseLayer, RDGeoJSON, constants } from '@amsterdam/arm-core'
+import RDGeoJSONStub from '../stubs/rdGeoJSON.json'
+import { DomEvent } from 'leaflet'
+
+<Meta title="Layers/RDGeoJSON" decorators={[withKnobs]} />
+
+# RDGeoJSON
+
+<Preview>
+  <Story name="GeoJSON (RD)">
+    <Map fullScreen>
+      <RDGeoJSON
+        geometry={RDGeoJSONStub}
+        options={{
+          onEachFeature: (feature, layer) => {
+            const popupContent = text(
+              'Layer popup text (set in onEachFeature)',
+              'Hello!',
+              'Other options',
+            )
+            layer.bindPopup(popupContent)
+          },
+          style: {
+            color: color('fillColor', '#ff0000', 'Style'),
+            fillColor: color('fillColor', '#ff00ff', 'Style'),
+            weight: number(
+              'weight',
+              2,
+              {
+                range: true,
+                min: 0,
+                max: 10,
+                step: 1,
+              },
+              'Style',
+            ),
+            opacity: number(
+              'opacity',
+              0.6,
+              {
+                range: true,
+                min: 0,
+                max: 1,
+                step: 0.1,
+              },
+              'Style',
+            ),
+            fillOpacity: number(
+              'opacity',
+              0.2,
+              {
+                range: true,
+                min: 0,
+                max: 1,
+                step: 0.1,
+              },
+              'Style',
+            ),
+          },
+        }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

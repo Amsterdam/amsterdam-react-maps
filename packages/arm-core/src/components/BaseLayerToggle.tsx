@@ -45,6 +45,7 @@ const BASE_LAYER_STYLE = {
 
 type ToggleButtonProps = {
   layerType: BaseLayerType
+  children?: React.ReactNode
 }
 
 const Wrapper = styled.div`

@@ -58,6 +58,7 @@ type MarkerClusterGroupProps = {
   optionsOverrides?: MarkerClusterGroupOptions
   events?: LeafletEventHandlerFnMap
   setInstance?: (clusterLayer: L.MarkerClusterGroup | undefined) => void
+  children?: React.ReactNode
 }
 
 const MarkerClusterGroup: React.FC<MarkerClusterGroupProps> = ({

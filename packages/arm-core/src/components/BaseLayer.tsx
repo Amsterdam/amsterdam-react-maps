@@ -6,6 +6,7 @@ import { DEFAULT_AMSTERDAM_LAYERS } from '../constants'
 type Props = {
   baseLayer?: string
   options?: TileLayerOptions
+  children?: React.ReactNode
 }
 
 const BaseLayer: React.FC<Props> = ({

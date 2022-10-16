@@ -1,6 +1,8 @@
-const maxAssetSize = 1024 * 1024 * 20;
+import type { StorybookConfig } from '@storybook/core-common'
 
-module.exports = {
+const maxAssetSize = 1024 * 1024 * 20
+
+const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(tsx|mdx)'],
   addons: [
     '@storybook/addon-links',
@@ -10,14 +12,16 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-viewport',
   ],
+  framework: '@storybook/react',
   webpackFinal: async (config, { configType }) => {
-
     config.performance = {
       hints: false,
-      maxAssetSize: maxAssetSize
+      maxAssetSize: maxAssetSize,
     }
- 
+
     // Return the altered config
-    return config;
+    return config
   },
 }
+
+module.exports = config

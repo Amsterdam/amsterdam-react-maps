@@ -21,6 +21,7 @@ export interface RDGeoJSONProps {
   geometry: Geometry
   properties?: GeoJsonProperties
   options?: GeoJSONOptions
+  children?: React.ReactNode
 }
 
 const RDGeoJSON: FunctionComponent<RDGeoJSONProps> = ({

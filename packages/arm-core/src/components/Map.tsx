@@ -8,6 +8,7 @@ import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from '../constants'
 
 export interface MapProps extends ReactMapProps {
   fullScreen?: boolean
+  children?: React.ReactNode
 }
 
 const Map = styled<FunctionComponent<MapProps>>(

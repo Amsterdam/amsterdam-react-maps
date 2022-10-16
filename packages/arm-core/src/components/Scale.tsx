@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 
 type Props = {
   options?: Control.ScaleOptions
+  children?: React.ReactNode
 }
 
 // Todo: Move this to react-maps

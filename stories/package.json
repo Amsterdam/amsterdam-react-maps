@@ -16,26 +16,26 @@
     "build": "build-storybook -c .storybook -o lib"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.2.9",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-docs": "^6.2.9",
-    "@storybook/addon-knobs": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addon-viewport": "^6.2.9",
-    "@storybook/react": "^6.2.9",
+    "@storybook/addon-a11y": "^6.5.12",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-docs": "^6.5.12",
+    "@storybook/addon-knobs": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-viewport": "^6.5.12",
+    "@storybook/react": "^6.5.12",
     "babel-plugin-styled-components": "^2.0.2",
-    "eslint-plugin-mdx": "^2.0.0"
+    "eslint-plugin-mdx": "^2.0.5"
   },
   "dependencies": {
     "@amsterdam/arm-cluster": "^1.0.0",
     "@amsterdam/arm-core": "^1.0.0",
     "@amsterdam/arm-nontiled": "^1.0.0",
     "@amsterdam/asc-assets": "^0.37.0",
-    "@amsterdam/asc-ui": "^0.36.0",
-    "@amsterdam/react-maps": "^1.0.0",
-    "leaflet": "^1.8.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@amsterdam/asc-ui": "^0.37.0",
+    "@amsterdam/react-maps": "^1.1.0",
+    "leaflet": "^1.9.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "styled-components": "^5.1.1"
   }
 }

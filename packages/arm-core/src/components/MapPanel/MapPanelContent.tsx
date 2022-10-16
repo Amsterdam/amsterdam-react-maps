@@ -22,6 +22,7 @@ export interface MapPanelContentProps {
   stackOrder?: number
   variant?: Variant
   animate?: boolean
+  children?: React.ReactNode
 }
 
 const Header = styled.header`
