@@ -1,0 +1,27 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, number, color, text } from '@storybook/addon-knobs'
+import { Map, BaseLayer, constants } from '@amsterdam/arm-core'
+import { NonTiledLayer } from '@amsterdam/arm-nontiled'
+import RDGeoJSONStub from '../stubs/rdGeoJSON.json'
+import { DomEvent } from 'leaflet'
+
+<Meta title="Layers/NonTiled WMS Layer" decorators={[withKnobs]} />
+
+# NonTiled (WMS)
+
+<Preview>
+  <Story name="NonTiled WMS Layer">
+    <Map fullScreen>
+      <NonTiledLayer
+        url="https://map.data.amsterdam.nl/maps/aardgasvrij?service=WMS&request=GetMap&version=1.1.1&layers=buurten%2Cbuurtinitiatieven%2Cbuurten_kookgas"
+        options={{
+          identify: false,
+          format: 'image/png',
+          transparent: true,
+          layers: ['buurten', 'buurtinitiatieven', 'buurten_kookgas'],
+        }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

@@ -1,0 +1,38 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs } from '@storybook/addon-knobs'
+import { Map, BaseLayer, WfsLayer, constants } from '@amsterdam/arm-core'
+import { DomEvent } from 'leaflet'
+
+<Meta title="Layers/WFS" decorators={[withKnobs]} />
+
+# WFS
+
+<Preview>
+  <Story name="WFS">
+    <Map
+      fullScreen
+      options={{
+        ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+        zoom: 13,
+        center: [52.3711013, 4.8893335],
+      }}
+    >
+      <WfsLayer
+        url="https://map.data.amsterdam.nl/maps/bag?REQUEST=Getfeature&VERSION=1.1.0&SERVICE=wfs&TYPENAME=ms:pand&srsName=EPSG:4326&outputformat=geojson"
+        options={{
+          onEachFeature: (feature, layer) => {
+            layer.bindPopup(
+              `<p>Id: ${feature.properties.id}</p><p>Display: ${feature.properties.display}</p>`,
+            )
+            layer.on('click', (e) => {
+              DomEvent.stopPropagation(e)
+              layer.openPopup()
+            })
+          },
+        }}
+        zoomLevel={{ max: 13 }}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Preview>

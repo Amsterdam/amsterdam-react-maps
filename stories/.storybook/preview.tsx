@@ -1,4 +1,3 @@
-
 import { GlobalStyle, ThemeProvider } from '@amsterdam/asc-ui'
 import { withA11y } from '@storybook/addon-a11y'
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
@@ -17,7 +16,8 @@ const SORT_ORDER = {
     'Map Panel',
     'BaseLayerToggle',
   ],
-  Other: ['Layers', 'Click and Search Nearby', 'MarkerClusteringGroup'],
+  Layers: ['GeoJSON', 'NonTiled WMS Layer', 'RDGeoJSON', 'WFS'],
+  Other: ['Click and Search Nearby', 'MarkerClusteringGroup'],
 }
 
 const StoryWrapper = styled.div`
