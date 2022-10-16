@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@amsterdam/asc-ui": ">=0.28.0",
-    "@amsterdam/react-maps": "^1.0.1",
+    "@amsterdam/react-maps": "^1.1.0",
     "leaflet": ">=1.6.0",
     "leaflet.markercluster": "^1.5.3",
     "react": ">=17.0.1",

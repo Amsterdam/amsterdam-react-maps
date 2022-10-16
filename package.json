@@ -22,13 +22,13 @@
     "leaflet": "^1.9.2",
     "leaflet.markercluster": "^1.5.3",
     "leaflet.nontiledlayer": "^1.0.9",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.37.0",
     "@amsterdam/asc-ui": "^0.37.0",
-    "@amsterdam/react-maps": "^1.0.0",
+    "@amsterdam/react-maps": "^1.1.0",
     "@babel/core": "^7.10.2",
     "@babel/helper-get-function-arity": "^7.16.7",
     "@babel/preset-env": "^7.10.2",
@@ -36,8 +36,7 @@
     "@babel/preset-typescript": "^7.10.1",
     "@svgr/webpack": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.2",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/react-hooks": "^8.0.0",
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^27.0.0",
     "@types/leaflet": "^1.5.12",
     "@types/leaflet-draw": "^1.0.2",
