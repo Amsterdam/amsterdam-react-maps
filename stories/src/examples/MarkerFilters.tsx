@@ -55,6 +55,7 @@ function createDatasetMarkers(datasetId: string, coordinates: LatLngTuple[]) {
 interface MarkerFiltersProps {
   markersSource: L.LatLngTuple[]
   clusterComponent: (markers: L.Marker[]) => ReactNode
+  children?: React.ReactNode
 }
 
 const MarkerFilters: FunctionComponent<MarkerFiltersProps> = ({
