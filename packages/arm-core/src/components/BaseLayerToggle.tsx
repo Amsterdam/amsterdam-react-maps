@@ -117,6 +117,7 @@ type Props = {
   topoDefaultIndex?: number
   activeLayer?: BaseLayerType
   options?: TileLayerOptions
+  children?: React.ReactNode
 }
 
 const BaseLayerToggle: React.FC<Props> = ({

@@ -43,7 +43,7 @@ const StyledViewerContainer = styled(
   style: {
     height: viewerHeight,
     left: leftOffset,
-    width: `calc(100% - ${leftOffset})`
+    width: `calc(100% - ${leftOffset})`,
   },
 }))<StyledViewerContainerProps>`
   z-index: 400;
@@ -58,6 +58,7 @@ type Props = {
   currentOverlay: Overlay
   setCurrentOverlay: (overlay: Overlay) => void
   showDesktopVariant: boolean
+  children?: React.ReactNode
 }
 
 const ViewerContainerWithMapDrawerOffset: React.FC<Props> = ({
@@ -116,6 +117,7 @@ const GlobalStyle = createGlobalStyle`
 const CustomMarker: React.FC<{
   setCurrentLatLng: (latLng: LatLng | null) => void
   currentLatLng: LatLng | null
+  children?: React.ReactNode
 }> = ({ setCurrentLatLng, currentLatLng }) => {
   const {
     drawerPosition,
@@ -221,6 +223,7 @@ type ResultProps = {
   setCurrentLatLng: (latLng: LatLng | null) => void
   currentOverlay: Overlay
   currentLatLng: LatLng | null
+  children?: React.ReactNode
 }
 
 const Results: React.FC<ResultProps> = ({
@@ -266,6 +269,7 @@ const Results: React.FC<ResultProps> = ({
 interface MapPanelExampleProps {
   panelTitle?: string
   panelSubTitle?: string
+  children?: React.ReactNode
 }
 
 const MapPanelExample: React.FC<MapPanelExampleProps> = ({
