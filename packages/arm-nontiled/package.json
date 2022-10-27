@@ -34,7 +34,7 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@amsterdam/arm-core": "latest",
+    "@amsterdam/arm-core": "^1.0.0",
     "@amsterdam/react-maps": "^1.0.0"
   },
   "peerDependencies": {
