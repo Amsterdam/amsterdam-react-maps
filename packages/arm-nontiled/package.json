@@ -34,15 +34,15 @@
   "sideEffects": false,
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@amsterdam/arm-core": "latest"
+    "@amsterdam/arm-core": "^1.0.0",
+    "@amsterdam/react-maps": "^1.0.0"
   },
   "peerDependencies": {
-    "@amsterdam/react-maps": "^1.0.0",
-    "leaflet": ">=1.6.0",
+    "leaflet": "^1.9.0",
     "leaflet.nontiledlayer": "^1.0.9",
-    "react": ">=17.0.1",
-    "react-dom": ">=17.0.1",
-    "styled-components": ">=4.4.1"
+    "react": "^17.0.1 || ^18.2.0",
+    "react-dom": "^17.0.1 || ^18.2.0",
+    "styled-components": "^5.3.5"
   },
   "publishConfig": {
     "access": "public"

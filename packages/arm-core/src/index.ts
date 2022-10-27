@@ -5,6 +5,14 @@ import {
   useMapInstance,
   useMapEvents,
   useEvents,
+  TileLayer,
+  LayerGroup,
+  ImageOverlay,
+  ToolTip,
+  Popup,
+  Rectangle,
+  Circle,
+  CircleMarker,
 } from '@amsterdam/react-maps'
 
 const AMSTERDAM_MAPS_OPTIONS = constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS
@@ -35,7 +43,20 @@ export { default as useGetAddressFromLatLng } from './utils/useGetAddressFromLat
 export { default as usePanToLatLng } from './utils/usePanToLatLng'
 export { default as useStateRef } from './utils/useStateRef'
 export { constants, icons }
-export { GeoJSON, useMapInstance, useMapEvents, useEvents }
+export {
+  GeoJSON,
+  useMapInstance,
+  useMapEvents,
+  useEvents,
+  TileLayer,
+  LayerGroup,
+  ImageOverlay,
+  ToolTip,
+  Popup,
+  Rectangle,
+  Circle,
+  CircleMarker,
+}
 
 export {
   AMSTERDAM_MAPS_OPTIONS,
