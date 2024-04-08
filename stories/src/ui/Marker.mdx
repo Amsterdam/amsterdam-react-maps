@@ -1,0 +1,13 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Map, BaseLayer, Marker } from '@amsterdam/arm-core'
+import * as MarkerStories from './Marker.stories';
+
+<Meta of={MarkerStories} />
+
+# Marker
+
+## Default
+
+<Canvas>
+  <Story of={MarkerStories.Default} />
+</Canvas>

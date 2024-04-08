@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import {
+  Map,
+  ViewerContainer,
+  BaseLayerToggle,
+  constants,
+} from '@amsterdam/arm-core'
+import * as BaseLayerToggleStories from './BaseLayerToggle.stories';
+
+<Meta of={BaseLayerToggleStories} />
+
+# BaseLayerToggle component
+
+## Default
+
+<Canvas>
+  <Story of={BaseLayerToggleStories.Default} />
+</Canvas>
+
+## Dual layer toggle
+
+<Canvas>
+  <Story of={BaseLayerToggleStories.DualLayerToggle} />
+</Canvas>

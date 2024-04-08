@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { Map } from '@amsterdam/arm-core'
+import MapPanelExample from '../examples/MapPanelExample'
+import * as MapPanelStories from './MapPanel.stories';
+
+<Meta of={MapPanelStories} />
+
+# MapPanel
+
+This component could be used to show results of actions that where performed on the Map.
+
+## Desktop
+
+<Canvas>
+  <Story of={MapPanelStories.Default} />
+</Canvas>
+
+## Mobile
+
+<Canvas>
+  <Story of={MapPanelStories.Mobile} />
+</Canvas>
+
+## Without header
+
+<Canvas>
+  <Story of={MapPanelStories.WithoutHeader} />
+</Canvas>

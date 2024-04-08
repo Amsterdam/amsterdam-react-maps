@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Map, BaseLayer } from '@amsterdam/arm-core'
+import { DEFAULT_AMSTERDAM_LAYERS } from '../../../packages/arm-core/src/constants'
+import * as BaseLayerStories from './BaseLayer.stories';
+
+<Meta of={BaseLayerStories} />
+
+# BaseLayer
+
+## Default
+
+<Canvas>
+  <Story of={BaseLayerStories.Default} />
+</Canvas>
+
+## Black and white
+
+<Canvas>
+  <Story of={BaseLayerStories.Normal} />
+</Canvas>
+
+## Light
+
+<Canvas>
+  <Story of={BaseLayerStories.Light} />
+</Canvas>
+
+## Black and white
+
+<Canvas>
+  <Story of={BaseLayerStories.BlackAndWhite} />
+</Canvas>

@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Map, ViewerContainer, BaseLayer } from '@amsterdam/arm-core'
+import PointClickResults from '../examples/PointClickResults'
+import * as ClickAndSearchNearbyStories from './ClickAndSearchNearby.stories';
+
+<Meta of={ClickAndSearchNearbyStories} />
+
+# Click and Search Nearby
+
+Click on the map and see what happens
+
+## Default
+
+<Canvas>
+  <Story of={ClickAndSearchNearbyStories.Default} />
+</Canvas>

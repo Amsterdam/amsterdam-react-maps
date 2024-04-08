@@ -27,7 +27,8 @@
       "transform": "typescript-plugin-styled-components",
       "type": "config",
       "pure": true
-    }]
+    }],
+    "resolveJsonModule": true
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],

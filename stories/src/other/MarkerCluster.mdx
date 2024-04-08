@@ -1,5 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
-import { withKnobs, boolean, number } from '@storybook/addon-knobs'
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { Map, ViewerContainer, Zoom, BaseLayer } from '@amsterdam/arm-core'
 import {
   MarkerClusterGroup,
@@ -11,7 +10,6 @@ import markers from '../stubs/markers.json'
 <Meta
   title="Other/MarkerClusteringGroup"
   component={MarkerClusterGroup}
-  decorators={[withKnobs]}
 />
 
 # MarkerClusteringGroup
@@ -23,7 +21,7 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
 
 ## Default
 
-<Preview>
+<Canvas>
   <Story name="Default">
     <Map fullScreen>
       <ViewerContainer bottomRight={<Zoom />} />
@@ -42,43 +40,11 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
       <BaseLayer />
     </Map>
   </Story>
-</Preview>
-
-## With Knobs (play with options under "Knobs" tab in Canvas mode)
-
-<Preview>
-  <Story name="With Knobs (play with options)">
-    <Map fullScreen>
-      <ViewerContainer bottomRight={<Zoom />} />
-      <MarkerClusterGroup
-        optionsOverrides={{
-          spiderfyOnMaxZoom: boolean('spiderfyOnMaxZoom', false),
-          showCoverageOnHover: boolean('showCoverageOnHover', false),
-          zoomToBoundsOnClick: boolean('zoomToBoundsOnClick', true),
-          maxClusterRadius: number('maxClusterRadius', 50, {
-            range: true,
-            min: 0,
-            max: 100,
-            step: 1,
-          }),
-          chunkedLoading: boolean('chunkedLoading', true),
-          disableClusteringAtZoom: number('disableClusteringAtZoom', 16, {
-            range: true,
-            min: 1,
-            max: 20,
-            step: 1,
-          }),
-        }}
-        markers={createClusterMarkers({ markers })}
-      />
-      <BaseLayer />
-    </Map>
-  </Story>
-</Preview>
+</Canvas>
 
 ## With marker filtering and custom markers
 
-<Preview>
+<Canvas>
   <Story name="With marker filtering and custom markers">
     <Map fullScreen>
       <ViewerContainer
@@ -95,4 +61,4 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
       <BaseLayer />
     </Map>
   </Story>
-</Preview>
+</Canvas>

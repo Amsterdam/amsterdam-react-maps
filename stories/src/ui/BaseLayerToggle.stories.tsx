@@ -1,4 +1,3 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import {
   Map,
   ViewerContainer,
@@ -6,24 +5,23 @@ import {
   constants,
 } from '@amsterdam/arm-core'
 
-<Meta title="UI/BaseLayerToggle" component={BaseLayerToggle} />
+export default {
+  title: 'UI/BaseLayerToggle',
+  component: BaseLayerToggle,
+}
 
-# BaseLayerToggle component
-
-## Default
-
-<Preview>
-  <Story name="Default">
+export const Default = {
+  render: () => (
     <Map fullScreen>
       <ViewerContainer bottomLeft={<BaseLayerToggle />} />
     </Map>
-  </Story>
-</Preview>
+  ),
 
-## Dual layer toggle
+  name: 'Default',
+}
 
-<Preview>
-  <Story name="Dual layer toggle">
+export const DualLayerToggle = {
+  render: () => (
     <Map fullScreen>
       <ViewerContainer
         bottomLeft={
@@ -34,5 +32,7 @@ import {
         }
       />
     </Map>
-  </Story>
-</Preview>
+  ),
+
+  name: 'Dual layer toggle',
+}

@@ -28,17 +28,17 @@ function withGlobalStyles(storyFn) {
   )
 }
 
-addDecorator(withGlobalStyles)
-addDecorator(withA11y)
+// addDecorator(withGlobalStyles)
+// addDecorator(withA11y)
 
-addParameters({
-  layout: 'fullscreen',
-  options: {
-    storySort: sortStories(SORT_ORDER),
-    showRoots: true,
-  },
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
-})
+// addParameters({
+//   layout: 'fullscreen',
+//   options: {
+//     storySort: sortStories(SORT_ORDER),
+//     showRoots: true,
+//   },
+//   docs: {
+//     container: DocsContainer,
+//     page: DocsPage,
+//   },
+// })

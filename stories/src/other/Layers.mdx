@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import {
+  Map,
+  BaseLayer,
+  WfsLayer,
+  RDGeoJSON,
+  constants,
+} from '@amsterdam/arm-core'
+import { DomEvent } from 'leaflet'
+import { NonTiledLayer } from '@amsterdam/arm-nontiled'
+import { GeoJSON } from '@amsterdam/react-maps'
+import geoJSONStub from '../stubs/geoJSON.json'
+import RDGeoJSONStub from '../stubs/rdGeoJSON.json'
+import * as LayersStories from './Layers.stories';
+
+<Meta of={LayersStories} />
+
+# Layers
+
+## WFS
+
+<Canvas>
+  <Story of={LayersStories.Wfs} />
+</Canvas>
+
+## RDGeoJSON
+
+<Canvas>
+  <Story of={LayersStories.GeoJsonRd} />
+</Canvas>
+
+## NonTiled (WMS)
+
+<Canvas>
+  <Story of={LayersStories.NonTiled} />
+</Canvas>
+
+## GeoJSON
+
+<Canvas>
+  <Story of={LayersStories.GeoJson} />
+</Canvas>

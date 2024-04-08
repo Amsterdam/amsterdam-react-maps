@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Button, SearchBar } from '@amsterdam/asc-ui'
+import { Map, BaseLayer, Zoom, ViewerContainer } from '@amsterdam/arm-core'
+import * as ViewContainerStories from './ViewContainer.stories';
+
+<Meta of={ViewContainerStories} />
+
+# ViewerContainer
+
+The ViewerContainer is a overlay on top of the map with 4 containers in each corner that can contain any type of component.
+
+## Default
+
+<Canvas>
+  <Story of={ViewContainerStories.Default} />
+</Canvas>
