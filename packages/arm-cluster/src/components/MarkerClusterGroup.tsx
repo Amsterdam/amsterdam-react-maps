@@ -1,3 +1,4 @@
+// @ts-ignore
 import { icons } from '@amsterdam/arm-core'
 import { themeColor } from '@amsterdam/asc-ui'
 import { useMapInstance } from '@amsterdam/react-maps'
@@ -23,7 +24,7 @@ const Styles = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     cursor: zoom-in;
-    
+
     .arm__icon-text {
       text-align:center;
     }

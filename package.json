@@ -19,11 +19,11 @@
     "publish:stable": "npm run build && lerna publish"
   },
   "dependencies": {
-    "leaflet": "^1.6.0",
+    "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
     "leaflet.nontiledlayer": "^1.0.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.38.0",
@@ -44,8 +44,8 @@
     "@types/node": "^18.0.0",
     "@types/proj4": "^2.5.0",
     "@types/proj4leaflet": "^1.0.5",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.4",
     "@types/uuid": "^9.0.0",

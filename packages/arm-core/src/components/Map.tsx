@@ -2,12 +2,13 @@ import {
   Map as ReactMap,
   MapProps as ReactMapProps,
 } from '@amsterdam/react-maps'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from '../constants'
 
 export interface MapProps extends ReactMapProps {
   fullScreen?: boolean
+  children?: ReactNode
 }
 
 const Map = styled<FunctionComponent<MapProps>>(

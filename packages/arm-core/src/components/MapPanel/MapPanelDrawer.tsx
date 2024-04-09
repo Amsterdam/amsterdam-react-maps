@@ -1,5 +1,5 @@
 import { themeColor } from '@amsterdam/asc-ui'
-import { RefObject, useContext, useRef, useState } from 'react'
+import { ReactNode, RefObject, useContext, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import {
   OPEN_LEGEND_TITLE,
@@ -73,7 +73,10 @@ export const getBoundingClientRect = (
   ref: RefObject<HTMLDivElement>,
 ): DOMRect | null => ref?.current?.getBoundingClientRect() ?? null
 
-const MapPanelDrawer: React.FC = ({ children, ...otherProps }) => {
+const MapPanelDrawer: React.FC<{ children?: ReactNode }> = ({
+  children,
+  ...otherProps
+}) => {
   const [initialDragPosition, setInitialDragPosition] = useState(0)
 
   const {

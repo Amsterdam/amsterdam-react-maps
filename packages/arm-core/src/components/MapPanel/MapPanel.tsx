@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from '@amsterdam/asc-assets'
 import { Button, themeColor } from '@amsterdam/asc-ui'
-import { useContext } from 'react'
+import { ReactNode, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { OPEN_LEGEND_TITLE, SnapPoint } from './constants'
 import MapPanelContext from './MapPanelContext'
@@ -39,7 +39,10 @@ const MapPanelContent = styled.div`
   height: 100%;
 `
 
-const MapPanel: React.FC = ({ children, ...otherProps }) => {
+const MapPanel: React.FC<{ children?: ReactNode }> = ({
+  children,
+  ...otherProps
+}) => {
   const {
     drawerPosition,
     setPositionFromSnapPoint,

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import MapPanelContext, { Variant } from './MapPanelContext'
 import {
   MAP_PANEL_DRAWER_SNAP_POSITIONS,
@@ -10,6 +10,7 @@ import {
 type Props = {
   initialPosition: SnapPoint
   variant: Variant
+  children?: ReactNode
   mapPanelSnapPositions?: PositionPerSnapPoint
   mapPanelDrawerSnapPositions?: PositionPerSnapPoint
   topOffset?: number
