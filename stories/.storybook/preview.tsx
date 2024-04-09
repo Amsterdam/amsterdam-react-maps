@@ -1,7 +1,7 @@
+import React from 'react'
 import { GlobalStyle, ThemeProvider } from '@amsterdam/asc-ui'
-import { withA11y } from '@storybook/addon-a11y'
-import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks'
-import { addDecorator, addParameters } from '@storybook/react'
+import { DocsContainer, DocsPage } from '@storybook/addon-docs'
+import { Preview } from '@storybook/react'
 import 'leaflet/dist/leaflet.css'
 import styled from 'styled-components'
 import sortStories from './util/sort-stories'
@@ -17,28 +17,32 @@ const StoryWrapper = styled.div`
   position: relative;
 `
 
-function withGlobalStyles(storyFn) {
-  return (
-    <ThemeProvider>
-      <>
-        <GlobalStyle />
-        <StoryWrapper>{storyFn()}</StoryWrapper>
-      </>
-    </ThemeProvider>
-  )
+
+const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <>
+          <GlobalStyle />
+          <StoryWrapper>
+            <Story />
+          </StoryWrapper>
+        </>
+      </ThemeProvider>
+    )
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    // options: {
+      // TODO fix
+      // storySort: sortStories(SORT_ORDER),
+      // showRoots: true,
+    // },
+    // docs: {
+    //   container: DocsContainer,
+    //   page: DocsPage,
+    // },
+  }
 }
 
-// addDecorator(withGlobalStyles)
-// addDecorator(withA11y)
-
-// addParameters({
-//   layout: 'fullscreen',
-//   options: {
-//     storySort: sortStories(SORT_ORDER),
-//     showRoots: true,
-//   },
-//   docs: {
-//     container: DocsContainer,
-//     page: DocsPage,
-//   },
-// })
+export default preview

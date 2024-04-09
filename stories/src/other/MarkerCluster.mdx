@@ -6,10 +6,11 @@ import {
 } from '@amsterdam/arm-cluster'
 import MarkerFilters from '../examples/MarkerFilters'
 import markers from '../stubs/markers.json'
+import * as MarkerClusterStories from './MarkerCluster.stories';
 
 <Meta
   title="Other/MarkerClusteringGroup"
-  component={MarkerClusterGroup}
+  of={MarkerClusterStories}
 />
 
 # MarkerClusteringGroup
@@ -36,6 +37,28 @@ For more info and available options, check out (https://github.com/Leaflet/Leafl
             },
           },
         })}
+      />
+      <BaseLayer />
+    </Map>
+  </Story>
+</Canvas>
+
+## With Knobs (play with options under "Knobs" tab in Canvas mode)
+
+<Canvas>
+  <Story name="With Knobs (play with options)">
+    <Map fullScreen>
+      <ViewerContainer bottomRight={<Zoom />} />
+      <MarkerClusterGroup
+        optionsOverrides={{
+          spiderfyOnMaxZoom: false,
+          showCoverageOnHover: false,
+          zoomToBoundsOnClick: true,
+          maxClusterRadius: 50,
+          chunkedLoading: true,
+          disableClusteringAtZoom: 16,
+        }}
+        markers={createClusterMarkers({ markers })}
       />
       <BaseLayer />
     </Map>
