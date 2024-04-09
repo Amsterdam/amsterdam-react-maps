@@ -29,12 +29,8 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '/es/', '/lib/', '/stories/'],
   testEnvironment: 'jsdom',
   transform: {
-    '\\.(ts|tsx)$': 'ts-jest',
-  },
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
+    '\\.(ts|tsx)$': ['ts-jest', { tsconfig: 'tsconfig.json' }],
   },
   testRegex: ['/__tests__/.*\\.(ts|tsx|js)$', '/*.test\\.(ts|tsx|js)$'],
+  preset: 'ts-jest',
 }

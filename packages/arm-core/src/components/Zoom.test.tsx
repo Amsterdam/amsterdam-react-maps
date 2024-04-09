@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { useMapInstance } from '@amsterdam/react-maps'
-import { mocked } from 'ts-jest/utils'
+import { mocked } from 'jest-mock'
 
 import Zoom from './Zoom'
 

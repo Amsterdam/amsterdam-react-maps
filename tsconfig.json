@@ -28,7 +28,8 @@
       "type": "config",
       "pure": true
     }],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["@testing-library/jest-dom"]
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
