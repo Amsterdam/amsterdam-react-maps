@@ -28,7 +28,6 @@
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.38.0",
     "@amsterdam/asc-ui": "^0.28.0",
-    "@amsterdam/react-maps": "^1.0.0",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
@@ -41,7 +40,7 @@
     "@types/leaflet": "^1.5.12",
     "@types/leaflet-draw": "^1.0.2",
     "@types/leaflet.markercluster": "^1.4.2",
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.12.7",
     "@types/proj4": "^2.5.0",
     "@types/proj4leaflet": "^1.0.5",
     "@types/react": "^18.2.75",

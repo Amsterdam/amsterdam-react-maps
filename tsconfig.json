@@ -29,9 +29,9 @@
       "pure": true
     }],
     "resolveJsonModule": true,
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom"],
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
-  "include": ["stories"]
+  "include": ["./stories/**/*"]
 }
