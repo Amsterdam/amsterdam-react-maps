@@ -30,6 +30,7 @@
     }],
     "resolveJsonModule": true,
     "types": ["@testing-library/jest-dom"],
+    "typeRoots": ["node_modules/@types"]
   },
   "files": ["types.d.ts"],
   "exclude": ["node_modules", "lib"],
