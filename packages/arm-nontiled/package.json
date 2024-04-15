@@ -12,7 +12,6 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "1.0.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -40,8 +39,8 @@
     "@amsterdam/react-maps": "^1.0.0",
     "leaflet": ">=1.6.0",
     "leaflet.nontiledlayer": "^1.0.9",
-    "react": ">=17.0.1",
-    "react-dom": ">=17.0.1",
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0",
     "styled-components": ">=4.4.1"
   },
   "publishConfig": {

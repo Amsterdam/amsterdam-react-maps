@@ -12,7 +12,6 @@
   "bugs": {
     "url": "https://github.com/Amsterdam/amsterdam-react-maps/issues"
   },
-  "version": "1.0.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -37,7 +36,7 @@
     "@amsterdam/arm-core": "latest"
   },
   "peerDependencies": {
-    "@amsterdam/asc-ui": ">=0.28.0",
+    "@amsterdam/asc-ui": ">=0.38.0",
     "@amsterdam/react-maps": "^1.0.0",
     "leaflet": ">=1.8.0",
     "leaflet.markercluster": "^1.5.3",
