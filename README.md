@@ -1,3 +1,5 @@
+This repo will be archived as it is no longer maintained. We've provided examples how you can implement Leaflet in React [here](https://developers.amsterdam/docs/projects/maps)
+
 # Amsterdam React Maps (ARM)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
 ![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/gh-pages.yml/badge.svg)
